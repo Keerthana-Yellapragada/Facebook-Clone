@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { loadOnePost, loadAllPosts, deletePost } from '../../store/posts';
-
+import EditPostForm from '../EditPostForm';
 
 
 const PostsBrowser = () => {
@@ -15,9 +15,9 @@ const PostsBrowser = () => {
     const allPosts = useSelector(state => Object.values(state.posts))
     console.log("ALLPOSTS", allPosts)
     let user = useSelector(state => state.session.user)
-    console.log("user", user)
-    let userPosts = allPosts.filter(post => post.user_id === user.id)
-    console.log("USERPOSTS".userPosts)
+    // console.log("user", user)
+    let userPosts = allPosts?.filter(post => post.user_id === user?.id)
+    console.log("USERPOSTS",userPosts)
 
     if (!allPosts) {
         return null
@@ -67,6 +67,9 @@ const PostsBrowser = () => {
                                             </div>
                                         ) : null
                                     }
+                                    <div>
+                                     {   <EditPostForm postId={post.id}/>}
+                                    </div>
                                     {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
                                 </div>
                             </>

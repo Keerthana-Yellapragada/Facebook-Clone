@@ -1,25 +1,35 @@
 import { useEffect, useState } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux"
-import { createNewPost, loadAllPosts} from "../../store/posts"
+import { editPost, loadAllPosts} from "../../store/posts"
 
-const NewPostForm = () => {
+const EditPostForm = ({postId}) => {
     const dispatch= useDispatch()
     const history= useHistory()
+    // const {postId} = useParams
 
-    // states
-    const [post_content, setPostContent] = useState('')
-    const [image_url, setImageUrl] = useState('')
-    const [validationErrors, setValidationErrors] = useState([])
+     useEffect(() => {
+         dispatch(loadAllPosts())
+         //   .then(() => setIsLoaded(true))
+     }, [dispatch])
 
-    // useEffect to load all Posts and refresh state
-    useEffect(()=> {
-        dispatch(loadAllPosts());
-    },[dispatch])
+
 
     // select slice of state that we want
     const posts = useSelector(state=> Object.values(state.posts))
     const user = useSelector(state => state.session.user)
+    const postInfo = useSelector(state => state.posts[postId])
+
+    // states
+    // const [isLoaded, setIsLoaded] = useState(false)
+    const [postContent, setPostContent] = useState(postInfo.post_content)
+    const [imageUrl, setImageUrl] = useState('')
+    const [validationErrors, setValidationErrors] = useState([])
+
+
+
+
+
 
     if (!user){
         return null
@@ -27,33 +37,40 @@ const NewPostForm = () => {
     if (!posts) {
         return null
     }
+    if (!postInfo){
+        return null
+    }
+
 
 const submitHandler = async (e) => {
     e.preventDefault()
     const errors = []
 
-    if (!post_content) {errors.push("Cannot leave field empty")};
+    if (!postContent) {errors.push("Cannot leave field empty")};
+    if (!imageUrl) {setImageUrl(postInfo.image_url)}
 
     setValidationErrors(errors)
 
     if (!validationErrors.length) {
-        const newPostPayload = {
-            post_content,
-            image_url
+        const editedPostPayload = {
+            id: postInfo.id,
+            post_content: postContent,
+            image_url: imageUrl
         }
 
-        const newPost = await dispatch(createNewPost(newPostPayload))
+        const editedPost = await dispatch(editPost(editedPostPayload))
         history.push(`/`)
     }
 }
 
 
   return (
+<>
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
         <form className="create-post-form" onSubmit={submitHandler}>
           <div className="create-post-form-title-box">
-            <h1 className="title-words">Create Post</h1>
+            <h1 className="title-words">Edit Post</h1>
           </div>
           <div className="create-post-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
@@ -69,7 +86,7 @@ const submitHandler = async (e) => {
                 type="text"
                 name="postContent"
                 onChange={(e) => setPostContent(e.target.value)}
-                value={post_content}
+                value={postContent}
                 placeholder="What's on your mind?"
               />
 
@@ -82,7 +99,7 @@ const submitHandler = async (e) => {
               name = "imageUrl"
               accept="image/png, image/jpeg, image/jpg, image/*"
               onChange={(e) => setImageUrl(e.target.value)}
-              value={image_url}
+              value={imageUrl}
                 />
                {/* <label for="upload-picture-button">
                 Choose A Photo
@@ -98,8 +115,9 @@ const submitHandler = async (e) => {
         </form>
       </div>
     </div>
+    </>
   );
 
 }
 
-export default NewPostForm;
+export default EditPostForm;

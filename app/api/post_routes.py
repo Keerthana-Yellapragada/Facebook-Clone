@@ -29,7 +29,7 @@ def get_posts():
 
 # GET POST DETAILS BY POST ID -- WORKS
 @post_routes.route('/<int:post_id>/', methods=["GET"])
-# @login_required
+@login_required
 def get_post_details(post_id):
     post = Post.query.filter(Post.id == post_id).first()
     # post_user = User.query.filter(User.id == post.user_id).first()
@@ -49,7 +49,7 @@ def get_post_details(post_id):
 # CREATE POST -- WORKS
 
 @post_routes.route('/new/', methods=["POST"])
-# @login_required
+@login_required
 def create_post():
     create_post_form = CreatePostForm()
     create_post_form['csrf_token'].data = request.cookies['csrf_token']
@@ -109,7 +109,7 @@ def edit_post(post_id):
 # delete post by post id -- WORKS
 
 @post_routes.route("/<int:post_id>/", methods=["DELETE"])
-# @login_required
+@login_required
 def delete_post(post_id):
 
     post = Post.query.get(post_id)

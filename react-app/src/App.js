@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import PostsBrowser from './components/PostsBrowser'
 import NewPostForm from './components/CreatePostForm';
+import EditPostForm from './components/EditPostForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

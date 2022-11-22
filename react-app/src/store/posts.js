@@ -92,8 +92,8 @@ export const loadOnePost = (postId) => async dispatch => {
 // -------------------------  CREATE A POST   ----------------------------------
 
 export const createNewPost = (payload) => async dispatch => {
-    // console.log("did this reach?")
-    // console.log("this is the payload", payload)
+    console.log("did this reach create post thunk?")
+    console.log("this is the new post payload in thunk", payload)
     const response = await csrfFetch('/api/posts/new/', {
         method: 'POST',
         headers: {
@@ -101,7 +101,7 @@ export const createNewPost = (payload) => async dispatch => {
         },
         body: JSON.stringify(payload)
     })
-    // console.log("did it reach here? after response?")
+     console.log("did it reach here? after thunk create post response?")
 
     if (response.ok) {
         let post = await response.json()
@@ -115,7 +115,9 @@ export const createNewPost = (payload) => async dispatch => {
 
 // -------------------------  EDIT A POST    ----------------------------------
 
-export const editpost = (editpostInfo) => async dispatch => {
+export const editPost = (editpostInfo) => async dispatch => {
+    console.log("did this reach edit post thunk?")
+    console.log("this is the edit post payload in thunk", editpostInfo)
 
     const response = await csrfFetch(`/api/posts/${editpostInfo.id}/`, {
         method: 'PUT',
@@ -125,7 +127,10 @@ export const editpost = (editpostInfo) => async dispatch => {
         body: JSON.stringify(editpostInfo)
     })
 
+
+
     if (response.ok) {
+        console.log("did it reach here? after thunk edit post response?")
         const editedpost = await response.json();
         dispatch(updatePost(editedpost))
         return editedpost
@@ -135,7 +140,7 @@ export const editpost = (editpostInfo) => async dispatch => {
 //*************************************************************************** */
 
 // -------------------------  DELETE A POST  --------------------------------
-export const deletepost = (payload) => async dispatch => {
+export const deletePost = (payload) => async dispatch => {
     const response = await csrfFetch(`/api/posts/${payload.id}/`, {
         method: 'DELETE',
         headers: {
