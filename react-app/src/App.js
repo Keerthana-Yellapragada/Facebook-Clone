@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import PostsBrowser from './components/PostsBrowser'
+import NewPostForm from './components/CreatePostForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+          <NewPostForm />
           <PostsBrowser />
         </Route>
 
