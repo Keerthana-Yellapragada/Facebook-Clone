@@ -16,7 +16,7 @@ post_routes = Blueprint("post_routes", __name__, url_prefix="/api/posts")
 
 # ************************************ GET ALL POSTS ***********************************************
 
-# GET ALL POSTS
+# GET ALL POSTS -- WORKS
 @post_routes.route('/', methods=["GET"])
 # @login_required
 def get_posts():
@@ -26,7 +26,7 @@ def get_posts():
 
 # ************************************ GET POST DETAILS BY POST ID ***********************************************
 
-# GET POST DETAILS BY POST ID
+# GET POST DETAILS BY POST ID -- WORKS
 @post_routes.route('/<int:post_id>/', methods=["GET"])
 # @login_required
 def get_post_details(post_id):
@@ -45,7 +45,7 @@ def get_post_details(post_id):
 
 # ************************************ CREATE NEW POST ***********************************************
 
-# CREATE POST
+# CREATE POST -- WORKS
 @post_routes.route('/new/', methods=["POST"])
 # @login_required
 def create_post():
@@ -58,8 +58,7 @@ def create_post():
         post = Post()
         data = create_post_form.data
         post = Post(
-                        # user_id=current_user.id,
-                        user_id=1,
+                        user_id=current_user.id,
                         post_content = data["post_content"],
                         image_url = data["image_url"],
                         )
@@ -70,5 +69,32 @@ def create_post():
         db.session.commit()
         # return new_post_obj, 201
         return post.to_dict(), 201
+
+    return {"Error": "Validation Error"}, 401
+
+
+
+# ************************************ EDIT POST BY POST ID***********************************************
+
+# edit post by post id -- WORKS
+@post_routes.route('/<int:post_id>/', methods=["PUT"])
+# @login_required
+def edit_post(post_id):
+    edit_post_form = CreatePostForm()
+
+    edit_post_form['csrf_token'].data = request.cookies['csrf_token']
+
+    if edit_post_form.validate_on_submit():
+        data = edit_post_form.data
+        post = Post.query.get(post_id)
+
+        post.post_content = data["post_content"]
+        post.image_url = data["image_url"]
+
+        db.session.commit()
+
+        new_post_obj = post.to_dict()
+
+        return new_post_obj, 201
 
     return {"Error": "Validation Error"}, 401
