@@ -17,6 +17,7 @@ post_routes = Blueprint("post_routes", __name__, url_prefix="/api/posts")
 # ************************************ GET ALL POSTS ***********************************************
 
 # GET ALL POSTS -- WORKS
+
 @post_routes.route('/', methods=["GET"])
 # @login_required
 def get_posts():
@@ -46,6 +47,7 @@ def get_post_details(post_id):
 # ************************************ CREATE NEW POST ***********************************************
 
 # CREATE POST -- WORKS
+
 @post_routes.route('/new/', methods=["POST"])
 # @login_required
 def create_post():
@@ -77,6 +79,7 @@ def create_post():
 # ************************************ EDIT POST BY POST ID***********************************************
 
 # edit post by post id -- WORKS
+
 @post_routes.route('/<int:post_id>/', methods=["PUT"])
 # @login_required
 def edit_post(post_id):
@@ -98,3 +101,23 @@ def edit_post(post_id):
         return new_post_obj, 201
 
     return {"Error": "Validation Error"}, 401
+
+
+
+# ************************************ DELETE POST BY POST ID***********************************************
+
+# delete post by post id -- WORKS
+
+@post_routes.route("/<int:post_id>/", methods=["DELETE"])
+# @login_required
+def delete_post(post_id):
+
+    post = Post.query.get(post_id)
+
+    if post:
+        db.session.delete(post)
+        db.session.commit()
+
+        return {"message" : "Post succesfully deleted"}, 200
+
+    return {"Error": "404 Post Not Found"}, 404
