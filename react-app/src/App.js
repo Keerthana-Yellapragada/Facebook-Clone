@@ -31,8 +31,12 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        <Route path='/' exact={true}>
           <LoginForm />
+        </Route>
+        <Route path='/homepage' exact={true}>
+          <NewPostForm />
+          <PostsBrowser />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
@@ -43,12 +47,8 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
-          {/* <h1>My Home Page</h1> */}
-          <NewPostForm />
-          <PostsBrowser />
 
-        </Route>
+
 
       </Switch>
     </BrowserRouter>
