@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-import { login, signUp } from '../../store/session';
+import { login} from '../../store/session';
+// import {SignUpFormModal} from '../SignUpFormModal';
 import "./LoginForm.css"
 
 const LoginForm = () => {
@@ -32,9 +33,10 @@ const LoginForm = () => {
     return <Redirect to='/homepage' />;
   }
 
-  const signUp = () => {
-    history.push('/sign-up')
-  }
+  // const signUp = () => {
+  //   history.push('/sign-up')
+
+  // }
 
   return (
   <>
@@ -70,9 +72,9 @@ const LoginForm = () => {
         <div>
           <button className='login-button' type='submit'>Login</button>
         </div>
-        <div className='create-account-button-container'>
+        {/* <div className='create-account-button-container'>
           <button className='create-account-button'  onClick={signUp}>Create New Account</button>
-        </div>
+        </div> */}
 
       </div>
     </form>
