@@ -20,10 +20,10 @@ class Post(db.Model):
     # title = db.Column(db.string(200), nullable=False)
     post_content = db.Column(db.String(2000), nullable=False)
     image_url = db.Column(db.String(2000), nullable=True)
-    created_at = db.Column(db.DateTime(2000), nullable=False, unique=False, index=False,default=datetime.now)
+    created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now)
 
     user = db.relationship("User", back_populates="posts")
-    comments = db.relationship("Comment", back_populates="posts")
+    comments = db.relationship("Comment", back_populates="post")
 
     def to_dict(self):
         return {
@@ -50,8 +50,9 @@ class Comment(db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
     # comment_id = db.Column(db.Integer, db.ForeignKey("comments.id"), nullable=True)
     comment_content = db.Column(db.String(2000), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now)
 
-    posts = db.relationship("Post", back_populates="comments")
+    post = db.relationship("Post", back_populates="comments")
     # comments = db.relationship("Comment", back_populates="comments")
     user = db.relationship("User", back_populates="comments")
 
@@ -61,10 +62,12 @@ class Comment(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'post_id': self.coder_id,
+            'post_id': self.post_id,
             # 'comment_id': self.comment_id,
             'comment_content': self.comment_content,
-            'user': self.user.to_dict()
+            'createdAt': self.created_at,
+            'user': self.user.to_dict(),
+            'post': self.post.to_dict()
             # add parent post's and comment's info?
         }
 
