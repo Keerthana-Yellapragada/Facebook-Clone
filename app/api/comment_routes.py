@@ -1,68 +1,70 @@
-# from flask import Blueprint, render_template, url_for, redirect, request, jsonify
-# from flask_login import login_required
-# from app.models import db, User, Comment
-# from flask_login import current_user, login_user, logout_user, login_required
-# from sqlalchemy.ext.declarative import declarative_base
-# from ..forms.create_comment_form import CreateCommentForm
+from flask import Blueprint, render_template, url_for, redirect, request, jsonify
+from flask_login import login_required
+from app.models import db, User, Comment
+from flask_login import current_user, login_user, logout_user, login_required
+from sqlalchemy.ext.declarative import declarative_base
+from ..forms.create_comment_form import CreateCommentForm
 
 
-# Base=declarative_base()
+Base=declarative_base()
 
-# # ************************************ commentS ROUTES ***********************************************
-# # *************************************************************************************************
+# ************************************ commentS ROUTES ***********************************************
+# *************************************************************************************************
 
-# comment_routes = Blueprint("comment_routes", __name__, url_prefix="/api/comments")
+comment_routes = Blueprint("comment_routes", __name__, url_prefix="/api/comments")
 
 
-# # ************************************ GET ALL commentS ***********************************************
+# ************************************ GET ALL commentS ***********************************************
 
-# # GET ALL commentS -- WORKS
+# GET ALL COMMENTS -- WORKS
 
-# @comment_routes.route('/', methods=["GET"])
+@comment_routes.route('/', methods=["GET"])
 # @login_required
-# def get_comments():
-#     comments = Comment.query.all()
-#     return {'comments': [comment.to_dict() for comment in comments]}
+def get_comments():
+    comments = Comment.query.all()
+    print("COMMENTS", comments)
+    return {'Comments': [comment.to_dict() for comment in comments]}
 
 
-# # ************************************ GET comment DETAILS BY comment ID ***********************************************
+# ************************************ GET comment DETAILS BY comment ID ***********************************************
 
-# # GET comment DETAILS BY comment ID -- WORKS
-# @comment_routes.route('/<int:comment_id>/', methods=["GET"])
+# GET comment DETAILS BY comment ID -- WORKS
+@comment_routes.route('/<int:comment_id>/', methods=["GET"])
 # @login_required
-# def get_comment_details(comment_id):
-#     comment = Comment.query.filter(comment.id == comment_id).first()
-#     # comment_user = User.query.filter(User.id == comment.user_id).first()
+def get_comment_details(comment_id):
+    comment = Comment.query.filter(Comment.id == comment_id).first()
+    # comment_user = User.query.filter(User.id == comment.user_id).first()
 
-#     if comment:
-#         comment_obj = comment.to_dict()
-#         # comment_user_obj = comment_user.to_dict()
-#         result = {**comment.to_dict()}
-#         response={**result}
-#         return response
+    if comment:
+        comment_obj = comment.to_dict()
+        # comment_user_obj = comment_user.to_dict()
+        result = {**comment.to_dict()}
+        response={**result}
+        return response
 
-#     return { "Error": "comment not found" }, 404
+    return { "Error": "comment not found" }, 404
 
 
-# # ************************************ CREATE NEW comment ***********************************************
+# # ************************************ CREATE NEW comment by Post Id ***********************************************
 
 # # CREATE comment -- WORKS
 
-# @comment_routes.route('/new/', methods=["comment"])
-# @login_required
-# def create_comment():
+# @comment_routes.route('/new/', methods=["POST"])
+# # @login_required
+# def create_comment(post_id):
 #     create_comment_form = CreateCommentForm()
 #     create_comment_form['csrf_token'].data = request.cookies['csrf_token']
 
 #     print("This is current User in backend**********************", current_user)
 
 #     if create_comment_form.validate_on_submit():
-#         comment = comment()
+#         # comment = Comment()
 #         data = create_comment_form.data
 #         comment = Comment(
 #                         user_id=current_user.id,
-#                         comment_content = data["comment_content"],
-#                         image_url = data["image_url"],
+#                         post_id=post_id,
+#                         comment_content = data["comment_content"]
+#                         # ,image_url = data["image_url"],
 #                         )
 
 #         # new_comment_obj = comment.to_dict()
@@ -76,48 +78,49 @@
 
 
 
-# # ************************************ EDIT comment BY comment ID***********************************************
+# ************************************ EDIT comment BY comment ID***********************************************
 
-# # edit comment by comment id -- WORKS
+# edit comment by comment id -- WORKS
 
-# @comment_routes.route('/<int:comment_id>/', methods=["PUT"])
+@comment_routes.route('/<int:comment_id>/', methods=["PUT"])
 # @login_required
-# def edit_comment(comment_id):
-#     edit_comment_form = CreateCommentForm()
+def edit_comment(comment_id):
+    edit_comment_form = CreateCommentForm()
 
-#     edit_comment_form['csrf_token'].data = request.cookies['csrf_token']
+    edit_comment_form['csrf_token'].data = request.cookies['csrf_token']
 
-#     if edit_comment_form.validate_on_submit():
-#         data = edit_comment_form.data
-#         comment = Comment.query.get(comment_id)
+    if edit_comment_form.validate_on_submit():
+        data = edit_comment_form.data
+        comment = Comment.query.get(comment_id)
 
-#         comment.comment_content = data["comment_content"]
-#         comment.image_url = data["image_url"]
+        comment.comment_content = data["comment_content"]
+        # comment.image_url = data["image_url"]
+        # don't allow user to change post_id
 
-#         db.session.commit()
+        db.session.commit()
 
-#         new_comment_obj = comment.to_dict()
+        new_comment_obj = comment.to_dict()
 
-#         return new_comment_obj, 201
+        return new_comment_obj, 201
 
-#     return {"Error": "Validation Error"}, 401
+    return {"Error": "Validation Error"}, 401
 
 
 
-# # ************************************ DELETE comment BY comment ID***********************************************
+# ************************************ DELETE comment BY comment ID***********************************************
 
-# # delete comment by comment id -- WORKS
+# delete comment by comment id -- WORKS
 
-# @comment_routes.route("/<int:comment_id>/", methods=["DELETE"])
+@comment_routes.route("/<int:comment_id>/", methods=["DELETE"])
 # @login_required
-# def delete_comment(comment_id):
+def delete_comment(comment_id):
 
-#     comment = Comment.query.get(comment_id)
+    comment = Comment.query.get(comment_id)
 
-#     if comment:
-#         db.session.delete(comment)
-#         db.session.commit()
+    if comment:
+        db.session.delete(comment)
+        db.session.commit()
 
-#         return {"message" : "comment succesfully deleted"}, 200
+        return {"message" : "Comment Succesfully Deleted"}, 200
 
-#     return {"Error": "404 comment Not Found"}, 404
+    return {"Error": "404 Comment Not Found"}, 404
