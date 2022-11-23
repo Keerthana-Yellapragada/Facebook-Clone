@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { login, signUp } from '../../store/session';
+import "./LoginForm.css"
 
 const LoginForm = () => {
+  const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,15 +32,23 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+  const signUp = () => {
+    history.push('/sign-up')
+  }
+
   return (
+  <>
+  <div className='login-page-container'>
+  <div className='login-form-container'>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
+      {/* <div className='login-form-label'><label htmlFor='email'>Email</label></div> */}
       <div>
-        <label htmlFor='email'>Email</label>
+
         <input
           name='email'
           type='text'
@@ -47,8 +57,9 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
+      {/* <div className='login-form-label'> <label htmlFor='password'>Password</label></div> */}
       <div>
-        <label htmlFor='password'>Password</label>
+
         <input
           name='password'
           type='password'
@@ -56,9 +67,18 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <div>
+          <button className='login-button' type='submit'>Login</button>
+        </div>
+        <div className='create-account-button-container'>
+          <button className='create-account-button'  onClick={signUp}>Create New Account</button>
+        </div>
+
       </div>
     </form>
+  </div>
+  </div>
+  </>
   );
 };
 
