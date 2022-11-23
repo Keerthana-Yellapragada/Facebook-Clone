@@ -73,7 +73,7 @@ const submitHandler = async (e) => {
                 placeholder="What's on your mind?"
               />
 
-            <button>Add To Your Post</button>
+
 
               <input
               className="form-inputs"
