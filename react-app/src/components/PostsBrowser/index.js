@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { loadOnePost, loadAllPosts, deletePost } from '../../store/posts';
 import EditPostForm from '../EditPostForm';
+import CommentsBrowser from '../CommentsBrowser';
+import { loadAllComments } from '../../store/comments';
 
 
 const PostsBrowser = () => {
@@ -10,6 +12,7 @@ const PostsBrowser = () => {
     const history = useHistory()
     useEffect(() => {
         dispatch(loadAllPosts());
+        dispatch(loadAllComments())
     }, [dispatch])
 
     const allPosts = useSelector(state => Object.values(state.posts))
@@ -94,7 +97,13 @@ const PostsBrowser = () => {
                                         }
 
                                     </div>
-                                    {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
+
+                                    <div className='post-comment-container'>
+
+                                       <CommentsBrowser postId={post.id} />
+
+                                    </div>
+
                                 </div>
                             </>
                         )
