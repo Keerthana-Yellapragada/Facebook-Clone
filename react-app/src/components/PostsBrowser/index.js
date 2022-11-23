@@ -7,7 +7,7 @@ import EditPostForm from '../EditPostForm';
 
 const PostsBrowser = () => {
     const dispatch = useDispatch()
-    // const history = useHistory()
+    const history = useHistory()
     useEffect(() => {
         dispatch(loadAllPosts());
     }, [dispatch])
@@ -31,6 +31,19 @@ const PostsBrowser = () => {
 
 
     console.log("THIS IS USER INFO", user)
+
+    const deleteHandler = async (postId) => {
+
+        const payload = {
+            id: postId
+        }
+        let deletedPost;
+        deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push("/"))
+    }
+
+
+    let deleteButton;
+
 
     return (
         <>
@@ -69,6 +82,17 @@ const PostsBrowser = () => {
                                     }
                                     <div>
                                      {   <EditPostForm postId={post.id}/>}
+
+                                        {user && user.id === post.user_id ?
+                                        ( deleteButton = (
+                                                < div className="Edit-Delete-Button-container" >
+                                                    <button className="Edit-Delete-Button" onClick={() => deleteHandler(post.id)}>Remove Post</button>
+                                                </div>
+                                            )) :
+
+                                        ( deleteButton = (<></>))
+                                        }
+
                                     </div>
                                     {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
                                 </div>

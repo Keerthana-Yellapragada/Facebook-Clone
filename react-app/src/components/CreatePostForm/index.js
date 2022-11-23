@@ -74,16 +74,21 @@ const submitHandler = async (e) => {
               />
 
             <button>Add To Your Post</button>
-            <label for="upload-picture-button"> Choose A Photo</label>
+
               <input
               className="form-inputs"
               type="file"
               id = "upload-picture-button"
               name = "imageUrl"
-              accept="image/png, image/jpeg, image/jpg, image/*"
+              accept="image/*"
+              //image/png, image/jpeg, image/jpg image/*
+              // style = {{"display: none"}}
               onChange={(e) => setImageUrl(e.target.value)}
               value={image_url}
+
                 />
+
+
                {/* <label for="upload-picture-button">
                 Choose A Photo
                 <i class="fas fa-upload"></i>
