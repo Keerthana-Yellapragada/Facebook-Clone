@@ -1,6 +1,6 @@
 # from flask import Blueprint, render_template, url_for, redirect, request, jsonify
 # from flask_login import login_required
-# from app.models import db, User, comment, Comment
+# from app.models import db, User, Comment
 # from flask_login import current_user, login_user, logout_user, login_required
 # from sqlalchemy.ext.declarative import declarative_base
 # from ..forms.create_comment_form import CreateCommentForm
