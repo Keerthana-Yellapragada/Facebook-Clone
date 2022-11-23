@@ -138,7 +138,7 @@ export const editComment = (editcommentInfo) => async dispatch => {
 //*************************************************************************** */
 
 // -------------------------  DELETE A COMMENT  --------------------------------
-export const deletecomment = (payload) => async dispatch => {
+export const deleteComment = (payload) => async dispatch => {
     const response = await csrfFetch(`/api/comments/${payload.id}/`, {
         method: 'DELETE',
         headers: {
@@ -168,7 +168,7 @@ const commentReducer = (state = initialState, action) => {
             newState = {
                 ...state
             }
-            action.payload.comments ? .forEach((comment) => {
+            action.payload.Comments?.forEach((comment) => {
                 newState[comment.id] = comment
             });
             return newState

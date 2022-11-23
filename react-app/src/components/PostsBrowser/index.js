@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { loadOnePost, loadAllPosts, deletePost } from '../../store/posts';
 import EditPostForm from '../EditPostForm';
+import CommentsBrowser from '../CommentsBrowser';
 
 
 const PostsBrowser = () => {
@@ -94,7 +95,13 @@ const PostsBrowser = () => {
                                         }
 
                                     </div>
-                                    {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
+
+                                    <div className='post-comment-container'>
+                                        {post.comments?
+                                       ( <CommentsBrowser postId={post.id} />)
+                                         : null }
+                                    </div>
+
                                 </div>
                             </>
                         )
