@@ -75,3 +75,58 @@ def undo_posts():
         db.session.execute("DELETE FROM posts")
 
     db.session.commit()
+
+
+
+def seed_comments():
+
+    comment1=Comment(
+        user_id=1,
+        post_id=1,
+        comment_content="This is comment #1"
+    )
+
+    comment2=Comment(
+        user_id=2,
+        post_id=1,
+        comment_content="This is comment #2"
+    )
+    comment3=Comment(
+        user_id=3,
+        post_id=1,
+        comment_content="This is comment #3"
+    )
+    comment4=Comment(
+        user_id=2,
+        post_id=2,
+        comment_content="This is comment #4"
+    )
+
+    comment5=Comment(
+        user_id=1,
+        post_id=3,
+        comment_content="This is comment #5"
+    )
+    comment6=Comment(
+        user_id=3,
+        post_id=2,
+        comment_content="This is comment #6"
+    )
+
+
+    db.session.add(comment1)
+    db.session.add(comment2)
+    db.session.add(comment3)
+    db.session.add(comment4)
+    db.session.add(comment5)
+    db.session.add(comment6)
+    db.session.commit()
+
+
+def undo_comments():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM comments")
+
+    db.session.commit()

@@ -57,7 +57,7 @@ def create_post():
     print("This is current User in backend**********************", current_user)
 
     if create_post_form.validate_on_submit():
-        post = Post()
+        # post = Post()
         data = create_post_form.data
         post = Post(
                         user_id=current_user.id,
