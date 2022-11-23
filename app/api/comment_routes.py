@@ -95,6 +95,7 @@ def edit_comment(comment_id):
 
         comment.comment_content = data["comment_content"]
         # comment.image_url = data["image_url"]
+        # don't allow user to change post_id
 
         db.session.commit()
 
@@ -120,6 +121,6 @@ def delete_comment(comment_id):
         db.session.delete(comment)
         db.session.commit()
 
-        return {"message" : "comment succesfully deleted"}, 200
+        return {"message" : "Comment Succesfully Deleted"}, 200
 
-    return {"Error": "404 comment Not Found"}, 404
+    return {"Error": "404 Comment Not Found"}, 404
