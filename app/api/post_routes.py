@@ -19,7 +19,7 @@ post_routes = Blueprint("post_routes", __name__, url_prefix="/api/posts")
 # GET ALL POSTS -- WORKS
 
 @post_routes.route('/', methods=["GET"])
-# @login_required
+@login_required
 def get_posts():
     posts = Post.query.all()
     return {'Posts': [post.to_dict() for post in posts]}
@@ -81,7 +81,7 @@ def create_post():
 # edit post by post id -- WORKS
 
 @post_routes.route('/<int:post_id>/', methods=["PUT"])
-# @login_required
+@login_required
 def edit_post(post_id):
     edit_post_form = CreatePostForm()
 
