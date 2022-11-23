@@ -141,9 +141,10 @@ def create_comment(post_id):
     if create_comment_form.validate_on_submit():
         # comment = Comment()
         data = create_comment_form.data
+        current_post_id=post_id
         comment = Comment(
                         user_id=current_user.id,
-                        post_id=post_id,
+                        post_id=current_post_id,
                         comment_content = data["comment_content"]
                         # ,image_url = data["image_url"],
                         )
