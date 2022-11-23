@@ -90,8 +90,8 @@ const submitHandler = async (e) => {
                 placeholder="What's on your mind?"
               />
 
-            <button>Add To Your Post</button>
-            <label for="upload-picture-button"> Choose A Photo</label>
+
+            {/* <label for="upload-picture-button"> Upload an Image file</label> */}
               <input
               className="form-inputs"
               type="file"
