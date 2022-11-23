@@ -27,6 +27,7 @@ const CommentsBrowser = ({postId}) => {
     console.log("USERPOSTS",userPosts)
 
     let allComments = useSelector(state => Object.values(state.comments))
+    console.log("ALLCOMMENTs", allComments)
     let filteredComments = allComments.filter(comment => comment.post_id === postId)
     console.log("filtered comments", filteredComments)
 
@@ -67,7 +68,7 @@ const CommentsBrowser = ({postId}) => {
     return (
         <>
             <div className='posts-browser-container'>
-                <h1>COMMENTS BROWSER</h1>
+                <h3>COMMENTS BROWSER</h3>
                 <div className='posts-browser-cards-container'>
                     {filteredComments?.map(comment => {
                         return (

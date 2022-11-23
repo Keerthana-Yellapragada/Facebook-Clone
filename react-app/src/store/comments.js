@@ -58,6 +58,7 @@ const removeComment = commentId => ({
 // -------------------------  LOAD ALL COMMENTS   ----------------------------------
 export const loadAllComments = () => async dispatch => {
     const response = await csrfFetch('/api/comments/')
+    console.log("DID THIS REACH COMMENTS LOAD ALL THUNK")
     if (response.ok) {
         const commentsList = await response.json();
         console.log("this is comments list IN THUNK", commentsList)
