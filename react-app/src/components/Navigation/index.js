@@ -55,7 +55,7 @@ function Navigation({ isLoaded }){
     <div className="navbar-main">
       <div className="navbar-inner-container">
     <div className= "Home-Container">
-        <NavLink exact to="/"><img className='logo' src={codebunny} alt="logo here"/></NavLink>
+        <NavLink exact to="/homepage"><img className='logo' src={facebooklogo} alt="logo here"/></NavLink>
     </div>
 
     <div className="Right-Side-Container">
