@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch} from "react-redux";
 import{useHistory} from 'react-router-dom'
-// import "./SignupForm.css"
+import "./SignUpForm.css"
 
 function SignUpForm(){
   const dispatch = useDispatch();
@@ -40,33 +40,53 @@ function SignUpForm(){
 
 
   return (
-
-    <div className="outer-sign-container">
-        <div className="inner-sign-container">
+<>
+  <div className="outer-sign-container">
+  <div className="inner-sign-container">
     <form onSubmit={handleSubmit}>
       <div className="form-sign-container">
         <div className="title-sign-container">
-        <h2>Please Sign Up</h2>
+        <h2>Sign Up</h2>
+        <div>It's quick and easy.</div>
         </div>
+
         <div className="errors">
         {errors.map((error, idx) => (
           <div key={idx}>{error}</div>
         ))}
       </div>
-        <div className="inner-form-sign-container">
-      <label>
-        Email
+
+      <div className="inner-form-sign-container">
+
+        <input
+        className="form-sign-inputs"
+          type="text"
+          value={first_name}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+          placeholder="First name"
+        />
+
+
+        <input
+        className="form-sign-inputs"
+          type="text"
+          value={last_name}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+          placeholder="Surname"
+        />
+
+
         <input
         className="form-sign-inputs"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="Email"
+          placeholder="Email address"
         />
-      </label>
-      <label>
-        Username
+
         <input
         className="form-sign-inputs"
           type="text"
@@ -75,61 +95,42 @@ function SignUpForm(){
           required
           placeholder="Username"
         />
-      </label>
-      <label>
-        FirstName
-        <input
-        className="form-sign-inputs"
-          type="text"
-          value={first_name}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-          placeholder="FirstName"
-        />
-      </label>
-      <label>
-        LastName
-        <input
-        className="form-sign-inputs"
-          type="text"
-          value={last_name}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-          placeholder="LastName"
-        />
-      </label>
-      <label>
-        Password
+
         <input
         className="form-sign-inputs"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          placeholder="Password"
+          placeholder="New password"
         />
-      </label>
-      <label>
-        Confirm Password
+
         <input
         className="form-sign-inputs"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
-          placeholder="Confirm Password"
+          placeholder="Confirm password"
         />
-      </label>
-      </div>
+
+       </div>
+
+        <div className="disclaimer-content">People who use our service may have uploaded your contact information to WellnessPage. Learn more.
+
+        By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive email notifications from us and can opt out at any time.
+
+        </div>
       <div className="button-sign-container">
       <button className="Sign-Up-button" type="submit">Sign Up</button>
       </div>
       </div>
       </form>
-      </div>
     </div>
+  </div>
+</>
 
-  );
+)
 
 }
 

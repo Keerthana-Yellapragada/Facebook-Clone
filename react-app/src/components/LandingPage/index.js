@@ -24,14 +24,14 @@ function LandingPage(){
         </div>
 
 
-             <div className='signup-container'>
+             {/* <div className='signup-container'>
                         <button className="signup-modal-button" onClick={() => setShowSignUpModal(true)}>Sign up</button>
                         {showSignUpModal && (
                             <Modal onClose={() => setShowSignUpModal(false)}>
                                 <SignUpForm />
                             </Modal>
                         )}
-            </div>
+            </div> */}
 
 
             </>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-import { login} from '../../store/session';
+import { login, signUp} from '../../store/session';
 // import {SignUpFormModal} from '../SignUpFormModal';
 import "./LoginForm.css"
+import SignUpFormModal from '../SignUpFormModal';
+import SignUpForm from '../SignUpFormModal/SignUpForm';
+import { Modal } from '../../context/Modal'
 
 const LoginForm = () => {
   const history = useHistory()
@@ -12,6 +15,10 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+console.log("showsignupmodal", showSignUpModal)
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -40,9 +47,9 @@ const LoginForm = () => {
 
   return (
   <>
-  <div className='login-page-container'>
+
   <div className='login-form-container'>
-    <form onSubmit={onLogin}>
+    <form className='login-form' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -78,8 +85,18 @@ const LoginForm = () => {
 
       </div>
     </form>
+
+        <div className = 'create-account-button-container' >
+                        <button className="create-account-button" onClick={() => setShowSignUpModal(true)}>Create New Account</button>
+                        {showSignUpModal && (
+                            <Modal onClose={() => setShowSignUpModal(false)}>
+                                <SignUpForm />
+                            </Modal>
+                        )}
+        </div>
+
   </div>
-  </div>
+
   </>
   );
 };
