@@ -7,24 +7,25 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import { authenticate } from './store/session';
+import * as sessionActions from "./store/session";
 import PostsBrowser from './components/PostsBrowser'
 import NewPostForm from './components/CreatePostForm';
 import EditPostForm from './components/EditPostForm';
 import LandingPage from './components/LandingPage'
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
+
   const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
+        await dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
+      setIsLoaded(true);
     })();
   }, [dispatch]);
 
-  if (!loaded) {
+  if (!isLoaded) {
     return null;
   }
 
@@ -33,19 +34,14 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true}>
-          {/* <LoginForm />
-          <SignUpFormModal /> */}
           <LandingPage />
         </Route>
         <Route path='/homepage' exact={true}>
           <NewPostForm />
           <PostsBrowser />
         </Route>
-        {/* <Route path='/sign-up' exact={true}>
-          <SignUpFormModal />
-        </Route> */}
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
