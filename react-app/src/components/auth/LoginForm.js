@@ -7,6 +7,7 @@ import "./LoginForm.css"
 import SignUpFormModal from '../SignUpFormModal';
 import SignUpForm from '../SignUpFormModal/SignUpForm';
 import { Modal } from '../../context/Modal'
+import * as sessionActions from "../../store/session";
 
 const LoginForm = () => {
   const history = useHistory()
@@ -21,11 +22,23 @@ const [showSignUpModal, setShowSignUpModal] = useState(false);
 console.log("showsignupmodal", showSignUpModal)
 
   const onLogin = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    }
+    // e.preventDefault();
+    // const data = await dispatch(login(email, password));
+    // if (data) {
+    //   setErrors(data);
+    // }
+     e.preventDefault();
+     setErrors([]);
+
+     return dispatch(sessionActions.login({
+       email,
+       password
+     })).catch(
+       async (res) => {
+         const data = await res.json();
+         if (data && data.errors) setErrors(data.errors);
+       }
+     );
   };
 
   const updateEmail = (e) => {
