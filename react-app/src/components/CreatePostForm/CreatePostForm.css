@@ -46,6 +46,9 @@ padding: 20px;
     font-weight: bold;
     margin: 2%;
     background-color: white;
+    align-items: center;
+    align-content: center;
+    align-self: center;
 }
 
 .button-container{
@@ -91,4 +94,28 @@ input:focus{
 
 .post-content-input{
     margin-bottom: 3%
+}
+
+
+.create-post-user-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.create-post-user-profile-pic-container img{
+    border-radius: 50%;
+    width: 35px;
+    margin: 10px;
+    align-self: center;
+    align-content: center;
+    background-color: white;
+}
+
+.user-profile-pic {
+    background-color: white;
 }

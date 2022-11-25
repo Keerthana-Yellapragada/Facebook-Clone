@@ -25,3 +25,17 @@ margin: 5%
     justify-content: center;
     align-self:center;
 }
+
+.homepage-welcome-banner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.home-page-user-profile-pic-container img{
+    width: 80px;
+    border-radius: 50%;
+
+}
