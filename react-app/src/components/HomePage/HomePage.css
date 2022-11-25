@@ -7,7 +7,8 @@ align-content: center;
 background-color: white;
 border-radius: 7px;
 padding: 2%;
-margin: 5%
+margin: 5%;
+box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
 
 }
 
@@ -37,5 +38,6 @@ margin: 5%
 .home-page-user-profile-pic-container img{
     width: 80px;
     border-radius: 50%;
+    box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
 
 }

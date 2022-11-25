@@ -4,31 +4,100 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    border: 2px solid blue
+    /* border: 2px solid blue; */
+
 }
 
 .posts-browser-cards-container{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-content: center;
     align-items: center;
     padding: 10%;
+
+    border-radius: 7px;
+
+
+
 }
 .post-card-title-container{
-    border: 2px solid orange
+    /* border: 2px solid orange; */
+    background-color: white;
+    border-radius: 7px;
 }
 
 .post-card-content-container{
-    border: 2px solid lightpink;
+    /* border: 2px solid lightpink; */
     padding: 15px;
+    background-color: white;
+    border-radius: 7px;
 }
 
 .post-card-image-container{
-    border: 2px solid greenyellow
+    /* border: 2px solid greenyellow; */
+    background-color: white;
+    border-radius: 7px;
+    width: 100%
 }
 
 .Edit-Delete-Button-container{
-    border: 2px solid aqua
+
+    display:flex;
+    justify-content: center;
+}
+
+.Edit-Delete-Button{
+    background-color: rgb(18, 85, 220);
+    border-radius: 7px;
+    width: auto;
+    padding: 5px;
+    border: none;
+    color:white;
+    font-weight:bold;
+}
+
+.post-pic{
+    width: 60%;
+     background-color: white;
+}
+
+.post-user-info-header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content:center;
+     background-color: white;
+
+}
+
+.post-user-profile-pic{
+    border-radius: 50%;
+    width: 35px;
+    margin-right: 10px;
+    display: flex;
+     background-color: white;
+}
+.post-card-user-name{
+    display: flex;
+    align-self: center;
+    font-weight:bold;
+    font-size: 1em;
+    background-color: white;
+}
+
+.posts-browser-user-profile-pic-container{
+    background-color: white;
+}
+
+
+.post-card-container{
+
+    box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+    border-radius: 7px;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    width: 450px;
 }
