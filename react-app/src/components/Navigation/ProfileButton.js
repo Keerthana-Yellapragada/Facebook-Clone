@@ -55,7 +55,7 @@ function ProfileButton({ user }) {
     history.push("/");
   };
 
-  const myCoder = (e) => {
+  const myProfile = (e) => {
     e.preventDefault();
     if (user.id === currCoder.user_id) {
       history.push(`/coders/${currCoder.id}`)
@@ -65,20 +65,16 @@ function ProfileButton({ user }) {
 
 
   };
-  const myProjects = (e) => {
-    e.preventDefault();
-    history.push(`/current/user/projects`);
-  };
 
-  const myJobs = (e) => {
-    e.preventDefault();
-    history.push(`/current/user/jobs`);
-  };
+  // const myJobs = (e) => {
+  //   e.preventDefault();
+  //   history.push(`/current/user/jobs`);
+  // };
 
-  const createProject = (e) => {
-    e.preventDefault();
-    history.push('/project/new');
-  };
+  // const createProject = (e) => {
+  //   e.preventDefault();
+  //   history.push('/project/new');
+  // };
 
   let loggedInOrNot;
   if (user) {
