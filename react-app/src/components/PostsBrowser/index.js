@@ -105,14 +105,6 @@ const PostsBrowser = () => {
                                     </div>
 
 
-                                    <div>
-                                        {
-                                            user && user.id === post.user_id ? < EditPostFormModal postId = {
-                                                post.id
-                                            }
-                                            / > : null
-                                        }
-                                    </div>
 
 
                                     <div>
@@ -120,7 +112,15 @@ const PostsBrowser = () => {
                                         {user && user.id === post.user_id ?
                                         ( deleteButton = (
                                                 < div className="Edit-Delete-Button-container" >
-                                                    <button className="Edit-Delete-Button" onClick={() => deleteHandler(post.id)}>Remove Post</button>
+                                                    <button className="Edit-Delete-Post-Button" onClick={() => deleteHandler(post.id)}>
+                                                        <i className="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                     {
+                                                         user && user.id === post.user_id ? < EditPostFormModal postId = {
+                                                             post.id
+                                                         }
+                                                         /> : null
+                                                     }
                                                 </div>
                                             )) :
 

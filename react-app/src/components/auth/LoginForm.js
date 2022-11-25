@@ -63,15 +63,16 @@ console.log("showsignupmodal", showSignUpModal)
 
   <div className='login-form-container'>
     <form className='login-form' onSubmit={onLogin}>
-      <div>
+      < div className = 'errors-container' >
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>{error}</div>
         ))}
       </div>
       {/* <div className='login-form-label'><label htmlFor='email'>Email</label></div> */}
-      <div>
+      <div className='login-input-divs'>
 
         <input
+         className = 'login-inputs'
           name='email'
           type='text'
           placeholder='Email'
@@ -80,16 +81,17 @@ console.log("showsignupmodal", showSignUpModal)
         />
       </div>
       {/* <div className='login-form-label'> <label htmlFor='password'>Password</label></div> */}
-      <div>
+      <div className='login-input-divs'>
 
         <input
+        className='login-inputs'
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <div>
+        <div className='login-button-container'>
           <button className='login-button' type='submit'>Login</button>
         </div>
         {/* <div className='create-account-button-container'>

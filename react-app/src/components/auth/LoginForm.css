@@ -5,13 +5,14 @@
     box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
     padding: 10px;
     width: 300px;
+    background-color: white;
 
 }
-/*
-.login-form {
-    border: 2px solid green;
 
-} */
+form .login-form {
+ background-color: white;
+
+}
 
 .create-account-button-container {
     display:flex;
@@ -20,6 +21,7 @@
     align-items: center;
     /* border: 2px solid pink; */
     border-top: 1px solid lightgrey;
+        background-color: white;
 }
 
 .create-account-button {
@@ -55,5 +57,30 @@ input {
     border-radius: 3px;
     border: 1px solid grey;
     margin: 5px 0px;
-    padding: 7px
+    padding: 7px;
+    background-color: white;
+}
+
+.login-button-container{
+    background-color: white;
+}
+
+.login-input-divs {
+    background-color: white;
+}
+
+/* .errors{
+    background-color: white;
+    color:red;
+    text-align: center;
+    font-weight:bold;
+    font-size: 12px;
+} */
+.errors-container{
+    background-color: white;
+      background-color: white;
+      color:red;
+      text-align: center;
+      font-weight:bold;
+      font-size: 12px;
 }

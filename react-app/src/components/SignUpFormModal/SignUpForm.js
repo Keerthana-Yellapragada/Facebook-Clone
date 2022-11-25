@@ -47,7 +47,7 @@ function SignUpForm(){
       <div className="form-sign-container">
         <div className="title-sign-container">
         <h2>Sign Up</h2>
-        <div>It's quick and easy.</div>
+        <div className="signup-title-extras">It's quick and easy.</div>
         </div>
 
         <div className="errors">

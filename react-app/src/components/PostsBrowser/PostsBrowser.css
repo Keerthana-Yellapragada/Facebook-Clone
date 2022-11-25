@@ -101,3 +101,16 @@
     background-color: white;
     width: 450px;
 }
+
+
+.fa-trash-can {
+    border: none;
+    background-color: white;
+    color: rgb(22, 72, 199)
+}
+
+/* .Edit-Delete-Post-Button{
+    background-color: white;
+    color: rgb(22, 72, 199);
+    border:none;
+} */

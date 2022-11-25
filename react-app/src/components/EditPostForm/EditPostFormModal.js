@@ -19,7 +19,10 @@ function EditPostFormModal({postId}) {
 
   return (
     <>
-      <button className="modal-button" onClick={() => setShowModal(true)}>Edit</button>
+      <button className="modal-button" onClick={() => setShowModal(true)}>
+        <i className="fa-solid fa-pencil"></i>
+      </button>
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditPostForm closeModal={closeModal} postId={postId}/>

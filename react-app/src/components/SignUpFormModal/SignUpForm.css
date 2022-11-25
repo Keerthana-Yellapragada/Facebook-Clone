@@ -1,7 +1,8 @@
 .outer-sign-container {
     display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%;
+     background-color: white
 }
 
 .inner-sign-container {
@@ -15,30 +16,34 @@
     border-width: thin;
     border-style: solid;
     border-radius: 0px;
-    /* background-color: rgba(0,0,0,.7) */
+    background-color: white
 }
 
 .title-box {
     /* border-color: rgb(8, 0, 255);
     border-style: solid; */
-    text-align: center
+    text-align: center;
+     background-color: white
 }
 
 .inner-form-sign-container {
     padding-top: 10px;
+     background-color: white
 }
 
 .errors {
     justify-content: center;
     color: red;
     padding: 10px;
+     background-color: white
 }
 
 
 .title-sign-container {
     border-color: rgb(203, 207, 207);
     border-bottom-style: solid;
-    text-align: center
+    text-align: center;
+     background-color: white
 }
 
 .form-container {
@@ -46,17 +51,18 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+     background-color: white
 
 }
 
 .form-sign-inputs {
     box-sizing: border-box;
     width: 100%;
-    font-family: "Montserrat";
     padding: 10px;
     border-radius: 0px;
     border-width: thin;
     border-radius: 4px;
+    background-color: white
 }
 
 .button-sign-container {
@@ -65,6 +71,7 @@
     border-style: solid; */
     /* align-content: center;
     align-items: center; */
+     background-color: white
 }
 
 .Sign-Up-button {
@@ -81,5 +88,15 @@
 }
 
 .disclaimer-content{
-    font-size: 15px2
+    font-size: 10px;
+     background-color: white;
+     margin: 3% 0%;
+}
+
+h2{
+     background-color: white
+}
+
+.signup-title-extras{
+    background-color: white
 }
