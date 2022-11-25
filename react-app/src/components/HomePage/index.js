@@ -30,9 +30,14 @@ function HomePage(){
 
         return (
             <>
-            <h1 className="homepage-welcome-banner">Welcome to {user.first_name} {user.last_name}'s home page</h1>
-            <NewPostForm />
-            <PostsBrowser />
+                <h1 className="homepage-welcome-banner">Welcome to {user.first_name} {user.last_name}'s home page</h1>
+                <div className="new-post-form-component-container">
+                    <NewPostForm />
+                </div>
+
+                <div className="posts-browser-component-container">
+                        <PostsBrowser />
+                </div>
 
             </>
         )
