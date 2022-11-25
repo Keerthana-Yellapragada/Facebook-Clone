@@ -1,1 +1,14 @@
 /* TODO Add site wide styles */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Titillium+Web&display=swap');
+
+*{
+    /* font-family: 'Roboto Condensed',
+    sans-serif; */
+    text-decoration: none;
+    font-family: 'Roboto Condensed',
+    sans-serif;
+    font-family: 'Titillium Web',
+    sans-serif;
+}

@@ -30,7 +30,7 @@ function HomePage(){
 
         return (
             <>
-            <h1 className="homepage-welcome-banner">Welcome to {user.first_name}'s home page</h1>
+            <h1 className="homepage-welcome-banner">Welcome to {user.first_name} {user.last_name}'s home page</h1>
             <NewPostForm />
             <PostsBrowser />
 
