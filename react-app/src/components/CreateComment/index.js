@@ -47,7 +47,7 @@ const submitHandler = async (e) => {
             user_id: user.id
             // image_url
         }
-
+        setCommentContent('')
         const newComment = await dispatch(createNewComment(newCommentPayload)).then(()=>dispatch(loadAllComments())).then(()=>history.push(`/homepage`))
     }
 }

@@ -77,10 +77,10 @@ const CommentsBrowser = ({postId}) => {
                             <>
                                 <div className='comment-card-main-container'>
 
-                                <div className='comment-title'>{`${user.first_name} ${user.last_name}`}</div>
+                                <div className='comment-title'>{`${comment.user.first_name} ${comment.user.last_name}`}</div>
                                 <div comment-card-container>
                                 <div className='comment-info-top-container'>
-                                    <div className='comment-card-title-container'>{comment.user.name}</div>
+                                    {/* <div className='comment-card-title-container'>{comment.user.first_name}</div> */}
                                     <div className='comment-card-content-container'>
                                         {comment.comment_content}
                                     </div>
