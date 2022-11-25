@@ -5,6 +5,7 @@
     align-items: center;
     align-content: center;
     /* border: 2px solid blue; */
+    background-color: white;
 
 }
 
@@ -16,7 +17,7 @@
     align-content: center;
     align-items: center;
     padding: 10%;
-
+      background-color: white;
     border-radius: 7px;
 
 
@@ -46,6 +47,8 @@
 
     display:flex;
     justify-content: center;
+    background-color: white;
+    justify-content: flex-end;
 }
 
 .Edit-Delete-Button{
@@ -59,7 +62,7 @@
 }
 
 .post-pic{
-    width: 60%;
+    width: 100%;
      background-color: white;
 }
 
@@ -114,3 +117,12 @@
     color: rgb(22, 72, 199);
     border:none;
 } */
+
+
+.post-comment-container{
+    background-color: white;
+    border: 1px solid rgb(223, 218, 218);
+    padding: 5px;
+    border-radius: 7px;
+
+}

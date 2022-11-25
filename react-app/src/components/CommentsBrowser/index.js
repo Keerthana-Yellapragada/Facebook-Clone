@@ -68,14 +68,14 @@ const CommentsBrowser = ({postId}) => {
     return (
         <>
             <div className='posts-browser-container'>
-                <h3>COMMENTS BROWSER</h3>
+                {/* <h3>COMMENTS BROWSER</h3> */}
                 <div className='posts-browser-cards-container'>
                     {filteredComments?.map(comment => {
                         return (
                             <>
 
 
-                                <h1>{`${user.first_name} ${user.last_name}'s comment`}</h1>
+                                <div>{`${user.first_name} ${user.last_name}'s comment`}</div>
                                 <div post-card-container>
                                     <div className='post-card-title-container'>{comment.user.name}</div>
                                     <div className='post-card-content-container'>
