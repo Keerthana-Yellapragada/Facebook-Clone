@@ -24,5 +24,38 @@
     position: absolute;
     background-color: white;
     border-radius: 0px;
-    width: 25%
+    width: 35%;
+    box-shadow:0 0 2px 1px rgb(214, 211, 211);
+}
+
+.title-words{
+    font-size: 1em;
+    background-color: white;
+}
+
+.edit-post-button{
+    background-color: rgb(28, 88, 192);
+    color:white;
+    border:none;
+    border-radius: 7px;
+    padding: 5px;
+    width: 100%;
+    margin: 5% 0%
+}
+
+.form-text-input-field{
+    height:auto;
+}
+
+
+.Edit-Post-Outer-Form-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 2%;
+    padding: 20px;
+
 }

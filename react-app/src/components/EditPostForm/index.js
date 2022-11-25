@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams} from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux"
 import { editPost, loadAllPosts} from "../../store/posts"
+import "./EditPostForm.css"
 
 const EditPostForm = ({postId}) => {
     const dispatch= useDispatch()
@@ -66,11 +67,11 @@ const submitHandler = async (e) => {
 
   return (
 <>
-    <div className="Outer-Form-Container">
+    <div className="Edit-Post-Outer-Form-Container">
       <div className="Inner-Form-Container">
         <form className="create-post-form" onSubmit={submitHandler}>
           <div className="create-post-form-title-box">
-            <h1 className="title-words">Edit Post</h1>
+            <h1 className="edit-post-title title-words">Edit Post</h1>
           </div>
           <div className="create-post-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
@@ -81,7 +82,7 @@ const submitHandler = async (e) => {
           </div>
           <div className="create-post-form-container">
               <input
-                className="form-inputs"
+                className="form-inputs form-text-input-field"
                 required
                 type="text"
                 name="postContent"
@@ -109,7 +110,7 @@ const submitHandler = async (e) => {
 
           </div>
           <div className="button-container">
-            <button className="create-coder-button"
+            <button className="edit-post-button"
               type="submit">Post</button>
           </div>
         </form>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Modal } from '../../context/Modal';
 import "../../context/Modal.css"
@@ -8,10 +9,12 @@ import {
 } from "../../context/Modal"
 
 function EditPostFormModal({postId}) {
+    const history = useHistory()
   const [showModal, setShowModal] = useState(false);
 
   const closeModal=() => {
     setShowModal(false)
+    history.push('/homepage')
   }
 
   return (
