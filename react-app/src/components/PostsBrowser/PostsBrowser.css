@@ -1,0 +1,34 @@
+.posts-browser-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 2px solid blue
+}
+
+.posts-browser-cards-container{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 10%;
+}
+.post-card-title-container{
+    border: 2px solid orange
+}
+
+.post-card-content-container{
+    border: 2px solid lightpink;
+    padding: 15px;
+}
+
+.post-card-image-container{
+    border: 2px solid greenyellow
+}
+
+.Edit-Delete-Button-container{
+    border: 2px solid aqua
+}

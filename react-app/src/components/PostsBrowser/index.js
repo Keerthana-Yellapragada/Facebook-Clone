@@ -5,7 +5,7 @@ import { loadOnePost, loadAllPosts, deletePost } from '../../store/posts';
 import EditPostForm from '../EditPostForm';
 import CommentsBrowser from '../CommentsBrowser';
 import { loadAllComments } from '../../store/comments';
-
+import './PostsBrowser.css'
 
 const PostsBrowser = () => {
     const dispatch = useDispatch()

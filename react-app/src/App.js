@@ -12,6 +12,7 @@ import PostsBrowser from './components/PostsBrowser'
 import NewPostForm from './components/CreatePostForm';
 import EditPostForm from './components/EditPostForm';
 import LandingPage from './components/LandingPage'
+import HomePage from './components/HomePage';
 
 function App() {
 
@@ -37,8 +38,7 @@ function App() {
           <LandingPage />
         </Route>
         <Route path='/homepage' exact={true}>
-          <NewPostForm />
-          <PostsBrowser />
+          <HomePage />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />

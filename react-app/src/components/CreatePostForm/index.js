@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory} from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux"
 import { createNewPost, loadAllPosts} from "../../store/posts"
+import './CreatePostForm.css'
 
 const NewPostForm = () => {
     const dispatch= useDispatch()
@@ -53,7 +54,7 @@ const submitHandler = async (e) => {
       <div className="Inner-Form-Container">
         <form className="create-post-form" onSubmit={submitHandler}>
           <div className="create-post-form-title-box">
-            <h1 className="title-words">Create Post</h1>
+            <h1 className="create-post-title">Create Post</h1>
           </div>
           <div className="create-post-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
@@ -64,13 +65,13 @@ const submitHandler = async (e) => {
           </div>
           <div className="create-post-form-container">
               <input
-                className="form-inputs"
+                className="form-inputs post-content-input"
                 required
                 type="text"
                 name="postContent"
                 onChange={(e) => setPostContent(e.target.value)}
                 value={post_content}
-                placeholder="What's on your mind?"
+                placeholder={`What's on your mind, ${user.first_name}?`}
               />
 
 
@@ -97,7 +98,7 @@ const submitHandler = async (e) => {
 
           </div>
           <div className="button-container">
-            <button className="create-coder-button"
+            <button className="create-post-button"
               type="submit">Post</button>
           </div>
         </form>
