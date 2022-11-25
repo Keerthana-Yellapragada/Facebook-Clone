@@ -4,7 +4,7 @@ import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { loadOneComment,loadAllComments, createComment, editComment, deleteComment } from '../../store/comments';
 import { loadAllPosts } from '../../store/posts';
 // import EditCommentForm from '../EditCommentForm';
-
+import "./CommentsBrowser.css"
 
 const CommentsBrowser = ({postId}) => {
     const dispatch = useDispatch()
@@ -67,28 +67,30 @@ const CommentsBrowser = ({postId}) => {
 
     return (
         <>
-            <div className='posts-browser-container'>
+            <div className='comments-browser-container'>
                 {/* <h3>COMMENTS BROWSER</h3> */}
-                <div className='posts-browser-cards-container'>
+                <div className='comments-browser-cards-container'>
                     {filteredComments?.map(comment => {
                         return (
                             <>
+                                <div className='comment-card-main-container'>
 
-
-                                <div>{`${user.first_name} ${user.last_name}'s comment`}</div>
-                                <div post-card-container>
-                                    <div className='post-card-title-container'>{comment.user.name}</div>
-                                    <div className='post-card-content-container'>
+                                <div className='comment-title'>{`${user.first_name} ${user.last_name}`}</div>
+                                <div comment-card-container>
+                                <div className='comment-info-top-container'>
+                                    <div className='comment-card-title-container'>{comment.user.name}</div>
+                                    <div className='comment-card-content-container'>
                                         {comment.comment_content}
                                     </div>
+                                </div>
 
                                     <div>
                                      {/* {   <EditCommentForm commentId={comment.id}/>} */}
 
                                         {user && user.id === comment.user_id ?
                                         ( deleteButton = (
-                                                < div className="Edit-Delete-Button-container" >
-                                                    <button className="Edit-Delete-Button" onClick={() => deleteHandler(comment.id)}>Remove Comment</button>
+                                                < div className="Edit-Delete-Comment-Button-container" >
+                                                    <button className="Edit-Delete-Comment-Button" onClick={() => deleteHandler(comment.id)}>Remove Comment</button>
                                                 </div>
                                             )) :
 
@@ -97,6 +99,7 @@ const CommentsBrowser = ({postId}) => {
 
                                     </div>
                                     {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
+                                </div>
                                 </div>
                             </>
                         )
