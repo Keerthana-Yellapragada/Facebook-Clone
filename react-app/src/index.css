@@ -11,4 +11,9 @@
     sans-serif;
     font-family: 'Titillium Web',
     sans-serif;
+    background-color: rgb(238, 233, 233);
+}
+
+input{
+    background-color: white;
 }
