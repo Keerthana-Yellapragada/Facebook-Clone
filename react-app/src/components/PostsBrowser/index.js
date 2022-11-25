@@ -62,7 +62,7 @@ const PostsBrowser = () => {
         <>
             <div className='posts-browser-container'>
                 <div className='posts-browser-cards-container'>
-                    {userPosts?.map(post => {
+                    {allPosts?.map(post => {
                         return (
                         <>
                         <div className='post-card-container'>
@@ -75,12 +75,12 @@ const PostsBrowser = () => {
                                     />
                                 </div>
 
-                                <div className='post-card-user-name'>{`${user.first_name} ${user.last_name}`}</div>
+                                <div className='post-card-user-name'>{`${post.user.first_name} ${post.user.last_name}`}</div>
                             </div>
 
 
                             <div post-card-container>
-                                    <div className='post-card-title-container'>{post.user.name}</div>
+                                    {/* <div className='post-card-title-container'>{post.user.first_name}</div> */}
                                     <div className='post-card-content-container'>
                                         {post.post_content}
                                     </div>
