@@ -63,7 +63,7 @@ const PostsBrowser = () => {
         <>
             <div className='posts-browser-container'>
                 <div className='posts-browser-cards-container'>
-                    {allPosts?.map(post => {
+                    {allPosts?.slice(0).reverse().map(post => {
                         return (
                         <>
                         <div className='post-card-container'>
