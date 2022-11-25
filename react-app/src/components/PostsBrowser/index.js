@@ -6,6 +6,8 @@ import EditPostForm from '../EditPostForm';
 import CommentsBrowser from '../CommentsBrowser';
 import { loadAllComments } from '../../store/comments';
 import './PostsBrowser.css'
+import { Modal } from '../../context/Modal';
+import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 
 const PostsBrowser = () => {
     const dispatch = useDispatch()
@@ -15,12 +17,16 @@ const PostsBrowser = () => {
         dispatch(loadAllComments())
     }, [dispatch])
 
+
     const allPosts = useSelector(state => Object.values(state.posts))
     console.log("ALLPOSTS", allPosts)
     let user = useSelector(state => state.session.user)
     // console.log("user", user)
     let userPosts = allPosts?.filter(post => post.user_id === user?.id)
     console.log("USERPOSTS",userPosts)
+
+
+
 
     if (!allPosts) {
         return null
@@ -46,6 +52,10 @@ const PostsBrowser = () => {
 
 
     let deleteButton;
+
+
+
+
 
 
     return (
@@ -94,10 +104,20 @@ const PostsBrowser = () => {
                                     }
                                     </div>
 
-                                    <div>
-                                        {/* {   <EditPostForm postId={post.id}/>} */}
 
-                                        {/* {user && user.id === post.user_id ?
+                                    <div>
+                                        {
+                                            user && user.id === post.user_id ? < EditPostFormModal postId = {
+                                                post.id
+                                            }
+                                            / > : null
+                                        }
+                                    </div>
+
+
+                                    <div>
+
+                                        {user && user.id === post.user_id ?
                                         ( deleteButton = (
                                                 < div className="Edit-Delete-Button-container" >
                                                     <button className="Edit-Delete-Button" onClick={() => deleteHandler(post.id)}>Remove Post</button>
@@ -105,13 +125,13 @@ const PostsBrowser = () => {
                                             )) :
 
                                         ( deleteButton = (<></>))
-                                        } */}
+                                        }
 
                                     </div>
 
                                     <div className='post-comment-container'>
 
-                                       {/* <CommentsBrowser postId={post.id} /> */}
+                                       <CommentsBrowser postId={post.id} />
 
                                     </div>
 
