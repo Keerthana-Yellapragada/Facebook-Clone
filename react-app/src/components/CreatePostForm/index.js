@@ -53,9 +53,9 @@ const submitHandler = async (e) => {
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
         <form className="create-post-form" onSubmit={submitHandler}>
-          <div className="create-post-form-title-box">
+          {/* <div className="create-post-form-title-box">
             <h1 className="create-post-title">Create Post</h1>
-          </div>
+          </div> */}
 
           <div className="create-post-user-info-container">
             <div className='create-post-user-profile-pic-container user-profile-pic'>

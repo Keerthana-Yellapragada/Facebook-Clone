@@ -93,13 +93,16 @@ export const loadOneComment = (commentId) => async dispatch => {
 export const createNewComment = (payload) => async dispatch => {
     console.log("did this reach create comment thunk?")
     console.log("this is the new comment payload in thunk", payload)
-    const response = await csrfFetch(`/api/${payload.post_id}/comments/new/`, {
-        method: 'comment',
+    console.log("THIS IS COMMENT CREATE PAYLOADID", payload.post_id)
+
+    const response = await csrfFetch(`/api/posts/${payload.post_id}/comments/new/`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
     })
+
     console.log("did it reach here? after thunk create comment response?")
 
     if (response.ok) {

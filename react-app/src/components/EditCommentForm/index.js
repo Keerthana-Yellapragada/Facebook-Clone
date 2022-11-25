@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams, useDispatch} from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { editComment, loadAllComments} from "../../store/comments"
 
-const EditPostForm = ({commentId}) => {
+const EditCommentForm = ({commentId}) => {
     const dispatch= useDispatch()
     const history= useHistory()
-    // const {postId} = useParams
+    // const {commentId} = useParams
 
      useEffect(() => {
-         dispatch(loadAllPosts())
+         dispatch(loadAllComments())
          //   .then(() => setIsLoaded(true))
      }, [dispatch])
 
@@ -42,7 +43,7 @@ const submitHandler = async (e) => {
     const errors = []
 
     if (!commentContent) {errors.push("Cannot leave field empty")};
-    // if (!imageUrl) {setImageUrl(postInfo.image_url)}
+    // if (!imageUrl) {setImageUrl(commentInfo.image_url)}
 
     setValidationErrors(errors)
 
@@ -63,18 +64,18 @@ const submitHandler = async (e) => {
 <>
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
-        <form className="create-post-form" onSubmit={submitHandler}>
-          <div className="create-post-form-title-box">
+        <form className="create-comment-form" onSubmit={submitHandler}>
+          <div className="create-comment-form-title-box">
             <h1 className="title-words">Edit Comment</h1>
           </div>
-          <div className="create-post-form-user-name-container">{user.first_name} {user.last_name}</div>
+          <div className="create-comment-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
             {validationErrors.length > 0 &&
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
           </div>
-          <div className="create-post-form-container">
+          <div className="create-comment-form-container">
               <input
                 className="form-inputs"
                 required
@@ -82,12 +83,12 @@ const submitHandler = async (e) => {
                 name="commentContent"
                 onChange={(e) => setCommentContent(e.target.value)}
                 value={commentContent}
-                placeholder="What's on your mind?"
+                placeholder="Leave A Comment"
               />
 
 
             {/* <label for="upload-picture-button"> Upload an Image file</label> */}
-              <input
+              {/* <input
               className="form-inputs"
               type="file"
               id = "upload-picture-button"
@@ -95,7 +96,7 @@ const submitHandler = async (e) => {
               accept="image/png, image/jpeg, image/jpg, image/*"
               onChange={(e) => setImageUrl(e.target.value)}
               value={imageUrl}
-                />
+                /> */}
                {/* <label for="upload-picture-button">
                 Choose A Photo
                 <i class="fas fa-upload"></i>
@@ -105,7 +106,7 @@ const submitHandler = async (e) => {
           </div>
           <div className="button-container">
             <button className="create-coder-button"
-              type="submit">Post</button>
+              type="submit">Leave A Comment</button>
           </div>
         </form>
       </div>
@@ -115,4 +116,4 @@ const submitHandler = async (e) => {
 
 }
 
-export default EditPostForm;
+export default EditCommentForm;

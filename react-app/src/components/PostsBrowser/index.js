@@ -8,6 +8,7 @@ import { loadAllComments } from '../../store/comments';
 import './PostsBrowser.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
+import NewCommentForm from '../CreateComment';
 
 const PostsBrowser = () => {
     const dispatch = useDispatch()
@@ -102,7 +103,7 @@ const PostsBrowser = () => {
                                             </div>
                                         ) : null
                                     }
-                                    </div>
+                                </div>
 
 
 
@@ -128,16 +129,21 @@ const PostsBrowser = () => {
                                         }
 
                                     </div>
+                                <div className='leave-comment-container'>
+                                    <NewCommentForm postId={post.id}/>
+                                </div>
 
 
-                                { post.comments?
-                                    (<div className='post-comment-container'>
+
+                                    {<div className='post-comment-container'>
 
                                      <CommentsBrowser postId={post.id} />
 
-                                    </div>) : null
+                                    </div>
 
-                                }
+                                    }
+
+
 
                                 </div>
                             </div>
