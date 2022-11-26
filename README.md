@@ -1,7 +1,7 @@
 <br>
 
 # About
-WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a platform that allows patients to find communities to connect with and find support.
+WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a platform that provides patients with a community to connect with others and find support.
 
 
 ### Live link: [**https://wellnesspage.onrender.com**](https://wellnesspage.onrender.com)
