@@ -13,6 +13,9 @@ import NewPostForm from './components/CreatePostForm';
 import EditPostForm from './components/EditPostForm';
 import LandingPage from './components/LandingPage'
 import HomePage from './components/HomePage';
+import Footer from './components/Footer';
+
+
 
 function App() {
 
@@ -43,16 +46,15 @@ function App() {
         <Route>
           404 Not Found
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-
-
-
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
