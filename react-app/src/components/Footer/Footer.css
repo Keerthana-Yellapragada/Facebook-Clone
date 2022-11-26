@@ -1,0 +1,28 @@
+footer {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    color: rgb(39, 137, 212);
+    /* text-align:center; */
+    margin: 20px 0px;
+    border-top: 1px solid rgb(197, 194, 194);
+    border-bottom: 1px solid rgb(197, 194, 194);
+    padding: 20px;
+    bottom: 0%;
+    position: sticky;
+    background-color: white;
+    height: 10%
+}
+
+
+footer a {
+    font-style: none;
+    color: rgb(39, 137, 212);
+
+}
+
+.author-name{
+    font-size: 15px;
+    font-weight:bold;
+}

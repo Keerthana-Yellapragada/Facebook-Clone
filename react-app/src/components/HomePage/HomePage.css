@@ -1,0 +1,43 @@
+.homepage-welcome-banner{
+display: flex;
+justify-content: center;
+color: rgb(22, 80, 205);
+align-items: center;
+align-content: center;
+background-color: white;
+border-radius: 7px;
+padding: 2%;
+margin: 5%;
+box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+
+}
+
+.new-post-form-component-container{
+    display: flex;
+    justify-content: center;
+    align-self:center;
+    margin: 10px;
+    padding:10px;
+
+}
+
+.posts-browser-component-container{
+    display: flex;
+    justify-content: center;
+    align-self:center;
+}
+
+.homepage-welcome-banner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.home-page-user-profile-pic-container img{
+    width: 80px;
+    border-radius: 50%;
+    box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+
+}

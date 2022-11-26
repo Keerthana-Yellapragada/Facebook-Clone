@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { loadOneComment,loadAllComments, createComment, editComment, deleteComment } from '../../store/comments';
 import { loadAllPosts } from '../../store/posts';
-// import EditCommentForm from '../EditCommentForm';
-
+import EditCommentFormModal from '../EditCommentForm/EditCommentModal';
+import "./CommentsBrowser.css"
 
 const CommentsBrowser = ({postId}) => {
     const dispatch = useDispatch()
@@ -18,6 +18,7 @@ const CommentsBrowser = ({postId}) => {
 
     const allPosts = useSelector(state => Object.values(state.posts))
     console.log("ALLPOSTS", allPosts)
+
     const currentPost = allPosts.filter(post=> post.id === postId)
     console.log("currentPOSTS", currentPost
     )
@@ -28,6 +29,7 @@ const CommentsBrowser = ({postId}) => {
 
     let allComments = useSelector(state => Object.values(state.comments))
     console.log("ALLCOMMENTs", allComments)
+
     let filteredComments = allComments.filter(comment => comment.post_id === postId)
     console.log("filtered comments", filteredComments)
 
@@ -58,7 +60,7 @@ const CommentsBrowser = ({postId}) => {
             id: commentId
         }
         let deletedComment;
-        deletedComment = dispatch(deleteComment(payload)).then(() => dispatch(loadAllComments())).then(() => history.push("/homepage"))
+        deletedComment = await dispatch(deleteComment(payload)).then(() => dispatch(loadAllComments())).then(() => history.push("/homepage"))
     }
 
 
@@ -67,36 +69,68 @@ const CommentsBrowser = ({postId}) => {
 
     return (
         <>
-            <div className='posts-browser-container'>
-                <h3>COMMENTS BROWSER</h3>
-                <div className='posts-browser-cards-container'>
+            <div className='comments-browser-container'>
+                {/* <h3>COMMENTS BROWSER</h3> */}
+                <div className='comments-browser-cards-container'>
                     {filteredComments?.map(comment => {
                         return (
                             <>
+                                <div className='comment-card-main-container'>
 
-
-                                <h1>{`${user.first_name} ${user.last_name}'s comment`}</h1>
-                                <div post-card-container>
-                                    <div className='post-card-title-container'>{comment.user.name}</div>
-                                    <div className='post-card-content-container'>
+                                <div className='comment-title'>{`${comment.user.first_name} ${comment.user.last_name}`}</div>
+                                <div comment-card-container>
+                                <div className='comment-info-top-container'>
+                                    {/* <div className='comment-card-title-container'>{comment.user.first_name}</div> */}
+                                    <div className='comment-card-content-container'>
                                         {comment.comment_content}
                                     </div>
+                                </div>
 
                                     <div>
                                      {/* {   <EditCommentForm commentId={comment.id}/>} */}
 
+                                        {/* {user && user.id === comment.user_id ?
+                                        ( deleteButton = (
+                                                < div className="Edit-Delete-Comment-Button-container" >
+                                                    <button className="Edit-Delete-Comment-Button" onClick={() => deleteHandler(comment.id)}>Remove Comment</button>
+                                                </div>
+                                            )) :
+
+                                        ( deleteButton = (<></>))
+                                        } */}
+
+                                    </div>
+
+
                                         {user && user.id === comment.user_id ?
                                         ( deleteButton = (
                                                 < div className="Edit-Delete-Button-container" >
-                                                    <button className="Edit-Delete-Button" onClick={() => deleteHandler(comment.id)}>Remove Comment</button>
+                                                    <button className="Edit-Delete-Post-Button" onClick={() => deleteHandler(comment.id)}>
+                                                        <i className="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                     {
+                                                         user && user.id === comment.user_id ? < EditCommentFormModal commentId = {comment.id}
+                                                         /> : null
+                                                     }
                                                 </div>
                                             )) :
 
                                         ( deleteButton = (<></>))
                                         }
 
-                                    </div>
+
+
+
+
+
+
+
+
+
+
+
                                     {/* <div className='post-comment-container'>{post.comments? <CommentsBrowser />: null }</div> */}
+                                </div>
                                 </div>
                             </>
                         )

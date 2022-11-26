@@ -1,0 +1,30 @@
+.Outer-Form-Container{
+    background-color: white;
+}
+.Inner-Form-Container{
+    background-color: white;
+}
+
+
+.create-comment-form{
+    background-color: white;
+}
+
+/* .create-comment-form-user-name-container{
+        background-color: white;
+} */
+.create-comment-form-container{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.create-comment-button{
+    color:white;
+    font-weight:bold;
+    background-color: rgb(41, 121, 213);
+    border:none;
+    border-radius:4px;
+    padding: 5%;
+    margin: 5px;
+}
