@@ -6,9 +6,10 @@
     border-style: solid;
     border-color: rgb(216, 214, 214);
     border-width: thin;
-    border-radius: 0px;
-    background-color: white;
+    border-radius: 15px;
+    background-color:rgb(47, 106, 216);
     cursor: pointer;
+    color:white;
 }
 
 .actual-button {

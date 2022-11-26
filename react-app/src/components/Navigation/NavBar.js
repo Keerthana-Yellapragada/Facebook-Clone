@@ -42,11 +42,11 @@ function NavBar({ isLoaded }){
     <div className="navbar-main">
       <div className="navbar-inner-container">
     <div className= "Home-Container">
-        <NavLink exact to="/"><img className='logo' src={WellnessPage} alt="logo here"/></NavLink>
+        <NavLink exact to="/homepage"><img className='logo' src={WellnessPage} alt="logo here"/></NavLink>
     </div>
 
     <div className="Right-Side-Container">
-      {isLoaded && sessionLinks}
+      {sessionLinks}
     </div>
     </div>
     </div>

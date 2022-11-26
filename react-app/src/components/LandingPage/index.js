@@ -6,6 +6,10 @@ import SignUpFormModal from '../SignUpFormModal';
 import SignUpForm from '../SignUpFormModal/SignUpForm';
 import LoginForm from '../auth/LoginForm';
 import { Modal } from '../../context/Modal'
+import WellnessPage from '../Navigation/logo.png'
+import './LandingPage.css'
+
+
 
 function LandingPage(){
  const dispatch = useDispatch();
@@ -17,25 +21,17 @@ function LandingPage(){
 
     return (
     <>
+    <div className='landing-page-container'>
 
-
-        <div className='login-form-landingpage-container'>
+        <div className='main-page-logo-container'>
+            <img className='main-page-logo' src={WellnessPage} alt="main-page-logo" />
+        </div>
+        <div className='login-form-landing-page-container'>
              <LoginForm />
         </div>
 
-
-             {/* <div className='signup-container'>
-                        <button className="signup-modal-button" onClick={() => setShowSignUpModal(true)}>Sign up</button>
-                        {showSignUpModal && (
-                            <Modal onClose={() => setShowSignUpModal(false)}>
-                                <SignUpForm />
-                            </Modal>
-                        )}
-            </div> */}
-
-
-            </>
-
+    </div>
+    </>
     )
 }
 
