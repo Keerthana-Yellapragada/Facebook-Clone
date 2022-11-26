@@ -3,7 +3,7 @@ import { useHistory} from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux"
 import { createNewComment, loadAllComments} from "../../store/comments"
 import { loadAllPosts } from "../../store/posts";
-// import './CreateCommentForm.css'
+import './CreateComment.css'
 
 const NewCommentForm = ({postId}) => {
     const dispatch= useDispatch()
@@ -57,9 +57,6 @@ const submitHandler = async (e) => {
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
         <form className="create-comment-form" onSubmit={submitHandler}>
-          {/* <div className="create-comment-form-title-box">
-            <h1 className="create-comment-title">Create comment</h1>
-          </div> */}
 
           <div className="create-comment-user-info-container">
             {/* <div className='create-comment-user-profile-pic-container user-profile-pic'>
@@ -68,7 +65,7 @@ const submitHandler = async (e) => {
                                         alt="user-profile-pics"
                                     />
             </div> */}
-          <div className="create-comment-form-user-name-container">{user.first_name} {user.last_name}</div>
+          {/* <div className="create-comment-form-user-name-container">{user.first_name} {user.last_name}</div> */}
           </div>
 
 
@@ -91,31 +88,11 @@ const submitHandler = async (e) => {
               />
 
 
-{/*
-              <input
-              className="form-inputs"
-              type="file"
-              id = "upload-picture-button"
-              name = "imageUrl"
-              accept="image/*"
-              //image/png, image/jpeg, image/jpg image/*
-              // style = {{"display: none"}}
-              onChange={(e) => setImageUrl(e.target.value)}
-              value={image_url}
-
-                /> */}
-
-
-               {/* <label for="upload-picture-button">
-                Choose A Photo
-                <i class="fas fa-upload"></i>
-               </label> */}
-
 
           </div>
           <div className="button-container">
             <button className="create-comment-button"
-              type="submit" disabled={validationErrors.length > 0}>Post</button>
+              type="submit" disabled={validationErrors.length > 0}>Comment</button>
           </div>
         </form>
       </div>
