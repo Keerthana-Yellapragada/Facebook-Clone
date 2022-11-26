@@ -6,7 +6,10 @@ function Footer() {
     return (
         <footer>
             <a href = "https://www.linkedin.com/in/keerthana-yellapragada/" >Author's LinkedIn</a>
-             <span> WellnessPage© </span>
+            <div>
+                 <span> WellnessPage© ~ Inspired by Facebook </span>
+                 <div>Created by: ~  Keerthana Yellapragada  ~</div>
+            </div>
             < a href = "https://github.com/Keerthana-Yellapragada/Facebook-Clone.git" > Author's GitHub</a>
         </footer>
     )
