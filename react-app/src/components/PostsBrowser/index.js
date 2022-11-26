@@ -134,14 +134,15 @@ const PostsBrowser = () => {
                                 </div>
 
 
+                                    <CommentsBrowser postId={post.id} />
 
-                                    {post.comments? (<div className='post-comment-container'>
+                                    {/* {post.comments? (<div className='post-comment-container'>
 
                                      <CommentsBrowser postId={post.id} />
 
                                     </div>
 
-                                    ) : null }
+                                    ) : null } */}
 
 
 
