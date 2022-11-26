@@ -1,44 +1,39 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams} from "react-router-dom";
-import { useDispatch, useSelector} from "react-redux"
-import { editPost, loadAllPosts} from "../../store/posts"
-import "./EditPostForm.css"
+import { useDispatch, useSelector } from "react-redux";
+import { editComment, loadAllComments} from "../../store/comments"
 
-const EditPostForm = ({postId}) => {
+const EditCommentForm = ({commentId}) => {
     const dispatch= useDispatch()
     const history= useHistory()
-    // const {postId} = useParams
+    // const {commentId} = useParams
 
      useEffect(() => {
-         dispatch(loadAllPosts())
+         dispatch(loadAllComments())
          //   .then(() => setIsLoaded(true))
      }, [dispatch])
 
 
 
     // select slice of state that we want
-    const posts = useSelector(state=> Object.values(state.posts))
+    const comments = useSelector(state=> Object.values(state.comments))
     const user = useSelector(state => state.session.user)
-    const postInfo = useSelector(state => state.posts[postId])
+    const commentInfo = useSelector(state => state.comments[commentId])
 
     // states
     // const [isLoaded, setIsLoaded] = useState(false)
-    const [postContent, setPostContent] = useState(postInfo.post_content)
-    const [imageUrl, setImageUrl] = useState('')
+    const [commentContent, setCommentContent] = useState(commentInfo.comment_content)
+    // const [imageUrl, setImageUrl] = useState('')
     const [validationErrors, setValidationErrors] = useState([])
-
-
-
-
 
 
     if (!user){
         return null
     }
-    if (!posts) {
+    if (!comments) {
         return null
     }
-    if (!postInfo){
+    if (!commentInfo){
         return null
     }
 
@@ -47,19 +42,19 @@ const submitHandler = async (e) => {
     e.preventDefault()
     const errors = []
 
-    if (!postContent) {errors.push("Cannot leave field empty")};
-    if (!imageUrl) {setImageUrl(postInfo.image_url)}
+    if (!commentContent) {errors.push("Cannot leave field empty")};
+    // if (!imageUrl) {setImageUrl(commentInfo.image_url)}
 
     setValidationErrors(errors)
 
     if (!validationErrors.length) {
-        const editedPostPayload = {
-            id: postInfo.id,
-            post_content: postContent,
-            image_url: imageUrl
+        const editedCommentPayload = {
+            id: commentInfo.id,
+            comment_content: commentContent
+            // ,image_url: imageUrl
         }
 
-        const editedPost = await dispatch(editPost(editedPostPayload))
+        const editedComment = await dispatch(editComment(editedCommentPayload))
         history.push(`/`)
     }
 }
@@ -67,33 +62,33 @@ const submitHandler = async (e) => {
 
   return (
 <>
-    <div className="Edit-Post-Outer-Form-Container">
+    <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
-        <form className="create-post-form" onSubmit={submitHandler}>
-          <div className="create-post-form-title-box">
-            <h1 className="edit-post-title title-words">Edit Post</h1>
+        <form className="create-comment-form" onSubmit={submitHandler}>
+          <div className="create-comment-form-title-box">
+            <h1 className="title-words">Edit Comment</h1>
           </div>
-          <div className="create-post-form-user-name-container">{user.first_name} {user.last_name}</div>
+          <div className="create-comment-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
             {validationErrors.length > 0 &&
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
           </div>
-          <div className="create-post-form-container">
+          <div className="create-comment-form-container">
               <input
-                className="form-inputs form-text-input-field"
+                className="form-inputs"
                 required
                 type="text"
-                name="postContent"
-                onChange={(e) => setPostContent(e.target.value)}
-                value={postContent}
-                placeholder="What's on your mind?"
+                name="commentContent"
+                onChange={(e) => setCommentContent(e.target.value)}
+                value={commentContent}
+                placeholder="Leave A Comment"
               />
 
 
             {/* <label for="upload-picture-button"> Upload an Image file</label> */}
-              <input
+              {/* <input
               className="form-inputs"
               type="file"
               id = "upload-picture-button"
@@ -101,7 +96,7 @@ const submitHandler = async (e) => {
               accept="image/png, image/jpeg, image/jpg, image/*"
               onChange={(e) => setImageUrl(e.target.value)}
               value={imageUrl}
-                />
+                /> */}
                {/* <label for="upload-picture-button">
                 Choose A Photo
                 <i class="fas fa-upload"></i>
@@ -110,8 +105,8 @@ const submitHandler = async (e) => {
 
           </div>
           <div className="button-container">
-            <button className="edit-post-button"
-              type="submit">Post</button>
+            <button className="create-coder-button"
+              type="submit">Leave A Comment</button>
           </div>
         </form>
       </div>
@@ -121,4 +116,4 @@ const submitHandler = async (e) => {
 
 }
 
-export default EditPostForm;
+export default EditCommentForm;

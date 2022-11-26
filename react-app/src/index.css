@@ -1,1 +1,35 @@
 /* TODO Add site wide styles */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Titillium+Web&display=swap');
+
+*{
+    /* font-family: 'Roboto Condensed',
+    sans-serif; */
+    text-decoration: none;
+    font-family: 'Roboto Condensed',
+    sans-serif;
+    font-family: 'Titillium Web',
+    sans-serif;
+    /* background-color: rgb(238, 233, 233); */
+}
+
+input{
+    background-color: white;
+
+}
+
+/* img{
+        box-shadow:0 0 3px 1.5px rgb(214, 211, 211);
+} */
+
+input:focus {
+    outline: none
+}
+h3{
+    background-color: white;
+}
+
+.Outer-Form-Container{
+    background-color: white;
+}

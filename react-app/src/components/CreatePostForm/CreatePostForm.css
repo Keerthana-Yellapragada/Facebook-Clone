@@ -1,0 +1,122 @@
+.Outer-Form-Container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+align-items: center;
+/* border: 2px solid red; */
+background-color: white;
+border-radius: 7px;
+width: 300px;
+margin: 2%;
+padding: 20px;
+box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+}
+
+.create-post-form{
+    background-color: white;
+}
+.errors{
+    background-color: white;
+}
+
+.Inner-Form-Container{
+    /* border: 2px solid yellow; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.create-post-form-title-box{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    border-bottom: 1px solid grey;
+
+    background-color: white;
+}
+
+.create-post-form-user-name-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 2%;
+    background-color: white;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.button-container{
+      display: flex;
+      flex-direction: row;
+      justify-content:center;
+      background-color: white;
+
+}
+
+.create-post-button{
+    border: none;
+    color: white;
+    background-color: rgb(32, 121, 217);
+    width: 100%;
+    border-radius: 5px;
+    padding: 2% 0%;
+    margin: 5% 0%;
+}
+
+.create-post-title{
+    font-size: 1em;
+    background-color: white;
+    font-weight:bold
+}
+
+.post-content-input{
+    border:none;
+    background-color: white;
+}
+
+.create-post-form-container{
+    background-color: white;
+}
+
+.upload-picture-button{
+    background-color: white;
+}
+
+input:focus{
+    outline:none
+}
+
+.post-content-input{
+    margin-bottom: 3%
+}
+
+
+.create-post-user-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.create-post-user-profile-pic-container img{
+    border-radius: 50%;
+    width: 35px;
+    margin: 10px;
+    align-self: center;
+    align-content: center;
+    background-color: white;
+}
+
+.user-profile-pic {
+    background-color: white;
+}

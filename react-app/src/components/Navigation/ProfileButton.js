@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { Modal } from '../../context/Modal'
 // import LoginFormModal from '../LoginFormModal';
 // import SignupFormModal from '../SignupFormModal';
-import SignupForm from '../SignupFormModal/SignupForm'
-import LoginForm from '../LoginFormModal/LoginForm'
+import SignupForm from '../SignUpFormModal'
+import LoginForm from '../auth/LoginForm'
 
 
 import './ProfileButton.css'
@@ -18,9 +18,6 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showLogInModal, setShowLogInModal] = useState(false);
-
-
-
 
 
   useEffect(() => {
@@ -35,13 +32,6 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const allCoders = useSelector(state => Object.values(state.coders))
-
-  if (!allCoders) {
-    return null
-  }
-
-  let currCoder = allCoders.filter(coder => coder.user_id === user?.id)[0]
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -51,34 +41,10 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     // console.log("made it to profilebutton logout handler")
-    dispatch(sessionActions.logout())
-    history.push("/");
+    dispatch(sessionActions.logout());
+     <Redirect to="/" />
   };
 
-  const myCoder = (e) => {
-    e.preventDefault();
-    if (user.id === currCoder.user_id) {
-      history.push(`/coders/${currCoder.id}`)
-    } else {
-      history.push("/coder/new")
-    }
-
-
-  };
-  const myProjects = (e) => {
-    e.preventDefault();
-    history.push(`/current/user/projects`);
-  };
-
-  const myJobs = (e) => {
-    e.preventDefault();
-    history.push(`/current/user/jobs`);
-  };
-
-  const createProject = (e) => {
-    e.preventDefault();
-    history.push('/project/new');
-  };
 
   let loggedInOrNot;
   if (user) {
@@ -92,25 +58,7 @@ function ProfileButton({ user }) {
         </button>
         {showMenu && (
           <div className="dropdown-content">
-            <div>
-              {currCoder
-                ?
 
-                (<div className="my-spots" onClick={myCoder}>My Coder Profile</div>)
-
-                :
-                null
-              }
-            </div>
-            <div>
-              <div className="my-reviews" onClick={myProjects}>My Projects</div>
-            </div>
-            <div>
-              <div className="my-reviews" onClick={myJobs}>My Jobs</div>
-            </div>
-            <div>
-              <div className="my-reviews" onClick={createProject}>Start a Project</div>
-            </div>
             <div>
               <div className="log-out" onClick={logout}>Log Out</div>
             </div>
@@ -129,22 +77,12 @@ function ProfileButton({ user }) {
         </button>
         {showMenu && (
           <div className="dropdown-content">
-            <div className="sign-up-text" style={{ zIndex: 3 }} onClick={() => setShowSignUpModal(true)}>Sign Up</div>
-            <div className="log-in-text" style={{ zIndex: 3 }} onClick={() => setShowLogInModal(true)}>Log In</div>
+            <div className="sign-up-text" style={{ zIndex: 3 }} onClick={() => history.push("/")}>Sign Up</div>
+            <div className="log-in-text" style={{ zIndex: 3 }} onClick={() => history.push("/")}>Log In</div>
           </div>
         )}
-        {showSignUpModal && (
-          <Modal onClose={() => setShowSignUpModal(false)}>
-            <SignupForm />
 
-          </Modal>
-        )}
-        {showLogInModal && (
-          <Modal onClose={() => setShowLogInModal(false)}>
 
-            <LoginForm />
-          </Modal>
-        )}
 
       </>
     )

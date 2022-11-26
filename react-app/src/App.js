@@ -2,28 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import SignUpFormModal from './components/SignUpFormModal';
+import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-import { authenticate } from './store/session';
+import UsersList from './components/Navigation/UsersList';
+import User from './components/Navigation/User';
+import * as sessionActions from "./store/session";
 import PostsBrowser from './components/PostsBrowser'
 import NewPostForm from './components/CreatePostForm';
 import EditPostForm from './components/EditPostForm';
+import LandingPage from './components/LandingPage'
+import HomePage from './components/HomePage';
+import Footer from './components/Footer';
+
+
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
+
   const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
+        await dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
+      setIsLoaded(true);
     })();
   }, [dispatch]);
 
-  if (!loaded) {
+  if (!isLoaded) {
     return null;
   }
 
@@ -32,25 +38,23 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true}>
-          <LoginForm />
+          <LandingPage />
         </Route>
         <Route path='/homepage' exact={true}>
-          <NewPostForm />
-          <PostsBrowser />
+          <HomePage />
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+        <Route>
+          404 Not Found
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-
-
-
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

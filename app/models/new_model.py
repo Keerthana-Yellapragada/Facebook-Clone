@@ -34,6 +34,7 @@ class Post(db.Model):
             'image_url': self.image_url,
             'created_at': self.created_at,
             'user': self.user.to_dict() if self.user else None
+            # 'comments' : [comment.to_dict() for comment in self.comments] if self.comments else None
 
         }
 

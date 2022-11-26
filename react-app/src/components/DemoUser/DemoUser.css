@@ -1,0 +1,10 @@
+.Demo-Button {
+      width: 100%;
+      background-color: rgb(40, 119, 209);
+      border-radius: 4px;
+      color: white;
+      padding: 3%;
+      border: none;
+      font-weight:bold;
+      margin-bottom: 4%;
+}

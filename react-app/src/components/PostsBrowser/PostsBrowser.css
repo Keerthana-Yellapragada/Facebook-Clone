@@ -1,0 +1,133 @@
+.posts-browser-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* border: 2px solid blue; */
+    background-color: white;
+
+}
+
+.posts-browser-cards-container{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 10%;
+      /* background-color: white; */
+    border-radius: 7px;
+
+
+
+}
+.post-card-title-container{
+    /* border: 2px solid orange; */
+    background-color: white;
+    border-radius: 7px;
+}
+
+.post-card-content-container{
+    /* border: 2px solid lightpink; */
+    padding: 15px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.post-card-image-container{
+    /* border: 2px solid greenyellow; */
+    background-color: white;
+    border-radius: 7px;
+    width: 100%
+}
+
+.Edit-Delete-Button-container{
+
+    display:flex;
+    justify-content: center;
+    background-color: white;
+    justify-content: flex-end;
+}
+
+.Edit-Delete-Button{
+    background-color: rgb(18, 85, 220);
+    border-radius: 7px;
+    width: auto;
+    padding: 5px;
+    border: none;
+    color:white;
+    font-weight:bold;
+}
+
+.post-pic{
+    width: 100%;
+     background-color: white;
+}
+
+.post-user-info-header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content:center;
+     background-color: white;
+
+}
+
+.post-user-profile-pic{
+    border-radius: 50%;
+    width: 35px;
+    margin-right: 10px;
+    display: flex;
+     background-color: white;
+}
+.post-card-user-name{
+    display: flex;
+    align-self: center;
+    font-weight:bold;
+    font-size: 1em;
+    background-color: white;
+}
+
+.posts-browser-user-profile-pic-container{
+    background-color: white;
+}
+
+
+.post-card-container{
+
+    box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+    border-radius: 7px;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    width: 450px;
+}
+
+
+.fa-trash-can {
+    border: none;
+    background-color: white;
+    color: rgb(22, 72, 199)
+}
+
+/* .Edit-Delete-Post-Button{
+    background-color: white;
+    color: rgb(22, 72, 199);
+    border:none;
+} */
+
+
+.post-comment-container{
+    background-color: white;
+    border: 1px solid rgb(223, 218, 218);
+    padding: 5px;
+    border-radius: 7px;
+
+}
+
+.leave-comment-container{
+    background-color: white;
+    margin:0px;
+}
