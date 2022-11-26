@@ -8,7 +8,7 @@ import SignUpFormModal from '../SignUpFormModal';
 import SignUpForm from '../SignUpFormModal/SignUpForm';
 import { Modal } from '../../context/Modal'
 import * as sessionActions from "../../store/session";
-
+import DemoUser from "../DemoUser"
 const LoginForm = () => {
   const history = useHistory()
   const [errors, setErrors] = useState([]);
@@ -100,7 +100,9 @@ console.log("showsignupmodal", showSignUpModal)
 
       </div>
     </form>
-
+        <div>
+          <DemoUser />
+        </div>
         <div className = 'create-account-button-container' >
                         <button className="create-account-button" onClick={() => setShowSignUpModal(true)}>Create New Account</button>
                         {showSignUpModal && (
