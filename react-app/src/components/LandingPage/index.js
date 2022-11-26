@@ -25,7 +25,11 @@ function LandingPage(){
 
         <div className='main-page-logo-container'>
             <img className='main-page-logo' src={WellnessPage} alt="main-page-logo" />
+
+              <h1 className='main-page-words'> Helping patients find a community. </h1>
+
         </div>
+
         <div className='login-form-landing-page-container'>
              <LoginForm />
         </div>

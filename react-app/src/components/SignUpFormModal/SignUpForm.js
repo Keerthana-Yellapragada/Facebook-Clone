@@ -1,7 +1,7 @@
 // frontend/src/components/SignupFormPage/SignupForm.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import{useHistory} from 'react-router-dom'
 import "./SignUpForm.css"
 
@@ -17,6 +17,23 @@ function SignUpForm(){
   const [last_name, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
 
+
+  useEffect(()=> {
+    const errors=[];
+
+    const validUrls = ["com", "io", "org"]
+    let urlArray = email.split(".")
+    let urlExtension = urlArray[urlArray.length -1]
+
+    if (email && !validUrls.includes(urlExtension) || email.split('@').length < 1) {errors.push("Please enter a valid email")}
+      if (password !== confirmPassword){errors.push('Confirm Password field must be the same as the Password field')}
+      if (username.length < 6) {errors.push("Username must be more than 6 characters")}
+      if (password.length < 6) {errors.push("Password must be more than 6 characters")}
+      if (first_name.length < 2 || last_name.length < 2){errors.push("Names must be more than 2 characters")}
+      setErrors(errors)
+
+  },[first_name, last_name, username, password, confirmPassword, email])
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -31,6 +48,7 @@ function SignUpForm(){
     } else {
       return setErrors(['Confirm Password field must be the same as the Password field'])
     }
+
 
   }
   // if (sessionUser){
@@ -122,7 +140,7 @@ function SignUpForm(){
 
         </div>
       <div className="button-sign-container">
-      <button className="Sign-Up-button" type="submit">Sign Up</button>
+      <button className="Sign-Up-button" disabled={!!errors.length} type="submit">Sign Up</button>
       </div>
       </div>
       </form>

@@ -34,13 +34,13 @@
     padding-bottom: 5px;
     z-index: 5;
     top: 75%;
-    border-radius: 0px;
+    border-radius: 5px;
     right: 11%;
 }
 
 
 .username-container:hover {
-    background-color: rgb(11, 58, 13);
+    background-color: rgb(220, 220, 221);
     color: white;
     border: none;
     cursor: pointer;
@@ -50,12 +50,13 @@
 }
 
 .log-out {
-    padding: 5px
+    padding: 5px;
+
 }
 
 .log-out:hover {
-    background-color: rgb(11, 58, 13);
-    color: white;
+    background-color: rgb(224, 225, 226);
+    /* color: white; */
     border: none;
     cursor: pointer;
     /* padding: 5px; */

@@ -16,8 +16,6 @@ function NavBar({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     const sessionUserId = sessionUser.id
-
-
     sessionLinks = (
       <>
       <div className= "profile-button">
@@ -29,28 +27,35 @@ function NavBar({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-      <div className= "logged-out-profile-container">
+      {/* <div className= "logged-out-profile-container">
       <div className= "profile-button">
       <ProfileButton/>
       </div>
-      </div>
+      </div> */}
       </>
     );
   }
 
   return (
+  <>
+    {sessionUser?
+   (
+    <>
     <div className="navbar-main">
       <div className="navbar-inner-container">
-    <div className= "Home-Container">
-        <NavLink exact to="/homepage"><img className='logo' src={WellnessPage} alt="logo here"/></NavLink>
-    </div>
+        <div className= "Home-Container">
+            <NavLink exact to="/homepage"><img className='logo' src={WellnessPage} alt="logo here"/></NavLink>
+        </div>
 
     <div className="Right-Side-Container">
       {sessionLinks}
     </div>
     </div>
     </div>
-
+    </>
+    )
+    : null}
+</>
   );
 }
 

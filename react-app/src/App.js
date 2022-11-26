@@ -40,6 +40,9 @@ function App() {
         <Route path='/homepage' exact={true}>
           <HomePage />
         </Route>
+        <Route>
+          404 Not Found
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
