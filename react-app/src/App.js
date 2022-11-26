@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpFormModal from './components/SignUpFormModal';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/Navigation/UsersList';
+import User from './components/Navigation/User';
 import * as sessionActions from "./store/session";
 import PostsBrowser from './components/PostsBrowser'
 import NewPostForm from './components/CreatePostForm';
