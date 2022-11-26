@@ -21,3 +21,8 @@ footer a {
     color: rgb(39, 137, 212);
 
 }
+
+.author-name{
+    font-size: 15px;
+    font-weight:bold;
+}
