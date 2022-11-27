@@ -12,18 +12,17 @@ class Post(db.Model):
     __tablename__ = "posts"
 
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
+        __table_args__ = {'schema': SCHE
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     # title = db.Column(db.string(200), nullable=False)
     post_content = db.Column(db.String(2000), nullable=False)
     image_url = db.Column(db.String(2000), nullable=True)
-    created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False, default=datetime.now())
+    created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now())
 
     user = db.relationship("User", back_populates="posts")
-    comments = db.relationship("Comment", back_populates="post")
+    comments = db.relationship("Comment", back_populates="post",  cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
