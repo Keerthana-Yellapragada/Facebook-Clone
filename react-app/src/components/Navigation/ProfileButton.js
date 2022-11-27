@@ -38,11 +38,10 @@ function ProfileButton({ user }) {
   };
 
 
-  const logout = (e) => {
+  const logout = async (e) => {
     e.preventDefault();
     // console.log("made it to profilebutton logout handler")
-    dispatch(sessionActions.logout());
-     <Redirect to="/" />
+    await dispatch(sessionActions.logout()).then(()=>history.push("/"))
   };
 
 
