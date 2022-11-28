@@ -17,7 +17,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     # title = db.Column(db.string(200), nullable=False)
-    post_content = db.Column(db.String(2000), nullable=False)
+    post_content = db.Column(db.String, nullable=False)
     image_url = db.Column(db.String, nullable=True)
     # created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now())
 
@@ -49,7 +49,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
     # comment_id = db.Column(db.Integer, db.ForeignKey("comments.id"), nullable=True)
-    comment_content = db.Column(db.String(2000), nullable=False)
+    comment_content = db.Column(db.String, nullable=False)
     # created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now())
 
     post = db.relationship("Post", back_populates="comments")
