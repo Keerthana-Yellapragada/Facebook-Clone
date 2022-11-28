@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 4b94fc7125bb
+Revision ID: 6ea6bdf30b21
 Revises: 
-Create Date: 2022-11-27 10:23:53.722750
+Create Date: 2022-11-28 08:41:24.389588
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4b94fc7125bb'
+revision = '6ea6bdf30b21'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,7 +34,6 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('post_content', sa.String(length=2000), nullable=False),
     sa.Column('image_url', sa.String(length=2000), nullable=True),
-    sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -43,7 +42,6 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('post_id', sa.Integer(), nullable=False),
     sa.Column('comment_content', sa.String(length=2000), nullable=False),
-    sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
