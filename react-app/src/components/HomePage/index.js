@@ -31,6 +31,7 @@ function HomePage(){
 
         return (
             <>
+        <div className="homepage-container">
             < div className = "homepage-welcome-banner-container" >
 
                  <div className='home-page-user-profile-pic-container'>
@@ -50,7 +51,7 @@ function HomePage(){
                 <div className="posts-browser-component-container">
                         <PostsBrowser />
                 </div>
-
+            </div>
             </>
         )
 }
