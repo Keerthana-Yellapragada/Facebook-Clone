@@ -31,7 +31,14 @@ const EditPostForm = ({ postId }) => {
     if (imageUrl && !validUrls.includes(urlExtension)) {
       errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format");
     }
-    if (postContent & (postContent.length < 1)) setValidationErrors(errors);
+
+     if (postContent & postContent.length < 1) {
+       errors.push("Cannot submit a blank field")
+     }
+     if (postContent & postContent.length > 200) {
+       errors.push("You have reached your 2000 character limit")
+     }
+    setValidationErrors(errors);
   }, [postContent, imageUrl]);
 
   if (!user) {

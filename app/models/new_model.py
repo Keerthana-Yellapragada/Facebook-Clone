@@ -18,7 +18,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     # title = db.Column(db.string(200), nullable=False)
     post_content = db.Column(db.String(2000), nullable=False)
-    image_url = db.Column(db.String(2000), nullable=True)
+    image_url = db.Column(db.String, nullable=True)
     # created_at = db.Column(db.DateTime, nullable=False, unique=False, index=False,default=datetime.now())
 
     user = db.relationship("User", back_populates="posts")
