@@ -1,30 +1,64 @@
-.Outer-Form-Container{
+.Comment-Outer-Form-Container {
     background-color: white;
-}
-.Inner-Form-Container{
-    background-color: white;
+    display: flex;
+    width: 100%;
+    height: auto;
 }
 
-
-.create-comment-form{
+.Comment-Inner-Form-Container {
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 2px solid green; */
+    width: 100%;
+    /* margin: 20px; */
+}
+
+.create-comment-form {
+    /* background-color: rgb(236, 236, 236); */
+    /* border: 2px solid plum; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    border: 1px solid rgb(203, 200, 200);
+    border-radius: 40px;
+    padding: 12px;
+    margin: 7px;
 }
 
 /* .create-comment-form-user-name-container{
         background-color: white;
 } */
-.create-comment-form-container{
-    background-color: white;
+.create-comment-form-container {
+    /* background-color: rgb(236, 236, 236); */
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 }
-.create-comment-button{
-    color:white;
-    font-weight:bold;
+
+.create-comment-button {
+    color: white;
+    font-weight: bold;
     background-color: rgb(41, 121, 213);
-    border:none;
-    border-radius:4px;
-    padding: 5%;
+    border: none;
+    border-radius: 4px;
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+}
+
+.comment-form-inputs.comment-content-input {
+    width: 240px;
+    margin: 10px;
+}
+
+.create-comment-user-pic {
+    border-radius: 50%;
+    width: 35px;
+    height: 35 px;
+    display: flex;
+    align-self: center;
     margin: 5px;
 }
