@@ -6,6 +6,7 @@ import { loadAllComments } from "../../store/comments";
 import PostsBrowser from "../PostsBrowser";
 import NewPostForm from "../CreatePostForm";
 import './HomePage.css'
+import NewPostFormModal from "../CreatePostForm/CreatePostModal";
 
 function HomePage(){
     const dispatch = useDispatch()
@@ -43,7 +44,7 @@ function HomePage(){
             </div>
 
                 <div className="new-post-form-component-container">
-                    <NewPostForm />
+                    <NewPostFormModal userName={user.first_name} />
                 </div>
 
                 <div className="posts-browser-component-container">

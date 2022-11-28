@@ -117,9 +117,7 @@ const PostsBrowser = () => {
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                      {
-                                                         user && user.id === post.user_id ? < EditPostFormModal postId = {
-                                                             post.id
-                                                         }
+                                                         user && user.id === post.user_id ? < EditPostFormModal postId = {post.id}
                                                          /> : null
                                                      }
                                                 </div>
