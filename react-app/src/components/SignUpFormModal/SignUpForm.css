@@ -100,3 +100,9 @@ h2{
 .signup-title-extras{
     background-color: white
 }
+
+
+.Sign-Up-button.disabled {
+    cursor: not-allowed;
+    /* pointer-events: all !important; */
+}

@@ -36,7 +36,7 @@ const submitHandler = async (e) => {
     e.preventDefault()
     const errors = []
 
-    if (!comment_content) {errors.push("Cannot leave field empty")};
+    if (comment_content && comment_content.length===0) {errors.push("Cannot leave field empty")};
 
     setValidationErrors(errors)
 

@@ -2,7 +2,7 @@
     background-color: white;
     margin: 10px;
     /* border: 1px solid rgb(197, 197, 197); */
-    border-radius: 7px;
+    border-radius: 20px;
     padding: 2%;
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@
 
 .comment-title {
     background-color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 
 }
@@ -33,6 +33,10 @@
     max-width:150px;
     word-wrap:break-word;
 
+
+}
+.comment-card-content-container:hover {
+    white-space: normal;
 }
 
 .comment-card-container {
@@ -42,6 +46,7 @@
 
 .comments-browser-cards-container{
    background-color: white;
+   border-radius: 20px;
 }
 
 .Edit-Delete-Post-Button{
