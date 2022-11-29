@@ -36,6 +36,7 @@
     border-radius: 7px;
     max-width: 100%;
     word-wrap: break-word;
+    resize: none;
 }
 
 .post-card-image-container{
@@ -73,23 +74,27 @@
     flex-direction: row;
     justify-content: flex-start;
     align-content:center;
-     background-color: white;
+    background-color: white;
+    width:100%
 
 }
 
 .post-user-profile-pic{
     border-radius: 50%;
     width: 35px;
-    margin-right: 10px;
+    margin: 0px 10px;
     display: flex;
-     background-color: white;
+    background-color: white;
 }
 .post-card-user-name{
     display: flex;
     align-self: center;
+    /* justify-self: flex-start;
+    justify-content: flex-start; */
     font-weight:bold;
     font-size: 1em;
     background-color: white;
+    /* margin-right: 200px; */
 }
 
 .posts-browser-user-profile-pic-container{
@@ -132,4 +137,11 @@
 .leave-comment-container{
     background-color: white;
     margin:0px;
+}
+
+.Main-Header-Edit-Delete-Button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 5px;
+
 }

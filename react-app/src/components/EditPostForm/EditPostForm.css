@@ -1,0 +1,8 @@
+.form-inputs.form-text-input-field{
+resize:none;
+width: 300px;
+height: 250px;
+padding: 5px;
+word-wrap: break-word;
+border:none;
+}
