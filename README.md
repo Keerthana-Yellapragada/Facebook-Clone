@@ -40,6 +40,20 @@ WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a 
 # Sample Features:
 ### 🚧🚧 This section is still under construction 🚧🚧
 
+# Landing Page:
+### Users can sign up to be new users by providing the required information or log-in as a demo user to view the website.
+
+![Screen Shot 2022-11-29 at 8 17 37 AM](http![Screen Shot 2022-11-29 at 8 17 44 AM](https://user-images.githubusercontent.com/85444662/204585286-0d038812-f655-4503-842b-774390e39472.png)
+s://user-images.githubusercontent.com/85444662/204585175-3d90c5ae-8292-42f6-9f85-249da901ef10.png)
+
+# Homepage:
+
+### A logged in user can view their homepage which contains posts created by them and their friends. They can then create psots, leave comments on posts created by them and others, and edit/delete their own posts and comments.
+
+![Screen Shot 2022-11-29 at 8 17 14 AM](https://user-images.githubusercontent.com/85444662/204585236-131a1029-0004-42cb-a962-6c6f2ac13ccc.png)
+![Screen Shot 2022-11-29 at 8 16 55 AM](https://user-images.githubusercontent.com/85444662/204585259-54d7ebcd-9bcf-4e82-8ad7-0a9a0fd192ec.png)
+![Screen Shot 2022-11-29 at 8 24 23 AM](https://user-images.githubusercontent.com/85444662/204585490-30b2c5ba-6e63-49f4-a069-1e109e63ca79.png)
+
 <br>
 
 ---------------------------------------------------------------
