@@ -7,7 +7,7 @@
     border-color: rgb(216, 214, 214);
     border-width: thin;
     border-radius: 15px;
-    background-color:rgb(47, 106, 216);
+    background-color: rgb(29, 122, 236);
     cursor: pointer;
     color:white;
 }
@@ -73,7 +73,7 @@
 }
 
 .my-reviews:hover {
-    background-color: rgb(11, 58, 13);
+    background-color: rgb(120, 194, 255);
     color: white;
     border: none;
     cursor: pointer;
