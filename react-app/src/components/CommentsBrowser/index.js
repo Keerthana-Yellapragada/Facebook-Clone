@@ -76,7 +76,7 @@ const CommentsBrowser = ({ postId }) => {
   return (
     <>
       <div className="comments-browser-container">
-        {/* <h3>COMMENTS BROWSER</h3> */}
+        <div className="post-number-of-comments">{filteredComments.length} {filteredComments.length === 1? "comment" : "comments"}</div>
         <div className="comments-browser-cards-container">
           {filteredComments?.map((comment) => {
             return (
@@ -92,17 +92,7 @@ const CommentsBrowser = ({ postId }) => {
                     </div>
 
                     <div>
-                      {/* {   <EditCommentForm commentId={comment.id}/>} */}
 
-                      {/* {user && user.id === comment.user_id ?
-                                        ( deleteButton = (
-                                                < div className="Edit-Delete-Comment-Button-container" >
-                                                    <button className="Edit-Delete-Comment-Button" onClick={() => deleteHandler(comment.id)}>Remove Comment</button>
-                                                </div>
-                                            )) :
-
-                                        ( deleteButton = (<></>))
-                                        } */}
                     </div>
                     </div>
                     {user && user.id === comment.user_id

@@ -50,10 +50,18 @@
     padding: 10px;
 }
 
-.comment-form-inputs.comment-content-input {
-    width: 240px;
+.form-inputs.edit-comment {
+    width: 300px;
     margin: 10px;
+    height: 250px;
+    border:none;
+    /* display:flex;
+    justify-content: center;
+    word-wrap: break-word; */
 }
+/* .form-inputs.edit-comment:focus {
+   outline:none;
+} */
 
 .edit-comment-user-pic {
     border-radius: 50%;

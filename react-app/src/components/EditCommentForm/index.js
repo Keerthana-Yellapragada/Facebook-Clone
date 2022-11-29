@@ -78,8 +78,8 @@ const submitHandler = async (e) => {
               )}
           </div>
           <div className="edit-comment-form-container">
-              <input
-                className="form-inputs"
+              <textarea
+                className="form-inputs edit-comment"
                 required
                 type="text"
                 name="commentContent"

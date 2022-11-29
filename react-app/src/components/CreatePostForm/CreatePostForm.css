@@ -79,6 +79,10 @@ box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
 .post-content-input{
     border:none;
     background-color: white;
+    margin-bottom: 3%;
+    resize:none;
+    width: 300px;
+    height: 250px;
 }
 
 .create-post-form-container{
@@ -89,13 +93,11 @@ box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
     background-color: white;
 }
 
-input:focus{
+textarea:focus{
     outline:none
 }
 
-.post-content-input{
-    margin-bottom: 3%
-}
+
 
 
 .create-post-user-info-container{
