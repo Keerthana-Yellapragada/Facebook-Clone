@@ -92,7 +92,7 @@ const EditPostForm = ({ postId }) => {
                 validationErrors.map((error) => <div key={error}>{error}</div>)}
             </div>
             <div className="create-post-form-container">
-              <input
+              <textarea
                 className="form-inputs form-text-input-field"
                 required
                 type="text"

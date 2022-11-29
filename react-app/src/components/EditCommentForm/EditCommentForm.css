@@ -12,7 +12,7 @@
     justify-content: center;
     /* border: 2px solid green; */
     /* width: 100%; */
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 .edit-comment-form {
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 325px;
     border: 1px solid rgb(203, 200, 200);
     /* border-radius: 40px; */
     padding: 12px;
@@ -44,15 +44,24 @@
     background-color: rgb(41, 121, 213);
     border: none;
     border-radius: 4px;
-    width: 80px;
+    width: auto;
     height: 40px;
     margin: 10px;
+    padding: 10px;
 }
 
-.comment-form-inputs.comment-content-input {
-    width: 240px;
+.form-inputs.edit-comment {
+    width: 300px;
     margin: 10px;
+    height: 250px;
+    border:none;
+    /* display:flex;
+    justify-content: center;
+    word-wrap: break-word; */
 }
+/* .form-inputs.edit-comment:focus {
+   outline:none;
+} */
 
 .edit-comment-user-pic {
     border-radius: 50%;
@@ -64,9 +73,6 @@
 }
 
 .edit-title-words{
-    display: flex;
-    font-weight: bold;
-    justify-self: center;
     border-bottom: 1px solid grey;
-    align-self: center;
+    text-align: center;
 }
