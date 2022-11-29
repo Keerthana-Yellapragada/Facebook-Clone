@@ -95,6 +95,8 @@ const NewPostForm = () => {
               required
               type="text"
               name="postContent"
+              minLength={1}
+              maxLength={2000}
               onChange={(e) => setPostContent(e.target.value)}
               value={post_content}
               placeholder={`What's on your mind, ${user.first_name}?`}
