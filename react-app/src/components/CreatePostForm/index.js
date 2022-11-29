@@ -90,7 +90,7 @@ const NewPostForm = () => {
               )}
           </div>
           <div className="create-post-form-container">
-            <input
+            <textarea
               className="form-inputs post-content-input"
               required
               type="text"

@@ -59,3 +59,11 @@
     margin: 5px;
     border-radius: 20px;
 }
+
+.post-number-of-comments{
+    display: flex;
+    color:grey;
+    font-weight:bold;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
