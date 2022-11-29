@@ -65,3 +65,8 @@
     align-self: center;
     margin: 5px;
 }
+
+.create-comment-button:disabled {
+    cursor: not-allowed;
+    /* pointer-events: all !important; */
+}

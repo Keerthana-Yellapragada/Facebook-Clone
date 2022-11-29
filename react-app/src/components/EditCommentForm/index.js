@@ -85,7 +85,7 @@ const submitHandler = async (e) => {
                 name="commentContent"
                 onChange={(e) => setCommentContent(e.target.value)}
                 value={commentContent}
-                placeholder="Save"
+                placeholder="Leave A Comment"
               />
 
 
