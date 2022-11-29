@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editComment, loadAllComments} from "../../store/comments"
+import './EditCommentForm.css'
+
 
 const EditCommentForm = ({commentId}) => {
     const dispatch= useDispatch()
@@ -62,20 +64,20 @@ const submitHandler = async (e) => {
 
   return (
 <>
-    <div className="Outer-Form-Container">
-      <div className="Inner-Form-Container">
-        <form className="create-comment-form" onSubmit={submitHandler}>
-          <div className="create-comment-form-title-box">
-            <h1 className="title-words">Edit Comment</h1>
+    <div className="Edit-Comment-Outer-Form-Container">
+      <div className="EditComment-Inner-Form-Container">
+        <form className="edit-comment-form" onSubmit={submitHandler}>
+          <div className="edit-comment-form-title-box">
+            <h1 className="edit-title-words">Edit Comment</h1>
           </div>
-          <div className="create-comment-form-user-name-container">{user.first_name} {user.last_name}</div>
+          <div className="edit-comment-form-user-name-container">{user.first_name} {user.last_name}</div>
           <div className="errors">
             {validationErrors.length > 0 &&
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
           </div>
-          <div className="create-comment-form-container">
+          <div className="edit-comment-form-container">
               <input
                 className="form-inputs"
                 required
@@ -83,7 +85,7 @@ const submitHandler = async (e) => {
                 name="commentContent"
                 onChange={(e) => setCommentContent(e.target.value)}
                 value={commentContent}
-                placeholder="Leave A Comment"
+                placeholder="Save"
               />
 
 
@@ -105,7 +107,7 @@ const submitHandler = async (e) => {
 
           </div>
           <div className="button-container">
-            <button className="create-coder-button"
+            <button className="edit-comment-button"
               type="submit">Leave A Comment</button>
           </div>
         </form>

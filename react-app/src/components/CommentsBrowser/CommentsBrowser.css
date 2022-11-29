@@ -1,9 +1,13 @@
 .comment-card-main-container{
     background-color: white;
     margin: 10px;
-    border: 1px solid rgb(197, 197, 197);
+    /* border: 1px solid rgb(197, 197, 197); */
     border-radius: 7px;
-    padding: 2%
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
 }
 .comment-info-top-container {
     /* border: 2px solid red; */
@@ -14,14 +18,20 @@
 
 .comment-title {
     background-color: white;
-    font-size: 10px;
+    font-size: 16px;
     font-weight: bold;
 
 }
 
 .comment-card-content-container {
-    font-size: 12px;
-    background-color: white;
+    font-size: 14px;
+    background-color: rgb(228, 224, 224);
+    border:none;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 50px;
+    max-width:150px;
+    word-wrap:break-word;
 
 }
 
@@ -32,4 +42,15 @@
 
 .comments-browser-cards-container{
    background-color: white;
+}
+
+.Edit-Delete-Post-Button{
+    border:none;
+    background-color: white;
+}
+
+.comments-browser-container{
+    border: 1px solid grey;
+    margin: 5px;
+    border-radius: 20px;
 }
