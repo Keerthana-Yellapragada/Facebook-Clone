@@ -1,5 +1,5 @@
 .comment-card-main-container{
-    background-color: white;
+
     margin: 10px;
     /* border: 1px solid rgb(197, 197, 197); */
     border-radius: 20px;
@@ -12,12 +12,14 @@
 .comment-info-top-container {
     /* border: 2px solid red; */
     padding: 10px;
-    background-color: white;
+
+    /* background-color: white; */
 
 }
 
 .comment-title {
-    background-color: white;
+    /* background-color: white; */
+
     font-size: 14px;
     font-weight: bold;
 
@@ -25,14 +27,14 @@
 
 .comment-card-content-container {
     font-size: 14px;
-    background-color: rgb(228, 224, 224);
+    background-color: rgb(218, 222, 222);
     border:none;
     border: none;
-    border-radius: 50px;
+    border-radius: 35px;
     padding: 10px 50px;
     max-width:150px;
     word-wrap:break-word;
-    max-height: 300px;
+    /* max-height: 300px; */
 
 
 }
@@ -42,11 +44,12 @@
 
 .comment-card-container {
     margin: 10px;
-    border: 1px solid green
+
 }
 
 .comments-browser-cards-container{
-   background-color: white;
+
+
    border-radius: 20px;
 }
 
@@ -57,8 +60,9 @@
 
 .comments-browser-container{
     border: 1px solid grey;
-    margin: 5px;
-    border-radius: 20px;
+    margin: 2px;
+    border-radius: 7px;
+
 }
 
 .post-number-of-comments{

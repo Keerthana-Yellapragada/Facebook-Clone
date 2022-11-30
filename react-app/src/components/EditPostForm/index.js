@@ -35,8 +35,9 @@ const EditPostForm = ({ postId }) => {
      if (postContent & postContent.length < 1) {
        errors.push("Cannot submit a blank field")
      }
-     if (postContent & postContent.length > 200) {
-       errors.push("You have reached your 2000 character limit")
+
+     if (postContent.length > 2200) {
+       errors.push("You have exceeded your 2000 character limit")
      }
     setValidationErrors(errors);
   }, [postContent, imageUrl]);
@@ -90,6 +91,11 @@ const EditPostForm = ({ postId }) => {
             <div className="errors">
               {validationErrors.length > 0 &&
                 validationErrors.map((error) => <div key={error}>{error}</div>)}
+                {postContent ? (
+            <span className="charLeft">
+              {postContent.length}/2200
+            </span>
+            ) : null}
             </div>
             <div className="create-post-form-container">
               <textarea
@@ -97,6 +103,8 @@ const EditPostForm = ({ postId }) => {
                 required
                 type="text"
                 name="postContent"
+                minLength={1}
+                maxLength={2200}
                 onChange={(e) => setPostContent(e.target.value)}
                 value={postContent}
                 placeholder="What's on your mind?"
@@ -123,7 +131,7 @@ const EditPostForm = ({ postId }) => {
                 className="form-inputs"
                 name="url"
                 id="url"
-                placeholder="Enter an https:// URL  : https://example.com"
+                placeholder="Enter an 'https://' URL: https://example.com"
                 pattern="https://.*"
                 size="30"
                 onChange={(e) => setImageUrl(e.target.value)}
@@ -133,7 +141,7 @@ const EditPostForm = ({ postId }) => {
             <div className="button-container">
               <button
                 className="edit-post-button"
-                disabled={validationErrors.length > 0}
+                disabled={!!validationErrors.length}
                 type="submit"
               >
                 Post

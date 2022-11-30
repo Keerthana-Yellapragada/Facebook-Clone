@@ -5,7 +5,7 @@
 .navbar-main {
     display: flex;
     flex-direction: row;
-    /* position: sticky; this is suppose to maintain the container stuck to thee top but not working */
+    position: sticky;
     /* border-bottom: 1px solid rgb(225, 227, 233); */
     width:100%;
     justify-content: space-evenly;
@@ -13,7 +13,7 @@
     z-index: 4;
     top: 0px;
     background-color: white;
-    border: 1px solid rgb(201, 199, 199);
+    border: 1px solid rgb(226, 238, 242);
 
 }
 
@@ -34,8 +34,8 @@
 }
 
 .logo {
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 100px;
+    max-width: 100px;
     /* border-color: rgb(255, 0, 144);
     border-style: solid; */
 }

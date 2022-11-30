@@ -6,15 +6,15 @@ footer {
     color: rgb(39, 137, 212);
     /* text-align:center; */
     /* margin: 20px 0px; */
-    border: 1px solid rgb(197, 194, 194);
+    border: 1px solid rgb(226, 238, 242);
     /* border-bottom: 1px solid rgb(197, 194, 194); */
-    padding: 20px;
+    padding: 25px;
     bottom: 0%;
     margin-bottom: -10px;
     margin-top:-10px;
     position: sticky;
     background-color: white;
-    height: 10%
+    height: 50px
 }
 
 

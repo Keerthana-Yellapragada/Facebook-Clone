@@ -105,7 +105,7 @@ const CommentsBrowser = ({ postId }) => {
                               <i className="fa-solid fa-trash-can"></i>
                             </button>
                             {user && user.id === comment.user_id ? (
-                              <EditCommentFormModal commentId={comment.id} />
+                              <EditCommentFormModal className="edit-comment-modal" commentId={comment.id} />
                             ) : null}
                           </div>
                         ))

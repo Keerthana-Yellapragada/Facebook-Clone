@@ -1,4 +1,4 @@
-from app.models import User, Post, Comment, db, environment, SCHEMA
+from app.models import User, Post, Comment, Like, db, environment, SCHEMA
 
 
 # Adds a demo user, you can add other users here if you want
@@ -128,5 +128,28 @@ def undo_comments():
         db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM comments")
+
+    db.session.commit()
+
+
+def seed_likes():
+
+    like1=Like(user_id=1,post_id=2,post_like=True,post_love=False)
+    like2=Like(user_id=2,post_id=3,post_like=True,post_love=False)
+    like3=Like(user_id=3,post_id=1,post_like=True,post_love=False)
+    like4=Like(user_id=2,post_id=1,post_like=True,post_love=False)
+    like5=Like(user_id=3,post_id=2,post_like=True,post_love=False)
+    like6=Like(user_id=1,post_id=3,post_like=True,post_love=False)
+
+    db.session.add_all([like1, like2, like3, like4, like5, like6])
+
+    db.session.commit()
+
+
+def undo_likes():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM likes")
 
     db.session.commit()

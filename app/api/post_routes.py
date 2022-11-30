@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, url_for, redirect, request, jsonify
 from flask_login import login_required
-from app.models import db, User, Post, Comment
+from app.models import db, User, Post, Comment, Like
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy.ext.declarative import declarative_base
 from ..forms.create_post_form import CreatePostForm
 from ..forms.create_comment_form import CreateCommentForm
-
+from ..forms.create_like_form import CreateLikeForm
 
 Base=declarative_base()
 
@@ -156,3 +156,45 @@ def create_comment(post_id):
         return comment.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+
+
+
+# ************************************ ADD LIKE BY POST ID ***********************************************
+
+# ADD LIKE by post id -- WORKS!
+
+@post_routes.route('/<int:post_id>/likes/new/', methods=["POST"])
+# @login_required
+def create_like(post_id):
+
+    create_like_form = CreateLikeForm()
+    create_like_form['csrf_token'].data = request.cookies['csrf_token']
+
+    print("This is current User in backend**********************", current_user)
+
+    if create_like_form.validate_on_submit():
+        # like = Like()
+        data = create_like_form.data
+        current_post_id=post_id
+
+        like = Like(
+                        user_id=current_user.id,
+                        post_id=current_post_id,
+                        post_like=data["like"],
+                        post_love=data["love"]
+        )
+
+
+        db.session.add(like)
+        db.session.commit()
+
+        return like.to_dict(), 201
+
+    return {"Error": "Validation Error"}, 401
+# # ************************************ GET ALL LIKES OF A POST BY POST ID ***********************************************
+
+# @post_routes.route('/<int:post_id>/likes/', methods=["GET"])
+# @login_required
+# def get_likes():
+#     likes = Like.query.all()
+#     return {'Likes': [likes.to_dict() for like in likes]}
