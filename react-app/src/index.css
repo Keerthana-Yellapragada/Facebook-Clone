@@ -34,9 +34,9 @@ h3{
     background-color: white;
 }
 
-html{
+/* html{
     background-color: rgb(241, 237, 237);
-}
+} */
 
 button:disabled{
     cursor:not-allowed;
