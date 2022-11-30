@@ -76,3 +76,7 @@
     border-bottom: 1px solid grey;
     text-align: center;
 }
+
+.form-inputs.edit-comment{
+    resize: none;
+}
