@@ -35,9 +35,15 @@ h3{
 }
 
 html{
-    background-color: rgb(241, 237, 237);
+    background-color: rgb(87, 144, 210);
 }
 
 button:disabled{
     cursor:not-allowed;
+}
+
+body {
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210206/pngtree-blue-green-glow-light-effect-blur-background-image_556767.jpg");
+    background-color: rgb(87, 144, 210);
+    background-size:cover
 }
