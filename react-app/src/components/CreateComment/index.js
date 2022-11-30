@@ -89,6 +89,8 @@ const submitHandler = async (e) => {
                 required
                 type="text"
                 name="commentContent"
+                maxLength={2000}
+                minLength={1}
                 onChange={(e) => setCommentContent(e.target.value)}
                 value={comment_content}
                 placeholder="Leave A Comment"
