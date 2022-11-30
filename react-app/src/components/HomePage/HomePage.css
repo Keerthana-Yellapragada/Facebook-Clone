@@ -63,16 +63,20 @@ font-size: 45px;
     /* margin: 10px;
     font-weight: bold; */
     color:rgb(94, 91, 91);
-    text-align:center;
+    /* text-align:center; */
+    width: 300px;
+
 }
 
 .create-post-click-container{
 
-  border: 1px solid grey;
-  border-radius: 50px;
+  /* border: 1px solid grey; */
+  border-radius: 7px;
   padding: 10px;
   display:flex;
   flex-direction: row;
+  width: 460px;
+  box-shadow:0 0 4px 1.5px rgb(129 161 226);
 
   }
 
