@@ -30,7 +30,7 @@ const NewPostForm = () => {
     }
     if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
 
-    if (post_content.length >= 2200){errors.push("You have your exceeded 2200 character limit")}
+    if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
 
     setValidationErrors(errors)
   },[post_content, image_url])
