@@ -90,6 +90,12 @@ const NewPostForm = () => {
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
+               {post_content ? (
+            <span className="charLeft">
+              {post_content.length}/2200
+            </span>
+            ) : null}
+
           </div>
           <div className="create-post-form-container">
             <textarea

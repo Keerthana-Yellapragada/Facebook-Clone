@@ -36,7 +36,7 @@ const EditPostForm = ({ postId }) => {
        errors.push("Cannot submit a blank field")
      }
 
-     if (postContent.length >= 2200) {
+     if (postContent.length > 2200) {
        errors.push("You have exceeded your 2000 character limit")
      }
     setValidationErrors(errors);
@@ -91,6 +91,11 @@ const EditPostForm = ({ postId }) => {
             <div className="errors">
               {validationErrors.length > 0 &&
                 validationErrors.map((error) => <div key={error}>{error}</div>)}
+                {postContent ? (
+            <span className="charLeft">
+              {postContent.length}/2200
+            </span>
+            ) : null}
             </div>
             <div className="create-post-form-container">
               <textarea
@@ -136,7 +141,7 @@ const EditPostForm = ({ postId }) => {
             <div className="button-container">
               <button
                 className="edit-post-button"
-                disabled={validationErrors.length > 0}
+                disabled={!!validationErrors.length}
                 type="submit"
               >
                 Post

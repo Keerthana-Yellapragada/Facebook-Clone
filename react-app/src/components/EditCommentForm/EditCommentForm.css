@@ -49,6 +49,9 @@
     margin: 10px;
     padding: 10px;
 }
+.edit-comment-button:disabled{
+    cursor: not-allowed;
+}
 
 .form-inputs.edit-comment {
     width: 300px;
