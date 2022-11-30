@@ -29,7 +29,8 @@ const NewPostForm = () => {
       errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
     }
     if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
-    if (post_content & post_content.length > 2000){errors.push("You have reached your 2000 character limit")}
+    if (post_content & post_content.length >= 2200){errors.push("You have exceeded your 2000 character limit")}
+    if (post_content.length >= 2200){errors.push("You have exceeded 2000 character limit")}
     setValidationErrors(errors)
   },[post_content, image_url])
 
@@ -96,7 +97,7 @@ const NewPostForm = () => {
               type="text"
               name="postContent"
               minLength={1}
-              maxLength={2000}
+              maxLength={2200}
               onChange={(e) => setPostContent(e.target.value)}
               value={post_content}
               placeholder={`What's on your mind, ${user.first_name}?`}
@@ -138,7 +139,7 @@ const NewPostForm = () => {
           </div>
           <div className="button-container">
             <button className="create-post-button"
-            disabled={validationErrors.length > 0}
+            disabled={!!validationErrors.length}
               type="submit">Post</button>
           </div>
         </form>

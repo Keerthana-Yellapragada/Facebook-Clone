@@ -163,7 +163,7 @@ def create_comment(post_id):
 
 # ADD LIKE by post id
 
-@post_routes.route('/<int:post_id>/likes/', methods=["POST"])
+@post_routes.route('/<int:post_id>/likes/new', methods=["POST"])
 # @login_required
 def create_like(post_id):
 
@@ -191,3 +191,10 @@ def create_like(post_id):
         return like.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+# ************************************ GET ALL LIKES OF A POST BY POST ID ***********************************************
+
+@post_routes.route('/<int:post_id>/likes/', methods=["GET"])
+@login_required
+def get_likes():
+    likes = Like.query.all()
+    return {'Likes': [likes.to_dict() for like in likes]}

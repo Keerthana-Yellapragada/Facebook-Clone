@@ -165,7 +165,7 @@ const likesReducer = (state = initialState, action) => {
             newState = {
                 ...state
             }
-            action.payload.likes ? .forEach((like) => {
+            action.payload.Likes?.forEach((like) => {
                 newState[like.id] = like
             });
             return newState
