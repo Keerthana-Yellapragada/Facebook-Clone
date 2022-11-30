@@ -40,7 +40,7 @@ class Post(db.Model):
 
     user = db.relationship("User", back_populates="posts")
     comments = db.relationship("Comment", back_populates="post",  cascade="all, delete-orphan")
-    likes= db.relationship("Like", back_populates="post",cascade="all, delete-orphan")
+    likes= db.relationship("Like", back_populates="post", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
@@ -101,12 +101,23 @@ class Like(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=True)
     comment_id = db.Column(db.Integer, db.ForeignKey("comments.id"), nullable=True)
-    like= db.Column(db.Boolean, nullable=False, default=False),
-    love= db.Column(db.Boolean, nullable=False, default=False)
+    post_like= db.Column(db.Boolean, nullable=False, default=False)
+    post_love= db.Column(db.Boolean, nullable=False, default=False)
 
     post = db.relationship("Post", back_populates="likes")
     comment = db.relationship("Comment", back_populates="likes")
     user = db.relationship("User", back_populates="likes")
 
-def __repr__(self):
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+            'comment_id': self.comment_id ,
+            'post_like':self.post_like,
+            'post_love':self.post_love
+            # ,'user': self.user.to_dict()
+        }
+
+    def __repr__(self):
         return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.like}, love={self.love},user={self.user}>'
