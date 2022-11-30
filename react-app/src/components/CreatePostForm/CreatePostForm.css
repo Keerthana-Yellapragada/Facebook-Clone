@@ -69,7 +69,9 @@ box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
     padding: 2% 0%;
     margin: 5% 0%;
 }
-
+.create-post-button:disabled{
+    cursor: not-allowed;
+}
 .create-post-title{
     font-size: 1em;
     background-color: white;

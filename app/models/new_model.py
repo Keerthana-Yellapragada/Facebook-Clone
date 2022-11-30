@@ -7,6 +7,23 @@ from datetime import datetime
 Base=declarative_base()
 
 
+#  join table for posts and skills
+# coder_skills = db.Table(
+#     "coder_skills",
+#     db.Model.metadata,
+#     db.Column(
+#         "coder_id",
+#         db.Integer,
+#         db.ForeignKey("coders.id"),
+#         primary_key=True
+#     ),
+#     db.Column(
+#         "skill_id",
+#         db.Integer,
+#         db.ForeignKey("skills.id"),
+#         primary_key=True
+#     )
+# )
 
 class Post(db.Model):
     __tablename__ = "posts"
@@ -23,6 +40,7 @@ class Post(db.Model):
 
     user = db.relationship("User", back_populates="posts")
     comments = db.relationship("Comment", back_populates="post",  cascade="all, delete-orphan")
+    likes= db.relationship("Like", back_populates="post",cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
@@ -55,7 +73,7 @@ class Comment(db.Model):
     post = db.relationship("Post", back_populates="comments")
     # comments = db.relationship("Comment", back_populates="comments")
     user = db.relationship("User", back_populates="comments")
-
+    likes= db.relationship("Like", back_populates="comment",cascade="all, delete-orphan")
 
 
     def to_dict(self):
@@ -73,3 +91,22 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'<Comment, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_content={self.comment_content}, user={self.user}>'
+
+
+
+class Like(db.Model):
+    __tablename__="likes"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=True)
+    comment_id = db.Column(db.Integer, db.ForeignKey("comments.id"), nullable=True)
+    like= db.Column(db.Boolean, nullable=False, default=False),
+    love= db.Column(db.Boolean, nullable=False, default=False)
+
+    post = db.relationship("Post", back_populates="likes")
+    comment = db.relationship("Comment", back_populates="likes")
+    user = db.relationship("User", back_populates="likes")
+
+def __repr__(self):
+        return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.like}, love={self.love},user={self.user}>'
