@@ -7,6 +7,23 @@ from datetime import datetime
 Base=declarative_base()
 
 
+#  join table for posts and skills
+# coder_skills = db.Table(
+#     "coder_skills",
+#     db.Model.metadata,
+#     db.Column(
+#         "coder_id",
+#         db.Integer,
+#         db.ForeignKey("coders.id"),
+#         primary_key=True
+#     ),
+#     db.Column(
+#         "skill_id",
+#         db.Integer,
+#         db.ForeignKey("skills.id"),
+#         primary_key=True
+#     )
+# )
 
 class Post(db.Model):
     __tablename__ = "posts"

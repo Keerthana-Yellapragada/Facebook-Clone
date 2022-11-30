@@ -156,3 +156,10 @@ def create_comment(post_id):
         return comment.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+
+
+
+# ************************************ ADD LIKE BY POST ID ***********************************************
+
+
+# ADD LIKE by post id
