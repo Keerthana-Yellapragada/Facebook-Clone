@@ -29,8 +29,9 @@ const NewPostForm = () => {
       errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
     }
     if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
-    if (post_content & post_content.length >= 2200){errors.push("You have exceeded your 2000 character limit")}
-    if (post_content.length >= 2200){errors.push("You have exceeded 2000 character limit")}
+
+    if (post_content.length >= 2200){errors.push("You have your exceeded 2200 character limit")}
+
     setValidationErrors(errors)
   },[post_content, image_url])
 

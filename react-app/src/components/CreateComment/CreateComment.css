@@ -52,6 +52,7 @@
 
 .comment-form-inputs.comment-content-input {
     width: 240px;
+    height:auto;
     margin: 10px;
     border-radius: 20px;
 
@@ -69,4 +70,17 @@
 .create-comment-button:disabled {
     cursor: not-allowed;
     /* pointer-events: all !important; */
+}
+
+.comment-form-inputs.comment-content-input{
+    resize: none;
+
+}
+
+.charLeft{
+    font-size:9px;
+    font-weight: bold;
+    color:red;
+    display: flex;
+    flex-direction: row;
 }

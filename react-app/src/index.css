@@ -39,5 +39,5 @@ html{
 }
 
 button:disabled{
-    cursor:not-allowed
+    cursor:not-allowed;
 }
