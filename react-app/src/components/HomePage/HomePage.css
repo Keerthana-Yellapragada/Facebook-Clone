@@ -4,19 +4,21 @@
     justify-content: center;
     align-content: center;
     margin-bottom: 15%;
+
 }
 
 .homepage-welcome-banner{
 display: flex;
 justify-content: center;
-color: rgb(22, 80, 205);
+color: rgb(23, 126, 204);
 align-items: center;
 align-content: center;
 background-color: white;
-border-radius: 7px;
-padding: 2%;
-margin: 5%;
-box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+border-radius: 20px;
+padding: 25px;
+margin: 30px;
+box-shadow:0 0 4px 1.5px rgb(129, 161, 226);
+font-size: 45px;
 
 }
 
@@ -46,7 +48,7 @@ box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
 .home-page-user-profile-pic-container img{
     width: 80px;
     border-radius: 50%;
-    box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+    box-shadow:0 0 4px 1.5px rgb(95, 125, 184);
     display: flex;
 
 }
@@ -78,7 +80,7 @@ box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
  width: 45px;
  height:45px;
  border-radius: 50%;
- box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+ box-shadow:0 0 4px 1.5px rgb(192, 192, 192);
  display: flex;
  margin: 5px 10px;
   }
