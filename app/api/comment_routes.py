@@ -19,7 +19,7 @@ comment_routes = Blueprint("comment_routes", __name__, url_prefix="/api/comments
 # GET ALL COMMENTS -- WORKS
 
 @comment_routes.route('/', methods=["GET"])
-# @login_required
+@login_required
 def get_comments():
     comments = Comment.query.all()
     print("COMMENTS", comments)
@@ -30,7 +30,7 @@ def get_comments():
 
 # GET comment DETAILS BY comment ID -- WORKS
 @comment_routes.route('/<int:comment_id>/', methods=["GET"])
-# @login_required
+@login_required
 def get_comment_details(comment_id):
     comment = Comment.query.filter(Comment.id == comment_id).first()
     # comment_user = User.query.filter(User.id == comment.user_id).first()
@@ -83,7 +83,7 @@ def get_comment_details(comment_id):
 # edit comment by comment id -- WORKS
 
 @comment_routes.route('/<int:comment_id>/', methods=["PUT"])
-# @login_required
+@login_required
 def edit_comment(comment_id):
     edit_comment_form = CreateCommentForm()
 
@@ -112,7 +112,7 @@ def edit_comment(comment_id):
 # delete comment by comment id -- WORKS
 
 @comment_routes.route("/<int:comment_id>/", methods=["DELETE"])
-# @login_required
+@login_required
 def delete_comment(comment_id):
 
     comment = Comment.query.get(comment_id)
