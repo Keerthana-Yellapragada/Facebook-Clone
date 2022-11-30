@@ -7,6 +7,6 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 
 class CreateLikeForm(FlaskForm):
-    like = BooleanField("like")
-    love = BooleanField("love")
+    post_like = BooleanField("post_like")
+    post_love = BooleanField("post_love")
     submit = SubmitField("Like or Love This")

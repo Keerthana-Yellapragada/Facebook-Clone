@@ -134,12 +134,12 @@ def undo_comments():
 
 def seed_likes():
 
-    like1=Like(user_id=1,post_id=2,like=True,love=False)
-    like2=Like(user_id=2,post_id=3,like=True,love=False)
-    like3=Like(user_id=3,post_id=1,like=True,love=False)
-    like4=Like(user_id=2,post_id=1,like=True,love=False)
-    like5=Like(user_id=3,post_id=2,like=True,love=False)
-    like6=Like(user_id=1,post_id=3,like=True,love=False)
+    like1=Like(user_id=1,post_id=2,post_like=True,post_love=False)
+    like2=Like(user_id=2,post_id=3,post_like=True,post_love=False)
+    like3=Like(user_id=3,post_id=1,post_like=True,post_love=False)
+    like4=Like(user_id=2,post_id=1,post_like=True,post_love=False)
+    like5=Like(user_id=3,post_id=2,post_like=True,post_love=False)
+    like6=Like(user_id=1,post_id=3,post_like=True,post_love=False)
 
     db.session.add_all([like1, like2, like3, like4, like5, like6])
 

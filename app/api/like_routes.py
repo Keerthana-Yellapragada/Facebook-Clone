@@ -13,13 +13,21 @@ Base=declarative_base()
 
 like_routes = Blueprint("like_routes", __name__, url_prefix="/api/likes")
 
+# ************************************ GET ALL LIKES ***********************************************
+# Get all likes - WORKS
+
+@like_routes.route('/', methods=["GET"])
+# @login_required
+def get_likes():
+    likes = Like.query.all()
+    return {'Likes': [like.to_dict() for like in likes]}
 
 # ************************************ EDIT LIKE BY LIKE ID***********************************************
 
 # edit like by like id -- WORKS
 
 @like_routes.route('/<int:like_id>/', methods=["PUT"])
-@login_required
+# @login_required
 def edit_like(like_id):
     edit_like_form = CreateLikeForm()
 
@@ -29,8 +37,8 @@ def edit_like(like_id):
         data = edit_like_form.data
         like = Like.query.get(like_id)
 
-        like.like = data["like"]
-        like.love = data["love"]
+        like.post_like = data["post_like"]
+        like.post_love = data["post_love"]
 
         db.session.commit()
 
@@ -47,7 +55,7 @@ def edit_like(like_id):
 # delete like by like id -- WORKS
 
 @like_routes.route("/<int:like_id>/", methods=["DELETE"])
-@login_required
+# @login_required
 def delete_like(like_id):
 
     like = Like.query.get(like_id)
