@@ -160,6 +160,7 @@
 }
 .like-post-button:hover{
     background-color: rgb(216, 252, 255);
+    cursor: pointer;
 }
 
 .post-likes-number{
