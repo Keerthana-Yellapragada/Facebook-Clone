@@ -9,6 +9,7 @@ import './PostsBrowser.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
+// import NotFoundImage from './NotFoundImage'
 
 const PostsBrowser = () => {
     const dispatch = useDispatch()
@@ -114,7 +115,7 @@ const PostsBrowser = () => {
                                                 <img
                                                     className='post-pic'
                                                     src={post.image_url}
-                                                    alt="image description for screen readers"
+                                                    alt="image not found"
                                                     onError={
                                                         (e) => {
                                                             e.currentTarget.src = "https://www.pngkit.com/png/detail/930-9306658_404-not-found.png";

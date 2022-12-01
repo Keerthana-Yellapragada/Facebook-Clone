@@ -63,6 +63,7 @@ const NewCommentForm = ({ postId }) => {
   };
 
   return (
+  <div className="create-comment-container">
     <div className="Comment-Outer-Form-Container">
       <div className="Comment-Inner-Form-Container">
         <form className="create-comment-form" onSubmit={submitHandler}>
@@ -97,11 +98,7 @@ const NewCommentForm = ({ postId }) => {
               placeholder="Write a comment..."
 
             />
-            {comment_content ? (
-            <span className="charLeft">
-              {comment_content.length}/255
-            </span>
-            ) : null}
+
 
           </div>
           <div className="button-container">
@@ -112,7 +109,11 @@ const NewCommentForm = ({ postId }) => {
             >
               Comment
             </button>
+
+
           </div>
+
+
 
         </form>
           {/* <div className="errors">
@@ -120,6 +121,16 @@ const NewCommentForm = ({ postId }) => {
               validationErrors.map((error) => <div key={error}>{error}</div>)}
           </div> */}
       </div>
+
+
+      </div>
+
+      {comment_content ? (
+            <span className="charLeft">
+              {comment_content.length}/255
+            </span>
+            ) : null}
+
     </div>
   );
 };
