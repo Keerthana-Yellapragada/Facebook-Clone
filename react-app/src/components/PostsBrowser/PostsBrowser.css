@@ -154,4 +154,12 @@
     font-size: 15px;
     font-weight: bold;
     width:auto;
+    border-radius: 7px;
+    margin: 5px 2px;
+}
+
+.post-likes-number{
+    color:grey;
+    font-weight:bold;
+    margin: 2px;
 }
