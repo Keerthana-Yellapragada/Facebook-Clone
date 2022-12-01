@@ -145,3 +145,13 @@
     margin-left: 5px;
 
 }
+
+.like-post-button{
+    background-color: inherit;
+    color:rgb(4, 70, 142);
+    border: 2px solid rgb(4, 70, 142);
+    padding: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    width:auto;
+}

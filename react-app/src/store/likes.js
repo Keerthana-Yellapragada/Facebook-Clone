@@ -152,8 +152,8 @@ export const removeLike = (payload) => async dispatch => {
         }
     })
     if (response.ok) {
-        dispatch(deleteLike(payload.id))
-        return response
+       let deletedLike= dispatch(deleteLike(payload.id))
+        return deletedLike
     }
 }
 
