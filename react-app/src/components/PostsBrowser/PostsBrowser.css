@@ -149,13 +149,13 @@
 .like-post-button{
     background-color: inherit;
     color:rgb(4, 70, 142);
-    border: 2px solid rgb(4, 70, 142);
+    border: 1px solid rgb(4, 70, 142);
     padding: 4px;
     font-size: 15px;
     font-weight: bold;
     width:auto;
     border-radius: 7px;
-    margin: 5px 2px;
+    margin: 6px 0px 10px 1px;
 }
 
 .post-likes-number{
