@@ -67,6 +67,7 @@
 .post-pic{
     width: 100%;
      background-color: white;
+     border-radius: 7px;
 }
 
 .post-user-info-header-container{

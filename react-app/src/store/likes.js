@@ -145,6 +145,7 @@ export const updateLike = (editlikeInfo) => async dispatch => {
 
 // -------------------------  DELETE A like  --------------------------------
 export const removeLike = (payload) => async dispatch => {
+    console.log("DID THIS REACH DELETE LIKE THUNK")
     const response = await csrfFetch(`/api/likes/${payload.id}/`, {
         method: 'DELETE',
         headers: {
