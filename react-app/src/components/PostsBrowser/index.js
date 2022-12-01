@@ -59,21 +59,22 @@ const PostsBrowser = () => {
 
     let deleteButton;
 
-    function handlePostLike(postId){
+    // function handlePostLike(postId){
 
-        const payload = {
-                 user_id: user.id,
-                 post_id: postId,
-                 post_like: true,
-                 post_love: false
-        }
-        let likePost;
-        likePost = dispatch(createNewLike(payload)).then(() => dispatch(loadAllLikes(postId))).then(() => history.push("/"))
+    //     const payload = {
+    //              user_id: user.id,
+    //              post_id: postId,
+    //              post_like: true,
+    //              post_love: false
+    //     }
+    //     let likePost;
+    //     likePost = dispatch(createNewLike(payload)).then(() => dispatch(loadAllLikes(postId))).then(() => history.push("/"))
 
-    }
+    // }
 
 
-
+    let likePayload;
+    let likePost;
 
     return (
         <>
@@ -144,7 +145,20 @@ const PostsBrowser = () => {
 
                                 <div>
                                     <div>{post.likes.length} likes </div>
-                                    <button onClick={handlePostLike(post.id)} className='like-post-button'>Like</button>
+                                    <button className='like-post-button'
+                                            onClick={() => {
+
+                                            likePayload = {
+                                                user_id: user.id,
+                                                post_id: post.id,
+                                                post_like: true,
+                                                post_love: false
+                                            }
+
+                                            likePost = dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes(postId))).then(() => history.push("/"))
+
+
+                                    }}>Like</button>
                                 </div>
 
 
