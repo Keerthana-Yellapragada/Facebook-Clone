@@ -31,7 +31,7 @@
 
 .post-card-content-container{
     /* border: 2px solid lightpink; */
-    padding: 15px;
+    padding: 25px 5px;
     background-color: white;
     border-radius: 7px;
     max-width: 100%;
@@ -68,6 +68,7 @@
     width: 100%;
      background-color: white;
      border-radius: 7px;
+     padding: 5px;
 }
 
 .post-user-info-header-container{
@@ -110,7 +111,7 @@
     margin: 15px;
     padding: 15px;
     background-color: white;
-    width: 450px;
+    width: 550px;
 }
 
 
