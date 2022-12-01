@@ -55,9 +55,9 @@ const deleteLike = likeId => ({
 // *****************************************************************************
 //************************************ THUNKS **********************************
 
-// -------------------------  LOAD ALL likeS   ----------------------------------
-export const loadAllLikes = () => async dispatch => {
-    const response = await csrfFetch('/api/likes/')
+// -------------------------  LOAD ALL LIKES OF A POST BY POST ID   ----------------------------------
+export const loadAllLikes = (post_id) => async dispatch => {
+    const response = await csrfFetch('/api/posts/post_id/likes/')
     if (response.ok) {
         const likesList = await response.json();
         console.log("this is likes list IN THUNK", likesList)
@@ -90,8 +90,8 @@ export const loadOnelike = (likeId) => async dispatch => {
 export const createNewLike = (payload) => async dispatch => {
     console.log("did this reach create like thunk?")
     console.log("this is the new like payload in thunk", payload)
-    const response = await csrfFetch('/api/likes/new/', {
-        method: 'like',
+    const response = await csrfFetch(`api/posts/${payload.post_id}/likes/new/`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },

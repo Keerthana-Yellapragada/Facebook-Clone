@@ -14,13 +14,17 @@ Base=declarative_base()
 like_routes = Blueprint("like_routes", __name__, url_prefix="/api/likes")
 
 # ************************************ GET ALL LIKES ***********************************************
-# Get all likes - WORKS
+# Get all likes of a post by post id - WORKS
 
-@like_routes.route('/', methods=["GET"])
-# @login_required
-def get_likes():
-    likes = Like.query.all()
-    return {'Likes': [like.to_dict() for like in likes]}
+# @like_routes.route('/', methods=["GET"])
+# # @login_required
+# def get_likes():
+#     def get_likes(post_id):
+#     likes = Like.query.all()
+#     # filtered = filter(lambda like: like.post_id == post_id)
+#     # post_likes = (list(filtered))
+#     # return {'Likes': [like.to_dict() for like in post_likes]}
+#     return {'Likes': [like.to_dict() for like in likes]}
 
 # ************************************ EDIT LIKE BY LIKE ID***********************************************
 

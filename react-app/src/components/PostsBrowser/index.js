@@ -9,6 +9,7 @@ import './PostsBrowser.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
+import { createNewLike, loadAllLikes } from '../../store/likes';
 // import NotFoundImage from './NotFoundImage'
 
 const PostsBrowser = () => {
@@ -17,6 +18,7 @@ const PostsBrowser = () => {
     useEffect(() => {
         dispatch(loadAllPosts());
         dispatch(loadAllComments())
+
     }, [dispatch])
 
 
@@ -29,7 +31,9 @@ const PostsBrowser = () => {
 
 
 
-
+    // if (!allLikes){
+    //     return null
+    // }
     if (!allPosts) {
         return null
     }
@@ -55,7 +59,18 @@ const PostsBrowser = () => {
 
     let deleteButton;
 
+    function handlePostLike(postId){
 
+        const payload = {
+                 user_id: user.id,
+                 post_id: postId,
+                 post_like: true,
+                 post_love: false
+        }
+        let likePost;
+        likePost = dispatch(createNewLike(payload)).then(() => dispatch(loadAllLikes(postId))).then(() => history.push("/"))
+
+    }
 
 
 
@@ -127,7 +142,10 @@ const PostsBrowser = () => {
                                     }
                                 </div>
 
-
+                                <div>
+                                    <div>{post.likes.length} likes </div>
+                                    <button onClick={handlePostLike(post.id)} className='like-post-button'>Like</button>
+                                </div>
 
 
 
@@ -146,7 +164,6 @@ const PostsBrowser = () => {
                                     </div>
 
                                     ) : null } */}
-
 
 
                                 </div>

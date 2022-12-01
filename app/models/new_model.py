@@ -50,7 +50,8 @@ class Post(db.Model):
             'post_content': self.post_content,
             'image_url': self.image_url,
             # 'created_at': self.created_at,
-            'user': self.user.to_dict() if self.user else None
+            'user': self.user.to_dict() if self.user else None,
+            'likes': self.likes.to_dict() if self.likes else None
             # 'comments' : [comment.to_dict() for comment in self.comments] if self.comments else None
 
         }
