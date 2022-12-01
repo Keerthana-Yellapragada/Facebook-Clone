@@ -157,6 +157,9 @@
     border-radius: 7px;
     margin: 4px 0px 8px 1px;
 }
+.like-post-button:hover{
+    background-color: rgb(216, 252, 255);
+}
 
 .post-likes-number{
     color:grey;
