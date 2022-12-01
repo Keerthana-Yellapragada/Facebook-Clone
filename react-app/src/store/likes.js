@@ -144,16 +144,17 @@ export const updateLike = (editlikeInfo) => async dispatch => {
 //*************************************************************************** */
 
 // -------------------------  DELETE A like  --------------------------------
-export const removeLike = (payload) => async dispatch => {
+export const removeLike = (likeId) => async dispatch => {
     console.log("DID THIS REACH DELETE LIKE THUNK")
-    const response = await csrfFetch(`/api/likes/${payload.id}/`, {
+    console.log("PAYLOAD ID FOR DELTE LIKE", likeId)
+    const response = await csrfFetch(`/api/likes/${likeId}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     if (response.ok) {
-       let deletedLike= dispatch(deleteLike(payload.id))
+       let deletedLike= dispatch(deleteLike(likeId))
         return deletedLike
     }
 }

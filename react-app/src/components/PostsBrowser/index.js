@@ -34,7 +34,7 @@ const PostsBrowser = () => {
     console.log("ALLLIKES", allLikes)
 
     const [visible, setVisible] = useState(false);
-
+    console.log("VISIBLE IS", visible)
 
     if (!allLikes) {
         return null
@@ -82,42 +82,27 @@ const PostsBrowser = () => {
     let createdLikePost
     let deleteLikePayload;
     let deletedPostLike;
+    let currentPostLikes;
     let currentLike;
+    let userLike;
 
-    async function handleCreateLike(postId){
-            if (visible === false){
-                 likePayload = {
-                     user_id: user?.id,
-                     post_id: postId,
-                     post_like: true,
-                     post_love: false
-                 }
-                 // set it to "liked"/visible
-                 setVisible(true)
-                 createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadPostLikes(postId))).then(() => history.push("/"))
-}
+    async function handleCreateLike(postId) {
+
+            likePayload = {
+                user_id: user?.id,
+                post_id: postId,
+                post_like: true,
+                post_love: false
+            }
+
+            createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
+
     }
 
-    async function handleRemoveLike(postId){
-
-                setVisible(current => !current)
-
-                let currentPostLikes = allLikes.filter(like => like?.post_id == postId)
-                console.log("CURRENT LIKE IN DELETE LIKE", currentPostLikes)
-                if (!currentPostLikes){
-                    return null
-                }
-                let userLike = currentPostLikes.filter(like=>like?.user_id === user?.id)
-                console.log("USERLIKE ID", userLike.id)
-
-                if (!userLike){
-                    return null
-                }
-                deleteLikePayload = {
-                    id:userLike.id
-                }
-                deletedPostLike = dispatch(removeLike(deleteLikePayload)).then(() => dispatch(loadPostLikes(postId))).then(() => history.push("/"))
-
+    async function handleRemoveLike(likeId) {
+        if (likeId){
+            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
+}
     }
 
 
@@ -126,6 +111,7 @@ const PostsBrowser = () => {
             <div className='posts-browser-container'>
                 <div className='posts-browser-cards-container'>
                     {allPosts?.slice(0).reverse().map(post => {
+
                         return (
                             <>
                                 <div className='post-card-container'>
@@ -188,52 +174,60 @@ const PostsBrowser = () => {
                                             }
                                         </div>
                                         <div className='post-likes-comments-number-container'>
-                                             <div className='post-likes-number'>{post.likes.length? post.likes.length : 0} likes </div>
-                                             {/* <div className='post-comments-number'>{post.comments.length? post.comments.length : 0} comments </div> */}
+                                            <div className='post-likes-number'>{post?.likes?.length ? post.likes.length : 0} likes </div>
+                                            {/* <div className='post-comments-number'>{post.comments.length? post.comments.length : 0} comments </div> */}
                                         </div>
                                         <div>
 
 
                                             <button className='like-post-button'
-                                             onClick = {
-                                                 visible === false ? () => {handleCreateLike(post.id)} : ()=> {handleRemoveLike(post.id)}
-                                             }
-                                                // onClick={() => {
-                                                //     // sets like button as "liked"
-                                                //      // if we haven't liked it yet
-                                                //      if (visible === false) {
-                                                //          likePayload = {
-                                                //              user_id: user.id,
-                                                //              post_id: post.id,
-                                                //              post_like: true,
-                                                //              post_love: false
-                                                //          }
-                                                //          // set it to "liked"/visible
-                                                //          setVisible(true)
-                                                //          createdLikePost = dispatch(createNewLike(likePayload)).then(() => dispatch(loadPostLikes(post.id))).then(() => history.push("/"))
-                                                //          return
-                                                //      }
+                                                onClick={()=>{
 
-                                                //     else if (visible){
-                                                //         // makes button from "liked" to "unliked"/ not visible
-                                                //         setVisible(false);
+                                                    currentPostLikes=allLikes.filter(like => like.post_id === post.id)
+                                                    userLike = currentPostLikes.filter(like=>like.user_id === user.id)
+                                                    console.log("THISIS USERLIKE ID ", userLike[0]?.id)
+                                                    console.log("THI SIS USER ID INSIDE ONCLIKC ", user.id)
+                                                    {
+                                                        userLike?.length > 0 ? handleRemoveLike(userLike[0]?.id) :handleCreateLike(post.id)
+                                                    }
+}
+                                                }
+                                            // onClick={() => {
+                                            //     // sets like button as "liked"
+                                            //      // if we haven't liked it yet
+                                            //      if (visible === false) {
+                                            //          likePayload = {
+                                            //              user_id: user.id,
+                                            //              post_id: post.id,
+                                            //              post_like: true,
+                                            //              post_love: false
+                                            //          }
+                                            //          // set it to "liked"/visible
+                                            //          setVisible(true)
+                                            //          createdLikePost = dispatch(createNewLike(likePayload)).then(() => dispatch(loadPostLikes(post.id))).then(() => history.push("/"))
+                                            //          return
+                                            //      }
 
-                                                //         currentLike = allLikes.filter(like => (like.user_id === user.id && like.post_id == post.id))
-                                                //         console.log("CURRENT LIKE IN DELETE LIKE", currentLike)
-                                                //         deleteLikePayload = {
-                                                //             id: currentLike.id
-                                                //         }
-                                                //         deletedPostLike = dispatch(removeLike(deleteLikePayload)).then(() => dispatch(loadPostLikes(post.id))).then(() => history.push("/"))
-                                                //         return
-                                                //     }
+                                            //     else if (visible){
+                                            //         // makes button from "liked" to "unliked"/ not visible
+                                            //         setVisible(false);
+
+                                            //         currentLike = allLikes.filter(like => (like.user_id === user.id && like.post_id == post.id))
+                                            //         console.log("CURRENT LIKE IN DELETE LIKE", currentLike)
+                                            //         deleteLikePayload = {
+                                            //             id: currentLike.id
+                                            //         }
+                                            //         deletedPostLike = dispatch(removeLike(deleteLikePayload)).then(() => dispatch(loadPostLikes(post.id))).then(() => history.push("/"))
+                                            //         return
+                                            //     }
 
 
 
 
 
 
-                                                // }}
-                                                ><i class="fa-regular fa-thumbs-up"></i> Like</button>
+                                            // }}
+                                            ><i class="fa-regular fa-thumbs-up"></i> Like</button>
 
                                         </div>
 
