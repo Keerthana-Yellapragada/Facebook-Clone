@@ -125,9 +125,11 @@ const NewCommentForm = ({ postId }) => {
 
       </div>
 
-      <span className = "charLeft" >
-          {comment_content.length ? {comment_content.length} / 225 : null}
-      </span
+      {comment_content ? (
+            <span className="charLeft">
+              {comment_content.length}/255
+            </span>
+            ) : null}
 
     </div>
   );
