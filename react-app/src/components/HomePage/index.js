@@ -32,7 +32,7 @@ function HomePage(){
         return (
             <>
         <div className="homepage-container">
-            < div className = "homepage-welcome-banner-container" >
+            {/* < div className = "homepage-welcome-banner-container" >
 
                  <div className='home-page-user-profile-pic-container'>
                                     <img
@@ -42,7 +42,7 @@ function HomePage(){
                  </div>
                  <h1 className="homepage-welcome-banner">Welcome to {user.first_name} {user.last_name}'s home page</h1>
 
-            </div>
+            </div> */}
 
                 <div className="new-post-form-component-container">
                     <NewPostFormModal userName={user.first_name} />
