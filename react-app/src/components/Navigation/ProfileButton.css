@@ -94,7 +94,8 @@
 }
 
 #pink:hover {
-    color: rgb(11, 58, 13)
+    background-color: rgb(114, 179, 244);
+    color: rgb(255, 255, 255)
 }
 
 .sign-up-text {

@@ -40,6 +40,10 @@ form .login-form {
 
 }
 
+.create-account-button:hover{
+    cursor:pointer;
+}
+
 .login-button {
     width: 100%;
     margin: 5% 0%;
@@ -50,6 +54,9 @@ form .login-form {
     border: none;
     margin-bottom: 10%;
     font-weight:bold;
+}
+.login-button:hover{
+    cursor: pointer;
 }
 
 input {

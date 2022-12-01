@@ -72,9 +72,16 @@
     /* pointer-events: all !important; */
 }
 
+.create-comment-button:hover{
+    cursor:pointer;
+}
+
 .comment-form-inputs.comment-content-input{
     resize: none;
 
+}
+.comment-form-inputs.comment-content-input:hover{
+    cursor:pointer;
 }
 
 .charLeft{

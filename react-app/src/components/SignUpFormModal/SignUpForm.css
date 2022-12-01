@@ -87,6 +87,10 @@
     font-weight: bold
 }
 
+.Sign-Up-button:hover{
+    cursor:pointer;
+}
+
 .disclaimer-content{
     font-size: 10px;
      background-color: white;
