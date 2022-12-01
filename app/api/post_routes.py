@@ -199,7 +199,8 @@ def get_likes(post_id):
 
     likes = Like.query.all()
 
-    filtered = filter(lambda like: like.post_id == post_id)
+    filtered = filter(lambda like: (like.post_id == post_id), likes)
     post_likes = (list(filtered))
-
+    print("POSTLIKES", post_likes)
+    print("FILTERED LIKES", filtered)
     return {'Likes': [like.to_dict() for like in post_likes]}

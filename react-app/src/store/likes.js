@@ -54,10 +54,19 @@ const deleteLike = likeId => ({
 
 // *****************************************************************************
 //************************************ THUNKS **********************************
+// -------------------------  LOAD ALL LIKES   ----------------------------------
+export const loadAllLikes = () => async dispatch => {
+    const response = await csrfFetch(`/api/likes/`)
+    if (response.ok) {
+        const likesList = await response.json();
+        console.log("this is likes list IN THUNK", likesList)
+        dispatch(getLikes(likesList))
+    }
+}
 
 // -------------------------  LOAD ALL LIKES OF A POST BY POST ID   ----------------------------------
-export const loadAllLikes = (post_id) => async dispatch => {
-    const response = await csrfFetch('/api/posts/post_id/likes/')
+export const loadPostLikes = (postId) => async dispatch => {
+    const response = await csrfFetch(`/api/posts/${postId}/likes/`)
     if (response.ok) {
         const likesList = await response.json();
         console.log("this is likes list IN THUNK", likesList)

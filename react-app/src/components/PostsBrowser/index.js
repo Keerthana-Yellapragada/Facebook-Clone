@@ -9,7 +9,7 @@ import './PostsBrowser.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
-import { createNewLike, loadAllLikes } from '../../store/likes';
+import { createNewLike, loadPostLikes, loadAllLikes } from '../../store/likes';
 // import NotFoundImage from './NotFoundImage'
 
 const PostsBrowser = () => {
@@ -18,6 +18,7 @@ const PostsBrowser = () => {
     useEffect(() => {
         dispatch(loadAllPosts());
         dispatch(loadAllComments())
+        dispatch(loadAllLikes())
 
     }, [dispatch])
 
@@ -144,7 +145,7 @@ const PostsBrowser = () => {
                                 </div>
 
                                 <div>
-                                    <div>{post.likes.length} likes </div>
+
                                     <button className='like-post-button'
                                             onClick={() => {
 
@@ -155,10 +156,11 @@ const PostsBrowser = () => {
                                                 post_love: false
                                             }
 
-                                            likePost = dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes(postId))).then(() => history.push("/"))
+                                            likePost = dispatch(createNewLike(likePayload)).then(() => dispatch(loadPostLikes(post.id))).then(() => history.push("/"))
 
 
                                     }}>Like</button>
+                                    <div>{post.likes.length} likes </div>
                                 </div>
 
 

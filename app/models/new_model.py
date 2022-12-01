@@ -116,9 +116,9 @@ class Like(db.Model):
             'post_id': self.post_id,
             'comment_id': self.comment_id ,
             'post_like':self.post_like,
-            'post_love':self.post_love
-            # ,'user': self.user.to_dict()
+            'post_love':self.post_love,
+            'user': self.user.to_dict()
         }
 
     def __repr__(self):
-        return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.like}, love={self.love},user={self.user}>'
+        return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.post_like}, love={self.post_love},user={self.user}>'
