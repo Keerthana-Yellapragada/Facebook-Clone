@@ -72,6 +72,7 @@ const PostsBrowser = () => {
     let currentPostLikes;
     let currentLike;
     let userLike;
+//    let likedButton;
 
     async function handleCreateLike(postId) {
 
@@ -81,14 +82,14 @@ const PostsBrowser = () => {
                 post_like: true,
                 post_love: false
             }
-            setVisible(true)
+            // likedButton=true
             createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
 
     }
 
     async function handleRemoveLike(likeId) {
         if (likeId){
-            setVisible(false)
+            // likedButton=false
             deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
 }
     }
@@ -168,8 +169,7 @@ const PostsBrowser = () => {
                                         </div>
                                         <div>
 
-
-                                            <button className={visible? 'like-post-button' : 'unliked-post-button'}
+                                            <button className='liked-post-button'
                                                 onClick={()=>{
 
                                                     currentPostLikes=allLikes.filter(like => like.post_id === post.id)
