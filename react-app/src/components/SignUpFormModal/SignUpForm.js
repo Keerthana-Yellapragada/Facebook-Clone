@@ -62,10 +62,6 @@ function SignUpForm() {
 
 
   }
-  // if (sessionUser){
-  //   console.log("session user create", sessionUser)
-  //   history.push("/")
-  // }
 
 
   return (

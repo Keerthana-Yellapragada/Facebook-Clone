@@ -148,7 +148,7 @@
 
 }
 
-.like-post-button{
+.unliked-post-button{
     background-color: inherit;
     color:rgb(4, 70, 142);
     border: 1px solid rgb(4, 70, 142);
@@ -159,9 +159,27 @@
     border-radius: 7px;
     margin: 4px 0px 8px 1px;
 }
-.like-post-button:hover{
-    background-color: rgb(216, 252, 255);
+.unliked-post-button:hover{
+    background-color: rgb(48, 136, 212);
     cursor: pointer;
+}
+
+.like-post-button:hover {
+    background-color: rgb(48, 136, 212);
+    cursor: pointer;
+}
+
+.like-post-button{
+     background-color:  rgb(36, 121, 218);
+     color:white;
+     border: 1px solid rgb(4, 70, 142);
+     padding: 4px;
+     font-size: 15px;
+     font-weight: bold;
+     width:auto;
+     border-radius: 7px;
+     margin: 4px 0px 8px 1px;
+
 }
 
 .post-likes-number{

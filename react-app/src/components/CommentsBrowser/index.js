@@ -23,22 +23,22 @@ const CommentsBrowser = ({ postId }) => {
   }, [dispatch]);
 
   const allPosts = useSelector((state) => Object.values(state.posts));
-  console.log("ALLPOSTS", allPosts);
+  // console.log("ALLPOSTS", allPosts);
 
   const currentPost = allPosts.filter((post) => post.id === postId);
-  console.log("currentPOSTS", currentPost);
+  // console.log("currentPOSTS", currentPost);
   let user = useSelector((state) => state.session.user);
   // console.log("user", user)
   let userPosts = allPosts?.filter((post) => post.user_id === user?.id);
-  console.log("USERPOSTS", userPosts);
+  // console.log("USERPOSTS", userPosts);
 
   let allComments = useSelector((state) => Object.values(state.comments));
-  console.log("ALLCOMMENTs", allComments);
+  // console.log("ALLCOMMENTs", allComments);
 
   let filteredComments = allComments.filter(
     (comment) => comment.post_id === postId
   );
-  console.log("filtered comments", filteredComments);
+  // console.log("filtered comments", filteredComments);
 
   if (!allPosts) {
     return null;
@@ -59,7 +59,7 @@ const CommentsBrowser = ({ postId }) => {
     return null;
   }
 
-  console.log("THIS IS USER INFO", user);
+  // console.log("THIS IS USER INFO", user);
 
   const deleteHandler = async (commentId) => {
     const payload = {

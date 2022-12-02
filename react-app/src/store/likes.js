@@ -59,7 +59,7 @@ export const loadAllLikes = () => async dispatch => {
     const response = await csrfFetch(`/api/likes/`)
     if (response.ok) {
         const likesList = await response.json();
-        console.log("this is likes list IN THUNK", likesList)
+
         dispatch(getLikes(likesList))
     }
 }
@@ -69,7 +69,7 @@ export const loadPostLikes = (postId) => async dispatch => {
     const response = await csrfFetch(`/api/posts/${postId}/likes/`)
     if (response.ok) {
         const likesList = await response.json();
-        console.log("this is likes list IN THUNK", likesList)
+
         dispatch(getLikes(likesList))
     }
 }
@@ -97,8 +97,7 @@ export const loadOnelike = (likeId) => async dispatch => {
 // -------------------------  CREATE A like   ----------------------------------
 
 export const createNewLike = (payload) => async dispatch => {
-    console.log("did this reach create like thunk?")
-    console.log("this is the new like payload in thunk", payload)
+
     const response = await csrfFetch(`api/posts/${payload.post_id}/likes/new/`, {
         method: 'POST',
         headers: {
@@ -106,11 +105,11 @@ export const createNewLike = (payload) => async dispatch => {
         },
         body: JSON.stringify(payload)
     })
-    console.log("did it reach here? after thunk create like response?")
+
 
     if (response.ok) {
         let like = await response.json()
-        console.log("this is the like if response.ok", like)
+
         dispatch(createLike(like))
         return like
     }
@@ -121,8 +120,6 @@ export const createNewLike = (payload) => async dispatch => {
 // -------------------------  EDIT A like    ----------------------------------
 
 export const updateLike = (editlikeInfo) => async dispatch => {
-    console.log("did this reach edit like thunk?")
-    console.log("this is the edit like payload in thunk", editlikeInfo)
 
     const response = await csrfFetch(`/api/likes/${editlikeInfo.id}/`, {
         method: 'PUT',
@@ -134,7 +131,7 @@ export const updateLike = (editlikeInfo) => async dispatch => {
 
 
     if (response.ok) {
-        console.log("did it reach here? after thunk edit like response?")
+
         const editedlike = await response.json();
         dispatch(editLike(editedlike))
         return editedlike
@@ -145,8 +142,7 @@ export const updateLike = (editlikeInfo) => async dispatch => {
 
 // -------------------------  DELETE A like  --------------------------------
 export const removeLike = (likeId) => async dispatch => {
-    console.log("DID THIS REACH DELETE LIKE THUNK")
-    console.log("PAYLOAD ID FOR DELTE LIKE", likeId)
+
     const response = await csrfFetch(`/api/likes/${likeId}/`, {
         method: 'DELETE',
         headers: {
