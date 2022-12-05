@@ -49,16 +49,22 @@ WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a 
 
 
 # Homepage:
-
-### A logged in user can view their homepage which contains posts created by them and their friends. They can then create psots, leave comments on posts created by them and others, and edit/delete their own posts and comments.
+## Posts & Comments:
+### A logged in user can view their homepage which contains posts created by them and their friends. They can then create posts, leave comments on posts created by them and others, and edit/delete their own posts and comments.
 
 ![Screen Shot 2022-11-29 at 8 17 14 AM](https://user-images.githubusercontent.com/85444662/204585236-131a1029-0004-42cb-a962-6c6f2ac13ccc.png)
 
 ![Screen Shot 2022-11-29 at 8 16 55 AM](https://user-images.githubusercontent.com/85444662/204585259-54d7ebcd-9bcf-4e82-8ad7-0a9a0fd192ec.png)
 
 ![Screen Shot 2022-11-29 at 8 24 23 AM](https://user-images.githubusercontent.com/85444662/204585490-30b2c5ba-6e63-49f4-a069-1e109e63ca79.png)
+<img width="1356" alt="Screen Shot 2022-12-04 at 4 56 08 PM" src="https://user-images.githubusercontent.com/85444662/205533027-535a62dc-f670-4c6a-b6a1-1f2a4347c4ac.png">
+<img width="1253" alt="Screen Shot 2022-12-04 at 4 56 15 PM" src="https://user-images.githubusercontent.com/85444662/205533035-603deb9a-3cd0-4cfa-aae5-3c35ffb021bf.png">
+<img width="750" alt="Screen Shot 2022-12-04 at 4 56 22 PM" src="https://user-images.githubusercontent.com/85444662/205533038-afaa3e57-dd44-4bc0-b841-8689ebfc8250.png">
+<img width="1278" alt="Screen Shot 2022-12-04 at 4 56 40 PM" src="https://user-images.githubusercontent.com/85444662/205533040-cedd8157-fa57-4b13-abdd-b2c2b5d37027.png">
+<img width="1290" alt="Screen Shot 2022-12-04 at 4 56 47 PM" src="https://user-images.githubusercontent.com/85444662/205533043-b0d53dfa-c2c2-47f7-b26a-f0eb3151b6ed.png">
 
 <br>
+
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
