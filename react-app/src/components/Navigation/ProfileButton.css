@@ -59,7 +59,7 @@
     /* color: white; */
     border: none;
     cursor: pointer;
-    /* padding: 5px; */
+    padding: 5px;
     width: 125px;
     border-radius: 0px;
 }
@@ -123,4 +123,25 @@
     /* padding: 5px; */
     width: 125px;
     border-radius: 0px;
+}
+
+.profile-page{
+
+       /* color: white; */
+       border: none;
+       cursor: pointer;
+       /* padding: 5px; */
+       width: 125px;
+       border-radius: 0px;
+       margin-left: 5px;
+}
+
+.profile-page:hover{
+   background-color: rgb(224, 225, 226);
+   /* color: white; */
+   border: none;
+   cursor: pointer;
+   /* padding: 5px; */
+   width: 125px;
+   border-radius: 0px;
 }

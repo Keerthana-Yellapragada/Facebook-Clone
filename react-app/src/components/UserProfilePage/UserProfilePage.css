@@ -1,0 +1,26 @@
+.user-profile-page-flex-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 2px soild grey */
+}
+
+.left-user-info-flex-container{
+    border: 1px solid rgb(218, 214, 214);
+    box-shadow: 0 0 4px 1.5px rgb(129 161 226);
+    margin: 70px 15px;
+    padding: 15px;
+    width: 20%;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.right-user-friends-container{
+    border: 1px solid rgb(218, 214, 214);
+    box-shadow: 0 0 4px 1.5px rgb(129 161 226);
+     margin: 70px 15px;
+     padding: 15px;
+     width: 20%;
+     background-color: white;
+     border-radius: 7px;
+}
