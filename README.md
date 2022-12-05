@@ -1,7 +1,7 @@
 <br>
 
 # About
-WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a platform that provides patients with a community to connect with others and find support.
+WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a platform that provides patients with a community to connect with others and find support. Users can leave posts, comment on posts, and interact to share their experiences, knowledge, and reach out for support in this online community.
 
 
 ### Live link: [**https://wellnesspage.onrender.com**](https://wellnesspage.onrender.com)
@@ -37,33 +37,51 @@ WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a 
 
 <br>
 
-# Sample Features:
+# Current Features:
+### Posts
+### Comments
+
+
 ### 🚧🚧 This section is still under construction 🚧🚧
+# Coming soon! :
+### Likes
+### Friends
+### Search Bar
+### Live Chat
 
 # Landing Page:
 ### Users can sign up to be new users by providing the required information or log-in as a demo user to view the website.
 
 ![Screen Shot 2022-11-29 at 8 17 37 AM](https://user-images.githubusercontent.com/85444662/204586698-6f6aaeb5-4e5d-494f-af91-03259226156d.png)
 
+# Signing Up:
+### Users can sign up for a new account by providing the requested information.
+
 ![Screen Shot 2022-11-29 at 8 17 44 AM](https://user-images.githubusercontent.com/85444662/204586723-3eb2a38c-ad10-4ec1-ba0d-db75c72528fd.png)
 
 
 # Homepage:
+
 ## Posts & Comments:
-### A logged in user can view their homepage which contains posts created by them and their friends. They can then create posts, leave comments on posts created by them and others, and edit/delete their own posts and comments.
+
+### A logged in user can view their homepage which contains posts with comments created by them and their friends. They can then create posts, leave comments on posts created by them and others, and edit/delete their own posts and comments.
 
 <img width="1356" alt="Screen Shot 2022-12-04 at 4 56 08 PM" src="https://user-images.githubusercontent.com/85444662/205533027-535a62dc-f670-4c6a-b6a1-1f2a4347c4ac.png">
 
 # Leave A Post
+### Users can leave a post by providing information and an optional URL of a valid format.
 <img width="1253" alt="Screen Shot 2022-12-04 at 4 56 15 PM" src="https://user-images.githubusercontent.com/85444662/205533035-603deb9a-3cd0-4cfa-aae5-3c35ffb021bf.png">
 
 # Leave A Comment:
+### Users can leave comments on posts writteh by others and themselves throughout the website. They can do so by entering the information they wish to within the "Leave A Comment" box.
 <img width="750" alt="Screen Shot 2022-12-04 at 4 56 22 PM" src="https://user-images.githubusercontent.com/85444662/205533038-afaa3e57-dd44-4bc0-b841-8689ebfc8250.png">
 
 # Edit A Post:
+### Users can edit posts written by them anywhere on the website.
 <img width="1278" alt="Screen Shot 2022-12-04 at 4 56 40 PM" src="https://user-images.githubusercontent.com/85444662/205533040-cedd8157-fa57-4b13-abdd-b2c2b5d37027.png">
 
 # Edit A Comment:
+### Users can edit comments written by them anywhere on the website.
 <img width="1290" alt="Screen Shot 2022-12-04 at 4 56 47 PM" src="https://user-images.githubusercontent.com/85444662/205533043-b0d53dfa-c2c2-47f7-b26a-f0eb3151b6ed.png">
 
 <br>
@@ -71,6 +89,7 @@ WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a 
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
+### 🚧🚧 This section is still under construction 🚧🚧
 
 - [x] Posts
     - [x] Load all posts
@@ -95,7 +114,9 @@ WellnessPage is a fullstack application inspired by Facebook. WellnessPage is a 
 - [x] Search Bar
     - [x] Create a search query
     - [x] List search results
-
+- [x] Live Chat
+    - [x] Send messages to friends
+    - [x] Recieve messages from friends
 -------------------------------------------------------------------
 
 
