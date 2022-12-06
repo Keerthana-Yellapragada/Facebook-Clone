@@ -112,13 +112,18 @@ async function handleRemoveLike(likeId) {
     </div>
     <div className='user-profile-page-flex-container'>
         <div className='left-user-info-flex-container'>
-            <div>USER INFO:</div>
-            <div>INSERT PROFILE PIC HERE</div>
+            <div className='user-info-main-container'>
+            {/* <div>USER INFO</div> */}
+            {/* <div>INSERT PROFILE PIC HERE</div> */}
             <div>{user.first_name} {user.last_name}</div>
             <div>{user.email}</div>
-
+            </div>
              <div className='right-user-friends-container'>
-                     FRIENDS - COMING SOON!
+                     <div> <div>
+                    </div>Upcoming Features!</div>
+                     <div>~ Friends</div>
+                     <div>~ Live Chat</div>
+                     <div>~ Search</div>
             </div>
         </div>
         <div className='center-user-posts-browser-container'>
