@@ -54,7 +54,7 @@ const deleteHandler = async (postId) => {
         id: postId
     }
     let deletedPost;
-    deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push("/"))
+    deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`users/${user.id}`))
 }
 
 
@@ -81,14 +81,14 @@ async function handleCreateLike(postId) {
         post_love: false
     }
     // likedButton=true
-    createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
+    createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${user.id}`))
 
 }
 
 async function handleRemoveLike(likeId) {
     if (likeId) {
         // likedButton=false
-        deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
+        deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${user.id}`))
     }
 }
 
