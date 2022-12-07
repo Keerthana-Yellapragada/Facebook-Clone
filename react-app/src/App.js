@@ -14,7 +14,7 @@ import EditPostForm from './components/EditPostForm';
 import LandingPage from './components/LandingPage'
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
-
+import UserProfilePage from './components/UserProfilePage';
 
 
 function App() {
@@ -43,16 +43,21 @@ function App() {
         <Route path='/homepage' exact={true}>
           <HomePage />
         </Route>
+
+        <Route path='/users/:userId' exact={true}>
+          <UserProfilePage />
+        </Route>
         <Route>
           404 Not Found
         </Route>
-
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
+
+        {/* <ProtectedRoute path='/users/profile/:userId exact= {true}'>
+          <UserProfilePage />
+        </ProtectedRoute> */}
+
       </Switch>
       <Footer />
     </BrowserRouter>

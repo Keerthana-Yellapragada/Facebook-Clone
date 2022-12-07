@@ -19,7 +19,7 @@ const LoginForm = () => {
 
 const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-console.log("showsignupmodal", showSignUpModal)
+// console.log("showsignupmodal", showSignUpModal)
 
   const onLogin = async (e) => {
     // e.preventDefault();

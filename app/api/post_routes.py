@@ -180,8 +180,8 @@ def create_like(post_id):
         like = Like(
                         user_id=current_user.id,
                         post_id=current_post_id,
-                        post_like=data["like"],
-                        post_love=data["love"]
+                        post_like=data["post_like"],
+                        post_love=data["post_love"]
         )
 
 
@@ -193,8 +193,14 @@ def create_like(post_id):
     return {"Error": "Validation Error"}, 401
 # # ************************************ GET ALL LIKES OF A POST BY POST ID ***********************************************
 
-# @post_routes.route('/<int:post_id>/likes/', methods=["GET"])
+@post_routes.route('/<int:post_id>/likes/', methods=["GET"])
 # @login_required
-# def get_likes():
-#     likes = Like.query.all()
-#     return {'Likes': [likes.to_dict() for like in likes]}
+def get_likes(post_id):
+
+    likes = Like.query.all()
+
+    filtered = filter(lambda like: (like.post_id == post_id), likes)
+    post_likes = (list(filtered))
+    print("POSTLIKES", post_likes)
+    print("FILTERED LIKES", filtered)
+    return {'Likes': [like.to_dict() for like in post_likes]}

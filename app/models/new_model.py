@@ -50,7 +50,8 @@ class Post(db.Model):
             'post_content': self.post_content,
             'image_url': self.image_url,
             # 'created_at': self.created_at,
-            'user': self.user.to_dict() if self.user else None
+            'user': self.user.to_dict() if self.user else None,
+            'likes': [like.to_dict() for like in self.likes]  if self.likes else None
             # 'comments' : [comment.to_dict() for comment in self.comments] if self.comments else None
 
         }
@@ -115,9 +116,9 @@ class Like(db.Model):
             'post_id': self.post_id,
             'comment_id': self.comment_id ,
             'post_like':self.post_like,
-            'post_love':self.post_love
-            # ,'user': self.user.to_dict()
+            'post_love':self.post_love,
+            'user': self.user.to_dict()
         }
 
     def __repr__(self):
-        return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.like}, love={self.love},user={self.user}>'
+        return f'<Likes, id={self.id}, user_id={self.user_id}, post_id={self.post_id},comment_id={self.comment_id}, like={self.post_like}, love={self.post_love},user={self.user}>'

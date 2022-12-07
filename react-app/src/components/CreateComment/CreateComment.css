@@ -20,7 +20,7 @@
     /* border: 2px solid plum; */
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     /* border: 1px solid rgb(203, 200, 200); */
     /* border:1px solid grey; */
@@ -51,7 +51,7 @@
 }
 
 .comment-form-inputs.comment-content-input {
-    width: 240px;
+    width: 350px;
     height:auto;
     margin: 10px;
     border-radius: 20px;
@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin: 0px 16px 0px 0px;
+    margin: 0px 18px 0px 0px;
 }
 
 
@@ -95,5 +95,5 @@
     border: 1px solid grey;
     border-radius: 7px;
     padding: 5px;
-    margin: 2px;
+    margin: 20px 2px;
 }
