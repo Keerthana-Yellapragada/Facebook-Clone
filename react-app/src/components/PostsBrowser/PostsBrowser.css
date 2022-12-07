@@ -31,7 +31,7 @@
 
 .post-card-content-container{
     /* border: 2px solid lightpink; */
-    padding: 15px;
+    padding: 25px 5px;
     background-color: white;
     border-radius: 7px;
     max-width: 100%;
@@ -67,6 +67,8 @@
 .post-pic{
     width: 100%;
      background-color: white;
+     border-radius: 7px;
+     padding: 5px;
 }
 
 .post-user-info-header-container{
@@ -109,7 +111,7 @@
     margin: 15px;
     padding: 15px;
     background-color: white;
-    width: 450px;
+    width: 550px;
 }
 
 
@@ -144,4 +146,44 @@
     justify-content: flex-end;
     margin-left: 5px;
 
+}
+/*
+.unliked-post-button{
+    background-color: white;
+    color:rgb(4, 70, 142);
+    border: 1px solid rgb(4, 70, 142);
+    padding: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    width:auto;
+    border-radius: 7px;
+    margin: 4px 0px 8px 1px;
+}
+.unliked-post-button:hover{
+    background-color: rgb(48, 136, 212);
+    cursor: pointer;
+} */
+
+.liked-post-button:hover {
+    background-color: rgb(48, 136, 212);
+    cursor: pointer;
+}
+
+.liked-post-button{
+     background-color:  rgb(35, 120, 218);
+     color:white;
+     border: 1px solid rgb(4, 70, 142);
+     padding: 4px;
+     font-size: 15px;
+     font-weight: bold;
+     width:auto;
+     border-radius: 7px;
+     margin: 4px 0px 8px 1px;
+
+}
+
+.post-likes-number{
+    color:grey;
+    font-weight:bold;
+    margin: 2px;
 }

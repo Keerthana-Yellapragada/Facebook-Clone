@@ -27,11 +27,6 @@ function NavBar({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        {/* <div className= "logged-out-profile-container">
-      <div className= "profile-button">
-      <ProfileButton/>
-      </div>
-      </div> */}
       </>
     );
   }

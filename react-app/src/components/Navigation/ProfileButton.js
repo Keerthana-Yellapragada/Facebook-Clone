@@ -32,6 +32,7 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -60,6 +61,9 @@ function ProfileButton({ user }) {
 
             <div>
               <div className="log-out" onClick={logout}>Log Out</div>
+            </div>
+            <div>
+              <div className="profile-page" onClick={()=>history.push(`users/${user.id}`)}> Profile</div>
             </div>
           </div>
         )}

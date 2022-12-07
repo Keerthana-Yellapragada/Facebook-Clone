@@ -22,6 +22,9 @@
 
     font-size: 14px;
     font-weight: bold;
+    display: flex;
+    align-self: flex-start;
+    margin-top:4px;
 
 }
 
@@ -32,8 +35,11 @@
     border: none;
     border-radius: 35px;
     padding: 10px 50px;
-    max-width:150px;
+    max-width:200px;
+    min-width: 200px;
     word-wrap:break-word;
+    text-align:justify
+
     /* max-height: 300px; */
 
 
@@ -75,4 +81,18 @@
     font-weight:bold;
     justify-content: flex-end;
     padding: 10px 20px;
+}
+
+.comment-card-user-pic {
+border-radius: 50%;
+width: 30px;
+margin-right: 5px;
+height:30px;
+}
+
+.comment-card-header-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }

@@ -62,7 +62,7 @@ export const loadAllPosts = () => async dispatch => {
     const response = await csrfFetch('/api/posts/')
     if (response.ok) {
         const postsList = await response.json();
-        console.log("this is posts list IN THUNK", postsList)
+
         dispatch(getAllPosts(postsList))
     }
 }
@@ -74,14 +74,10 @@ export const loadAllPosts = () => async dispatch => {
 
 export const loadOnePost = (postId) => async dispatch => {
     const response = await csrfFetch(`/api/posts/${postId}/`);
-    // console.log("DID TI REACH GET ONE post THUNK")
-
-
-
 
     if (response.ok) {
         const postInfo = await response.json();
-        //  console.log("post INFO IN THUNK", postInfo)
+
         dispatch(getOnePost(postInfo))
     }
 }
@@ -92,8 +88,7 @@ export const loadOnePost = (postId) => async dispatch => {
 // -------------------------  CREATE A POST   ----------------------------------
 
 export const createNewPost = (payload) => async dispatch => {
-    console.log("did this reach create post thunk?")
-    console.log("this is the new post payload in thunk", payload)
+
     const response = await csrfFetch('/api/posts/new/', {
         method: 'POST',
         headers: {
@@ -101,11 +96,11 @@ export const createNewPost = (payload) => async dispatch => {
         },
         body: JSON.stringify(payload)
     })
-     console.log("did it reach here? after thunk create post response?")
+
 
     if (response.ok) {
         let post = await response.json()
-        console.log("this is the post if response.ok", post)
+
         dispatch(createPost(post))
         return post
     }
@@ -116,8 +111,6 @@ export const createNewPost = (payload) => async dispatch => {
 // -------------------------  EDIT A POST    ----------------------------------
 
 export const editPost = (editpostInfo) => async dispatch => {
-    console.log("did this reach edit post thunk?")
-    console.log("this is the edit post payload in thunk", editpostInfo)
 
     const response = await csrfFetch(`/api/posts/${editpostInfo.id}/`, {
         method: 'PUT',
@@ -130,7 +123,7 @@ export const editPost = (editpostInfo) => async dispatch => {
 
 
     if (response.ok) {
-        console.log("did it reach here? after thunk edit post response?")
+
         const editedpost = await response.json();
         dispatch(updatePost(editedpost))
         return editedpost

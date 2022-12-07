@@ -58,10 +58,10 @@ const removeComment = commentId => ({
 // -------------------------  LOAD ALL COMMENTS   ----------------------------------
 export const loadAllComments = () => async dispatch => {
     const response = await csrfFetch('/api/comments/')
-    console.log("DID THIS REACH COMMENTS LOAD ALL THUNK")
+    // console.log("DID THIS REACH COMMENTS LOAD ALL THUNK")
     if (response.ok) {
         const commentsList = await response.json();
-        console.log("this is comments list IN THUNK", commentsList)
+        // console.log("this is comments list IN THUNK", commentsList)
         dispatch(getAllComments(commentsList))
     }
 }
@@ -91,9 +91,6 @@ export const loadOneComment = (commentId) => async dispatch => {
 // -------------------------  CREATE A COMMENT   ----------------------------------
 
 export const createNewComment = (payload) => async dispatch => {
-    console.log("did this reach create comment thunk?")
-    console.log("this is the new comment payload in thunk", payload)
-    console.log("THIS IS COMMENT CREATE PAYLOADID", payload.post_id)
 
     const response = await csrfFetch(`/api/posts/${payload.post_id}/comments/new/`, {
         method: 'POST',
@@ -103,11 +100,10 @@ export const createNewComment = (payload) => async dispatch => {
         body: JSON.stringify(payload)
     })
 
-    console.log("did it reach here? after thunk create comment response?")
 
     if (response.ok) {
         let comment = await response.json()
-        console.log("this is the comment if response.ok", comment)
+
         dispatch(createComment(comment))
         return comment
     }
@@ -118,8 +114,6 @@ export const createNewComment = (payload) => async dispatch => {
 // -------------------------  EDIT A COMMENT    ----------------------------------
 
 export const editComment = (editcommentInfo) => async dispatch => {
-    console.log("did this reach edit comment thunk?")
-    console.log("this is the edit comment payload in thunk", editcommentInfo)
 
     const response = await csrfFetch(`/api/comments/${editcommentInfo.id}/`, {
         method: 'PUT',
@@ -132,7 +126,7 @@ export const editComment = (editcommentInfo) => async dispatch => {
 
 
     if (response.ok) {
-        console.log("did it reach here? after thunk edit comment response?")
+
         const editedcomment = await response.json();
         dispatch(updateComment(editedcomment))
         return editedcomment
