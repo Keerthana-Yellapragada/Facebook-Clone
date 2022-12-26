@@ -106,7 +106,6 @@ export const createNewLike = (payload) => async dispatch => {
         body: JSON.stringify(payload)
     })
 
-
     if (response.ok) {
         let like = await response.json()
 
