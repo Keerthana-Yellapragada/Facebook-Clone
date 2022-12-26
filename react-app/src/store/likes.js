@@ -97,7 +97,7 @@ export const loadOnelike = (likeId) => async dispatch => {
 // -------------------------  CREATE A like   ----------------------------------
 
 export const createNewLike = (payload) => async dispatch => {
-
+console.log("PAYLOAD POSTID", payload.post_id)
     const response = await csrfFetch(`api/posts/${payload.post_id}/likes/new/`, {
         method: 'POST',
         headers: {
@@ -108,7 +108,7 @@ export const createNewLike = (payload) => async dispatch => {
 
     if (response.ok) {
         let like = await response.json()
-
+        console.log("DID IT REACH HERE")
         dispatch(createLike(like))
         return like
     }
