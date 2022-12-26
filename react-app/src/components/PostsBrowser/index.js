@@ -167,7 +167,7 @@ const PostsBrowser = () => {
                                             <div className='post-likes-number'>{post?.likes?.length ? post.likes.length : 0} likes </div>
                                             {/* <div className='post-comments-number'>{post.comments.length? post.comments.length : 0} comments </div> */}
                                         </div>
-                                        <div>
+                                        <div className='like-button-container'>
 
                                             <button className='liked-post-button'
                                                 onClick={()=>{
