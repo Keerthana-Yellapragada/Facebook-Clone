@@ -24,17 +24,17 @@ const UserProfilePage = () => {
 
 
  const allPosts = useSelector(state => Object.values(state.posts))
- // console.log("ALLPOSTS", allPosts)
+
  let user = useSelector(state => state.session.user)
- // console.log("user", user)
+
  let userPosts = allPosts?.filter(post => post.user_id === user?.id)
- // console.log("USERPOSTS", userPosts)
+
 
  const allLikes = useSelector(state => Object.values(state.likes))
- // console.log("ALLLIKES", allLikes)
+
 
  const [visible, setVisible] = useState(false);
- // console.log("VISIBLE IS", visible)
+
 
  if (!allLikes) {
      return null

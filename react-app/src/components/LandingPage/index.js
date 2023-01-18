@@ -17,8 +17,6 @@ function LandingPage(){
 
  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-    // console.log("showsignupmodal", showSignUpModal)
-
     return (
     <>
     <div className='landing-page-container'>
