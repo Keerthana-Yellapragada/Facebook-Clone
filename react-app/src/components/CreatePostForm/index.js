@@ -140,7 +140,7 @@ const NewPostForm = () => {
             />
 
 
-            < UploadPicture / >
+            < UploadPicture />
 
           </div>
           <div className="button-container">
