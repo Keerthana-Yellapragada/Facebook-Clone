@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { createNewPost, loadAllPosts } from "../../store/posts"
 import './CreatePostForm.css'
+import UploadPicture from "../Images/UploadImages";
 
 const NewPostForm = () => {
   const dispatch = useDispatch()
@@ -125,6 +126,8 @@ const NewPostForm = () => {
 
               /> */}
 
+
+
             <input
               type="url"
               className="form-inputs"
@@ -137,11 +140,7 @@ const NewPostForm = () => {
             />
 
 
-            {/* <label for="upload-picture-button">
-                Choose A Photo
-                <i class="fas fa-upload"></i>
-               </label> */}
-
+            < UploadPicture / >
 
           </div>
           <div className="button-container">
