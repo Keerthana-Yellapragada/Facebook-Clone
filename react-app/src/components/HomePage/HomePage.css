@@ -1,28 +1,29 @@
-.homepage-container{
-    display:flex;
+.homepage-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-between
 }
 
-.homepage-left-container{
-background-color:white;
-width: 25%;
-margin: 2%;
-padding: 10px;
-box-shadow:0 0 2px 0.75px rgb(129 161 226);
-border-radius: 14px;
+.homepage-left-container {
+    background-color: white;
+    width: 25%;
+    margin: 2%;
+    padding: 10px;
+    box-shadow: 0 0 2px 0.75px rgb(129 161 226);
+    border-radius: 14px;
 
 }
-.homepage-right-container{
-background-color:white;
-width: 25%;
-margin: 2%;
-padding: 10px;
-box-shadow:0 0 2px 0.75px rgb(129 161 226);
-border-radius: 14px;
+
+.homepage-right-container {
+    background-color: white;
+    width: 25%;
+    margin: 2%;
+    padding: 10px;
+    box-shadow: 0 0 2px 0.75px rgb(129 161 226);
+    border-radius: 14px;
 }
 
-.homepage-center-container{
+.homepage-center-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,48 +34,76 @@ border-radius: 14px;
 
 
 
-.new-post-form-component-container{
+.new-post-form-component-container {
     display: flex;
     justify-content: center;
-    align-self:center;
-    padding:10px;
+    align-self: center;
+    padding: 10px;
 
 }
 
-.posts-browser-component-container{
+.posts-browser-component-container {
     display: flex;
     justify-content: center;
-    align-self:center;
+    align-self: center;
 }
 
-.create-post-modal-click-input{
+.create-post-modal-click-input {
     background-color: rgb(239, 234, 234);
     border-radius: 20px;
     display: flex;
     align-self: center;
     padding: 8px 50px;
-    color:rgb(94, 91, 91);
+    color: rgb(94, 91, 91);
     width: 300px;
 
 }
 
-.create-post-click-container{
+.create-post-click-container {
 
-  /* border: 1px solid grey; */
-  border-radius: 7px;
-  padding: 10px;
-  display:flex;
-  flex-direction: row;
-  width: 460px;
-  box-shadow:0 0 4px 1.5px rgb(129 161 226);
+    /* border: 1px solid grey; */
+    border-radius: 7px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 460px;
+    box-shadow: 0 0 4px 1.5px rgb(129 161 226);
 
-  }
+}
 
-.create-post-modal-click-post-user-profile-pic{
- width: 45px;
- height:45px;
- border-radius: 50%;
- box-shadow:0 0 4px 1.5px rgb(192, 192, 192);
- display: flex;
- margin: 5px 10px;
-  }
+.create-post-modal-click-post-user-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px 1.5px rgb(192, 192, 192);
+    display: flex;
+    margin: 5px 10px;
+}
+
+
+.author-bio-info-links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center
+}
+
+
+
+
+.fa-linkedin
+{
+color:rgb(59, 137, 220);
+margin: 100px;
+}
+
+.fa-square-github{
+    color:black;
+    margin: 100px;
+}
+
+.AppAcademyLogo{
+    margin: 100px;
+    width: 40%
+}

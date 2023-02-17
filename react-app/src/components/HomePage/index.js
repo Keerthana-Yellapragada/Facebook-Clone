@@ -9,6 +9,7 @@ import NewPostForm from "../CreatePostForm";
 import './HomePage.css'
 import NewPostFormModal from "../CreatePostForm/CreatePostModal";
 
+
 function HomePage(){
     const dispatch = useDispatch()
     const history = useHistory()
@@ -35,10 +36,33 @@ function HomePage(){
         <div className="homepage-container">
             <div className="homepage-left-container">
 
-            < a href = "https://www.linkedin.com/in/keerthana-yellapragada/"
-            target = "_blank" ><i class="fa-brands fa-linkedin"></i> </a>
-            < a href = "https://github.com/Keerthana-Yellapragada" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+        <div className="author-bio-info-links-container">
+
+        <img className = "AppAcademyLogo" src = "https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
+        alt = "AppAcademyLogo" >
+            </img>
+
+
+            < a
+            href = "https://www.linkedin.com/in/keerthana-yellapragada/"
+            target = "_blank" >
+                <div className = "author-bio-info-links">
+                    <i class="fa-brands fa-linkedin fa-5x"></i>
+                </div>
+
+            </a>
+
+
+
+            <a  href = "https://github.com/Keerthana-Yellapragada" target="_blank">
+                < div className = "author-bio-info-links" >
+                    <i class="fa-brands fa-square-github fa-5x"></i >
+                </div>
+
+            </a>
+
             </div>
+        </div>
 
 
             <div className="homepage-center-container">
