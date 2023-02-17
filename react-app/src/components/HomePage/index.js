@@ -37,10 +37,11 @@ function HomePage(){
             <div className="homepage-left-container">
 
         <div className="author-bio-info-links-container">
+            <h2>Connect with the Author!</h2>
 
         <img className = "AppAcademyLogo" src = "https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
         alt = "AppAcademyLogo" >
-            </img>
+         </img>
 
 
             < a
