@@ -20,6 +20,7 @@
     margin-bottom: 78px;
     padding: 15px;
     width: 60%;
+    height:auto;
     background-color: white;
     border-radius: 7px;
 }
@@ -69,6 +70,7 @@
     border-bottom: 1px solid grey;
     height: 100px;
     padding-bottom: 100px;
+    border-radius: 14px;
 }
 
 .profile-header-user-name {

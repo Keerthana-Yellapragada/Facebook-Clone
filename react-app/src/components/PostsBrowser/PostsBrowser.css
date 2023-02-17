@@ -4,20 +4,16 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    /* border: 2px solid blue; */
-    /* background-color: white; */
 
 }
 
 .posts-browser-cards-container{
-    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-content: center;
     align-items: center;
     padding: 10%;
-      /* background-color: white; */
     border-radius: 7px;
 
 
@@ -30,7 +26,7 @@
 }
 
 .post-card-content-container{
-    /* border: 2px solid lightpink; */
+
     padding: 25px 5px;
     background-color: white;
     border-radius: 7px;
@@ -40,7 +36,6 @@
 }
 
 .post-card-image-container{
-    /* border: 2px solid greenyellow; */
     background-color: white;
     border-radius: 7px;
     width: 100%
@@ -106,7 +101,7 @@
 
 .post-card-container{
 
-    box-shadow:0 0 4px 1.5px rgb(129, 161, 226);
+    box-shadow:0 0 4px 0.75px rgb(129, 161, 226);
     border-radius: 7px;
     margin: 15px;
     padding: 15px;

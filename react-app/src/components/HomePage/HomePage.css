@@ -1,4 +1,28 @@
 .homepage-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.homepage-left-container{
+background-color:white;
+width: 25%;
+margin: 2%;
+padding: 10px;
+box-shadow:0 0 2px 0.75px rgb(129 161 226);
+border-radius: 14px;
+
+}
+.homepage-right-container{
+background-color:white;
+width: 25%;
+margin: 2%;
+padding: 10px;
+box-shadow:0 0 2px 0.75px rgb(129 161 226);
+border-radius: 14px;
+}
+
+.homepage-center-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +37,6 @@
     display: flex;
     justify-content: center;
     align-self:center;
-    /* margin-bottom: 25px; */
     padding:10px;
 
 }
@@ -25,16 +48,12 @@
 }
 
 .create-post-modal-click-input{
-    /* border: 1px solid grey; */
     background-color: rgb(239, 234, 234);
     border-radius: 20px;
     display: flex;
     align-self: center;
     padding: 8px 50px;
-    /* margin: 10px;
-    font-weight: bold; */
     color:rgb(94, 91, 91);
-    /* text-align:center; */
     width: 300px;
 
 }
