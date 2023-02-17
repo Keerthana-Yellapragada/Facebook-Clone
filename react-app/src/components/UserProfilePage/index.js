@@ -97,10 +97,10 @@ async function handleRemoveLike(likeId) {
  return (
 <>
 <div className='user-profile-page-main-container'>
-    <div className='profile-page-cover-photo-container'>
-        <img className = "profile-page-cover-photo" src = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/181875375_10159297272459182_3625930985193864242_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=kg6Af9LRHDMAX_3VopU&tn=WDhmvm_IPZtUReKg&_nc_ht=scontent-sjc3-1.xx&oh=00_AfCZwmhSWKd3NfGNHvYnXJojAabqk4P_Hd4sk-40k3tFdw&oe=63B5AA2A'
-        alt = 'cover-photo' />
-    </div>
+    {<div className='profile-page-cover-photo-container'>
+        {/* <img className = "profile-page-cover-photo" src = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/181875375_10159297272459182_3625930985193864242_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=kg6Af9LRHDMAX_3VopU&tn=WDhmvm_IPZtUReKg&_nc_ht=scontent-sjc3-1.xx&oh=00_AfCZwmhSWKd3NfGNHvYnXJojAabqk4P_Hd4sk-40k3tFdw&oe=63B5AA2A'
+        alt = 'cover-photo' /> */}
+    </div>}
     <div className='user-profile-header-container'>
         <img
             className='profile-user-profile-pic'
@@ -108,24 +108,22 @@ async function handleRemoveLike(likeId) {
             alt="user-profile-pics"
                                             />
         <div className= "profile-header-user-name">{user.first_name} {user.last_name}</div>
-
+        <div className='profile-user-header-buttons'>
+            <button className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
+        </div>
 
     </div>
     <div className='user-profile-page-flex-container'>
         <div className='left-user-info-flex-container'>
             <div className='user-info-main-container'>
-            {/* <div>USER INFO</div> */}
-            {/* <div>INSERT PROFILE PIC HERE</div> */}
+            <h3>Intro</h3>
             <div>{user.first_name} {user.last_name}</div>
-            <div>{user.email}</div>
+            <div>Contact: {user.email}</div>
             </div>
-             <div className='right-user-friends-container'>
-                     <div> <div>
-                    </div>Upcoming Features!</div>
-                     <div>~ Friends</div>
-                     <div>~ Live Chat</div>
-                     <div>~ Search</div>
-            </div>
+             {/* <div className='right-user-friends-container'>
+
+                    <div>Contact: {user.email}</div>
+            </div> */}
         </div>
         <div className='center-user-posts-browser-container'>
             <>
@@ -236,9 +234,7 @@ async function handleRemoveLike(likeId) {
 
         </>
         </div>
-        {/* <div className='right-user-friends-container'>
-            FRIENDS - COMING SOON!
-        </div> */}
+
     </div>
     </div>
     </>
