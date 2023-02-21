@@ -21,6 +21,8 @@ class User(db.Model, UserMixin):
     posts = db.relationship("Post", back_populates="user", cascade="all, delete-orphan")
     comments= db.relationship("Comment", back_populates="user", cascade="all, delete-orphan")
     likes= db.relationship("Like", back_populates="user",cascade="all, delete-orphan")
+    # friendships = db.relationship("Friendship", back_populates = "user", cascade="all, delete-orphan")
+    # friends = db.relationship("Friend", back_populates = "user", cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -40,6 +42,8 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'username': self.username,
             'email': self.email
+            # 'friendships':[friendship.to_dict() for friendship in self.friendships] if self.friendships else None,
+            # 'friends':[friend.to_dict() for friend in self.friends] if self.friends else None,
             # ,'posts': self.posts.to_dict() if self.posts else None,
             # ,'comments': self.comments.to_dict() if self.comments else None
         }

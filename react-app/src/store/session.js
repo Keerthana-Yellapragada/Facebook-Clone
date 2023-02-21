@@ -30,15 +30,12 @@ export const login = (user) => async (dispatch) => {
       password,
     }),
   });
-  // console.log("this is the response from our server", response)
   const data = await response.json();
-  // console.log("this is data of the user", data)
   dispatch(setUser(data));
   return response;
 };
 
 export const logout = () => async (dispatch) => {
-  // console.log("made it to session js logout")
   const response = await fetch('/api/auth/logout', {
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +50,6 @@ export const logout = () => async (dispatch) => {
 
 export const restoreUser = () => async (dispatch) => {
   const response = await fetch('/api/auth/');
-  // console.log("this is response", response)
   if (response.ok) {
     const data = await response.json();
     if (data.errors) {
