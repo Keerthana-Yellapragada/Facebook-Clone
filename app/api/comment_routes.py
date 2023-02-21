@@ -22,7 +22,7 @@ comment_routes = Blueprint("comment_routes", __name__, url_prefix="/api/comments
 @login_required
 def get_comments():
     comments = Comment.query.all()
-    print("COMMENTS", comments)
+
     return {'Comments': [comment.to_dict() for comment in comments]}
 
 
@@ -54,8 +54,6 @@ def get_comment_details(comment_id):
 # def create_comment(post_id):
 #     create_comment_form = CreateCommentForm()
 #     create_comment_form['csrf_token'].data = request.cookies['csrf_token']
-
-#     print("This is current User in backend**********************", current_user)
 
 #     if create_comment_form.validate_on_submit():
 #         # comment = Comment()

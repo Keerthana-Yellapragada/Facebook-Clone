@@ -58,10 +58,8 @@ const removeComment = commentId => ({
 // -------------------------  LOAD ALL COMMENTS   ----------------------------------
 export const loadAllComments = () => async dispatch => {
     const response = await csrfFetch('/api/comments/')
-    // console.log("DID THIS REACH COMMENTS LOAD ALL THUNK")
     if (response.ok) {
         const commentsList = await response.json();
-        // console.log("this is comments list IN THUNK", commentsList)
         dispatch(getAllComments(commentsList))
     }
 }
@@ -73,14 +71,13 @@ export const loadAllComments = () => async dispatch => {
 
 export const loadOneComment = (commentId) => async dispatch => {
     const response = await csrfFetch(`/api/comments/${commentId}/`);
-    // console.log("DID TI REACH GET ONE COMMENT THUNK")
+
 
 
 
 
     if (response.ok) {
         const commentInfo = await response.json();
-        //  console.log("comment INFO IN THUNK", commentInfo)
         dispatch(getOneComment(commentInfo))
     }
 }

@@ -41,7 +41,6 @@ function ProfileButton({ user }) {
 
   const logout = async (e) => {
     e.preventDefault();
-    // console.log("made it to profilebutton logout handler")
     await dispatch(sessionActions.logout()).then(()=>history.push("/"))
   };
 

@@ -55,7 +55,7 @@ def create_post():
     create_post_form = CreatePostForm()
     create_post_form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("This is current User in backend**********************", current_user)
+
 
     if create_post_form.validate_on_submit():
         # post = Post()
@@ -136,7 +136,6 @@ def create_comment(post_id):
     create_comment_form = CreateCommentForm()
     create_comment_form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("This is current User in backend**********************", current_user)
 
     if create_comment_form.validate_on_submit():
         # comment = Comment()
@@ -170,7 +169,6 @@ def create_like(post_id):
     create_like_form = CreateLikeForm()
     create_like_form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("This is current User in backend**********************", current_user)
 
     if create_like_form.validate_on_submit():
         # like = Like()
@@ -201,6 +199,5 @@ def get_likes(post_id):
 
     filtered = filter(lambda like: (like.post_id == post_id), likes)
     post_likes = (list(filtered))
-    print("POSTLIKES", post_likes)
-    print("FILTERED LIKES", filtered)
+
     return {'Likes': [like.to_dict() for like in post_likes]}

@@ -81,12 +81,11 @@ export const loadPostLikes = (postId) => async dispatch => {
 
 export const loadOnelike = (likeId) => async dispatch => {
     const response = await csrfFetch(`/api/likes/${likeId}/`);
-    // console.log("DID TO REACH GET ONE like THUNK")
+
 
 
     if (response.ok) {
         const likeInfo = await response.json();
-        //  console.log("like INFO IN THUNK", likeInfo)
         dispatch(getLike(likeInfo))
     }
 }
@@ -97,7 +96,6 @@ export const loadOnelike = (likeId) => async dispatch => {
 // -------------------------  CREATE A like   ----------------------------------
 
 export const createNewLike = (payload) => async dispatch => {
-
     const response = await csrfFetch(`api/posts/${payload.post_id}/likes/new/`, {
         method: 'POST',
         headers: {
@@ -106,10 +104,8 @@ export const createNewLike = (payload) => async dispatch => {
         body: JSON.stringify(payload)
     })
 
-
     if (response.ok) {
         let like = await response.json()
-
         dispatch(createLike(like))
         return like
     }
