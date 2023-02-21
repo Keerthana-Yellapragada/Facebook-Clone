@@ -15,11 +15,11 @@
 }
 
 .homepage-right-container {
-    background-color: white;
+    background-color: inherit;
     width: 25%;
     margin: 2%;
     padding: 10px;
-    box-shadow: 0 0 2px 0.75px rgb(129 161 226);
+    /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 14px;
 }
 
