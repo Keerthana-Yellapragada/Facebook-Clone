@@ -71,9 +71,7 @@ const NewPostForm = () => {
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
         <form className="create-post-form" onSubmit={submitHandler}>
-          {/* <div className="create-post-form-title-box">
-            <h1 className="create-post-title">Create Post</h1>
-          </div> */}
+
 
           <div className="create-post-user-info-container">
             <div className='create-post-user-profile-pic-container user-profile-pic'>
@@ -111,21 +109,6 @@ const NewPostForm = () => {
               placeholder={`What's on your mind, ${user.first_name}?`}
             />
 
-            {/*
-
-              <input
-              className="form-inputs"
-              type="file"
-              id = "upload-picture-button"
-              name = "imageUrl"
-              accept="image/*"
-              //image/png, image/jpeg, image/jpg image/*
-              // style = {{"display: none"}}
-              onChange={(e) => setImageUrl(e.target.value)}
-              value={image_url}
-
-              /> */}
-
 
 
             <input
@@ -140,7 +123,7 @@ const NewPostForm = () => {
             />
 
 
-            < UploadPicture />
+            {/* < UploadPicture /> */}
 
           </div>
           <div className="button-container">
