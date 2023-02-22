@@ -8,7 +8,7 @@ from ..forms.create_like_form import CreateLikeForm
 
 Base=declarative_base()
 
-# ************************************ likeS ROUTES ***********************************************
+# ************************************ LIKESS ROUTES ***********************************************
 # *************************************************************************************************
 
 like_routes = Blueprint("like_routes", __name__, url_prefix="/api/likes")
