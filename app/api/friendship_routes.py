@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, redirect, request, jsonify
 from flask_login import login_required
-from app.models import db, User, Post, Comment, Like
+from app.models import db, User, Post, Comment, Like, Friendship
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy.ext.declarative import declarative_base
 from ..forms.create_friendship_form import CreateFriendshipForm
@@ -41,4 +41,21 @@ def add_friendship():
     return {"Error": "Validation Error"}, 401
 
 
-# ************************************ ADD A FRIENDSHIP ***********************************************
+# ************************************ REMOVE A FRIENDSHIP ***********************************************
+
+
+# delete friendship by friendship id
+
+@friendship_routes.route("/<int:friendship_id>/", methods=["DELETE"])
+@login_required
+def delete_friendship(friendship_id):
+
+    friendship = Friendship.query.get(friendship_id)
+
+    if friendship:
+        db.session.delete(friendship)
+        db.session.commit()
+
+        return {"message" : "Friendship succesfully deleted"}, 200
+
+    return {"Error": "404 like Not Found"}, 404
