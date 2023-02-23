@@ -50,6 +50,21 @@ const removeFriendship = friendshipId => ({
 //************************************ THUNKS **********************************
 
 /*************************************************************************** */
+// -------------------------  Load All friendships   ----------------------------------
+
+
+
+export const loadAllFriendships = () => async dispatch => {
+    const response = await csrfFetch('/api/friendships/')
+    if (response.ok) {
+        const friendshipsList = await response.json();
+
+        dispatch(getAllFriendships(friendshipsList))
+    }
+}
+
+
+/*************************************************************************** */
 
 // -------------------------  CREATE A friendship   ----------------------------------
 

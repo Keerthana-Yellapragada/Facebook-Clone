@@ -11,7 +11,7 @@ import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
-// import NotFoundImage from './NotFoundImage'
+import { createNewFriendship } from '../../store/friendships';
 
 const UserProfilePage = () => {
     const dispatch = useDispatch()
@@ -34,6 +34,7 @@ const UserProfilePage = () => {
 
     let users = useSelector(state => Object.values(state.users))
 
+    let sessionUser = useSelector(state=>state.session.user)
 
     let user = users?.filter(user => user.id === userId)
     user = user[0]
@@ -102,6 +103,13 @@ const UserProfilePage = () => {
         }
     }
 
+    async function handleAddFriend(){
+        let friendshipPayload = {
+            user1_id: sessionUser.id,
+            user2_id: user.id
+        }
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`users/${user.id}`))
+    }
 
 
     return (
@@ -119,7 +127,7 @@ const UserProfilePage = () => {
                     />
                     <div className="profile-header-user-name">{user.first_name} {user.last_name}</div>
                     <div className='profile-user-header-buttons'>
-                        <button className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
+                        <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
                     </div>
 
                 </div>
