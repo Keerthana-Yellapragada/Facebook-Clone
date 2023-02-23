@@ -161,7 +161,7 @@ const userReducer = (state = initialState, action) => {
             newState = {
                 ...state
             }
-            action.payload.users ? .forEach((user) => {
+            action.payload.users?.forEach((user) => {
                 newState[user.id] = user
             });
             return newState
@@ -176,20 +176,20 @@ const userReducer = (state = initialState, action) => {
             }
 
             // *****************************************************************************
-            case CREATE_USER:
-                newState = {
-                    ...state
-                }
-                newState[action.payload.id] = action.payload
-                return newState
-                // *****************************************************************************
-            case UPDATE_USER:
-                newState = {
-                    ...state
-                }
-                newState[action.payload.id] = action.payload
+            // case CREATE_USER:
+            //     newState = {
+            //         ...state
+            //     }
+            //     newState[action.payload.id] = action.payload
+            //     return newState
+            //     // *****************************************************************************
+            // case UPDATE_USER:
+            //     newState = {
+            //         ...state
+            //     }
+            //     newState[action.payload.id] = action.payload
 
-                return newState;
+            //     return newState;
 
 
                 // *****************************************************************************
