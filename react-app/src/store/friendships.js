@@ -14,7 +14,6 @@ import {
 const GET_ALLFRIENDSHIPS = 'friendships/getAllFriendships'
 const GET_ONEFRIENDSHIP = 'friendships/getOneFriendship'
 const CREATE_FRIENDSHIP = 'friendships/createFriendship'
-const UPDATE_FRIENDSHIP = 'friendships/updateFriendship'
 const DELETE_FRIENDSHIP = 'friendships/removeFriendship'
 
 ///*************************************************************************** */
@@ -37,13 +36,7 @@ const createFriendship = friendship => ({
     type: CREATE_FRIENDSHIP,
     payload: friendship
 })
-///*************************************************************************** */
-// **** EDIT/UPDATE A friendship ****
 
-const updateFriendship = friendship => ({
-    type: UPDATE_FRIENDSHIP,
-    payload: friendship
-})
 ///*************************************************************************** */
 // **** DELETE A friendship ****
 
@@ -130,15 +123,6 @@ const friendshipReducer = (state = initialState, action) => {
                 }
                 newState[action.payload.id] = action.payload
                 return newState
-                // *****************************************************************************
-            case UPDATE_FRIENDSHIP:
-                newState = {
-                    ...state
-                }
-                newState[action.payload.id] = action.payload
-
-                return newState;
-
 
                 // *****************************************************************************
             case DELETE_FRIENDSHIP:

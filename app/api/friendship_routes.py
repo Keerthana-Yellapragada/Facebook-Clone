@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, redirect, request, jsonify
 from flask_login import login_required
-from app.models import db, User, Post, Comment, Like, Friendship
+from app.models import db, User, Post, Comment, Like
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy.ext.declarative import declarative_base
 from ..forms.create_friendship_form import CreateFriendshipForm
@@ -21,7 +21,7 @@ friendship_routes = Blueprint("friendship_routes", __name__,url_prefix="/api/fri
 @friendship_routes.route("/new/", methods=["POST"])
 @login_required
 def add_friendship():
-    create_friendship_form = CreateFriendshiipiForm()
+    create_friendship_form = CreateFriendshipForm()
     create_friendship_form['csrf_token'].data = request.cookies['csrf_token']
 
 
@@ -59,3 +59,5 @@ def delete_friendship(friendship_id):
         return {"message" : "Friendship succesfully deleted"}, 200
 
     return {"Error": "404 like Not Found"}, 404
+
+# ********************************************************************************************************

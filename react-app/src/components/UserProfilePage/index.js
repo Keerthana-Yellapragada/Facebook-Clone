@@ -59,9 +59,6 @@ const deleteHandler = async (postId) => {
 
 
 let deleteButton;
-
-
-
 let likePayload;
 let createdLikePost
 let deleteLikePayload;
