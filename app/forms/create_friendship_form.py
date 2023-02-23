@@ -9,5 +9,4 @@ class CreateFriendshipForm(FlaskForm):
     user1_id = IntegerField("User1 Id", validators = [DataRequired()])
     user2_id = IntegerField("User2 Id", validators = [DataRequired()])
     pending = BooleanField("pending", default=True)
-    approved = BooleanField("approved", default=False)
     submit = SubmitField("Add Friendship")

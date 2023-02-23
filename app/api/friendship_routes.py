@@ -30,8 +30,7 @@ def add_friendship():
         friendship = friendship(
             user1_id = current_user.id,
             user2_id = data["user2_id"],
-            pending=data["pending"],
-            approved=data["approved"]
+            pending=data["pending"]
         )
 
         db.session.add(friendship)
@@ -40,3 +39,6 @@ def add_friendship():
         return friendship.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+
+
+# ************************************ ADD A FRIENDSHIP ***********************************************
