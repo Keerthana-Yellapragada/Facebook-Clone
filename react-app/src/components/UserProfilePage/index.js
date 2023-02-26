@@ -151,7 +151,7 @@ const UserProfilePage = () => {
 
     async function handleIgnoreRequest(request) {
         console.log("ignore FRIEND REQ", request)
-        let deletedFriendship = dispatch(deleteFriendship(request.id)).then(() => history.push(`users/${user.id}`))
+        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`users/${user.id}`))
 
     }
 
