@@ -133,8 +133,14 @@ const UserProfilePage = () => {
 
     async function handleAcceptRequest(request) {
     console.log("accept FRIEND REQ", request)
+        let acceptPayload = {
+            id:request.id,
+            from_uid: request.from_uid,
+            to_uid: request.to_uid,
+            is_approved: 1
 
-       let acceptedRequest =  dispatch(updateFriendship(request)).then(() => history.push(`users/${user.id}`))
+        }
+       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`users/${user.id}`))
 
 
     }
