@@ -35,7 +35,7 @@ const UserProfilePage = () => {
 
     let users = useSelector(state => Object.values(state.users))
 
-    let sessionUser = useSelector(state=>state.session.user)
+    let sessionUser = useSelector(state => state.session.user)
 
     let user = users?.filter(user => user.id === userId)
     user = user[0]
@@ -48,9 +48,12 @@ const UserProfilePage = () => {
     let allFriendships = useSelector(state => Object.values(state.friendships))
     console.log("ALLFRIENDSHIPS", allFriendships)
 
+    let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId)
+    console.log("PENDING FRIEND REQ APPROVALS", friend_request_approvals)
+
     const [visible, setVisible] = useState(false);
 
-    if (!users){
+    if (!users) {
         return null
     }
     if (!allLikes) {
@@ -106,7 +109,7 @@ const UserProfilePage = () => {
         }
     }
 
-    async function handleAddFriend(){
+    async function handleAddFriend() {
         let friendshipPayload = {
             from_uid: sessionUser.id,
             to_uid: user.id,
@@ -143,10 +146,21 @@ const UserProfilePage = () => {
                             <div>{user?.first_name} {user?.last_name}</div>
                             <div>Contact: {user?.email}</div>
                         </div>
-                        {/* <div className='right-user-friends-container'>
+                        <div className='right-user-friends-container'>
+                            <h2>Friends</h2>
+                            <div>
+                                <div>Pending Requests:</div>
 
-                    <div>Contact: {user.email}</div>
-            </div> */}
+                                {friend_request_approvals.map(request => {
+                                    return (
+                                        <>
+                                            <div className="friendRequest"> From: {request.from_uid}</div>
+                                        </>
+                                    )
+                                })}
+
+                            </div>
+                        </div>
                     </div>
                     <div className='center-user-posts-browser-container'>
                         <>

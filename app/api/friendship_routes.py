@@ -63,7 +63,7 @@ def add_friendship():
 # delete friendship by friendship id
 
 @friendship_routes.route("/<int:friendship_id>/", methods=["DELETE"])
-@login_required
+# @login_required
 def delete_friendship(friendship_id):
 
     friendship = Friendship.query.get(friendship_id)
