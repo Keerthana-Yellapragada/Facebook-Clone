@@ -13,11 +13,16 @@ import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../st
 import { loadAllUsers, loadOneUser } from '../../store/users';
 import { createNewFriendship, loadAllFriendships } from '../../store/friendships';
 
+
+// *********************************************************************************************************************
+
 const UserProfilePage = () => {
+
     const dispatch = useDispatch()
     const history = useHistory()
     let { userId } = useParams()
     userId = parseInt(userId)
+
 
     useEffect(() => {
         dispatch(loadAllPosts());
@@ -28,8 +33,7 @@ const UserProfilePage = () => {
 
     }, [dispatch])
 
-
-    console.log("USER_ID", userId)
+    // *********************************************************************************************************************
 
     const allPosts = useSelector(state => Object.values(state.posts))
 
@@ -46,13 +50,14 @@ const UserProfilePage = () => {
     const allLikes = useSelector(state => Object.values(state.likes))
 
     let allFriendships = useSelector(state => Object.values(state.friendships))
-    console.log("ALLFRIENDSHIPS", allFriendships)
 
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId)
-    console.log("PENDING FRIEND REQ APPROVALS", friend_request_approvals)
+
+    // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
 
+    // *********************************************************************************************************************
     if (!users) {
         return null
     }
@@ -68,6 +73,7 @@ const UserProfilePage = () => {
     if (!userPosts) {
         return null
     }
+    // *********************************************************************************************************************
     const deleteHandler = async (postId) => {
 
         const payload = {
@@ -77,7 +83,7 @@ const UserProfilePage = () => {
         deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`users/${user.id}`))
     }
 
-
+    // *********************************************************************************************************************
     let deleteButton;
     let likePayload;
     let createdLikePost
@@ -86,8 +92,9 @@ const UserProfilePage = () => {
     let currentPostLikes;
     let currentLike;
     let userLike;
-    //    let likedButton;
 
+
+    // *********************************************************************************************************************
 
     async function handleCreateLike(postId) {
 
@@ -101,6 +108,7 @@ const UserProfilePage = () => {
         createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${user.id}`))
 
     }
+    // *********************************************************************************************************************
 
     async function handleRemoveLike(likeId) {
         if (likeId) {
@@ -108,6 +116,7 @@ const UserProfilePage = () => {
             deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${sessionUser.id}`))
         }
     }
+    // *********************************************************************************************************************
 
     async function handleAddFriend() {
         let friendshipPayload = {
@@ -118,6 +127,28 @@ const UserProfilePage = () => {
         let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`users/${user.id}`))
 
     }
+
+    // *********************************************************************************************************************
+
+    async function handleAcceptRequest(request) {
+
+        dispatch(createNewFriend(request))
+
+
+    }
+
+
+
+    // *********************************************************************************************************************
+
+    async function handleIgnoreRequest() {
+
+
+    }
+
+
+
+    // *********************************************************************************************************************
 
 
     return (
@@ -139,6 +170,8 @@ const UserProfilePage = () => {
                     </div>
 
                 </div>
+
+
                 <div className='user-profile-page-flex-container'>
                     <div className='left-user-info-flex-container'>
                         <div className='user-info-main-container'>
@@ -151,13 +184,17 @@ const UserProfilePage = () => {
                             <div>
                                 <div>Pending Requests:</div>
 
-                                {friend_request_approvals.map(request => {
+                                {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                     return (
                                         <>
                                             <div className="friendRequest"> From: {request.from_uid}</div>
+                                            <div>
+                                                <button onClick={handleAcceptRequest(request)}>Accept</button>
+                                                <button onClick={handleIgnoreRequest}>Ignore</button>
+                                            </div>
                                         </>
                                     )
-                                })}
+                                }) : null}
 
                             </div>
                         </div>
@@ -279,5 +316,7 @@ const UserProfilePage = () => {
 
 }
 
+
+// *********************************************************************************************************************
 
 export default UserProfilePage;

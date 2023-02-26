@@ -14,6 +14,7 @@ import {
 const GET_ALLFRIENDSHIPS = 'friendships/getAllFriendships'
 const GET_ONEFRIENDSHIP = 'friendships/getOneFriendship'
 const CREATE_FRIENDSHIP = 'friendships/createFriendship'
+const UPDATE_FRIENDSHIP = 'friendships/updateFriendship'
 const DELETE_FRIENDSHIP = 'friendships/removeFriendship'
 
 ///*************************************************************************** */
@@ -26,6 +27,13 @@ const getAllFriendships = friendships => ({
 // **** GET ONE friendship DETAILS ****
 const getOneFriendship = friendship => ({
     type: GET_ONEFRIENDSHIP,
+    payload: friendship
+})
+
+///*************************************************************************** */
+// /*** UPDATE FRIENDSHIP DETAILS */
+const editFriendship = friendship => ({
+    type: UPDATE_FRIENDSHIP,
     payload: friendship
 })
 
@@ -69,7 +77,7 @@ export const loadAllFriendships = () => async dispatch => {
 // -------------------------  CREATE A friendship   ----------------------------------
 
 export const createNewFriendship = (payload) => async dispatch => {
-console.log("DID IT REACH CREATE FRIENDSHIP THUNK")
+    console.log("DID IT REACH CREATE FRIENDSHIP THUNK")
     const response = await csrfFetch('/api/friendships/new/', {
         method: 'POST',
         headers: {
@@ -88,6 +96,29 @@ console.log("DID IT REACH CREATE FRIENDSHIP THUNK")
     }
 }
 
+//*************************************************************************** */
+
+// -------------------------  UPDATE A friendship  --------------------------------
+
+export const updateFriendship = (editFriendshipInfo) => async dispatch => {
+
+    const response = await csrfFetch(`/api/friendships/${editFriendshipInfo.id}/`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(editFriendshipInfo)
+    })
+
+
+
+    if (response.ok) {
+
+        const editedFriendship = await response.json();
+        dispatch(editFriendship(editedFriendship))
+        return editedFriendship
+    }
+}
 
 //*************************************************************************** */
 
@@ -123,7 +154,7 @@ const friendshipReducer = (state = initialState, action) => {
                 newState[friendship.id] = friendship
             });
             return newState
-            // *****************************************************************************
+        // *****************************************************************************
         case GET_ONEFRIENDSHIP:
             // newState = {}
 
@@ -133,26 +164,37 @@ const friendshipReducer = (state = initialState, action) => {
                 ...state, ...action.payload
             }
 
-            // *****************************************************************************
-            case CREATE_FRIENDSHIP:
-                newState = {
-                    ...state
-                }
+        // *****************************************************************************
+        case CREATE_FRIENDSHIP:
+            newState = {
+                ...state
+            }
 
-                console.log("IN CREATE FRIENDSHIP REDUCER")
-                newState[action.payload.id] = action.payload
-                return newState
+            console.log("IN CREATE FRIENDSHIP REDUCER")
+            newState[action.payload.id] = action.payload
+            return newState
 
-                // *****************************************************************************
-            case DELETE_FRIENDSHIP:
-                newState = {
-                    ...state
-                }
-                delete newState[action.payload]
-                return newState
-                // *****************************************************************************
-            default:
-                return state
+        // *****************************************************************************
+
+        case UPDATE_FRIENDSHIP:
+            newState = {
+                ...state
+            }
+            newState[action.payload.id] = action.payload
+
+            return newState;
+
+
+        // *****************************************************************************
+        case DELETE_FRIENDSHIP:
+            newState = {
+                ...state
+            }
+            delete newState[action.payload]
+            return newState
+        // *****************************************************************************
+        default:
+            return state
 
     }
 }
