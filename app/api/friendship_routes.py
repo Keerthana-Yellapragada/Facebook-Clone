@@ -19,7 +19,7 @@ friendship_routes = Blueprint("friendship_routes", __name__,url_prefix="/api/fri
 @login_required
 def get_all_friendships():
     friendships = Friendship.query.all()
-    return {'Friendships': friendships}
+    return {'Friendships': [friendship.to_dict() for friendship in friendships]}
 
 
 

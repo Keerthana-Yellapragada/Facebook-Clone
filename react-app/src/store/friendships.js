@@ -119,7 +119,7 @@ const friendshipReducer = (state = initialState, action) => {
                 ...state
             }
             console.log("REACHED GET ALL FRIENDSHIPS REDUCER")
-            action.payload.friendships?.forEach((friendship) => {
+            action.payload.Friendships?.forEach((friendship) => {
                 newState[friendship.id] = friendship
             });
             return newState

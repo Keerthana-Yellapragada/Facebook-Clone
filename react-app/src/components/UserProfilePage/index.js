@@ -24,6 +24,7 @@ const UserProfilePage = () => {
         dispatch(loadAllComments())
         dispatch(loadAllLikes())
         dispatch(loadAllUsers())
+        dispatch(loadAllFriendships())
 
     }, [dispatch])
 
@@ -44,6 +45,8 @@ const UserProfilePage = () => {
 
     const allLikes = useSelector(state => Object.values(state.likes))
 
+    let allFriendships = useSelector(state => Object.values(state.friendships))
+    console.log("ALLFRIENDSHIPS", allFriendships)
 
     const [visible, setVisible] = useState(false);
 
@@ -99,7 +102,7 @@ const UserProfilePage = () => {
     async function handleRemoveLike(likeId) {
         if (likeId) {
             // likedButton=false
-            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${user.id}`))
+            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${sessionUser.id}`))
         }
     }
 
