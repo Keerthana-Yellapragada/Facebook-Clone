@@ -69,7 +69,7 @@ export const loadAllFriendships = () => async dispatch => {
 // -------------------------  CREATE A friendship   ----------------------------------
 
 export const createNewFriendship = (payload) => async dispatch => {
-
+console.log("DID IT REACH CREATE FRIENDSHIP THUNK")
     const response = await csrfFetch('/api/friendships/new/', {
         method: 'POST',
         headers: {
@@ -80,6 +80,7 @@ export const createNewFriendship = (payload) => async dispatch => {
 
 
     if (response.ok) {
+        console.log("CREATE FRIENDSHIP RESPONSE IS OK")
         let friendship = await response.json()
 
         dispatch(createFriendship(friendship))
@@ -117,6 +118,7 @@ const friendshipReducer = (state = initialState, action) => {
             newState = {
                 ...state
             }
+            console.log("REACHED GET ALL FRIENDSHIPS REDUCER")
             action.payload.friendships?.forEach((friendship) => {
                 newState[friendship.id] = friendship
             });
@@ -136,6 +138,8 @@ const friendshipReducer = (state = initialState, action) => {
                 newState = {
                     ...state
                 }
+
+                console.log("IN CREATE FRIENDSHIP REDUCER")
                 newState[action.payload.id] = action.payload
                 return newState
 

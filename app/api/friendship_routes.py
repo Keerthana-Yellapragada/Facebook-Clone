@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, redirect, request, jsonify
 from flask_login import login_required
-from app.models import db, User, Post, Comment, Like
+from app.models import db, User, Post, Comment, Like, Friendship, Friend
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy.ext.declarative import declarative_base
 from ..forms.create_friendship_form import CreateFriendshipForm
@@ -11,6 +11,19 @@ Base=declarative_base()
 # *************************************************************************************************
 
 friendship_routes = Blueprint("friendship_routes", __name__,url_prefix="/api/friendships")
+
+
+# ************************************ GET ALL FRIENDSHIPS ***********************************************
+# Get all Friendships:
+@friendship_routes.route("/", methods=["GET"])
+@login_required
+def get_all_friendships():
+    friendships = Friendship.query.all()
+    return {'Friendships': friendships}
+
+
+
+
 
 
 
@@ -24,19 +37,22 @@ def add_friendship():
     create_friendship_form = CreateFriendshipForm()
     create_friendship_form['csrf_token'].data = request.cookies['csrf_token']
 
+    print("*******************REACHED FRIENDSHIP CREATE BACKEND ROUTE")
 
-    if create_friendship_form.validate_on_submit():
+    if create_friendship_form.validate_on_submit:
+        print("VALIDATED ON SUBMIT")
         data = create_friendship_form.data
-        friendship = friendship(
-            user1_id = current_user.id,
-            user2_id = data["user2_id"],
-            pending=data["pending"]
+        new_friendship = Friendship(
+            from_uid = current_user.id,
+            to_uid = data["to_uid"],
+            is_approved= False,
+
         )
 
-        db.session.add(friendship)
+        db.session.add(new_friendship)
         db.session.commit()
 
-        return friendship.to_dict(), 201
+        return new_friendship.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
 

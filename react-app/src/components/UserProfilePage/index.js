@@ -11,7 +11,7 @@ import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
-import { createNewFriendship } from '../../store/friendships';
+import { createNewFriendship, loadAllFriendships } from '../../store/friendships';
 
 const UserProfilePage = () => {
     const dispatch = useDispatch()
@@ -105,10 +105,12 @@ const UserProfilePage = () => {
 
     async function handleAddFriend(){
         let friendshipPayload = {
-            user1_id: sessionUser.id,
-            user2_id: user.id
+            from_uid: sessionUser.id,
+            to_uid: user.id,
+            is_approved: false
         }
         let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`users/${user.id}`))
+
     }
 
 

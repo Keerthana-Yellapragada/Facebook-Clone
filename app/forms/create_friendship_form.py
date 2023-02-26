@@ -6,7 +6,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 
 class CreateFriendshipForm(FlaskForm):
-    user1_id = IntegerField("User1 Id", validators = [DataRequired()])
-    user2_id = IntegerField("User2 Id", validators = [DataRequired()])
-    pending = BooleanField("pending", default=True)
-    submit = SubmitField("Add Friendship")
+    from_uid = IntegerField("from_uid", validators = [DataRequired()])
+    to_uid = IntegerField("to_uid", validators = [DataRequired()])
+    is_approved = BooleanField("is_approved", validators = [DataRequired()], default=False)
+    submit = SubmitField("Add Friendship/Send Friend Request")
