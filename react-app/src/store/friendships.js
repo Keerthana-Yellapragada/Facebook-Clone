@@ -110,8 +110,6 @@ export const updateFriendship = (editFriendshipInfo) => async dispatch => {
         body: JSON.stringify(editFriendshipInfo)
     })
 
-
-
     if (response.ok) {
 
         const editedFriendship = await response.json();

@@ -25,9 +25,7 @@ def get_all_friendships():
 
 
 
-
-
-# ************************************ ADD A FRIENDSHIP ***********************************************
+# ************************************ CREATE A FRIENDSHIP ***********************************************
 
 # Create Friendship by id
 
@@ -39,13 +37,13 @@ def add_friendship():
 
     print("*******************REACHED FRIENDSHIP CREATE BACKEND ROUTE")
 
-    if create_friendship_form.validate_on_submit:
+    if create_friendship_form.validate_on_submit():
         print("VALIDATED ON SUBMIT")
         data = create_friendship_form.data
         new_friendship = Friendship(
             from_uid = current_user.id,
             to_uid = data["to_uid"],
-            is_approved= False,
+            is_approved= 0,
 
         )
 
@@ -55,6 +53,38 @@ def add_friendship():
         return new_friendship.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+
+# ************************************ UPDATE A FRIENDSHIP ***********************************************
+
+
+# edit friendship by friendship id
+
+@friendship_routes.route('/<int:friendship_id>/', methods=["PUT"])
+@login_required
+def edit_friendship(friendship_id):
+    edit_friendship_form = CreateFriendshipForm()
+
+    print("REACHED UPDATE FRIENDSHIP BACKEND ROUTE")
+
+    edit_friendship_form['csrf_token'].data = request.cookies['csrf_token']
+
+    if edit_friendship_form.validate_on_submit():
+        print("UPDATE FORM FRIENDSHIP VALIDATED ON SUBMIT")
+        data = edit_friendship_form.data
+        friendship = Friendship.query.get(friendship_id)
+
+        friendship.is_approved= 1,
+
+        db.session.commit()
+
+        new_post_obj = friendship.to_dict()
+
+        return new_post_obj, 201
+
+    return {"Error": "Validation Error"}, 401
+
+
+
 
 
 # ************************************ REMOVE A FRIENDSHIP ***********************************************

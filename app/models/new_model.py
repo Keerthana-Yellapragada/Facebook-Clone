@@ -156,7 +156,7 @@ class Friendship(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     from_uid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     to_uid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    is_approved = db.Column(db.Boolean, nullable = False, default = False)
+    is_approved = db.Column(db.Integer, nullable = False, default = 0)
 
     # user1 = db.relationship("User",foreign_keys=[user1_id, user2_id], back_populates = "friendships")
     # user2 = db.relationship("User", foreign_keys=[user2_id],back_populates= "friendships")

@@ -11,7 +11,7 @@ import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
-import { createNewFriendship, loadAllFriendships } from '../../store/friendships';
+import { createNewFriendship, deleteFriendship, loadAllFriendships, updateFriendship } from '../../store/friendships';
 
 
 // *********************************************************************************************************************
@@ -119,10 +119,11 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAddFriend() {
+
         let friendshipPayload = {
             from_uid: sessionUser.id,
             to_uid: user.id,
-            is_approved: false
+            is_approved: 0
         }
         let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`users/${user.id}`))
 
@@ -131,8 +132,9 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
+    console.log("accept FRIEND REQ", request)
 
-        dispatch(createNewFriend(request))
+       let acceptedRequest =  dispatch(updateFriendship(request)).then(() => history.push(`users/${user.id}`))
 
 
     }
@@ -141,8 +143,9 @@ const UserProfilePage = () => {
 
     // *********************************************************************************************************************
 
-    async function handleIgnoreRequest() {
-
+    async function handleIgnoreRequest(request) {
+        console.log("ignore FRIEND REQ", request)
+        let deletedFriendship = dispatch(deleteFriendship(request.id)).then(() => history.push(`users/${user.id}`))
 
     }
 
@@ -189,8 +192,8 @@ const UserProfilePage = () => {
                                         <>
                                             <div className="friendRequest"> From: {request.from_uid}</div>
                                             <div>
-                                                <button onClick={handleAcceptRequest(request)}>Accept</button>
-                                                <button onClick={handleIgnoreRequest}>Ignore</button>
+                                                <button onClick={()=> handleAcceptRequest(request)}>Accept</button>
+                                                <button onClick={()=> handleIgnoreRequest(request)}>Ignore</button>
                                             </div>
                                         </>
                                     )
