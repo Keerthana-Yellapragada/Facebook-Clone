@@ -46,12 +46,13 @@ const UserProfilePage = () => {
 
     let userPosts = allPosts?.filter(post => post?.user_id === user?.id)
 
-
     const allLikes = useSelector(state => Object.values(state.likes))
 
     let allFriendships = useSelector(state => Object.values(state.friendships))
 
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId)
+
+    let friendsList = allFriendships.filter(friendship => friendship.is_approved == 1)
 
     // *********************************************************************************************************************
 
@@ -132,17 +133,15 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-    console.log("accept FRIEND REQ", request)
+        console.log("accept FRIEND REQ", request)
         let acceptPayload = {
-            id:request.id,
+            id: request.id,
             from_uid: request.from_uid,
             to_uid: request.to_uid,
             is_approved: 1
-
         }
-       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`users/${user.id}`))
 
-
+        dispatch(updateFriendship(acceptPayload)).then(dispatch(loadAllFriendships())).then(() => history.push(`users/${user.id}`))
     }
 
 
@@ -151,7 +150,7 @@ const UserProfilePage = () => {
 
     async function handleIgnoreRequest(request) {
         console.log("ignore FRIEND REQ", request)
-        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`users/${user.id}`))
+        let deletedFriendship = dispatch(deleteFriendship(request)).then(dispatch(loadAllFriendships())).then(() => history.push(`users/${user.id}`))
 
     }
 
@@ -191,6 +190,22 @@ const UserProfilePage = () => {
                         <div className='right-user-friends-container'>
                             <h2>Friends</h2>
                             <div>
+                                {friendsList.map(friend => {
+                                    return (
+                                        <>
+                                            <div>{friend && friend.to_uid || friend.from_uid === userId ? (
+                                                <>
+                                                    <div>
+                                                        friend from: {friend.from_uid}
+                                                        friend to: {friend.to_uid}
+                                                    </div>
+                                                </>
+                                            ) : null}</div>
+                                        </>
+                                    )
+                                })}
+                            </div>
+                            <div>
                                 <div>Pending Requests:</div>
 
                                 {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
@@ -198,8 +213,8 @@ const UserProfilePage = () => {
                                         <>
                                             <div className="friendRequest"> From: {request.from_uid}</div>
                                             <div>
-                                                <button onClick={()=> handleAcceptRequest(request)}>Accept</button>
-                                                <button onClick={()=> handleIgnoreRequest(request)}>Ignore</button>
+                                                <button onClick={() => handleAcceptRequest(request)}>Accept</button>
+                                                <button onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                             </div>
                                         </>
                                     )

@@ -21,9 +21,16 @@ class User(db.Model, UserMixin):
     posts = db.relationship("Post", back_populates="user", cascade="all, delete-orphan")
     comments= db.relationship("Comment", back_populates="user", cascade="all, delete-orphan")
     likes= db.relationship("Like", back_populates="user",cascade="all, delete-orphan")
-    # friendships = db.relationship("Friendship", back_populates = "user", cascade="all, delete-orphan")
-    # friends = db.relationship("Friend", back_populates = "user", cascade="all, delete-orphan")
-    # friendships = db.relationship("Friendship", secondary=friendships, back_populates = 'users')
+
+
+
+    images= db.relationship("Image", back_populates="user")
+
+    # friendships = db.relationship("Friendship", back_populates="user", cascade="all, delete-orphan")
+
+    # friendships_requested = db.relationship('Friendship', backref = 'user1', lazy = 'dynamic', foreign_keys = ['Friendship.from_uid'])
+
+    # friendships_accepted = db.relationship('Friendship', backref = 'user2', lazy = 'dynamic', foreign_keys = ['Friendship.to_uid'])
 
     @property
     def password(self):

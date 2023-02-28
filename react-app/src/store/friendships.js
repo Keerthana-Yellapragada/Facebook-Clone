@@ -112,10 +112,13 @@ export const updateFriendship = (editFriendshipInfo) => async dispatch => {
 
     if (response.ok) {
 
+
         const editedFriendship = await response.json();
         dispatch(editFriendship(editedFriendship))
+
         return editedFriendship
     }
+
 }
 
 //*************************************************************************** */

@@ -7,22 +7,22 @@ from datetime import datetime
 Base=declarative_base()
 
 # join table
-# friends = db.Table(
-#     "friends",
-#     db.Model.metadata,
-#     db.Column(
-#         "user_id",
-#         db.Integer,
-#         db.ForeignKey("users.id"),
-#         primary_key=True
-#     ),
-#     db.Column(
-#         "friend_id",
-#         db.Integer,
-#         db.ForeignKey("users.id"),
-#         primary_key=True
-#     )
-# )
+friends = db.Table(
+    "friends",
+    db.Model.metadata,
+    db.Column(
+        "user1_id",
+        db.Integer,
+        db.ForeignKey("users.id"),
+        primary_key=True
+    ),
+    db.Column(
+        "user2_id",
+        db.Integer,
+        db.ForeignKey("users.id"),
+        primary_key=True
+    )
+)
 
 # join table
 # friendships = db.Table(
@@ -158,40 +158,43 @@ class Friendship(db.Model):
     to_uid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     is_approved = db.Column(db.Integer, nullable = False, default = 0)
 
-    # user1 = db.relationship("User",foreign_keys=[user1_id, user2_id], back_populates = "friendships")
-    # user2 = db.relationship("User", foreign_keys=[user2_id],back_populates= "friendships")
 
-    def to_dict(self):
-        return {
-            "id" : self.id,
-            "from_uid" : self.from_uid,
-            "to_uid": self.to_uid,
-            "is_approved": self.is_approved
-
-        }
-
-    def __repr__(self):
-        return f'<Friendship, id={self.id}, from_uid={self.from_uid}, to_uid={self.to_uid},is_approved={self.is_approved}'
+    # user = db.relationship("User", back_populates="friendships", foreign_keys =[from_uid, to_uid])
 
 
+    # def to_dict(self):
+    #     return {
+    #         "id" : self.id,
+    #         "from_uid" : self.from_uid,
+    #         "to_uid": self.to_uid,
+    #         "is_approved": self.is_approved,
+    #         'user': self.user.to_dict() if self.user else None
+    #         # ,
+    #         # 'user2': self.user2.to_dict() if self.user2 else None
 
-class Friend(db.Model):
-    __tablename__ = "friends"
+    #     }
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    # def __repr__(self):
+    #     return f'<Friendship, id={self.id}, from_uid={self.from_uid}, to_uid={self.to_uid},is_approved={self.is_approved}, user={self.user}'
 
 
-    # user = db.relationship("User", foreign_keys=[user_id, friend_id],back_populates = "friends")
-    # friend = db.relationship("User", foreign_keys=[friend_id],back_populates = "friends")
 
-    def to_dict(self):
-        return {
-            "id" : self.id,
-            "user_id" : self.user_id,
-            "friend_id": self.friend_id,
-        }
+# class Friend(db.Model):
+#     __tablename__ = "friends"
 
-    def __repr__(self):
-        return f'<Friend, id={self.id}, user_id={self.user_id}, friend_id={self.friend_id}'
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+#     friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+#     # user = db.relationship("User", foreign_keys=[user_id, friend_id],back_populates = "friends")
+#     # friend = db.relationship("User", foreign_keys=[friend_id],back_populates = "friends")
+
+#     def to_dict(self):
+#         return {
+#             "id" : self.id,
+#             "user_id" : self.user_id,
+#             "friend_id": self.friend_id,
+#         }
+
+#     def __repr__(self):
+#         return f'<Friend, id={self.id}, user_id={self.user_id}, friend_id={self.friend_id}'

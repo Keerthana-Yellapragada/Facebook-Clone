@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: f40717e4eca8
+Revision ID: 065d4ac55e5d
 Revises: 
-Create Date: 2023-02-26 13:02:20.368221
+Create Date: 2023-02-28 14:03:11.117644
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f40717e4eca8'
+revision = '065d4ac55e5d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,12 +30,11 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
     op.create_table('friends',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('friend_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['friend_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('user1_id', sa.Integer(), nullable=False),
+    sa.Column('user2_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['user1_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['user2_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('user1_id', 'user2_id')
     )
     op.create_table('friendships',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -44,6 +43,13 @@ def upgrade():
     sa.Column('is_approved', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['from_uid'], ['users.id'], ),
     sa.ForeignKeyConstraint(['to_uid'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('images',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('url', sa.String(), nullable=False),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('posts',
@@ -83,6 +89,7 @@ def downgrade():
     op.drop_table('likes')
     op.drop_table('comments')
     op.drop_table('posts')
+    op.drop_table('images')
     op.drop_table('friendships')
     op.drop_table('friends')
     op.drop_table('users')
