@@ -11,7 +11,7 @@ const NewPostForm = () => {
 
   // states
   const [post_content, setPostContent] = useState('')
-  const [image_url, setImageUrl] = useState('')
+  // const [image_url, setImageUrl] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
 
   // useEffect to load all Posts and refresh state
@@ -22,19 +22,19 @@ const NewPostForm = () => {
   useEffect(() => {
     const errors = [];
 
-    const validUrls = ["img", "jpg", "jpeg", "png"]
-    let urlArray = image_url.split(".")
-    let urlExtension = urlArray[urlArray.length - 1]
+    // const validUrls = ["img", "jpg", "jpeg", "png"]
+    // let urlArray = image_url.split(".")
+    // let urlExtension = urlArray[urlArray.length - 1]
 
-    if (image_url && !validUrls.includes(urlExtension)) {
-      errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
-    }
+    // if (image_url && !validUrls.includes(urlExtension)) {
+    //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
+    // }
     if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
 
     if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
 
     setValidationErrors(errors)
-  },[post_content, image_url])
+  },[post_content])
 
   // select slice of state that we want
   const posts = useSelector(state => Object.values(state.posts))
@@ -57,8 +57,7 @@ const NewPostForm = () => {
 
     if (!validationErrors.length) {
       const newPostPayload = {
-        post_content,
-        image_url
+        post_content
       }
 
       const newPost = await dispatch(createNewPost(newPostPayload))
@@ -111,7 +110,7 @@ const NewPostForm = () => {
 
 
 
-            <input
+            {/* <input
               type="url"
               className="form-inputs"
               name="url"
@@ -120,10 +119,10 @@ const NewPostForm = () => {
               pattern="https://.*" size="30"
               onChange={(e) => setImageUrl(e.target.value)}
               value={image_url}
-            />
+            /> */}
 
 
-            {/* < UploadPicture /> */}
+            <UploadPicture />
 
           </div>
           <div className="button-container">

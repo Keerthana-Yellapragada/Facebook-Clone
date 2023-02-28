@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 
@@ -42,12 +42,16 @@ const UploadPicture = () => {
     return (
         <form onSubmit={handleSubmit}>
             <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
+                type="file"
+                name="file"
+                accept="image/*"
+                onChange={updateImage}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+
+             <div className="button-container" >
+                <button className="create-post-button" type="submit">Upload Image</button>
+                {(imageLoading) && <p>Loading...</p>}
+            </div>
         </form>
     )
 }
