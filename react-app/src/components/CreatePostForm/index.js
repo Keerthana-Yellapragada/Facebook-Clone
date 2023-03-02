@@ -11,13 +11,17 @@ const NewPostForm = () => {
 
   // states
   const [post_content, setPostContent] = useState('')
-  // const [image_url, setImageUrl] = useState('')
+  const [image_url, setImageUrl] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
+  // const [image, setImage] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
 
   // useEffect to load all Posts and refresh state
   useEffect(() => {
     dispatch(loadAllPosts());
   }, [dispatch])
+
 
   useEffect(() => {
     const errors = [];
@@ -29,12 +33,12 @@ const NewPostForm = () => {
     // if (image_url && !validUrls.includes(urlExtension)) {
     //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
     // }
-    if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
+    if (post_content & post_content.length < 1) { errors.push("Cannot submit a blank field") }
 
-    if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
+    if (post_content.length > 2200) { errors.push("You have reached your 2200 character limit") }
 
     setValidationErrors(errors)
-  },[post_content])
+  }, [post_content])
 
   // select slice of state that we want
   const posts = useSelector(state => Object.values(state.posts))
@@ -46,6 +50,11 @@ const NewPostForm = () => {
   if (!posts) {
     return null
   }
+
+     const updateImage = (e) => {
+       const file = e.target.files[0];
+       setImageUrl(file);
+     }
 
   const submitHandler = async (e) => {
     e.preventDefault()
@@ -60,8 +69,30 @@ const NewPostForm = () => {
         post_content
       }
 
-      const newPost = await dispatch(createNewPost(newPostPayload))
+      const formData = new FormData()
+      formData.append("post_content", post_content)
+      formData.append("image_url", image_url)
+
+
+  if(validationErrors.length){
+    return null
+  }
+  setIsLoading(true)
+
+      await dispatch(createNewPost(formData)).then(
+        async (res) => {
+          if (res && res.errors?.length > 0) {
+            setValidationErrors(res.errors)
+            setIsLoading(false)
+          } else {
+            // setShowModal(false)
+            setIsLoading(false)
+          }
+        }
+      )
+      // const newPost = await dispatch(createNewPost(newPostPayload))
       history.push(`/`)
+      // closeModal()
     }
   }
 
@@ -84,14 +115,14 @@ const NewPostForm = () => {
 
 
           <div className="errors">
-            {validationErrors.length > 0 &&
-              validationErrors.map((error) =>
+            {validationErrors && validationErrors.length > 0 ?
+              validationErrors?.map((error) =>
                 <div key={error}>{error}</div>
-              )}
-               {post_content ? (
-            <span className="charLeft">
-              {post_content.length}/2200
-            </span>
+              ) : null}
+            {post_content ? (
+              <span className="charLeft">
+                {post_content.length}/2200
+              </span>
             ) : null}
 
           </div>
@@ -109,8 +140,7 @@ const NewPostForm = () => {
             />
 
 
-
-            {/* <input
+       {/* <input
               type="url"
               className="form-inputs"
               name="url"
@@ -121,13 +151,41 @@ const NewPostForm = () => {
               value={image_url}
             /> */}
 
+            <label for="user_file">Upload Your File</label>
+            {/* <input
+                type="url"
+                name="url"
+                accept="image/*"
+                onChange={updateImage}
+            /> */}
+              {/* <input
+                type="file"
+                name="user_file"
+                accept="image/*"
+                onChange={updateImage}
+            />
+            {(imageLoading) && <p>Loading...</p>} */}
 
-            <UploadPicture />
+ <div className="file-container">
+                            <label>Upload
+                                <input id="image-file-input-area"
+                                    type="file"
+                                    placeholder="Drop your image file(.jpg and .png format)"
+                                    //value={video}
+                                    accept="image/jpeg, image/jpg, image/png, image/gif"
+                                    onChange={(e) => setImageUrl(e.target.files[0])
+                                    }
+                                    // required
+                                />
+                            </label>
+
+                        </div >
+            {/* <UploadPicture /> */}
 
           </div>
           <div className="button-container">
             <button className="create-post-button"
-            disabled={!!validationErrors.length}
+              disabled={!!validationErrors.length}
               type="submit">Post</button>
           </div>
         </form>

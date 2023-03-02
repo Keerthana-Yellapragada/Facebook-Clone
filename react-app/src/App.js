@@ -15,6 +15,7 @@ import LandingPage from './components/LandingPage'
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import UserProfilePage from './components/UserProfilePage';
+import UploadPicture from './components/Images/UploadImages';
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
 
         <Route path='/users/:userId' exact={true}>
           <UserProfilePage />
+        </Route>
+        <Route path='/images'>
+          <UploadPicture />
         </Route>
         <Route>
           404 Not Found

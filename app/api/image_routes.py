@@ -1,36 +1,47 @@
-from flask import Blueprint, request
-from app.models import *
-from flask_login import current_user, login_required
-from app.api.s3_helpers import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+# from flask import render_template, request, redirect, url_for, flash
+# from .helpers import upload_file_to_s3
 
-image_routes = Blueprint("images", __name__)
+# ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
+# # function to check file extension
+# def allowed_file(filename):
+#     return '.' in filename and \
+#         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@image_routes.route("", methods=["POST"])
-@login_required
-def upload_image():
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
+# @app.route("/upload", methods=["POST"])
+# def create():
 
-    image = request.files["image"]
+#     # check whether an input field with name 'user_file' exist
+#     if 'user_file' not in request.files:
+#         flash('No user_file key in request.files')
+#         return redirect(url_for('new'))
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+#     # after confirm 'user_file' exist, get the file from input
+#     file = request.files['user_file']
 
-    image.filename = get_unique_filename(image.filename)
+#     # check whether a file is selected
+#     if file.filename == '':
+#         flash('No selected file')
+#         return redirect(url_for('new'))
 
-    upload = upload_file_to_s3(image)
+#     # check whether the file extension is allowed (eg. png,jpeg,jpg,gif)
+#     if file and allowed_file(file.filename):
+#         output = upload_file_to_s3(file)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
+#         # if upload success,will return file name of uploaded file
+#         if output:
+#             # write your code here
+#             # to save the file name in database
 
-    url = upload["url"]
-    # flask_login allows us to get the current user from the request
-    new_image = Image(user=current_user, url=url)
-    db.session.add(new_image)
-    db.session.commit()
-    return {"url": url}
+#             flash("Success upload")
+#             return redirect(url_for('show'))
+
+#         # upload failed, redirect to upload page
+#         else:
+#             flash("Unable to upload, try again")
+#             return redirect(url_for('new'))
+
+#     # if file extension not allowed
+#     else:
+#         flash("File type not accepted,please try again.")
+#         return redirect(url_for('new'))

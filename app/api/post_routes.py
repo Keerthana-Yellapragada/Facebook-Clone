@@ -6,7 +6,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from ..forms.create_post_form import CreatePostForm
 from ..forms.create_comment_form import CreateCommentForm
 from ..forms.create_like_form import CreateLikeForm
-
+from .helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3
+)
 Base=declarative_base()
 
 # ************************************ POSTS ROUTES ***********************************************
@@ -75,6 +77,64 @@ def create_post():
         return post.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
+
+# ************************************ CREATE NEW POST USING AWS***********************************************
+@post_routes.route("/new/AWS/", methods=["POST"])
+@login_required
+def create_post_AWS():
+    print("DID IT ENTER THE CREATE_POST FUCNTION")
+    # print("request************* files imageurl**********", request.files['image_url'])
+    #  ImmutableMultiDict([('image_url', <FileStorage: 'b476145fbd902219e7dbed10856a2686.jpeg' ('image/jpeg')>)])
+    print("request************* files**********", request.files)
+    print("request****************", request.files["content"])
+    #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
+    if "content" not in request.files:
+        return {"errors": "Image file is required."}, 400
+    print("request****************", request)
+    #content is the <filestorage: 'xxxx.mp4'> binary form of the video
+    content=request.files["content"]
+
+    #request.filename is the string of file name: 'xxx.mp4'
+    if not allowed_file(content.filename):
+        return {"errors": "This file does not meet the format requirement."}, 400
+
+    #here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
+    content.filename=get_unique_filename(content.filename)
+    #image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
+    image_uploaded = upload_file_to_s3(content)
+    print("IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!", image_uploaded)
+    if "url" not in image_uploaded:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return image_uploaded, 400
+    #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
+    image_url=image_uploaded["url"]
+    # flask_login allows us to get the current user from the request
+
+    #here we will form a video and save it to the db according to the keys defined in the model
+
+    #while description and title are obtained from request.form
+    #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
+    print("current_user", current_user)
+    create_post_form = Post(
+        user_id=current_user.id,
+        post_content = request.form.get('post_content'),
+        image_url = image_url,
+    )
+    print('uploaded_image!!!!!!!!!!!!!!!!!', create_post_form)
+
+    db.session.add(create_post_form)
+    db.session.commit()
+    #then add and commit to database, in this process the new video id and createdat, updated at will be generated
+    # db.session.add(create_post_form)
+    # db.session.commit()
+    # since the id, created at and updated at are new info, refresh() function is needed to send those info to the frontend
+    # so that it knows which page to turn to . and then to update the time accordingly
+    db.session.refresh(create_post_form)
+    print('uploaded_video.to_dict()', create_post_form.to_dict())
+    return  create_post_form.to_dict()
+
 
 
 

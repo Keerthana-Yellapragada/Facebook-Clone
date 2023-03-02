@@ -87,7 +87,7 @@ export const loadOnePost = (postId) => async dispatch => {
 
 // -------------------------  CREATE A POST   ----------------------------------
 
-export const createNewPost = (payload) => async dispatch => {
+export const createNewPostWithoutImage = (payload) => async dispatch => {
 
     const response = await csrfFetch('/api/posts/new/', {
         method: 'POST',
@@ -105,7 +105,28 @@ export const createNewPost = (payload) => async dispatch => {
         return post
     }
 }
+// -------------------------  CREATE A POST USING AWS   ----------------------------------
+// when uploading to aws, note that you must NOT set the Content-Type header on your request.
+//If you leave the Content-Type field blank, the Content-Type will be generated and set correctly by your browser
+// (check it out in the network tab!). If you include Content-Type, your request will be missing information and your Flask backend will be unable to locate the attached files.
+export const createNewPost = (formData) => async dispatch => {
+    console.log("did this reach to createNewPOst in the STORE?")
+    // console.log("this is the formData", formData)
+    const response = await fetch('/api/posts/new/AWS/', {
+        method: "POST",
+        body: formData
 
+    }).catch(res => res)
+    if (response.ok) {
+        console.log("THIS CREATE AWS RESPONSE IS OK")
+        const newImage = await response.json()
+        await dispatch(createPost(newImage))
+        return newImage
+    } else {
+        const result = await response.json()
+        return result
+    }
+}
 //*************************************************************************** */
 
 // -------------------------  EDIT A POST    ----------------------------------
