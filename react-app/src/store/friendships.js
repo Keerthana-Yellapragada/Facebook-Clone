@@ -99,7 +99,7 @@ export const createNewFriendship = (payload) => async dispatch => {
 //*************************************************************************** */
 
 // -------------------------  UPDATE A friendship  --------------------------------
-
+// accepting friendship
 export const updateFriendship = (editFriendshipInfo) => async dispatch => {
 
     const response = await csrfFetch(`/api/friendships/${editFriendshipInfo.id}/`, {

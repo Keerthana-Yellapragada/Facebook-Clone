@@ -37,12 +37,13 @@ const UserProfilePage = () => {
 
     const allPosts = useSelector(state => Object.values(state.posts))
 
-    let users = useSelector(state => Object.values(state.users))
+    let users = useSelector(state => state.users)
 
     let sessionUser = useSelector(state => state.session.user)
 
-    let user = users?.filter(user => user.id === userId)
-    user = user[0]
+    // let user = users?.filter(user => user.id === userId)
+    // user = user[0]
+    let user = users[userId]
 
     let userPosts = allPosts?.filter(post => post?.user_id === user?.id)
 
@@ -80,7 +81,7 @@ const UserProfilePage = () => {
             id: postId
         }
         let deletedPost;
-        deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`users/${user.id}`))
+        deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`/users/${user.id}`))
     }
 
     // *********************************************************************************************************************
@@ -105,7 +106,7 @@ const UserProfilePage = () => {
             post_love: false
         }
         // likedButton=true
-        createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${user.id}`))
+        createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${user.id}`))
 
     }
     // *********************************************************************************************************************
@@ -113,7 +114,7 @@ const UserProfilePage = () => {
     async function handleRemoveLike(likeId) {
         if (likeId) {
             // likedButton=false
-            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`users/${sessionUser.id}`))
+            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${sessionUser.id}`))
         }
     }
     // *********************************************************************************************************************
@@ -125,7 +126,7 @@ const UserProfilePage = () => {
             to_uid: user.id,
             is_approved: 0
         }
-        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`users/${user.id}`))
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`/users/${user.id}`))
 
     }
 
@@ -140,7 +141,7 @@ const UserProfilePage = () => {
             is_approved: 1
 
         }
-       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`users/${user.id}`))
+       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${user.id}`))
 
 
     }
@@ -151,7 +152,7 @@ const UserProfilePage = () => {
 
     async function handleIgnoreRequest(request) {
         console.log("ignore FRIEND REQ", request)
-        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`users/${user.id}`))
+        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`/users/${user.id}`))
 
     }
 
@@ -159,7 +160,7 @@ const UserProfilePage = () => {
 
     // *********************************************************************************************************************
 
-
+    // debugger
     return (
         <>
             <div className='user-profile-page-main-container'>
@@ -196,7 +197,8 @@ const UserProfilePage = () => {
                                 {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                     return (
                                         <>
-                                            <div className="friendRequest"> From: {request.from_uid}</div>
+
+                                            <div className="friendRequest"> From: {users[request?.from_uid ]?.first_name}</div>
                                             <div>
                                                 <button onClick={()=> handleAcceptRequest(request)}>Accept</button>
                                                 <button onClick={()=> handleIgnoreRequest(request)}>Ignore</button>
