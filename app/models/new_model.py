@@ -175,23 +175,23 @@ class Friendship(db.Model):
 
 
 
-class Friend(db.Model):
-    __tablename__ = "friends"
+# class Friend(db.Model):
+#     __tablename__ = "friends"
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+#     friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
 
-    # user = db.relationship("User", foreign_keys=[user_id, friend_id],back_populates = "friends")
-    # friend = db.relationship("User", foreign_keys=[friend_id],back_populates = "friends")
+#     # user = db.relationship("User", foreign_keys=[user_id, friend_id],back_populates = "friends")
+#     # friend = db.relationship("User", foreign_keys=[friend_id],back_populates = "friends")
 
-    def to_dict(self):
-        return {
-            "id" : self.id,
-            "user_id" : self.user_id,
-            "friend_id": self.friend_id,
-        }
+#     def to_dict(self):
+#         return {
+#             "id" : self.id,
+#             "user_id" : self.user_id,
+#             "friend_id": self.friend_id,
+#         }
 
-    def __repr__(self):
-        return f'<Friend, id={self.id}, user_id={self.user_id}, friend_id={self.friend_id}'
+#     def __repr__(self):
+#         return f'<Friend, id={self.id}, user_id={self.user_id}, friend_id={self.friend_id}'
