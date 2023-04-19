@@ -212,15 +212,15 @@ const UserProfilePage = () => {
                                 }) : null}
 
                             </div>
-                            <div className='friends-map-container'>
+                            <div className='friends-main-flex-container'>
                                 {allFriends.length > 0? (
                                 <>
-                                <div className='friends-grid'>
+                                <div className='friends-container'>
 
                                     {allFriends?.map(friend => {
                                         return (
                                             <>
-                                            <div>{friend.to_uid != sessionUser.id ? (
+                                            <div className="friend-card-container">{friend.to_uid != sessionUser.id ? (
                                                         <>
                                                         <div className='friend-card'>
                                                             <NavLink to={`/users/${friend.id}`}>{users[friend?.to_uid]?.id}</NavLink>
