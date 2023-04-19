@@ -20,7 +20,7 @@
     margin-bottom: 78px;
     padding: 15px;
     width: 60%;
-    height:auto;
+    height: auto;
     background-color: white;
     border-radius: 7px;
 }
@@ -36,7 +36,7 @@
     border-radius: 7px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
@@ -100,23 +100,25 @@
     align-items: flex-start;
     margin: 10px;
     padding: 5px;
-
     font-size: 20px;
-    /* border: 1px solid rgb(218, 214, 214);
-    box-shadow: 0 0 4px 1.5px rgb(129 161 226); */
     border-radius: 5px;
 }
 
+.user-intro-title{
+font-size: 40px;
+font-weight: bolder;
+margin: 20px 0px;
+}
 
-.profile-user-header-buttons{
+.profile-user-header-buttons {
     margin: 50px;
     padding: 5px;
 }
 
-.add-friend-button{
+.add-friend-button {
     background-color: rgb(29, 122, 236);
-    font-weight:bold;
-    color:white;
+    font-weight: bold;
+    color: white;
     width: auto;
     padding: 5px 10px;
     margin: 10px;
@@ -124,21 +126,57 @@
     font-size: 18px;
 }
 
-.pending-request-container{
+.Friends-container-title {
+    font-weight: bolder;
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.pending-request-container {
     font-weight: bold;
     font-size: 18px;
+    display: flex;
 }
 
-.friend-request-container{
-    border: 1px solid red;
+.friend-request-container {
+    border: 1px solid rgb(52, 133, 246);
+    /* box-shadow: 0 0 4px 1.5px rgb(67, 118, 220); */
+    margin: 20px 0px;
+    padding: 12px;
+    border-radius: 4%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
 }
 
-.friend-request{
-    border: 1px solid green
+.friend-request-name {
+    display: flex;
+    margin: 10px;
+    font-weight: bolder;
+    font-size: 25px
 }
 
-.friend-request-button{
-    background-color: blue;
-    color:white;
+.friend-request {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-size: 12px;
+    margin: 7px
+}
+
+.friend-request-button {
+    background-color: rgb(28, 127, 240);
+    color: white;
+    font-size: 13px;
+    border-radius: 7%;
+    border: 1px solid rgb(47, 120, 244);
+    padding: 12px;
+    margin: 5px;
+    font-weight: bold;
 }

@@ -187,13 +187,13 @@ const UserProfilePage = () => {
                 <div className='user-profile-page-flex-container'>
                     <div className='left-user-info-flex-container'>
                         <div className='user-info-main-container'>
-                            <h3>Intro</h3>
+                            <div className='user-intro-title'>Intro</div>
                             <div>{user?.first_name} {user?.last_name}</div>
                             <div>Contact: {user?.email}</div>
                         </div>
 
                         <div className='right-user-friends-container'>
-                            <h2>Friends</h2>
+                            <div className='Friends-container-title'>Friends</div>
                             {sessionUser && sessionUser.id === userId ?
                            ( <div className='friend-request-container'>
 
@@ -203,7 +203,8 @@ const UserProfilePage = () => {
                                     return (
                                         <>
 
-                                            <div className="friend-request"> From: {users[request?.from_uid]?.first_name}</div>
+                                            <div className="friend-request-name">{users[request?.from_uid]?.first_name} {users[request?.from_uid]?.last_name}</div>
+                                            <div className="friend-request"> wants to add you as a friend </div>
                                             <div>
                                                 <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Accept</button>
                                                 <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
