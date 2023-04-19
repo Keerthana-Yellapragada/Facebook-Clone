@@ -135,7 +135,7 @@ const UserProfilePage = () => {
             to_uid: user.id,
             is_approved: 0
         }
-        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}/`))
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/homepage`))
 
     }
 
@@ -185,7 +185,8 @@ const UserProfilePage = () => {
                     />
                     <div className="profile-header-user-name">{user.first_name} {user.last_name}</div>
 
-                    {sessionUser && sessionUser.id === userId ? null :
+                    {
+                        sessionUser && sessionUser.id === userId ? null :
 
                     (<div className='profile-user-header-buttons'>
                         <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
