@@ -54,7 +54,7 @@ const UserProfilePage = () => {
 
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
-    let allFriends = allFriendships.filter(friendship =>(( friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
+    let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
     console.log("allfriends", allFriends[0])
     // *********************************************************************************************************************
 
@@ -195,67 +195,73 @@ const UserProfilePage = () => {
                         <div className='right-user-friends-container'>
                             <div className='Friends-container-title'>Friends</div>
                             {sessionUser && sessionUser.id === userId ?
-                           ( <div className='friend-request-container'>
+                                (
+                                    <>
+                                        {/* {friend_request_approvals.length > 0 ? <div className='pending-request-container'>Requests:</div> : null} */}
+                                        <div className='friend-request-container'>
 
-                                {friend_request_approvals.length > 0 ? <div className='pending-request-container'>Pending Requests:</div> : null}
 
-                                {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
-                                    return (
-                                        <>
 
-                                            <div className="friend-request-name">{users[request?.from_uid]?.first_name} {users[request?.from_uid]?.last_name}</div>
-                                            <div className="friend-request"> wants to add you as a friend </div>
-                                            <div>
-                                                <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Accept</button>
-                                                <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
-                                            </div>
-                                        </>
-                                    )
-                                }) : null}
+                                            {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
+                                                return (
+                                                    <>
 
-                            </div>) : null }
-                            <div className='friends-main-flex-container'>
-                                {allFriends.length > 0? (
-                                <>
-                                <div className='friends-container'>
-
-                                    {allFriends?.map(friend => {
-                                        return (
-                                            <>
-                                            <div className="friend-card-container">{friend.to_uid != sessionUser.id ? (
-                                                        <>
-                                                        <div className='friend-card'>
-                                                            <NavLink to={`/users/${friend.id}`}>{users[friend?.to_uid]?.id}</NavLink>
-                                                            <div className='friend-first-name'>{users[friend?.to_uid]?.first_name}</div>
-                                                            <div className='friend-last-name'>{users[friend?.to_uid]?.last_name}</div>
+                                                        <div className="friend-request-name">{users[request?.from_uid]?.first_name} {users[request?.from_uid]?.last_name}</div>
+                                                        <div className="friend-request"> wants to add you as a friend </div>
+                                                        <div>
+                                                            <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Accept</button>
+                                                            <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                                         </div>
-                                                        </>
+                                                    </>
+                                                )
+                                            }) : null}
+
+                                        </div>
+
+                                    </>
+                                ) : null}
+                            <div className='friends-main-flex-container'>
+                                {allFriends.length > 0 ? (
+                                    <>
+                                        <div className='friends-container'>
+
+                                            {allFriends?.map(friend => {
+                                                return (
+                                                    <>
+                                                        <div className="friend-card-container">{friend.to_uid != sessionUser.id ? (
+                                                            <>
+                                                                <div className='friend-card'>
+                                                                    <NavLink to={`/users/${friend.id}`}>{users[friend?.to_uid]?.id}</NavLink>
+                                                                    <div className='friend-first-name'>{users[friend?.to_uid]?.first_name}</div>
+                                                                    <div className='friend-last-name'>{users[friend?.to_uid]?.last_name}</div>
+                                                                </div>
+                                                            </>
                                                         ) :
 
-                                                        (
+                                                            (
 
-                                                        <>
-                                                        <div className='friend-card'>
-                                                             <NavLink to={`/users/${friend.id}`}>{users[friend?.from_uid]?.id}</NavLink>
-                                                            <div className='friend-first-name'>{users[friend?.from_uid]?.first_name}</div>
-                                                            <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
+                                                                <>
+                                                                    <div className='friend-card'>
+                                                                        <NavLink to={`/users/${friend.id}`}>{users[friend?.from_uid]?.id}</NavLink>
+                                                                        <div className='friend-first-name'>{users[friend?.from_uid]?.first_name}</div>
+                                                                        <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
+                                                                    </div>
+                                                                </>
+
+                                                            )
+
+                                                        }
                                                         </div>
-                                                        </>
-
-                                                    )
-
-                                                    }
-                                            </div>
-                                            </>
-                                        )
-                                    })}
-                                </div>
+                                                    </>
+                                                )
+                                            })}
+                                        </div>
 
 
 
 
 
-                                </>) : null }
+                                    </>) : null}
                             </div>
                         </div>
 
