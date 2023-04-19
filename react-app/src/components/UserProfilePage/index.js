@@ -54,7 +54,8 @@ const UserProfilePage = () => {
 
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
-    let allFriends = allFriendships.filter(friendship =>( friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1)
+    let allFriends = allFriendships.filter(friendship =>(( friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
+    console.log("allfriends", allFriends[0])
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
@@ -212,13 +213,37 @@ const UserProfilePage = () => {
 
                             </div>
                             <div className='friends-map-container'>
-                                {allFriends.length > 0? (<>
+                                {allFriends.length > 0? (
+                                <>
                                 <div className='friends-grid'>
 
                                     {allFriends?.map(friend => {
                                         return (
                                             <>
-                                            <div>{(friend.to_uid != sessionUser.id )? users[friend?.to_uid]?.first_name : users[friend?.from_uid]?.first_name}</div>
+                                            <div>{friend.to_uid != sessionUser.id ? (
+                                                        <>
+                                                        <div className='friend-card'>
+                                                            <NavLink to={`/users/${friend.id}`}>{users[friend?.to_uid]?.id}</NavLink>
+                                                            <div className='friend-first-name'>{users[friend?.to_uid]?.first_name}</div>
+                                                            <div className='friend-last-name'>{users[friend?.to_uid]?.last_name}</div>
+                                                        </div>
+                                                        </>
+                                                        ) :
+
+                                                        (
+
+                                                        <>
+                                                        <div className='friend-card'>
+                                                             <NavLink to={`/users/${friend.id}`}>{users[friend?.from_uid]?.id}</NavLink>
+                                                            <div className='friend-first-name'>{users[friend?.from_uid]?.first_name}</div>
+                                                            <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
+                                                        </div>
+                                                        </>
+
+                                                    )
+
+                                                    }
+                                            </div>
                                             </>
                                         )
                                     })}
