@@ -52,7 +52,7 @@ const UserProfilePage = () => {
 
     let allFriendships = useSelector(state => Object.values(state.friendships))
 
-    let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId)
+    let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
     // *********************************************************************************************************************
 
@@ -81,7 +81,7 @@ const UserProfilePage = () => {
             id: postId
         }
         let deletedPost;
-        deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`/users/${user.id}`))
+        deletedPost = dispatch(deletePost(payload)).then(() => dispatch(loadAllPosts())).then(() => history.push(`/users/${sessionUser.id}/`))
     }
 
     // *********************************************************************************************************************
@@ -106,7 +106,7 @@ const UserProfilePage = () => {
             post_love: false
         }
         // likedButton=true
-        createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${user.id}`))
+        createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${sessionUser.id}/`))
 
     }
     // *********************************************************************************************************************
@@ -114,7 +114,7 @@ const UserProfilePage = () => {
     async function handleRemoveLike(likeId) {
         if (likeId) {
             // likedButton=false
-            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${sessionUser.id}`))
+            deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push(`/users/${sessionUser.id}/`))
         }
     }
     // *********************************************************************************************************************
@@ -126,7 +126,7 @@ const UserProfilePage = () => {
             to_uid: user.id,
             is_approved: 0
         }
-        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => history.push(`/users/${user.id}`))
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(()=> dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}/`))
 
     }
 
@@ -141,7 +141,7 @@ const UserProfilePage = () => {
             is_approved: 1
 
         }
-       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${user.id}`))
+       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${sessionUser.id}/`))
 
 
     }
@@ -152,7 +152,7 @@ const UserProfilePage = () => {
 
     async function handleIgnoreRequest(request) {
         console.log("ignore FRIEND REQ", request)
-        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`/users/${user.id}`))
+        let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`/users/${sessionUser.id}/`))
 
     }
 

@@ -111,10 +111,10 @@ export const updateFriendship = (editFriendshipInfo) => async dispatch => {
     })
 
     if (response.ok) {
-
+        const response = await csrfFetch()
         const editedFriendship = await response.json();
         dispatch(editFriendship(editedFriendship))
-        const response = await csrfFetch()
+
         return editedFriendship
     }
 }
