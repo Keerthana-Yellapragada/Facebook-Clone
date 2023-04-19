@@ -76,6 +76,13 @@ const UserProfilePage = () => {
     if (!userPosts) {
         return null
     }
+
+    if (!allFriends){
+        return null
+    }
+    if (!sessionUser){
+        return null
+    }
     // *********************************************************************************************************************
     const deleteHandler = async (postId) => {
 
