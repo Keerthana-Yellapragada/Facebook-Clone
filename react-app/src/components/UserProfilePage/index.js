@@ -194,24 +194,25 @@ const UserProfilePage = () => {
 
                         <div className='right-user-friends-container'>
                             <h2>Friends</h2>
-                            <div className='friend-request-container'>
+                            {sessionUser && sessionUser.id === userId ?
+                           ( <div className='friend-request-container'>
 
-                                {friend_request_approvals.length > 0 ? <div>Pending Requests:</div> : null}
+                                {friend_request_approvals.length > 0 ? <div className='pending-request-container'>Pending Requests:</div> : null}
 
                                 {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                     return (
                                         <>
 
-                                            <div className="friendRequest"> From: {users[request?.from_uid]?.first_name}</div>
+                                            <div className="friend-request"> From: {users[request?.from_uid]?.first_name}</div>
                                             <div>
-                                                <button onClick={() => handleAcceptRequest(request)}>Accept</button>
-                                                <button onClick={() => handleIgnoreRequest(request)}>Ignore</button>
+                                                <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Accept</button>
+                                                <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                             </div>
                                         </>
                                     )
                                 }) : null}
 
-                            </div>
+                            </div>) : null }
                             <div className='friends-main-flex-container'>
                                 {allFriends.length > 0? (
                                 <>
