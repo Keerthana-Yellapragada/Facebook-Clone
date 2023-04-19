@@ -54,6 +54,7 @@ const UserProfilePage = () => {
 
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
+    let allFriends = allFriendships.filter(friendship =>( friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1)
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
@@ -126,22 +127,22 @@ const UserProfilePage = () => {
             to_uid: user.id,
             is_approved: 0
         }
-        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(()=> dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}/`))
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}/`))
 
     }
 
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-    console.log("accept FRIEND REQ", request)
+        console.log("accept FRIEND REQ", request)
         let acceptPayload = {
-            id:request.id,
+            id: request.id,
             from_uid: request.from_uid,
             to_uid: request.to_uid,
             is_approved: 1
 
         }
-       let acceptedRequest =  dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${sessionUser.id}/`))
+        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${sessionUser.id}/`))
 
 
     }
@@ -189,26 +190,49 @@ const UserProfilePage = () => {
                             <div>{user?.first_name} {user?.last_name}</div>
                             <div>Contact: {user?.email}</div>
                         </div>
+
                         <div className='right-user-friends-container'>
                             <h2>Friends</h2>
-                            <div>
-                                <div>Pending Requests:</div>
+                            <div className='friend-request-container'>
+
+                                {friend_request_approvals.length > 0 ? <div>Pending Requests:</div> : null}
 
                                 {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                     return (
                                         <>
 
-                                            <div className="friendRequest"> From: {users[request?.from_uid ]?.first_name}</div>
+                                            <div className="friendRequest"> From: {users[request?.from_uid]?.first_name}</div>
                                             <div>
-                                                <button onClick={()=> handleAcceptRequest(request)}>Accept</button>
-                                                <button onClick={()=> handleIgnoreRequest(request)}>Ignore</button>
+                                                <button onClick={() => handleAcceptRequest(request)}>Accept</button>
+                                                <button onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                             </div>
                                         </>
                                     )
                                 }) : null}
 
                             </div>
+                            <div className='friends-map-container'>
+                                {allFriends.length > 0? (<>
+                                <div className='friends-grid'>
+
+                                    {allFriends?.map(friend => {
+                                        return (
+                                            <>
+                                            <div>{(friend.to_uid != sessionUser.id )? users[friend?.to_uid]?.first_name : users[friend?.from_uid]?.first_name}</div>
+                                            </>
+                                        )
+                                    })}
+                                </div>
+
+
+
+
+
+                                </>) : null }
+                            </div>
                         </div>
+
+
                     </div>
                     <div className='center-user-posts-browser-container'>
                         <>
