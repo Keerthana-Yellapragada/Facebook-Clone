@@ -181,6 +181,13 @@
     font-weight: bold;
 }
 
+.friend-card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    width: 100%
+}
 
 .friend-card{
     width: 30%;
@@ -197,9 +204,10 @@
 }
 
 .friends-main-flex-container {
-
-    display: flex;
-    flex-wrap: wrap;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ flex-basis: auto;
     margin: 10% 0%;
     width: 90%
 }

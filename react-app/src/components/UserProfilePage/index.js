@@ -184,9 +184,12 @@ const UserProfilePage = () => {
                         alt="user-profile-pics"
                     />
                     <div className="profile-header-user-name">{user.first_name} {user.last_name}</div>
-                    <div className='profile-user-header-buttons'>
+
+                    {sessionUser && sessionUser.id === userId ? null :
+
+                    (<div className='profile-user-header-buttons'>
                         <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
-                    </div>
+                    </div>)}
 
                 </div>
 
