@@ -242,7 +242,7 @@ const UserProfilePage = () => {
                                                         <div className="friend-card-container">{friend.to_uid != sessionUser.id ? (
                                                             <>
                                                                 <div className='friend-card'>
-                                                                       <NavLink to={`/users/${friend.id}`}>
+                                                                       <NavLink to={`/users/${friend.from_id}/`}>
 
                                                                             <div className="friend-profile-pic-container">
                                                                                 <img
@@ -264,7 +264,7 @@ const UserProfilePage = () => {
 
                                                                 <>
                                                                     <div className='friend-card'>
-                                                                        <NavLink to={`/users/${friend.id}`}>
+                                                                        <NavLink to={`/users/${friend.from_id}`}>
 
                                                                             <div className="friend-profile-pic-container">
                                                                                 <img
