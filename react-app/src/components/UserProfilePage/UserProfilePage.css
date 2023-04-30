@@ -88,10 +88,10 @@
     box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.5)
 }
 
-.friend-profile-pic{
-        width: 100%;
-        height: 100%;
-        margin-bottom: 10px;
+.friend-profile-pic {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
 }
 
 .user-info-main-container {
@@ -143,7 +143,7 @@
 
 .friend-request-container {
     border: 1px solid rgb(52, 133, 246);
-    margin:  10%;
+    margin: 10%;
     padding: 12px;
     border-radius: 4%;
     display: flex;
@@ -181,7 +181,7 @@
     font-weight: bold;
 }
 
-.friend-card-container{
+.friend-card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -189,14 +189,14 @@
     width: 100%
 }
 
-.friend-card{
+.friend-card {
     width: 30%;
     height: 30%;
     border: 1px solid rgb(52, 131, 201);
     margin: 20px 0px;
     padding: 15px;
     font-size: 15px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -204,10 +204,10 @@
 }
 
 .friends-main-flex-container {
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- flex-basis: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
     margin: 10% 0%;
     width: 90%
 }
