@@ -141,7 +141,16 @@ const UserProfilePage = () => {
 // *********************************************************************************************************************
 
     async function handleRemoveFriend (){
+        let currFriendship = allFriends.filter(friendship => ((friendship.to_uid === sessionUser && friendship.from_uid === userId)  || (friendship.from_uid === sessionUser && friendship.to_uid === userId) && friendship.is_approved == 1 ))
 
+        let friendshipPayload = {
+           id: currFriendship.id,
+           from_id : currFriendship.from_id,
+           to_uid: currFriendship.to_uid,
+           is_approved: currFriendship.is_approved
+
+        }
+        let deletedFriendship = dispatch(deleteFriendship(friendshipPayload))
     }
 
 // *********************************************************************************************************************
