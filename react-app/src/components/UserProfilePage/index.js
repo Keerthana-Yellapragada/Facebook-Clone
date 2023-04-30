@@ -189,7 +189,8 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                     (<div className='profile-user-header-buttons'>
-                        <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add friend</button>
+                        {allFriends.length > 0 ?  <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-check"></i>Friends</button> :
+                        <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
                     </div>)}
 
                 </div>
@@ -225,7 +226,7 @@ const UserProfilePage = () => {
                                                         </div>
                                                     </>
                                                 )
-                                            }) : null}
+                                            }) : (<h3>No New Friend Requests!</h3>)}
 
                                         </div>
 
