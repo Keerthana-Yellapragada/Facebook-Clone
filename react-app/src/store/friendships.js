@@ -73,6 +73,20 @@ export const loadAllFriendships = () => async dispatch => {
 
 
 /*************************************************************************** */
+// -------------------------  GET ONE friendship   ----------------------------------
+
+export const getFriendshipDetails = (friendshipId) => async dispatch => {
+    const response = await csrfFetch(`/api/friendships/${friendshipId}/`);
+
+    if (response.ok) {
+        const friendShipInfo = await response.json();
+
+        dispatch(getOneFriendship(friendshipInfo))
+    }
+}
+
+
+/*************************************************************************** */
 
 // -------------------------  CREATE A friendship   ----------------------------------
 
@@ -186,6 +200,7 @@ const friendshipReducer = (state = initialState, action) => {
 
         // *****************************************************************************
         case DELETE_FRIENDSHIP:
+            console.log("REACHED DELETE FRIENDS REducER")
             newState = {
                 ...state
             }

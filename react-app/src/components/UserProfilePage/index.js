@@ -40,6 +40,8 @@ const UserProfilePage = () => {
     let users = useSelector(state => state.users)
 
     let sessionUser = useSelector(state => state.session.user)
+    let sessionUserId = sessionUser.id
+    console.log("sessionuserId", sessionUserId)
 
     // let user = users?.filter(user => user.id === userId)
     // user = user[0]
@@ -55,7 +57,9 @@ const UserProfilePage = () => {
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
     let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
-
+    console.log("ALLFRIENDS", allFriends)
+    let currFriendship = allFriends.filter(friendship =>  friendship.from_uid === sessionUserId)
+    console.log("curr friendship is!!!!!!!!!!!", currFriendship)
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
@@ -141,16 +145,16 @@ const UserProfilePage = () => {
 // *********************************************************************************************************************
 
     async function handleRemoveFriend (){
-        let currFriendship = allFriends.filter(friendship => ((friendship.to_uid === sessionUser && friendship.from_uid === userId)  || (friendship.from_uid === sessionUser && friendship.to_uid === userId) && friendship.is_approved == 1 ))
-
+        // let currFriendship = allFriends.filter(friendship => ((friendship.to_uid || friendship.from_uid === sessionUser.id)  && (friendship.from_uid || friendship.to_uid === userId) && friendship.is_approved == 1 ))
+        console.log("CURR FRIENDSHIP ID IS", currFriendship.id)
         let friendshipPayload = {
            id: currFriendship.id,
            from_id : currFriendship.from_id,
            to_uid: currFriendship.to_uid,
-           is_approved: currFriendship.is_approved
+           is_approved: 0
 
         }
-        let deletedFriendship = dispatch(deleteFriendship(friendshipPayload))
+        let deletedFriendship = dispatch(deleteFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
     }
 
 // *********************************************************************************************************************
