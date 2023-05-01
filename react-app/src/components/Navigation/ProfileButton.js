@@ -62,7 +62,7 @@ function ProfileButton({ user }) {
               <div className="log-out" onClick={logout}>Log Out</div>
             </div>
             <div>
-              <div className="profile-page" onClick={()=>history.push(`users/${user.id}`)}> Profile</div>
+              <div className="profile-page" onClick={()=>history.push(`/users/${user.id}/`)}> Profile</div>
             </div>
           </div>
         )}

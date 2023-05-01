@@ -38,9 +38,7 @@
     max-width:200px;
     min-width: 200px;
     word-wrap:break-word;
-    text-align:justify
-
-    /* max-height: 300px; */
+    text-align: flex-start;
 
 
 }

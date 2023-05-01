@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: de9c7bcacbd1
+Revision ID: 9dae4b9bf922
 Revises: 
-Create Date: 2023-02-21 10:45:15.702236
+Create Date: 2023-04-19 08:46:57.499489
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'de9c7bcacbd1'
+revision = '9dae4b9bf922'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,21 +29,14 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    op.create_table('friends',
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('friend_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['friend_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('user_id', 'friend_id')
-    )
     op.create_table('friendships',
-    sa.Column('user1_id', sa.Integer(), nullable=False),
-    sa.Column('user2_id', sa.Integer(), nullable=False),
-    sa.Column('pending', sa.Boolean(), nullable=True),
-    sa.Column('approved', sa.Boolean(), nullable=True),
-    sa.ForeignKeyConstraint(['user1_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['user2_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('user1_id', 'user2_id')
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('from_uid', sa.Integer(), nullable=False),
+    sa.Column('to_uid', sa.Integer(), nullable=False),
+    sa.Column('is_approved', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['from_uid'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['to_uid'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -83,6 +76,5 @@ def downgrade():
     op.drop_table('comments')
     op.drop_table('posts')
     op.drop_table('friendships')
-    op.drop_table('friends')
     op.drop_table('users')
     # ### end Alembic commands ###
