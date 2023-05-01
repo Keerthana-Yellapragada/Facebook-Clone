@@ -142,7 +142,7 @@
 }
 
 .friend-request-container {
-    border: 1px solid rgb(52, 133, 246);
+    /* border: 1px solid rgb(52, 133, 246); */
     margin: 10%;
     padding: 12px;
     border-radius: 4%;

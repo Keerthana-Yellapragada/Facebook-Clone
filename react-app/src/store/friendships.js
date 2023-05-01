@@ -79,7 +79,7 @@ export const getFriendshipDetails = (friendshipId) => async dispatch => {
     const response = await csrfFetch(`/api/friendships/${friendshipId}/`);
 
     if (response.ok) {
-        const friendShipInfo = await response.json();
+        const friendshipInfo = await response.json();
 
         dispatch(getOneFriendship(friendshipInfo))
     }

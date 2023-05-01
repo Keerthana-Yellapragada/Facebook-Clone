@@ -58,7 +58,8 @@ const UserProfilePage = () => {
 
     let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
     console.log("ALLFRIENDS", allFriends)
-    let currFriendship = allFriends.filter(friendship =>  friendship.from_uid === sessionUserId)
+
+    let currFriendship = allFriends.filter(friendship => ((friendship.to_uid === sessionUser.id || friendship.from_uid === sessionUser.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 1))
     console.log("curr friendship is!!!!!!!!!!!", currFriendship)
     // *********************************************************************************************************************
 
@@ -145,7 +146,7 @@ const UserProfilePage = () => {
 // *********************************************************************************************************************
 
     async function handleRemoveFriend (){
-        // let currFriendship = allFriends.filter(friendship => ((friendship.to_uid || friendship.from_uid === sessionUser.id)  && (friendship.from_uid || friendship.to_uid === userId) && friendship.is_approved == 1 ))
+
         console.log("CURR FRIENDSHIP ID IS", currFriendship.id)
         let friendshipPayload = {
            id: currFriendship.id,
