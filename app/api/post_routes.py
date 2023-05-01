@@ -29,6 +29,7 @@ def get_posts():
 # ************************************ GET POST DETAILS BY POST ID ***********************************************
 
 # GET POST DETAILS BY POST ID -- WORKS
+
 @post_routes.route('/<int:post_id>/', methods=["GET"])
 @login_required
 def get_post_details(post_id):
