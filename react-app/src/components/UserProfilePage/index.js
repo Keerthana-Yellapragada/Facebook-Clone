@@ -164,7 +164,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-        console.log("accept FRIEND REQ", request)
+        console.log(" pre accept FRIEND REQ", request)
         let acceptPayload = {
             id: request.id,
             from_uid: request.from_uid,
@@ -211,7 +211,7 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                             (<div className='profile-user-header-buttons'>
-                                {allFriends.length > 0 ?
+                                {currFriendship.length > 0 ?
                                 <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
                                     :
                                     <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
