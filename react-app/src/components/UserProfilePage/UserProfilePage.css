@@ -7,7 +7,7 @@
 .user-profile-page-flex-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%
         /* border: 2px soild grey */
 }

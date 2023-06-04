@@ -77,7 +77,19 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div className="homepage-right-container"></div>
+                <div className="homepage-right-container">
+                     < a href = "https://keerthana-yellapragada.github.io"
+                     target = "_blank" > Keerthana's Portfolio</a>
+
+                    < a href = " https://keerthana-final-airbnb-project.herokuapp.com/"
+                    target = "_blank" > Keerbnb</a>
+
+                    < a href = "https://codebunny.onrender.com/"
+                    target = "_blank" > Codebunny</a>
+
+
+
+                </div>
 
             </div>
         </>
