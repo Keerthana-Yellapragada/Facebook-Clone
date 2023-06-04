@@ -7,7 +7,7 @@
 .user-profile-page-flex-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%
         /* border: 2px soild grey */
 }
@@ -44,9 +44,9 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(53, 211, 243);
+    background-color: rgb(9, 86, 175);
     height: 450px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
 
 }
 
