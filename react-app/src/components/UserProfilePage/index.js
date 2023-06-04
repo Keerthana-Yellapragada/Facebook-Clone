@@ -35,12 +35,12 @@ const UserProfilePage = () => {
 
     // *********************************************************************************************************************
 
-    const allPosts = useSelector(state => Object.values(state.posts))
+    const allPosts = useSelector(state => Object.values(state?.posts))
 
-    let users = useSelector(state => state.users)
+    let users = useSelector(state => state?.users)
 
-    let sessionUser = useSelector(state => state.session.user)
-    let sessionUserId = sessionUser.id
+    let sessionUser = useSelector(state => state?.session?.user)
+    let sessionUserId = sessionUser?.id
     console.log("sessionuserId", sessionUserId)
 
     // let user = users?.filter(user => user.id === userId)
@@ -50,7 +50,7 @@ const UserProfilePage = () => {
     let userPosts = allPosts?.filter(post => post?.user_id === user?.id)
 
 
-    const allLikes = useSelector(state => Object.values(state.likes))
+    const allLikes = useSelector(state => Object.values(state?.likes))
 
     let allFriendships = useSelector(state => Object.values(state.friendships))
 
@@ -86,6 +86,10 @@ const UserProfilePage = () => {
         return null
     }
     if (!sessionUser) {
+        return null
+    }
+
+    if (!sessionUserId){
         return null
     }
     // *********************************************************************************************************************
@@ -172,7 +176,7 @@ const UserProfilePage = () => {
             is_approved: 1
 
         }
-        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${sessionUser.id}/`))
+        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}`))
 
 
     }
