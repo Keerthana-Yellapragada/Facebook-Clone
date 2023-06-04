@@ -78,6 +78,8 @@ function HomePage() {
                 </div>
 
                 <div className="homepage-right-container">
+
+                    <div className="ads-main-container">
                      < a href = "https://keerthana-yellapragada.github.io"
                      target = "_blank" > Keerthana's Portfolio</a>
 
@@ -86,6 +88,8 @@ function HomePage() {
 
                     < a href = "https://codebunny.onrender.com/"
                     target = "_blank" > Codebunny</a>
+
+                    </div>
 
 
 
