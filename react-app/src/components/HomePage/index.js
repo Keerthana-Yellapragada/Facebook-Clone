@@ -80,14 +80,34 @@ function HomePage() {
                 <div className="homepage-right-container">
 
                     <div className="ads-main-container">
-                     < a href = "https://keerthana-yellapragada.github.io"
-                     target = "_blank" > Keerthana's Portfolio</a>
 
-                    < a href = " https://keerthana-final-airbnb-project.herokuapp.com/"
-                    target = "_blank" > Keerbnb</a>
+                        <div className="ad-card">
+                            <a href="https://keerthana-yellapragada.github.io"
+                                target="_blank" >
+                                <div className="ad-content">Keerthana's Portfolio</div>
+                                <img className="ad-content" src="./KeerthanaYellapragada2x2passportpic.jpeg" alt="keerthana's pic" />
+                                <div className = "ad-content" > Learn more about Keerthana </div>
+                            </a>
+                        </div>
 
-                    < a href = "https://codebunny.onrender.com/"
-                    target = "_blank" > Codebunny</a>
+
+                        <div className="ad-card">
+                            <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
+                                target="_blank" >
+                                <div className="ad-content">Looking to book your next vacation rental?</div>
+                                <div className="ad-content"> Check out Keerbnb </div>
+                            </a>
+                        </div>
+
+
+                        <div className="ad-card">
+                            <a className = "ad-content"
+                            href = "https://codebunny.onrender.com/"
+                                target="_blank" >
+                                <div className="ad-content"> Looking to hire someone for your next software project?</div>
+                                <div className="ad-content">Try Codebunny Today</div>
+                            </a>
+                        </div>
 
                     </div>
 
