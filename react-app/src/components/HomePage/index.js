@@ -82,11 +82,11 @@ function HomePage() {
                     <div className="ads-main-container">
 
                         <div className="ad-card">
+
                             <a href="https://keerthana-yellapragada.github.io"
                                 target="_blank" >
-                                <div className="ad-content">Keerthana's Portfolio</div>
-                                <img className="ad-content" src="./KeerthanaYellapragada2x2passportpic.jpeg" alt="keerthana's pic" />
-                                <div className = "ad-content" > Learn more about Keerthana </div>
+                                <div className = "ad-content" > Want to learn more about Keerthana? </div>
+                                <div className = "ad-content bold" > Check out Keerthana's Portfolio</div>
                             </a>
                         </div>
 
@@ -95,7 +95,7 @@ function HomePage() {
                             <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
                                 target="_blank" >
                                 <div className="ad-content">Looking to book your next vacation rental?</div>
-                                <div className="ad-content"> Check out Keerbnb </div>
+                                <div className="ad-content bold"> Book now through Keerbnb </div>
                             </a>
                         </div>
 
@@ -105,7 +105,7 @@ function HomePage() {
                             href = "https://codebunny.onrender.com/"
                                 target="_blank" >
                                 <div className="ad-content"> Looking to hire someone for your next software project?</div>
-                                <div className="ad-content">Try Codebunny Today</div>
+                                <div className="ad-content bold">Try Codebunny Today</div>
                             </a>
                         </div>
 
