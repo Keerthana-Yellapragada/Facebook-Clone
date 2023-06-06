@@ -39,12 +39,17 @@ function HomePage() {
                     <div className="author-bio-info-links-container">
                         <h2>Connect with the Author!</h2>
 
+                        <h3>Education</h3>
+
                         <div className="left-section-content logo-container">
+
                             <img className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
                             alt="AppAcademyLogo"/>
                         </div>
 
+                        <h3>Socials</h3>
                         <div className="left-section-content">
+
                             <a
                                 href="https://www.linkedin.com/in/keerthana-yellapragada/"
                                 target="_blank" >
@@ -57,9 +62,12 @@ function HomePage() {
 
 
                         <div className="left-section-content">
+
                             <a href="https://github.com/Keerthana-Yellapragada" target="_blank">
                                 < div className="author-bio-info-links" >
+
                                     <i class="fa-brands fa-square-github fa-5x"></i >
+
                                 </div>
 
                             </a>
