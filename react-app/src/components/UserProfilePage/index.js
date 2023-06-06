@@ -233,9 +233,9 @@ const UserProfilePage = () => {
                 <div className='user-profile-page-flex-container'>
                     <div className='left-user-info-flex-container'>
                         <div className='user-info-main-container'>
-                            <div className='user-intro-title'>Intro</div>
-                            <div>{user?.first_name} {user?.last_name}</div>
-                            <div>Contact: {user?.email}</div>
+                            <div className='user-intro-title user-details'>Intro</div>
+                            <div className='user-name-intro user-details'>{user?.first_name} {user?.last_name}</div>
+                            <div className='user-email user-details'>{user?.email}</div>
                         </div>
 
                         <div className='right-user-friends-container'>
