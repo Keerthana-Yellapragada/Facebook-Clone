@@ -248,7 +248,7 @@ const UserProfilePage = () => {
 
 
 
-                                            {sessionUser && sessionUser.id === userId && allFriends.length > 0? friend_request_approvals.map(request => {
+                                            {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                                 return (
                                                     <>
 
