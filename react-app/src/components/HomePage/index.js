@@ -39,28 +39,31 @@ function HomePage() {
                     <div className="author-bio-info-links-container">
                         <h2>Connect with the Author!</h2>
 
-                        <img className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
-                            alt="AppAcademyLogo" >
-                        </img>
+                        <div className="left-section-content logo-container">
+                            <img className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
+                            alt="AppAcademyLogo"/>
+                        </div>
+
+                        <div className="left-section-content">
+                            <a
+                                href="https://www.linkedin.com/in/keerthana-yellapragada/"
+                                target="_blank" >
+                                <div className="author-bio-info-links">
+                                    <i class="fa-brands fa-linkedin fa-5x"></i>
+                                </div>
+
+                            </a>
+                        </div>
 
 
-                        < a
-                            href="https://www.linkedin.com/in/keerthana-yellapragada/"
-                            target="_blank" >
-                            <div className="author-bio-info-links">
-                                <i class="fa-brands fa-linkedin fa-5x"></i>
-                            </div>
+                        <div className="left-section-content">
+                            <a href="https://github.com/Keerthana-Yellapragada" target="_blank">
+                                < div className="author-bio-info-links" >
+                                    <i class="fa-brands fa-square-github fa-5x"></i >
+                                </div>
 
-                        </a>
-
-
-
-                        <a href="https://github.com/Keerthana-Yellapragada" target="_blank">
-                            < div className="author-bio-info-links" >
-                                <i class="fa-brands fa-square-github fa-5x"></i >
-                            </div>
-
-                        </a>
+                            </a>
+                        </div>
 
                     </div>
                 </div>
@@ -85,9 +88,9 @@ function HomePage() {
 
                             <a href="https://keerthana-yellapragada.github.io"
                                 target="_blank" >
-                                <div className = "ad-content" > Want to learn more about the author? </div>
-                                  <div className = "ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
-                                <div className = "ad-content bold" > Check out Keerthana's Portfolio</div>
+                                <div className="ad-content" > Want to learn more about the author? </div>
+                                <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
+                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div>
                             </a>
                         </div>
 
@@ -103,12 +106,12 @@ function HomePage() {
 
 
                         <div className="ad-card">
-                            <a className = "ad-content"
-                            href = "https://codebunny.onrender.com/"
+                            <a className="ad-content"
+                                href="https://codebunny.onrender.com/"
                                 target="_blank" >
                                 <div className="ad-content"> Looking to hire someone for your next software project?</div>
                                 <div className="ad-content small"> Hire a coder for just $25/hour!</div>
-                                <div className = "ad-content small"> Experts available in various programming languages of your choice! </div>
+                                <div className="ad-content small"> Experts available in various programming languages of your choice! </div>
                                 <div className="ad-content bold">Try Codebunny Today</div>
                             </a>
                         </div>
