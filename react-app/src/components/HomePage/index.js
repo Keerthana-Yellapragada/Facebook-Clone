@@ -95,7 +95,7 @@ function HomePage() {
                         <div className="ad-card">
                             <Link to={{ pathname: "https://keerthana-yellapragada.github.io" }} target="_blank">
                                 <div className="ad-content" > Want to learn more about the author? </div>
-                                <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
+                                <div className="ad-content small" > Keerthana is a full-stack software developer and dentist based in the SF Bay Area </div>
                                 <div className="ad-content bold" > Check out Keerthana's Portfolio</div>
 
                             </Link>
