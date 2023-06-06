@@ -11,16 +11,19 @@
     padding: 10px;
     box-shadow: 0 0 2px 0.75px rgb(129 161 226);
     border-radius: 14px;
+    height: fit-content;
 
 }
 
 .homepage-right-container {
-    background-color: inherit;
+    background-color: white;
     width: 25%;
     margin: 2%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 14px;
+    display: flex;
+    height: fit-content
 }
 
 .homepage-center-container {
@@ -38,7 +41,8 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    padding: 10px;
+    padding: 4%;
+    width:100%
 
 }
 
@@ -55,7 +59,7 @@
     align-self: center;
     padding: 8px 50px;
     color: rgb(94, 91, 91);
-    width: 300px;
+    width: 100%;
 
 }
 
@@ -64,9 +68,10 @@
     /* border: 1px solid grey; */
     border-radius: 7px;
     padding: 10px;
+    margin: 2%;
     display: flex;
     flex-direction: row;
-    width: 460px;
+    width: 100%;
     box-shadow: 0 0 4px 1.5px rgb(129 161 226);
 
 }
@@ -104,6 +109,81 @@ margin: 100px;
 }
 
 .AppAcademyLogo{
-    margin: 100px;
-    width: 40%
+    margin: 20%;
+    width: 22%
+}
+
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%
+}
+
+.ads-main-container{
+    height: auto;
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid black */
+
+}
+
+
+
+.ad-card{
+    font-size: 1.5rem;
+    color: rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 12%;
+    padding: 2%;
+    width: 100%;
+    height: auto;
+    border-radius: 4%
+}
+
+
+a:link {
+    text-decoration: none;
+    color: rgb(0, 0, 0)
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(150, 15, 15)
+}
+
+a:hover {
+   color: rgb(93, 93, 148)
+}
+
+a:active {
+    color:rgb(34, 68, 152)
+}
+
+
+.bold{
+    font-weight: bolder;
+}
+
+.small{
+    font-size: 1.15rem;
+}
+
+.ad-content{
+    margin: 2%
+}
+
+
+.left-section-content{
+    display: flex;
+
+    justify-content: center;
+    align-content: center;
 }

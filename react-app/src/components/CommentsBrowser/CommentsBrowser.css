@@ -94,3 +94,9 @@ height:30px;
     justify-content: center;
     align-content: center;
 }
+
+.comment-card-user-pic-name{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

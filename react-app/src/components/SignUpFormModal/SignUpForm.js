@@ -99,7 +99,7 @@ function SignUpForm() {
                   value={last_name}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  placeholder="Surname"
+                  placeholder="Last name"
                 />
 
 
