@@ -35,12 +35,12 @@ const UserProfilePage = () => {
 
     // *********************************************************************************************************************
 
-    const allPosts = useSelector(state => Object.values(state.posts))
+    const allPosts = useSelector(state => Object.values(state?.posts))
 
-    let users = useSelector(state => state.users)
+    let users = useSelector(state => state?.users)
 
-    let sessionUser = useSelector(state => state.session.user)
-    let sessionUserId = sessionUser.id
+    let sessionUser = useSelector(state => state?.session?.user)
+    let sessionUserId = sessionUser?.id
     console.log("sessionuserId", sessionUserId)
 
     // let user = users?.filter(user => user.id === userId)
@@ -50,7 +50,7 @@ const UserProfilePage = () => {
     let userPosts = allPosts?.filter(post => post?.user_id === user?.id)
 
 
-    const allLikes = useSelector(state => Object.values(state.likes))
+    const allLikes = useSelector(state => Object.values(state?.likes))
 
     let allFriendships = useSelector(state => Object.values(state.friendships))
 
@@ -86,6 +86,10 @@ const UserProfilePage = () => {
         return null
     }
     if (!sessionUser) {
+        return null
+    }
+
+    if (!sessionUserId){
         return null
     }
     // *********************************************************************************************************************
@@ -172,7 +176,7 @@ const UserProfilePage = () => {
             is_approved: 1
 
         }
-        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => history.push(`/users/${sessionUser.id}/`))
+        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}`))
 
 
     }
@@ -229,9 +233,9 @@ const UserProfilePage = () => {
                 <div className='user-profile-page-flex-container'>
                     <div className='left-user-info-flex-container'>
                         <div className='user-info-main-container'>
-                            <div className='user-intro-title'>Intro</div>
-                            <div>{user?.first_name} {user?.last_name}</div>
-                            <div>Contact: {user?.email}</div>
+                            <div className='user-intro-title user-details'>Intro</div>
+                            <div className='user-name-intro user-details'>{user?.first_name} {user?.last_name}</div>
+                            <div className='user-email user-details'>{user?.email}</div>
                         </div>
 
                         <div className='right-user-friends-container'>
@@ -244,7 +248,7 @@ const UserProfilePage = () => {
 
 
 
-                                            {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
+                                            {sessionUser && sessionUser.id === userId && allFriends.length > 0? friend_request_approvals.map(request => {
                                                 return (
                                                     <>
 
@@ -256,7 +260,7 @@ const UserProfilePage = () => {
                                                         </div>
                                                     </>
                                                 )
-                                            }) : (<h3>No New Friend Requests!</h3>)}
+                                            }) : (<div>No New Friend Requests!</div>)}
 
                                         </div>
 

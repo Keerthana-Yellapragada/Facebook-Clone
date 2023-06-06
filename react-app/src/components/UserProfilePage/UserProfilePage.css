@@ -1,13 +1,13 @@
 .user-profile-page-main-container {
     margin-left: 15%;
-    margin-right: 15%
+    margin-right: 15%;
 }
 
 
 .user-profile-page-flex-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%
         /* border: 2px soild grey */
 }
@@ -20,15 +20,16 @@
     margin-bottom: 78px;
     padding: 15px;
     width: 60%;
-    height: auto;
+    height: fit-content;
     background-color: white;
     border-radius: 7px;
 }
 
 .right-user-friends-container {
-    padding: 10px;
-    margin: 60px 0px;
-    background-color: white;
+    padding: 5px;
+    margin: 10px;
+    background-color:rgb(9, 86, 175);
+    color:white;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
@@ -36,6 +37,7 @@
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
+
 }
 
 
@@ -44,9 +46,9 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(53, 211, 243);
+    background-color: rgb(9, 86, 175);
     height: 450px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
 
 }
 
@@ -103,6 +105,8 @@
     padding: 5px;
     font-size: 20px;
     border-radius: 5px;
+    background-color: rgb(9, 86, 175);
+    color: white
 }
 
 .user-intro-title {
@@ -133,6 +137,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin: 10px
 }
 
 .pending-request-container {
@@ -192,7 +197,7 @@
 .friend-card {
     width: 30%;
     height: 30%;
-    border: 1px solid rgb(52, 131, 201);
+    border: 1px solid rgb(9, 86, 175);
     margin: 20px 0px;
     padding: 15px;
     font-size: 15px;
@@ -214,4 +219,17 @@
 
 .fa-user-times{
     margin-right: 10px
+}
+
+
+.user-name-intro{
+    font-weight: bold;
+}
+
+.user-email{
+    font-size: 1rem;
+}
+
+.user-details{
+    margin: 10px
 }
