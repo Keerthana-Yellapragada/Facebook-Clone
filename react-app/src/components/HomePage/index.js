@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { createNewPost, loadAllPosts } from "../../store/posts"
 import { loadAllComments } from "../../store/comments";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import PostsBrowser from "../PostsBrowser";
 import NewPostForm from "../CreatePostForm";
 import './HomePage.css'
@@ -44,7 +44,7 @@ function HomePage() {
                         <div className="left-section-content logo-container">
 
                             <img className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
-                            alt="AppAcademyLogo"/>
+                                alt="AppAcademyLogo" />
                         </div>
 
                         <h3>Socials</h3>
@@ -93,47 +93,57 @@ function HomePage() {
                     <div className="ads-main-container">
 
                         <div className="ad-card">
-
-                            <a href="https://keerthana-yellapragada.github.io"
-                                target="_blank" >
-                                {/* <div className="ad-content" > Want to learn more about the author? </div>
+                            <Link to={{ pathname: "https://keerthana-yellapragada.github.io" }} target="_blank">
+                                <div className="ad-content" > Want to learn more about the author? </div>
                                 <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
-                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div> */}
-                                Keerthana's Portfolio
-                            </a>
+                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div>
+
+                            </Link>
                         </div>
 
-
-                        <div className="ad-card">
-                            <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
+                        {/* <a href="https://keerthana-yellapragada.github.io"
                                 target="_blank" >
-                                {/* <div className="ad-content">Looking for your next getaway?</div>
-                                <div className="ad-content small">New summer discounts on vacation rentals!</div>
-                                <div className="ad-content bold"> Book now through Keerbnb </div> */}
-                                Keerbnb
-                            </a>
-                        </div>
+                                <div className="ad-content" > Want to learn more about the author? </div>
+                                <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
+                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div>
+                            </a> */}
+                    {/* </div> */}
 
 
-                        <div className="ad-card">
-                            <a className="ad-content"
-                                href="https://codebunny.onrender.com/"
-                                target="_blank" >
-                                {/* <div className="ad-content"> Looking to hire someone for your next software project?</div>
-                                <div className="ad-content small"> Hire a coder for just $25/hour!</div>
-                                <div className="ad-content small"> Experts available in various programming languages of your choice! </div>
-                                <div className="ad-content bold">Try Codebunny Today</div> */}
-                                Codebunny
-                            </a>
-                        </div>
+                    <div className="ad-card">
+                        <Link to={{ pathname: "https://keerthana-final-airbnb-project.herokuapp.com/" }} target="_blank">
+                            {/* <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
+                            target="_blank" > */}
+                            <div className="ad-content">Looking for your next getaway?</div>
+                            <div className="ad-content small">New summer discounts on vacation rentals!</div>
+                            <div className="ad-content bold"> Find a place to stay at Keerbnb </div>
+                            {/* </a> */}
 
+                        </Link>
                     </div>
 
 
+                    <div className="ad-card">
+                        {/* <a className="ad-content"
+                            href="https://codebunny.onrender.com/"
+                            target="_blank" > */}
+                        <Link to={{ pathname: "https://codebunny.onrender.com/" }} target="_blank">
+
+                            <div className="ad-content"> Looking to hire someone for your next software project?</div>
+                            <div className="ad-content small"> Hire a coder for just $25/hour!</div>
+                            <div className="ad-content small"> Experts available in various programming languages of your choice! </div>
+                            <div className="ad-content bold">Try Codebunny Today</div>
+                            {/* </a> */}
+                        </Link>
+                    </div>
 
                 </div>
 
+
+
             </div>
+
+        </div >
         </>
     )
 }
