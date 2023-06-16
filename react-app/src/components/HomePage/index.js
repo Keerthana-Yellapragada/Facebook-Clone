@@ -112,7 +112,7 @@ function HomePage() {
 
                         <div className="ad-card">
                             {/* <Link to={{ pathname: "https://keerthana-final-airbnb-project.herokuapp.com/" }} target="_blank"> */}
-                            <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
+                            <a href="https://keerthana-final-airbnb-project.herokuapp.com/"
                                 target="_blank" >
                                 <div className="ad-content">Looking for your next getaway?</div>
                                 <div className="ad-content small">New summer discounts on vacation rentals!</div>
@@ -121,6 +121,7 @@ function HomePage() {
 
                             {/* </Link> */}
                         </div>
+
 
 
                         <div className="ad-card">
