@@ -149,7 +149,7 @@ margin: 100px;
 }
 
 
-a:link {
+.ad-content:link {
     text-decoration: none;
     color: rgb(0, 0, 0)
 }
