@@ -111,6 +111,7 @@ function HomePage() {
                         </div>
 
 
+
                         <div className="ad-card">
                             {/* <Link to={{ pathname: "https://keerthana-final-airbnb-project.herokuapp.com/" }} target="_blank"> */}
                             <a href="https://keerthana-final-airbnb-project.herokuapp.com/"
