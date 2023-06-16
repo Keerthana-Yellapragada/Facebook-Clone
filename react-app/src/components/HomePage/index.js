@@ -103,24 +103,28 @@ function HomePage() {
 
                             <a href="https://keerthana-yellapragada.github.io"
                                 target="_blank" >
-                                <div className="ad-content" > Want to learn more about the author? </div>
+                                {/* <div className="ad-content" > Want to learn more about the author? </div>
                                 <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
-                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div>
+                                <div className="ad-content bold" > Check out Keerthana's Portfolio</div> */}
+                                Portfolio
                             </a>
                         </div>
+
 
 
                         <div className="ad-card">
                             {/* <Link to={{ pathname: "https://keerthana-final-airbnb-project.herokuapp.com/" }} target="_blank"> */}
-                            <a href=" https://keerthana-final-airbnb-project.herokuapp.com/"
+                            <a href="https://keerthana-final-airbnb-project.herokuapp.com/"
                                 target="_blank" >
-                                <div className="ad-content">Looking for your next getaway?</div>
+                                {/* <div className="ad-content">Looking for your next getaway?</div>
                                 <div className="ad-content small">New summer discounts on vacation rentals!</div>
-                                <div className="ad-content bold"> Find a place to stay at Keerbnb </div>
+                                <div className="ad-content bold"> Find a place to stay at Keerbnb </div> */}
                             </a>
 
                             {/* </Link> */}
+                            Keerbnb
                         </div>
+
 
 
                         <div className="ad-card">
@@ -128,11 +132,12 @@ function HomePage() {
                                 href="https://codebunny.onrender.com/"
                                 target="_blank" >
                                 {/* <Link to={{ pathname: "https://codebunny.onrender.com/" }} target="_blank"> */}
-
+{/*
                                 <div className="ad-content"> Looking to hire someone for your next software project?</div>
                                 <div className="ad-content small"> Hire a coder for just $25/hour!</div>
                                 <div className="ad-content small"> Experts available in various programming languages of your choice! </div>
-                                <div className="ad-content bold">Try Codebunny Today</div>
+                                <div className="ad-content bold">Try Codebunny Today</div> */}
+                                Codebunny
                             </a>
                             {/* </Link> */}
                         </div>
