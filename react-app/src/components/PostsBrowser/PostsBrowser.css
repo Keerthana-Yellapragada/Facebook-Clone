@@ -78,8 +78,8 @@
 
 .post-user-profile-pic{
     border-radius: 50%;
-    width: 35px;
-    margin: 0px 10px;
+    width: 55px;
+    margin: 10px 15px 10px 0px;
     display: flex;
     background-color: white;
 }
