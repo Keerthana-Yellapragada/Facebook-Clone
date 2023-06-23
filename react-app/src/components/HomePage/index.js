@@ -37,17 +37,17 @@ function HomePage() {
                 <div className="homepage-left-container">
 
                     <div className="author-bio-info-links-container">
-                        <h2>Connect with the Author!</h2>
+                        <div className="connect-author-title">Connect with the Author!</div>
 
-                        <h3>Education</h3>
+                        <div className="connect-author-sections">Education</div>
 
                         <div className="left-section-content logo-container">
 
-                            <img className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
+                            <img id="appacademylogo" className="AppAcademyLogo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png"
                                 alt="AppAcademyLogo" />
                         </div>
 
-                        <h3>Socials</h3>
+                        <div className="connect-author-sections">Socials</div>
                         <div className="left-section-content">
 
                             <a
