@@ -42,8 +42,7 @@
     justify-content: center;
     align-self: center;
     padding: 4%;
-    width:100%
-
+    width: 100%
 }
 
 .posts-browser-component-container {
@@ -94,7 +93,7 @@
     align-items: center
 }
 
-.author-bio-info-links{
+.author-bio-info-links {
     width: 5rem;
     display: flex;
     justify-content: center;
@@ -102,31 +101,30 @@
 }
 
 
-.fa-linkedin
-{
-color:rgb(59, 137, 220);
-/* margin: 20px; */
+.fa-linkedin {
+    color: rgb(59, 137, 220);
+    /* margin: 20px; */
 }
 
-.fa-square-github{
-    color:black;
+.fa-square-github {
+    color: black;
     /* margin: 20px; */
 }
 
 #appacademylogo {
-   background-color: inherit;
+    background-color: inherit;
     width: 5rem;
     margin: 30px;
 }
 
-.logo-container{
+.logo-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width:100%
+    width: 100%
 }
 
-.ads-main-container{
+.ads-main-container {
     height: auto;
     width: 100%;
     margin: 2%;
@@ -140,7 +138,7 @@ color:rgb(59, 137, 220);
 
 
 
-.ad-card{
+.ad-card {
     font-size: 1.5rem;
     color: rgb(255, 0, 0);
     background-color: inherit;
@@ -156,53 +154,56 @@ color:rgb(59, 137, 220);
 
 .connect-author-title {
     font-weight: 900;
-    font-size: 1.35rem;
-    margin: 15px;
+    font-size: 2rem;
+    margin: 10px 10px 25px 10px;
     padding: 20px;
     border-bottom: 1px solid rgb(111, 108, 108);
+    color: rgb(106, 105, 105)
 }
 
 .ad-content:link {
     text-decoration: none;
-    color: rgb(0, 0, 0)
+    color: rgb(106, 105, 105)
 }
 
 a:visited {
     text-decoration: none;
-    color: rgb(150, 15, 15)
+    color: rgb(82, 13, 128)
 }
 
 a:hover {
-   color: rgb(93, 93, 148)
+    color: rgb(39, 39, 207)
 }
 
 a:active {
-    color:rgb(34, 68, 152)
+    color: rgb(0, 72, 255)
 }
 
 
-.bold{
+.bold {
     font-weight: bolder;
 }
 
-.small{
+.small {
     font-size: 1.15rem;
 }
 
-.ad-content{
+.ad-content {
     margin: 2%
 }
 
 
-.left-section-content{
+.left-section-content {
     display: flex;
 
     justify-content: center;
     align-content: center;
 }
 
-.connect-author-sections{
+.connect-author-sections {
     background-color: inherit;
     font-weight: bold;
     display: flex;
+    color: rgb(106, 105, 105);
+    font-size: 1.5rem
 }
