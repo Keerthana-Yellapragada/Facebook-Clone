@@ -127,12 +127,12 @@
 .ads-main-container {
     height: auto;
     width: 100%;
-    margin: 2%;
+    margin: 10px 10px 25px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    /* border: 1px solid black */
+    /* border: 1px solid grey */
 
 }
 
