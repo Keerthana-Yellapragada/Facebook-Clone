@@ -62,6 +62,8 @@ const UserProfilePage = () => {
 
     let currFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 1))
     console.log("curr friendship is!!!!", currFriendship[0])
+    let pendingFriendship = allFriends.filter(friendship => ((friendship ?.to_uid === sessionUser ?.id || friendship ?.from_uid === sessionUser ?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 0))
+    console.log("pending friendship is!!!!", pendingFriendship[0])
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
@@ -220,8 +222,13 @@ const UserProfilePage = () => {
                             (<div className='profile-user-header-buttons'>
                                 {((currFriendship.length > 0) && (currFriendship.is_approved == 1) )?
                                 <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
-                                    :
-                                    <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
+                                    : (currFriendship.length > 0  && currFriendship.is_approved == 0) ?
+                                    < button onClick = {
+                                        handleRemoveFriend
+                                    }
+                                    className = 'add-friend-button' > <i class = "fas fa-user-times" > </i>Pending</button > :
+                                    <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>
+                                    }
                             </div>)
 
 
@@ -229,6 +236,7 @@ const UserProfilePage = () => {
 
 
                             }
+
 
                 </div>
 
