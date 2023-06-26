@@ -41,7 +41,7 @@ const UserProfilePage = () => {
 
     let sessionUser = useSelector(state => state?.session?.user)
     let sessionUserId = sessionUser?.id
-    console.log("sessionuserId", sessionUserId)
+    // console.log("sessionuserId", sessionUserId)
 
     // let user = users?.filter(user => user.id === userId)
     // user = user[0]
@@ -57,10 +57,11 @@ const UserProfilePage = () => {
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
     let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
+//    let allFriends = allFriendships.filter(friendship => friendship.includes(userId) === true)
     console.log("ALLFRIENDS", allFriends)
 
     let currFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 1))
-    console.log("curr friendship is!!!!!!!!!!!", currFriendship)
+    console.log("curr friendship is!!!!", currFriendship[0])
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
@@ -151,7 +152,7 @@ const UserProfilePage = () => {
 
     async function handleRemoveFriend (){
 
-        console.log("CURR FRIENDSHIP ID IS", currFriendship.id)
+        // console.log("CURR FRIENDSHIP ID IS", currFriendship.id)
         let friendshipPayload = {
            id: currFriendship.id,
            from_id : currFriendship.from_id,
@@ -168,7 +169,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-        console.log(" pre accept FRIEND REQ", request)
+        // console.log(" pre accept FRIEND REQ", request)
         let acceptPayload = {
             id: request.id,
             from_uid: request.from_uid,
@@ -215,7 +216,7 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                             (<div className='profile-user-header-buttons'>
-                                {currFriendship.length > 0 ?
+                                {currFriendship.length > 0?
                                 <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
                                     :
                                     <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
