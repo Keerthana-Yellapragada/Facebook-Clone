@@ -28,8 +28,8 @@
 .right-user-friends-container {
     padding: 5px;
     margin: 10px;
-    background-color:rgb(9, 86, 175);
-    color:white;
+    background-color: rgb(9, 86, 175);
+    color: white;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
+
 
 }
 
@@ -120,33 +121,85 @@
     padding: 5px;
 }
 
-.add-friend-button, .cancel-friend-button, .remove-friend-button {
+.add-friend-button,
+
+.remove-friend-button{
     background-color: rgb(29, 122, 236);
     font-weight: bold;
     color: white;
     width: 200px;
     padding: 5px;
-    margin: 10px;
+    /* margin: 10px; */
     border-radius: 7px;
-    font-size:20px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center
+}
+
+.cancel-friend-button {
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+    width: 200px;
+    margin: 5px 10px;
+    padding: 13px;
+    border-radius: 7px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center
 
 }
 
-.cancel-friend-button{
-      background-color: grey;
-      font-weight: bold;
-      color: white;
-      width: 200px;
-      padding: 5px 10px;
-      margin: 10px;
-      padding: 13px;
-      border-radius: 7px;
-      font-size: 20px;
+.friendship-dropdown {
+    position: relative;
+    display: inline-block;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
+.friendship-menu {
+    min-width: auto;
+    padding: 12px 16px;
+    z-index: 1;
+    position: absolute;
+    display: inline-block;
+}
+
+.menu-item {
+
+
+    /* list-style: none;
+    margin: none;
+    border: 1px solid red; */
+    display: inline-block;
+    /* border: 1px solid rgb(2, 0, 128); */
+    position: absolute;
+
+    margin: 3px;
+    width: auto;
+    /* overflow:auto; */
+    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+    /* padding: 12px 16px; */
+    margin: 0px;
+    z-index: 1;
+
+}
+
+.friends-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    /* flex-basis: 300px;
+     align-content: center;
+     justify-content: center; */
+}
 
 .Friends-container-title {
     font-weight: bolder;
@@ -208,15 +261,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex-basis: auto;
-    width: 100%
+    width: 100%;
 }
 
 .friend-card {
-    width: 30%;
-    height: 30%;
-    border: 1px solid rgb(9, 86, 175);
-    margin: 20px 0px;
-    padding: 15px;
+    width: 100px;
+    height: auto;
+    color: black;
+    border: 1px solid rgb(134, 130, 130);
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
     font-size: 15px;
     display: flex;
     flex-direction: column;
@@ -230,23 +285,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex-basis: auto;
-    margin: 10% 0%;
-    width: 90%
+    margin: 10px;
+    width: 100%
 }
 
-.fa-user-times{
+.fa-user-times {
     margin-right: 10px
 }
 
 
-.user-name-intro{
+.user-name-intro {
     font-weight: bold;
 }
 
-.user-email{
+.user-email {
     font-size: 1rem;
 }
 
-.user-details{
+.user-details {
     margin: 10px
 }

@@ -57,17 +57,23 @@ const UserProfilePage = () => {
     let friend_request_approvals = allFriendships.filter(friendship => friendship.to_uid === userId && friendship.is_approved == 0)
 
     // let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
-   let allFriends = allFriendships.filter(friendship => friendship.to_uid=== userId || friendship.from_uid=== userId)
+    let allFriends = allFriendships.filter(friendship => friendship.to_uid === userId || friendship.from_uid === userId)
     console.log("ALLFRIENDS", allFriends)
 
     let currFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 1))
     console.log("curr friendship is!!!!", currFriendship[0])
-    let pendingFriendship = allFriends.filter(friendship => ((friendship ?.to_uid === sessionUser ?.id || friendship ?.from_uid === sessionUser ?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 0))
+    let pendingFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 0))
     console.log("pending friendship is!!!!", pendingFriendship[0])
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
     const [disabled, setDisabled] = useState(false)
+    const [open, setOpen] = useState(false);
+
+    // toggles dropdown menu button
+    const handleOpen = () => {
+        setOpen(!open);
+    };
 
     // *********************************************************************************************************************
     if (!users) {
@@ -93,7 +99,7 @@ const UserProfilePage = () => {
         return null
     }
 
-    if (!sessionUserId){
+    if (!sessionUserId) {
         return null
     }
     // *********************************************************************************************************************
@@ -152,36 +158,36 @@ const UserProfilePage = () => {
         let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
 
     }
-// *********************************************************************************************************************
+    // *********************************************************************************************************************
 
-    async function handleRemoveFriend (){
+    async function handleRemoveFriend() {
 
         console.log("CURR FRIENDSHIP IS", currFriendship[0])
         let friendshipPayload = {
-           id: currFriendship[0].id,
-           from_id : currFriendship[0].from_id,
-           to_uid: currFriendship[0].to_uid,
-           is_approved: 0
+            id: currFriendship[0].id,
+            from_id: currFriendship[0].from_id,
+            to_uid: currFriendship[0].to_uid,
+            is_approved: 0
 
         }
         let deletedFriendship = dispatch(deleteFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
     }
 
-// *********************************************************************************************************************
-   async function handleCancelRequest() {
+    // *********************************************************************************************************************
+    async function handleCancelRequest() {
 
-       console.log("PENDING FRIENDSHIP IS", pendingFriendship[0])
-       let friendshipPayload = {
-           id: pendingFriendship[0].id,
-           from_id: pendingFriendship[0].from_id,
-           to_uid: pendingFriendship[0].to_uid,
-           is_approved: 0
+        console.log("PENDING FRIENDSHIP IS", pendingFriendship[0])
+        let friendshipPayload = {
+            id: pendingFriendship[0].id,
+            from_id: pendingFriendship[0].from_id,
+            to_uid: pendingFriendship[0].to_uid,
+            is_approved: 0
 
-       }
-       let cancelledFriendship = dispatch(deleteFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
-   }
+        }
+        let cancelledFriendship = dispatch(deleteFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
+    }
 
-   // *********************************************************************************************************************
+    // *********************************************************************************************************************
 
 
     // *********************************************************************************************************************
@@ -234,20 +240,36 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                             (<div className='profile-user-header-buttons'>
-                                {((currFriendship.length > 0) && (currFriendship[0].is_approved == 1) )?
-                                <button onClick={handleRemoveFriend} className='remove-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
+                                {((currFriendship.length > 0) && (currFriendship[0].is_approved == 1)) ?
+                                    <button onClick={handleRemoveFriend} className='remove-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
                                     : (pendingFriendship.length > 0 && pendingFriendship[0].from_uid == sessionUserId) ?
-                                    <button onClick = {handleCancelRequest} className = 'cancel-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
-                                    :
-                                    <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>
-                                    }
+                                     <button onClick = {handleCancelRequest} className = 'cancel-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
+
+                                        // <div className="friendship-dropdown">
+                                        //     <button className = 'cancel-friend-button' onClick={handleOpen}>Pending ...</button>
+                                        //     {open ? (
+
+                                        //             <div className="menu-item">
+                                        //                 <button onClick = {handleCancelRequest} className = 'cancel-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
+
+                                        //             </div>
+
+
+
+                                        //     ) : null}
+
+                                        // </div>
+                                        // <button onClick = {handleCancelRequest} className = 'cancel-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
+                                        :
+                                        <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>
+                                }
                             </div>)
 
 
 
 
 
-                            }
+                    }
 
 
                 </div>
@@ -278,7 +300,7 @@ const UserProfilePage = () => {
                                                         <div className="friend-request-name">{users[request?.from_uid]?.first_name} {users[request?.from_uid]?.last_name}</div>
                                                         <div className="friend-request"> wants to add you as a friend </div>
                                                         <div>
-                                                            <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Accept</button>
+                                                            <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Confirm</button>
                                                             <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                                         </div>
                                                     </>
