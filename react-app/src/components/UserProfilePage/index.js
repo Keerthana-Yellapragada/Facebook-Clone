@@ -65,6 +65,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
+    const [disabled, setDisabled] = useState(false)
 
     // *********************************************************************************************************************
     if (!users) {
@@ -145,6 +146,7 @@ const UserProfilePage = () => {
             to_uid: user.id,
             is_approved: 0
         }
+        setDisabled(true)
         let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/homepage`))
 
     }
@@ -169,7 +171,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-        // console.log(" pre accept FRIEND REQ", request)
+        console.log(" pre accept FRIEND REQ", request)
         let acceptPayload = {
             id: request.id,
             from_uid: request.from_uid,
@@ -177,7 +179,7 @@ const UserProfilePage = () => {
             is_approved: 1
 
         }
-        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${sessionUser.id}`))
+        let acceptedRequest = dispatch(updateFriendship(acceptPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}/`))
 
 
     }
@@ -216,10 +218,10 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                             (<div className='profile-user-header-buttons'>
-                                {currFriendship.length > 0?
+                                {((currFriendship.length > 0) && (currFriendship.is_approved == 1) )?
                                 <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
                                     :
-                                    <button onClick={handleAddFriend} className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
+                                    <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>}
                             </div>)
 
 
