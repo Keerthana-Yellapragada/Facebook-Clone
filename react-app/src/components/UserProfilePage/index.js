@@ -220,13 +220,11 @@ const UserProfilePage = () => {
                         sessionUser && sessionUser.id === userId ? null :
 
                             (<div className='profile-user-header-buttons'>
-                                {((currFriendship.length > 0) && (currFriendship.is_approved == 1) )?
+                                {((currFriendship.length > 0) && (currFriendship[0].is_approved == 1) )?
                                 <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
-                                    : (currFriendship.length > 0  && currFriendship.is_approved == 0) ?
-                                    < button onClick = {
-                                        handleRemoveFriend
-                                    }
-                                    className = 'add-friend-button' > <i class = "fas fa-user-times" > </i>Pending</button > :
+                                    : (pendingFriendship.length > 0 && pendingFriendship[0].from_uid == sessionUserId) ?
+                                    <button onClick = {handleRemoveFriend} className = 'add-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
+                                    :
                                     <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>
                                     }
                             </div>)
