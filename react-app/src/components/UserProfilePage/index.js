@@ -149,7 +149,7 @@ const UserProfilePage = () => {
             is_approved: 0
         }
         setDisabled(true)
-        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/homepage`))
+        let newFriendship = dispatch(createNewFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
 
     }
 // *********************************************************************************************************************
@@ -168,6 +168,20 @@ const UserProfilePage = () => {
     }
 
 // *********************************************************************************************************************
+   async function handleCancelRequest() {
+
+       console.log("PENDING FRIENDSHIP IS", pendingFriendship[0])
+       let friendshipPayload = {
+           id: pendingFriendship[0].id,
+           from_id: pendingFriendship[0].from_id,
+           to_uid: pendingFriendship[0].to_uid,
+           is_approved: 0
+
+       }
+       let cancelledFriendship = dispatch(deleteFriendship(friendshipPayload)).then(() => dispatch(loadAllFriendships())).then(() => history.push(`/users/${userId}`))
+   }
+
+   // *********************************************************************************************************************
 
 
     // *********************************************************************************************************************
@@ -221,9 +235,9 @@ const UserProfilePage = () => {
 
                             (<div className='profile-user-header-buttons'>
                                 {((currFriendship.length > 0) && (currFriendship[0].is_approved == 1) )?
-                                <button onClick={handleRemoveFriend} className='add-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
+                                <button onClick={handleRemoveFriend} className='remove-friend-button'><i class="fas fa-user-times"></i>Remove Friend</button>
                                     : (pendingFriendship.length > 0 && pendingFriendship[0].from_uid == sessionUserId) ?
-                                    <button onClick = {handleRemoveFriend} className = 'add-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
+                                    <button onClick = {handleCancelRequest} className = 'cancel-friend-button'> <i class = "fas fa-user-times" > </i>Cancel Request</button >
                                     :
                                     <button onClick={handleAddFriend}  className='add-friend-button'><i class="fa-solid fa-user-plus"></i>Add Friend</button>
                                     }
