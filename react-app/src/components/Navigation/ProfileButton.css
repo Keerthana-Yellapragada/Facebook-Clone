@@ -17,6 +17,15 @@
     background-color: white;
     border-radius: 0px;
 }
+.actual-button:hover:{
+     background-color: rgb(224, 225, 226);
+     /* color: white; */
+     border: none;
+     cursor: pointer;
+     padding: 2px;
+     width: 100%;
+     border-radius: 0px;
+}
 
 .fa-solid {
     /* color:rgb(189, 46, 196); */
@@ -51,11 +60,11 @@
 }
 
 .log-out {
-    padding: 5px;
+    /* padding: 5px; */
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
 
 
@@ -66,7 +75,7 @@
     /* color: white; */
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 2px;
     width: 100%;
     border-radius: 0px;
 }
@@ -133,36 +142,45 @@
 }
 
 .profile-page {
-    display:flex;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     border: none;
     cursor: pointer;
     /* padding: 5px; */
     width: 100%;
     border-radius: 0px;
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .profile-page:hover {
-    background-color: rgb(224, 225, 226);
-    /* color: white; */
-    border: none;
-    cursor: pointer;
-    margin: 5px;
-    padding: 5px;
-    width: 100%;
-    border-radius: 0px;
-}
-#nav-section-profile-pic{
-    width: 20%;
-    margin: 10px 15px 10px 5px;
+     background-color: rgb(224, 225, 226);
+     /* color: white; */
+     border: none;
+     cursor: pointer;
+     padding: 2px;
+     width: 100%;
+     border-radius: 0px;
 }
 
-.fa-right-from-bracket{
+#nav-section-profile-pic {
     width: 25%;
     margin: 10px;
+
 }
-.dropdown-container-sections{
+
+.nav-profile-pic-section {
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.fa-right-from-bracket {
+
+    margin: 10px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.dropdown-container-sections {
     display: flex;
 }
