@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    box-shadow: 0 0 4px 1.5px rgb(129 161 226);
+     box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
 
 }
 
@@ -79,7 +79,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    box-shadow: 0 0 4px 1.5px rgb(192, 192, 192);
+  box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
     display: flex;
     margin: 5px 10px;
 }
@@ -136,7 +136,9 @@
 
 }
 
-
+.homepage-welcome-banner{
+    background-color: inherit;
+}
 
 .ad-card {
     font-size: 1.5rem;
