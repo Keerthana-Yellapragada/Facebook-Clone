@@ -14,8 +14,12 @@
     background-color: white;
     border: 1px solid rgb(226, 238, 242);
     border-radius: 7px;
-    box-shadow:0 0 2px 0.75px rgb(129 161 226);
 
+
+}
+
+#nav-profile-pic{
+     box-shadow:0 0 2px 0.75px rgb(129 161 226);
 }
 
 .navbar-inner-container {

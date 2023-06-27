@@ -2,14 +2,14 @@
     display: inline-block;
     position: relative;
     justify-content: center;
-    padding: 5px;
-    border-style: solid;
-    border-color: rgb(216, 214, 214);
+    /* padding: 5px; */
+    /* border-style: solid; */
+    /* border-color: rgb(159, 157, 157);
     border-width: thin;
-    border-radius: 15px;
-    background-color: #06c;
+    border-radius: 50%; */
+    /* background-color: #06c; */
     cursor: pointer;
-    color:white;
+    color:inherit;
 }
 
 .actual-button {
@@ -40,7 +40,7 @@
 
 
 .username-container:hover {
-    background-color: rgb(220, 220, 221);
+    /* background-color: rgb(220, 220, 221); */
     color: white;
     border: none;
     cursor: pointer;
@@ -93,17 +93,15 @@
     border-radius: 0px;
 }
 
-#pink:hover {
-    background-color: rgb(114, 179, 244);
-    color: rgb(255, 255, 255)
+#nav-profile-pic:hover{
+    background-color: grey;
 }
-
 .sign-up-text {
     padding: 5px;
 }
 
 .sign-up-text:hover {
-    background-color: rgb(11, 58, 13);
+    background-color: rgb(109, 124, 109);
     color: white;
     border: none;
     cursor: pointer;
@@ -138,7 +136,7 @@
 }
 
 .profile-page:hover{
-   background-color: rgb(224, 225, 226);
+   background-color: rgb(157, 159, 162);
    /* color: white; */
    border: none;
    cursor: pointer;
