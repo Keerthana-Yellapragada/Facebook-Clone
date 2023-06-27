@@ -24,7 +24,8 @@ function LandingPage(){
         <div className='main-page-logo-container'>
             <img className='main-page-logo' src={WellnessPage} alt="main-page-logo" />
 
-              < h1 className = 'main-page-words' > Connect and share with the people in your life. </h1>
+            <h1 className = 'main-page-words' > WellnessPage helps you connect and share </h1>
+            <h1 className = 'main-page-words' >with the people in your life.</h1>
 
         </div>
 
