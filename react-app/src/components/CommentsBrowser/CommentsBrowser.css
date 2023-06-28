@@ -1,13 +1,14 @@
 .comment-card-main-container{
 
-    margin: 10px;
+    /* margin: 10px; */
     /* border: 1px solid rgb(197, 197, 197); */
-    border-radius: 20px;
-    padding: 2%;
+    /* border-radius: 20px; */
+    /* padding: 2%; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-content: center;
+    align-items: center;
+    padding-left: 2%
 }
 .comment-info-top-container {
     /* border: 2px solid red; */
@@ -20,25 +21,27 @@
 .comment-title {
     /* background-color: white; */
 
-    font-size: 14px;
+    font-size: 1.15rem;
     font-weight: bold;
     display: flex;
     align-self: flex-start;
-    margin-top:4px;
+    margin: 3px 0px;
+
 
 }
 
 .comment-card-content-container {
-    font-size: 14px;
-    background-color: rgb(218, 222, 222);
+    font-size: 1.15rem;
+    background-color: rgb(234, 233, 233);
     border:none;
     border: none;
-    border-radius: 35px;
-    padding: 10px 50px;
-    max-width:200px;
-    min-width: 200px;
+    border-radius: 20px;
+    padding: 15px;
+    /* max-width:200px;
+    min-width: 200px; */
     word-wrap:break-word;
     text-align: flex-start;
+    line-height: 1.65rem;
 
 
 }
@@ -47,12 +50,11 @@
 }
 
 .comment-card-container {
-    margin: 10px;
+    /* margin: 10px; */
 
 }
 
 .comments-browser-cards-container{
-
 
    border-radius: 20px;
 }
@@ -67,8 +69,8 @@
 }
 
 .comments-browser-container{
-    border: 1px solid grey;
-    margin: 2px;
+    /* border: 1px solid grey; */
+    /* margin: 2px; */
     border-radius: 7px;
 
 }
@@ -83,9 +85,9 @@
 
 .comment-card-user-pic {
 border-radius: 50%;
-width: 30px;
-margin-right: 5px;
-height:30px;
+width: 40px;
+margin-right: 15px;
+height:auto;
 }
 
 .comment-card-header-info{
@@ -99,4 +101,5 @@ height:30px;
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
+    font-size: 1.15rem;
 }
