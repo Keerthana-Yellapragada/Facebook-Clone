@@ -177,15 +177,15 @@
 
 a:visited {
     text-decoration: none;
-    color: rgb(82, 13, 128)
+    color: rgb(108, 108, 108)
 }
 
 a:hover {
-    color: rgb(39, 39, 207)
+    color: rgb(89, 89, 89)
 }
 
 a:active {
-    color: rgb(0, 72, 255)
+    color: rgb(88, 89, 92)
 }
 
 
