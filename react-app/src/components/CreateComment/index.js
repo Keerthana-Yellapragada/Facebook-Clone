@@ -88,6 +88,7 @@ const NewCommentForm = ({ postId }) => {
 
             <input
               className="comment-form-inputs comment-content-input"
+              id="comment-input"
               required
               type="text"
               name="commentContent"
@@ -102,13 +103,13 @@ const NewCommentForm = ({ postId }) => {
 
           </div>
           <div className="button-container">
-            <button
+            {/* <button
               className="create-comment-button"
               type="submit"
               disabled={validationErrors.length > 0}
             >
               Comment
-            </button>
+            </button> */}
 
 
           </div>

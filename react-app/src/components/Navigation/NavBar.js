@@ -41,10 +41,9 @@ function NavBar({ isLoaded }) {
 
                 <div className="Home-Container">
                   <NavLink exact to="/homepage"><img className='logo' src={WellnessPage} alt="logo here" /></NavLink>
+                  {/* <NavLink exact to="/homepage">WellnessPage</NavLink> */}
                 </div>
 
-
-                  <div className="homepage-welcome-banner">Welcome to {sessionUser.first_name} {sessionUser.last_name}'s home page</div>
 
 
                 <div className="Right-Side-Container">

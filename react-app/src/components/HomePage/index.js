@@ -78,6 +78,9 @@ function HomePage() {
 
 
                 <div className="homepage-center-container">
+                    <div className="homepage-welcome-banner">Welcome, {user.first_name}</div>
+
+
 
                     <div className="new-post-form-component-container">
                         <NewPostFormModal userName={user.first_name} />
@@ -106,7 +109,7 @@ function HomePage() {
                                 {/* <div className="ad-content" > Want to learn more about the author? </div>
                                 <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
                                 <div className="ad-content bold" > Check out Keerthana's Portfolio</div> */}
-                                Portfolio
+                            Portfolio
                             </a>
                         </div>
 

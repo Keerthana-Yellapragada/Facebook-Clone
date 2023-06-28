@@ -10,7 +10,7 @@ border-radius: 7px;
 width: 300px;
 margin: 2%;
 padding: 20px;
-box-shadow:0 0 4px 1.5px rgb(214, 211, 211);
+box-shadow: 0.5px 0.5px 3px inherit;
 }
 
 .create-post-form{

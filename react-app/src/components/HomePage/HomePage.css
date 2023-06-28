@@ -6,22 +6,22 @@
 
 .homepage-left-container {
     background-color: inherit;
-    width: 25%;
-    margin: 2%;
+    width: 20%;
+    /* margin: 1%; */
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 14px;
+    border-radius: 7px;
     height: fit-content;
 
 }
 
 .homepage-right-container {
-    background-color: inherit;
-    width: 25%;
-    margin: 2%;
+    background-color: white;
+    width: 20%;
+    margin: 8% 0%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 14px;
+    border-radius: 7px;
     display: flex;
     height: fit-content
 }
@@ -32,6 +32,7 @@
     justify-content: center;
     align-content: center;
     margin-bottom: 15%;
+    width: 50%
 
 }
 
@@ -42,8 +43,8 @@
     justify-content: center;
     align-self: center;
     padding: 4%;
-    width:100%
-
+    /* margin: 4%; */
+    width: 150%;
 }
 
 .posts-browser-component-container {
@@ -53,11 +54,11 @@
 }
 
 .create-post-modal-click-input {
-    background-color: rgb(239, 234, 234);
+    background-color: rgb(234, 233, 233);
     border-radius: 20px;
     display: flex;
     align-self: center;
-    padding: 8px 50px;
+    padding: 15px 50px;
     color: rgb(94, 91, 91);
     width: 100%;
 
@@ -65,14 +66,13 @@
 
 .create-post-click-container {
 
-    /* border: 1px solid grey; */
     border-radius: 7px;
-    padding: 10px;
-    margin: 2%;
+    padding: 12px 7px;
+    margin: 20px;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    box-shadow: 0 0 4px 1.5px rgb(129 161 226);
+    width: 69%;
+    box-shadow: 0.5px 0.5px 3px inherit;
 
 }
 
@@ -80,7 +80,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    box-shadow: 0 0 4px 1.5px rgb(192, 192, 192);
+  box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
     display: flex;
     margin: 5px 10px;
 }
@@ -91,10 +91,15 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
-    align-items: center
+    align-items: center;
+    border: none;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0.5px 0.5px 3px inherit;
+    margin: 37% 10px;
 }
 
-.author-bio-info-links{
+.author-bio-info-links {
     width: 5rem;
     display: flex;
     justify-content: center;
@@ -102,45 +107,47 @@
 }
 
 
-.fa-linkedin
-{
-color:rgb(59, 137, 220);
-/* margin: 20px; */
+.fa-linkedin {
+    color: rgb(59, 137, 220);
+    /* margin: 20px; */
 }
 
-.fa-square-github{
-    color:black;
+.fa-square-github {
+    color: black;
     /* margin: 20px; */
 }
 
 #appacademylogo {
-   background-color: inherit;
+    background-color: inherit;
     width: 5rem;
     margin: 30px;
 }
 
-.logo-container{
+.logo-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width:100%
+    width: 100%
 }
 
-.ads-main-container{
+.ads-main-container {
     height: auto;
     width: 100%;
-    margin: 2%;
+    /* margin: 10px; */
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* border: 1px solid black */
+    justify-content: center;
+    align-content: center;
+    /* border: 1px solid grey */
 
 }
 
+.homepage-welcome-banner{
+    background-color: inherit;
+}
 
-
-.ad-card{
+.ad-card {
     font-size: 1.5rem;
     color: rgb(255, 0, 0);
     background-color: inherit;
@@ -156,53 +163,56 @@ color:rgb(59, 137, 220);
 
 .connect-author-title {
     font-weight: 900;
-    font-size: 1.35rem;
-    margin: 15px;
+    font-size: 1.5rem;
+    margin: 10px 10px 25px 10px;
     padding: 20px;
     border-bottom: 1px solid rgb(111, 108, 108);
+    color: rgb(106, 105, 105)
 }
 
 .ad-content:link {
     text-decoration: none;
-    color: rgb(0, 0, 0)
+    color: rgb(106, 105, 105)
 }
 
 a:visited {
     text-decoration: none;
-    color: rgb(150, 15, 15)
+    color: rgb(82, 13, 128)
 }
 
 a:hover {
-   color: rgb(93, 93, 148)
+    color: rgb(39, 39, 207)
 }
 
 a:active {
-    color:rgb(34, 68, 152)
+    color: rgb(0, 72, 255)
 }
 
 
-.bold{
+.bold {
     font-weight: bolder;
 }
 
-.small{
+.small {
     font-size: 1.15rem;
 }
 
-.ad-content{
+.ad-content {
     margin: 2%
 }
 
 
-.left-section-content{
+.left-section-content {
     display: flex;
 
     justify-content: center;
     align-content: center;
 }
 
-.connect-author-sections{
+.connect-author-sections {
     background-color: inherit;
     font-weight: bold;
     display: flex;
+    color: rgb(106, 105, 105);
+    font-size: 1.5rem
 }

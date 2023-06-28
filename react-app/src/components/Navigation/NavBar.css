@@ -6,32 +6,34 @@
     display: flex;
     flex-direction: row;
     position: sticky;
-    width:100%;
-    justify-content: space-evenly;
+    width: 100vw;
+    justify-content: space-between;
     position: sticky;
     z-index: 4;
-    top: 0px;
+    /* top: 0px; */
     background-color: white;
     border: 1px solid rgb(226, 238, 242);
+    box-shadow: 0.5px 0.5px 3px inherit;
     border-radius: 7px;
-    box-shadow:0 0 2px 0.75px rgb(129 161 226);
+}
 
+#nav-profile-pic {
+    box-shadow: 0 0 2px 0.75px rgb(137, 138, 139);
+    width: 60px;
 }
 
 .navbar-inner-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* border-color: grey; */
-    /* border-style: solid; */
-    width: 80%;
+    width: 100%;
+    margin: 0px 20px;
+    background-color: inherit;
 }
-
 
 .Home-Container {
     display: flex;
-    align-items: center;
-    /* margin-left: 8% */
+    width: auto;
 }
 
 .logo {
@@ -41,13 +43,10 @@
     border-style: solid; */
 }
 
-
 .profile-button {
     display: flex;
     justify-self: flex-end;
 }
-
-
 
 .logged-out-profile-container {
     display: flex;
@@ -56,7 +55,6 @@
     border-color: green; */
     width: 100%;
 }
-
 
 .Right-Side-Container {
     display: flex;
@@ -67,9 +65,7 @@
     border-style: solid; */
     /* width: 25%; */
     justify-content: flex-end;
-
 }
-
 
 .homepage-welcome-banner {
     display: flex;
@@ -84,17 +80,15 @@
     /* box-shadow: 0 0 4px 1.5px rgb(129, 161, 226); */
     font-size: 35px;
     font-weight: bolder;
-
 }
 
-
-.homepage-welcome-banner-container{
+.homepage-welcome-banner-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     align-content: center;
-    width:100%;
+    width: 100%;
     margin-left: 40px;
 }
 

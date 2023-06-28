@@ -1,13 +1,14 @@
 /* TODO Add site wide styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'); */
 
-
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 *{
 
     text-decoration: none;
-    font-family: 'Source Sans Pro',
+    font-family: 'Ubuntu',
     sans-serif;
 }
 
@@ -43,5 +44,5 @@ body {
     /* background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210206/pngtree-blue-green-glow-light-effect-blur-background-image_556767.jpg");
 
     background-size:cover */
-    background-color: rgb(222, 231, 240);
+    background-color: rgb(234, 233, 233)
 }

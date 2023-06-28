@@ -136,15 +136,16 @@ export const updateFriendship = (editFriendshipInfo) => async dispatch => {
 //*************************************************************************** */
 
 // -------------------------  DELETE A friendship  --------------------------------
-export const deleteFriendship = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/friendships/${payload.id}/`, {
-        method: 'DELETE',
+export const deleteFriendship = (friendshipPayload) => async dispatch => {
+     console.log("FRIENDSHIP ID IN THUNK", friendshipPayload)
+    const response = await csrfFetch(`/api/friendships/${friendshipPayload.id}/`, {
+       method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     if (response.ok) {
-        dispatch(removeFriendship(payload.id))
+        dispatch(removeFriendship(friendshipPayload))
         return response
     }
 }
@@ -204,7 +205,9 @@ const friendshipReducer = (state = initialState, action) => {
             newState = {
                 ...state
             }
-            delete newState[action.payload]
+
+            //  newState[action.payload.id] = action.payload
+            delete newState[action.payload.id]
             return newState
         // *****************************************************************************
         default:
