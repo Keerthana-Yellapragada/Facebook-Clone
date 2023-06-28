@@ -21,7 +21,7 @@
 .comment-title {
     /* background-color: white; */
 
-    font-size: 1.15rem;
+    font-size: 15px;
     font-weight: bold;
     display: flex;
     align-self: flex-start;
@@ -31,7 +31,7 @@
 }
 
 .comment-card-content-container {
-    font-size: 1.15rem;
+    font-size: 15px;
     background-color: rgb(234, 233, 233);
     border:none;
     border: none;
@@ -41,7 +41,7 @@
     min-width: 200px; */
     word-wrap:break-word;
     text-align: flex-start;
-    line-height: 1.65rem;
+    line-height: 20px;
 
 
 }
@@ -101,5 +101,5 @@ height:auto;
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
-    font-size: 1.15rem;
+    font-size: 20px;
 }
