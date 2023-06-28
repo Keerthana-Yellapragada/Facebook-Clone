@@ -71,7 +71,7 @@
     margin: 20px;
     display: flex;
     flex-direction: row;
-    width: 69%;
+    width: 52%;
     box-shadow: 0.5px 0.5px 3px inherit;
 
 }
@@ -100,7 +100,7 @@
 }
 
 .author-bio-info-links {
-    width: 5rem;
+    width: 50px;
     display: flex;
     justify-content: center;
     margin: 20px;
