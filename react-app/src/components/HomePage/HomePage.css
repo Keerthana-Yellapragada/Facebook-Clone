@@ -6,8 +6,8 @@
 
 .homepage-left-container {
     background-color: inherit;
-    width: 20%;
-    /* margin: 1%; */
+    width: 15%;
+    margin: 1%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 7px;
@@ -17,13 +17,13 @@
 
 .homepage-right-container {
     background-color: white;
-    width: 20%;
-    margin: 8% 0%;
+    width: 15%;
+    margin: 8% 1%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 7px;
     display: flex;
-    height: fit-content
+    height: 550px;
 }
 
 .homepage-center-container {
@@ -32,7 +32,7 @@
     justify-content: center;
     align-content: center;
     margin-bottom: 15%;
-    width: 50%
+    width: 60%
 
 }
 
