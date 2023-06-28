@@ -54,7 +54,7 @@
 }
 
 .create-post-modal-click-input {
-    background-color: rgb(239, 234, 234);
+    background-color: rgb(234, 233, 233);
     border-radius: 20px;
     display: flex;
     align-self: center;
@@ -67,11 +67,11 @@
 .create-post-click-container {
 
     border-radius: 7px;
-    padding: 30px;
+    padding: 12px 7px;
     margin: 20px;
     display: flex;
     flex-direction: row;
-    width: 65%;
+    width: 69%;
     box-shadow: 0.5px 0.5px 3px inherit;
 
 }
