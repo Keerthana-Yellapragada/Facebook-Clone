@@ -16,17 +16,13 @@
 }
 
 .create-comment-form {
-    /* background-color: rgb(236, 236, 236); */
-    /* border: 2px solid plum; */
+
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    /* border: 1px solid rgb(203, 200, 200); */
-    /* border:1px solid grey; */
     border-radius: 10px;
-    padding: 8px 8px 0px 8px;
-    padding: 0%;
+    padding: 0.5%;
     margin: 0%;
 
 }
@@ -61,21 +57,24 @@
 
 }
 #comment-input{
-        width: 600px;
+        /* width: 600px;
         height:auto;
         /* margin: 10px; */
         border-radius: 60px;
         background-color: rgb(234, 233, 233);
         font-size: 1.05rem;
+        border: none
 
 }
 .create-comment-user-pic {
     border-radius: 50%;
     width: 40px;
-    height: 40px;
+    height: auto;
     display: flex;
     align-self: center;
-    margin: 10px;
+    margin: 10px 20px 10px 10px;
+    border:none;
+    outline:none;
 }
 
 .create-comment-button:disabled {

@@ -1,4 +1,4 @@
-.posts-browser-container{
+.posts-browser-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +7,7 @@
 
 }
 
-.posts-browser-cards-container{
+.posts-browser-cards-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -19,13 +19,14 @@
 
 
 }
-.post-card-title-container{
+
+.post-card-title-container {
     /* border: 2px solid orange; */
     background-color: white;
     border-radius: 7px;
 }
 
-.post-card-content-container{
+.post-card-content-container {
 
     padding: 25px 5px;
     background-color: white;
@@ -37,73 +38,73 @@
     font-size: 1.25rem;
 }
 
-.post-card-image-container{
+.post-card-image-container {
     background-color: white;
     border-radius: 7px;
     width: 100%
 }
 
-.Edit-Delete-Button-container{
+.Edit-Delete-Button-container {
 
-    display:flex;
+    display: flex;
     justify-content: center;
     background-color: white;
     justify-content: flex-end;
 }
 
-.Edit-Delete-Button{
+.Edit-Delete-Button {
     background-color: rgb(18, 85, 220);
     border-radius: 7px;
     width: auto;
     padding: 5px;
     border: none;
-    color:white;
-    font-weight:bold;
+    color: white;
+    font-weight: bold;
 }
 
-.post-pic{
+.post-pic {
     width: 100%;
-     background-color: white;
-     border-radius: 7px;
-     padding: 5px;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
 }
 
-.post-user-info-header-container{
+.post-user-info-header-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-content:center;
+    align-content: center;
     background-color: white;
-    width:100%
-
+    width: 100%
 }
 
-.post-user-profile-pic{
+.post-user-profile-pic {
     border-radius: 50%;
     width: 50px;
     margin: 10px 15px 10px 0px;
     display: flex;
     background-color: white;
 }
-.post-card-user-name{
+
+.post-card-user-name {
     display: flex;
     align-self: center;
     /* justify-self: flex-start;
     justify-content: flex-start; */
-    font-weight:bold;
+    font-weight: bold;
     font-size: 1.5rem;
     background-color: white;
     /* margin-right: 200px; */
 }
 
-.posts-browser-user-profile-pic-container{
+.posts-browser-user-profile-pic-container {
     background-color: white;
 }
 
 
-.post-card-container{
+.post-card-container {
 
- box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
+    box-shadow: 0.5px 0.5px 3px inherit;
     border-radius: 7px;
     margin: 15px;
     padding: 30px;
@@ -125,7 +126,7 @@
 } */
 
 
-.post-comment-container{
+.post-comment-container {
     background-color: white;
     border: 1px solid rgb(223, 218, 218);
     padding: 5px;
@@ -133,17 +134,18 @@
 
 }
 
-.leave-comment-container{
+.leave-comment-container {
     background-color: white;
-    margin:0px;
+    margin: 0px;
 }
 
-.Main-Header-Edit-Delete-Button-container{
+.Main-Header-Edit-Delete-Button-container {
     display: flex;
     justify-content: flex-end;
     margin-left: 5px;
 
 }
+
 /*
 .unliked-post-button{
     background-color: white;
@@ -166,39 +168,43 @@
     cursor: pointer;
 }
 
-.liked-post-button{
-     background-color:  inherit;
-     color:grey;
-     border: none;
-     padding: 4px;
-     font-size: 20px;
-     font-weight: bold;
-     width:auto;
-     border-radius: 7px;
-     margin: 8px;
-
-}
-.post-likes-comments-number-container{
-
-     color:grey;
-     /* font-weight:bold; */
-     margin: px;
-     display: flex;
-     justify-content: flex-end;
-     font-size: 20px;
+.liked-post-button {
+    background-color: inherit;
+    color: grey;
+    border: none;
+    padding: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    width: auto;
+    border-radius: 7px;
+    margin: 8px;
 
 }
 
-.post-number-section{
+.post-likes-comments-number-container {
+
+    color: grey;
+    /* font-weight:bold; */
+    margin: px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+
+}
+
+.post-number-section {
     margin: 5px;
 }
+
 .post-like-container {
-    border-top: 1px solid rgb(40, 130, 220);
-    border-bottom: 1px solid rgb(40, 130, 220);
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    box-shadow: 0.5px 0.5px 3px inherit;
     padding: 5px;
     margin: 10px 0px;
 }
-.link-user-pic-name{
+
+.link-user-pic-name {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

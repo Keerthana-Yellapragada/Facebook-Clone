@@ -13,7 +13,7 @@
     /* top: 0px; */
     background-color: white;
     border: 1px solid rgb(226, 238, 242);
-    box-shadow: 0 0 2px 0.75px rgb(137, 138, 139);
+    box-shadow: 0.5px 0.5px 3px inherit;
     border-radius: 7px;
 }
 
