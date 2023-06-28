@@ -19,16 +19,31 @@
     margin-top: 78px;
     margin-bottom: 78px;
     padding: 15px;
-    width: 60%;
+    width: 30%;
     height: fit-content;
     background-color: white;
     border-radius: 7px;
 }
 
+#profile-page-posts{
+    /* width: 50%; */
+
+
+
+
+}
+.like-comment-section{
+    border-bottom: 1px solid grey;
+    padding: 5px 0px;
+}
+.post-likes-comments-number-container{
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
 .right-user-friends-container {
     padding: 5px;
     margin: 10px;
-    background-color: rgb(9, 86, 175);
+    background-color: rgb(234, 233, 233);
     color: white;
     border-radius: 7px;
     display: flex;
@@ -46,23 +61,24 @@
 .profile-page-cover-photo-container {
     display: flex;
     justify-content: center;
-    width: 100%;
-    background-color: rgb(9, 86, 175);
+    width: 101.75%;
+    background-color: lightgrey;
     height: 450px;
-    /* border-radius: 12px; */
+    border-radius: 14px;
+
 
 }
 
 .profile-page-cover-photo {
     height: 8%;
     width: 100%;
-    border-radius: 7px
+    border-radius: 14px
 }
 
 .user-profile-header-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-start; */
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
     background-color: white;
@@ -72,6 +88,7 @@
     height: 100px;
     padding-bottom: 100px;
     border-radius: 14px;
+    width: 100%;
 }
 
 .profile-header-user-name {
@@ -106,8 +123,8 @@
     padding: 5px;
     font-size: 20px;
     border-radius: 5px;
-    background-color: rgb(9, 86, 175);
-    color: white
+    background-color: rgb(234, 233, 233);
+    color: black
 }
 
 .user-intro-title {
@@ -124,12 +141,13 @@
 .add-friend-button,
 
 .remove-friend-button{
-    background-color: rgb(29, 122, 236);
+    background-color: rgb(39, 97, 199);
     font-weight: bold;
     color: white;
-    width: 200px;
-    padding: 5px;
+    width: 225px;
+    padding: 10px 5px;
     /* margin: 10px; */
+    border:none;
     border-radius: 7px;
     font-size: 20px;
     display: flex;
@@ -141,9 +159,9 @@
     background-color: grey;
     font-weight: bold;
     color: white;
-    width: 200px;
+    width: 225px;
     margin: 5px 10px;
-    padding: 13px;
+    padding: 15px;
     border-radius: 7px;
     font-size: 20px;
     border: none;
@@ -207,7 +225,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 10px
+    margin: 10px;
+    color: black;
 }
 
 .pending-request-container {
@@ -226,6 +245,7 @@
     flex-direction: column;
     align-items: center;
     width: 75%;
+    color: black;
 
 }
 
@@ -304,4 +324,9 @@
 
 .user-details {
     margin: 10px
+}
+
+.center-user-posts-browser-container{
+    width: 60%;
+
 }

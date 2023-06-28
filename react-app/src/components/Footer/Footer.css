@@ -3,7 +3,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-content: center;
-    color: rgb(39, 137, 212);
+    color: grey;
     box-shadow: 0.5px 0.5px 3px inherit;
     border-radius: 7px;
     border: 1px solid rgb(226, 238, 242);
@@ -19,7 +19,7 @@ footer {
 
 footer a {
     font-style: none;
-    color: rgb(39, 137, 212);
+    color: grey;
 
 }
 

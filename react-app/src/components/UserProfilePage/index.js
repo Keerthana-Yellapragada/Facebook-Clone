@@ -382,7 +382,7 @@ const UserProfilePage = () => {
                     </div>
                     <div className='center-user-posts-browser-container'>
                         <>
-                            <div className='posts-browser-container'>
+                            <div className='posts-browser-container' id="profile-page-posts">
                                 <div className='posts-browser-cards-container'>
                                     {userPosts?.slice(0).reverse().map(post => {
 
@@ -452,7 +452,7 @@ const UserProfilePage = () => {
                                                             <div className='post-likes-number'>{post?.likes?.length ? post.likes.length : 0} likes </div>
                                                             {/* <div className='post-comments-number'>{post.comments.length? post.comments.length : 0} comments </div> */}
                                                         </div>
-                                                        <div>
+                                                        <div className='like-comment-section'>
 
                                                             <button className='liked-post-button'
                                                                 onClick={() => {

@@ -10,18 +10,18 @@
     /* margin: 1%; */
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 14px;
+    border-radius: 7px;
     height: fit-content;
 
 }
 
 .homepage-right-container {
-    background-color: inherit;
+    background-color: white;
     width: 20%;
-    /* margin: 1%; */
-    padding: 30px;
+    margin: 8% 0%;
+    padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 14px;
+    border-radius: 7px;
     display: flex;
     height: fit-content
 }
@@ -133,11 +133,12 @@
 .ads-main-container {
     height: auto;
     width: 100%;
-    margin: 10px 10px 25px 10px;
+    /* margin: 10px; */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     /* border: 1px solid grey */
 
 }

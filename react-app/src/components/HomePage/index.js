@@ -109,7 +109,7 @@ function HomePage() {
                                 {/* <div className="ad-content" > Want to learn more about the author? </div>
                                 <div className="ad-content small" > Keerthana is a full-stack software engineer and dentist based in the SF Bay Area </div>
                                 <div className="ad-content bold" > Check out Keerthana's Portfolio</div> */}
-                                Portfolio
+                            Portfolio
                             </a>
                         </div>
 

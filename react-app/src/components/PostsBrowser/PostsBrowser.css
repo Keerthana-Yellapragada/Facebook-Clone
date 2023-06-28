@@ -164,8 +164,10 @@
 } */
 
 .liked-post-button:hover {
-    background-color: rgb(48, 136, 212);
+    background-color: lightgrey;
     cursor: pointer;
+    padding: 5px;
+    margin: 5px;
 }
 
 .liked-post-button {
