@@ -30,6 +30,11 @@ const PostsBrowser = () => {
     let userPosts = allPosts?.filter(post => post.user_id === user?.id)
 
     const allLikes = useSelector(state => Object.values(state.likes))
+    let allComments = useSelector((state) => Object.values(state.comments));
+
+    // let filteredComments = allComments.filter(
+    //     (comment) => comment.post_id === postId
+    // );
 
     const [visible, setVisible] = useState(false);
 
@@ -46,6 +51,12 @@ const PostsBrowser = () => {
         return null
     }
 
+    if (!allComments){
+        return null
+    }
+    // if(!filteredComments){
+    //     return null;
+    // }
 
 
     const deleteHandler = async (postId) => {
@@ -164,8 +175,10 @@ const PostsBrowser = () => {
                                         </div>
                                         <div className='post-likes-comments-number-container'>
 
-                                            <div className='post-likes-number'>{post?.likes?.length ? post.likes.length : 0} likes </div>
+                                            <div className='post-number-section'>{post?.likes?.length ? post.likes.length : 0} likes </div>
                                             {/* <div className='post-comments-number'>{post.comments.length? post.comments.length : 0} comments </div> */}
+                                            <div className='post-number-section'>{allComments?.filter(comment=> comment?.post_id===post?.id).length} comments</div>
+
                                         </div>
                                         <div className='post-like-container'>
 
@@ -182,6 +195,8 @@ const PostsBrowser = () => {
                                                 }
 
                                             ><i class="fa-regular fa-thumbs-up"></i> Like</button>
+
+                                      {/* <div>{allComments.filter(comment=> comment.post_id===post.id).length}</div> */}
 
                                         </div>
 

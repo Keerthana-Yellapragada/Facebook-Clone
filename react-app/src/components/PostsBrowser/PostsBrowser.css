@@ -178,16 +178,20 @@
      margin: 8px;
 
 }
+.post-likes-comments-number-container{
 
-.post-likes-number{
-    color:grey;
-    /* font-weight:bold; */
-    margin: 2px;
-    display: flex;
-    justify-content: flex-end;
-    font-size: 20px;
+     color:grey;
+     /* font-weight:bold; */
+     margin: px;
+     display: flex;
+     justify-content: flex-end;
+     font-size: 20px;
+
 }
 
+.post-number-section{
+    margin: 5px;
+}
 .post-like-container {
     border-top: 1px solid rgb(40, 130, 220);
     border-bottom: 1px solid rgb(40, 130, 220);
