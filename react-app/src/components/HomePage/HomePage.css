@@ -6,8 +6,8 @@
 
 .homepage-left-container {
     background-color: inherit;
-    width: 15%;
-    margin: 2%;
+    width: 20%;
+    /* margin: 1%; */
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 14px;
@@ -17,9 +17,9 @@
 
 .homepage-right-container {
     background-color: inherit;
-    width: 15%;
-    margin: 2%;
-    padding: 10px;
+    width: 20%;
+    /* margin: 1%; */
+    padding: 30px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 14px;
     display: flex;
@@ -157,7 +157,7 @@
 
 .connect-author-title {
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 10px 10px 25px 10px;
     padding: 20px;
     border-bottom: 1px solid rgb(111, 108, 108);
