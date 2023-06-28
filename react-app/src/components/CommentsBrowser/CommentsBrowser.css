@@ -25,6 +25,7 @@
     font-weight: bold;
     display: flex;
     align-self: flex-start;
+    margin: 3px 0px;
 
 
 }
@@ -34,8 +35,8 @@
     background-color: rgb(234, 233, 233);
     border:none;
     border: none;
-    border-radius: 35px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 25px;
     /* max-width:200px;
     min-width: 200px; */
     word-wrap:break-word;
