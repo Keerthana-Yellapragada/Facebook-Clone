@@ -34,8 +34,8 @@
     max-width: 100%;
     word-wrap: break-word;
     resize: none;
-    line-height: 2rem;
-    font-size: 1.25rem;
+    line-height: 35px;
+    font-size: 20px;
 }
 
 .post-card-image-container {
@@ -109,7 +109,7 @@
     margin: 15px;
     padding: 30px;
     background-color: white;
-    width: 100%;
+    width: 70%;
 }
 
 
