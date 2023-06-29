@@ -79,7 +79,7 @@
 
 .post-user-profile-pic {
     border-radius: 50%;
-    width: 50px;
+    width: 40px;
     margin: 10px 15px 10px 0px;
     display: flex;
     background-color: white;
@@ -91,8 +91,9 @@
     /* justify-self: flex-start;
     justify-content: flex-start; */
     font-weight: bold;
-    font-size: 25px;
+    font-size: 17px;
     background-color: white;
+    color:black;
     /* margin-right: 200px; */
 }
 
@@ -189,12 +190,13 @@
     margin: px;
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: 14px;
 
 }
 
 .post-number-section {
     margin: 5px;
+
 }
 
 .post-like-container {

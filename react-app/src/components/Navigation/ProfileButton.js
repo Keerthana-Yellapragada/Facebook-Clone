@@ -101,6 +101,7 @@ function ProfileButton({ user }) {
           <div className="dropdown-content">
             <div className="sign-up-text" onClick={() => history.push("/")}>Sign Up</div>
             <div className="log-in-text" onClick={() => history.push("/")}>Log In</div>
+
           </div>
         )}
 
