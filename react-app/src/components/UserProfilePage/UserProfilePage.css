@@ -14,32 +14,35 @@
 
 .left-user-info-flex-container {
     /* border: 1px solid rgb(218, 214, 214); */
-    box-shadow:0 0 2px 0.75px rgb(234, 233, 233);
+    box-shadow: 0 0 2px 0.75px rgb(234, 233, 233);
     /* margin: 8% 5% 0% 0% ; */
     margin-top: 2%;
     /* margin-bottom: 78px; */
-    padding: 15px;
+    /* padding: 15px; */
     width: 30%;
     height: fit-content;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 7px;
 }
 
-#profile-page-posts{
+#profile-page-posts {
     /* width: 50%; */
 
 
 
 
 }
-.like-comment-section{
+
+.like-comment-section {
     border-bottom: 1px solid grey;
     padding: 5px 0px;
 }
-.post-likes-comments-number-container{
+
+.post-likes-comments-number-container {
     padding: 10px;
     /* border-bottom: 1px solid grey; */
 }
+
 .right-user-friends-container {
     padding: 5px;
     margin: 10px;
@@ -104,7 +107,7 @@
     height: 200px;
     margin: 25px;
     border: 5px solid white;
-    box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
+    box-shadow: 0 0 2px 0.75px rgb(137, 138, 139);
 }
 
 .friend-profile-pic {
@@ -118,11 +121,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 10px;
+    /* margin: 10px; */
     padding: 5px;
     font-size: 20px;
     border-radius: 5px;
-    background-color: rgb(234, 233, 233);
+    background-color: white;
     color: black
 }
 
@@ -139,14 +142,14 @@
 
 .add-friend-button,
 
-.remove-friend-button{
+.remove-friend-button {
     background-color: rgb(39, 97, 199);
     font-weight: bold;
     color: white;
     width: 225px;
     padding: 10px 5px;
     /* margin: 10px; */
-    border:none;
+    border: none;
     border-radius: 7px;
     font-size: 20px;
     display: flex;
@@ -165,10 +168,9 @@
     font-size: 20px;
     border: none;
     cursor: pointer;
-       display: flex;
-       align-items: center;
-       justify-content: center
-
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .friendship-dropdown {
@@ -209,10 +211,10 @@
 
 }
 
-.friends-container{
+.friends-container {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     background-color: white;
     border-radius: 7px;
     padding: 5px;
@@ -223,11 +225,11 @@
 
 .Friends-container-title {
     font-weight: bolder;
-    font-size: 35px;
+    font-size: 30px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 10px 5px;
+    margin: 15px;
     color: black;
 }
 
@@ -251,17 +253,18 @@
 
 }
 
-.friend-request-card{
+.friend-request-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-      margin: 10px;
-      padding: 10px;
-      /* border: 1px solid grey; */
-      background-color: white;
-        width: 200px;
+    margin: 20px 0px;
+    padding: 10px;
+    /* border: 1px solid grey; */
+    background-color: white;
+    width: 180px;
+    height: fit-content;
 
 }
 
@@ -305,9 +308,9 @@
     height: auto;
     color: black;
     background-color: white;
-    margin: 5px;
-    padding: 2px;
-    font-size: 13px;
+    margin: 1px;
+    padding: 3px;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -320,9 +323,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: auto;
-    margin: 10px;
-    width: 100%
+    flex-basis: fit-content;
+    /* margin: 10px; */
+    width: 100%;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 .fa-user-times {
@@ -342,7 +348,7 @@
     margin: 10px
 }
 
-.center-user-posts-browser-container{
+.center-user-posts-browser-container {
     width: 60%;
 
 }
