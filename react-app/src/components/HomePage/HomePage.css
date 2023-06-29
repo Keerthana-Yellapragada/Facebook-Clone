@@ -6,7 +6,7 @@
 
 .homepage-left-container {
     background-color: inherit;
-    width: 15%;
+    width: 13%;
     margin: 1%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
@@ -17,7 +17,7 @@
 
 .homepage-right-container {
     background-color: white;
-    width: 15%;
+    width: 13%;
     margin: 8% 1%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
@@ -33,7 +33,6 @@
     align-content: center;
     margin-bottom: 15%;
     width: 60%
-
 }
 
 
@@ -44,7 +43,7 @@
     align-self: center;
     padding: 4%;
     /* margin: 4%; */
-    width: 150%;
+    width: 100%;
 }
 
 .posts-browser-component-container {
@@ -68,10 +67,10 @@
 
     border-radius: 7px;
     padding: 12px 7px;
-    margin: 20px;
+    margin: 0px 90px;
     display: flex;
     flex-direction: row;
-    width: 52%;
+    width: 100%;
     box-shadow: 0.5px 0.5px 3px inherit;
 
 }
@@ -80,7 +79,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-  box-shadow:0 0 2px 0.75px rgb(137, 138, 139);
+    box-shadow: 0 0 2px 0.75px rgb(137, 138, 139);
     display: flex;
     margin: 5px 10px;
 }
@@ -97,6 +96,8 @@
     border-radius: 7px;
     box-shadow: 0.5px 0.5px 3px inherit;
     margin: 37% 10px;
+    font-size: 20px;
+
 }
 
 .author-bio-info-links {
@@ -104,6 +105,7 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+    font-size: 20px;
 }
 
 
@@ -143,12 +145,12 @@
 
 }
 
-.homepage-welcome-banner{
+.homepage-welcome-banner {
     background-color: inherit;
 }
 
 .ad-card {
-    font-size: 1.5rem;
+   font-size: 20px;
     color: rgb(255, 0, 0);
     background-color: inherit;
     display: flex;
@@ -163,7 +165,7 @@
 
 .connect-author-title {
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 20px;
     margin: 10px 10px 25px 10px;
     padding: 20px;
     border-bottom: 1px solid rgb(111, 108, 108);
@@ -194,7 +196,7 @@ a:active {
 }
 
 .small {
-    font-size: 1.15rem;
+    font-size: 20px;
 }
 
 .ad-content {
@@ -214,5 +216,5 @@ a:active {
     font-weight: bold;
     display: flex;
     color: rgb(106, 105, 105);
-    font-size: 1.5rem
+    font-size: 20px;
 }
