@@ -218,9 +218,9 @@
     background-color: white;
     border-radius: 7px;
     padding: 5px;
-    /* flex-basis: 300px;
+    flex-basis: fit-content;
      align-content: center;
-     justify-content: center; */
+     justify-content: center;
 }
 
 .Friends-container-title {
@@ -233,7 +233,7 @@
     padding: 10px ;
     color: black;
     background-color: white;
-    border-radius: 7px;
+    border-radius: ;
 }
 
 .pending-request-container {
@@ -244,8 +244,6 @@
 }
 
 .friend-request-container {
-    /* border: 1px solid rgb(52, 133, 246); */
-
     border-radius: 14px;
     display: flex;
     justify-content: center;
@@ -264,7 +262,6 @@
     border-radius: 7px;
     margin: 20px 0px;
     padding: 10px;
-    /* border: 1px solid grey; */
     background-color: white;
     width: 180px;
     height: fit-content;
@@ -324,10 +321,7 @@
 
 .friends-main-flex-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-basis: fit-content;
-    /* margin: 10px; */
+    flex-direction: column;
     width: 100%;
     background-color: white;
     border-radius: 7px;

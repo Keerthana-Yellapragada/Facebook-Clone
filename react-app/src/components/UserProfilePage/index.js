@@ -284,7 +284,7 @@ const UserProfilePage = () => {
                         </div>
 
                         <div className='right-user-friends-container'>
-                             <div className='Friends-container-title'>Friends</div>
+
 
                             {sessionUser && sessionUser.id === userId ?
                                 (
@@ -316,6 +316,7 @@ const UserProfilePage = () => {
                                 ) : null}
 
                             <div className='friends-main-flex-container'>
+                                <div className='Friends-container-title'>Friends</div>
 
                                 {allFriends.length > 0 ? (
                                     <>
