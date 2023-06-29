@@ -280,7 +280,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex-basis: auto;
-    width: 100%;
+    width: fit-content;
 }
 
 .friend-card {
@@ -289,8 +289,8 @@
     color: black;
     background-color: white;
     margin: 5px;
-    padding: 15px;
-    font-size: 15px;
+    padding: 2px;
+    font-size: 13px;
     display: flex;
     flex-direction: column;
     justify-content: center;
