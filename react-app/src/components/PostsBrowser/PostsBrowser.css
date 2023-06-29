@@ -190,12 +190,13 @@
     margin: px;
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: 14px;
 
 }
 
 .post-number-section {
     margin: 5px;
+
 }
 
 .post-like-container {
