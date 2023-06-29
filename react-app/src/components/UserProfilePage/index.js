@@ -284,7 +284,7 @@ const UserProfilePage = () => {
                         </div>
 
                         <div className='right-user-friends-container'>
-                            <div className='Friends-container-title'>Friends</div>
+
                             {sessionUser && sessionUser.id === userId ?
                                 (
                                     <>
@@ -296,6 +296,7 @@ const UserProfilePage = () => {
                                             {sessionUser && sessionUser.id === userId ? friend_request_approvals.map(request => {
                                                 return (
                                                     <>
+                                                    <div className="friend-request-card">
 
                                                         <div className="friend-request-name">{users[request?.from_uid]?.first_name} {users[request?.from_uid]?.last_name}</div>
                                                         <div className="friend-request"> wants to add you as a friend </div>
@@ -303,6 +304,7 @@ const UserProfilePage = () => {
                                                             <button className="friend-request-button" onClick={() => handleAcceptRequest(request)}>Confirm</button>
                                                             <button className="friend-request-button" onClick={() => handleIgnoreRequest(request)}>Ignore</button>
                                                         </div>
+                                                    </div>
                                                     </>
                                                 )
                                             }) : (<div>No New Friend Requests!</div>)}
@@ -311,7 +313,9 @@ const UserProfilePage = () => {
 
                                     </>
                                 ) : null}
+
                             <div className='friends-main-flex-container'>
+                                <div className='Friends-container-title'>Friends</div>
                                 {allFriends.length > 0 ? (
                                     <>
                                         <div className='friends-container'>

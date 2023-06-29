@@ -6,7 +6,8 @@
     padding: 25px;
     width: 300px;
     background-color: white;
-    font-size: 30px;
+    font-size: 15px;
+    margin: 30px 60px;
 
 }
 
@@ -38,7 +39,7 @@ form .login-form {
     border: none;
     margin: 6% 0%;
     font-weight:bold;
-    font-size: 1.25rem;
+    font-size: 15px;
 
 
 }
@@ -57,7 +58,7 @@ form .login-form {
     border: none;
     margin-bottom: 10%;
     font-weight:bold;
-    font-size: 1.25rem;
+    font-size: 15px;
 }
 .login-button:hover{
     cursor: pointer;
@@ -70,7 +71,7 @@ input {
     margin: 5px 0px;
     padding: 15px;
     background-color: white;
-    font-size: 1.25rem;
+    font-size: 15px;
 }
 
 .login-button-container{

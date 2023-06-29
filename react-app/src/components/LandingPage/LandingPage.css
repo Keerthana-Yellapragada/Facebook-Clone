@@ -14,7 +14,7 @@
     align-items:flex-start;
     /* border:2px solid red; */
     min-height:100vh;
-    width:100vw;
+    min-width:100vw;
     background-color: rgb(242, 238, 238);
     padding-top:8%;
 
@@ -28,7 +28,7 @@
      display: flex;
      color:rgb(0, 0, 0);
      align-self: center;
-     font-size: 35px;
+     font-size: 30px;
      font-weight: 600;
      margin: 15px;
 }
