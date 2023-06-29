@@ -78,7 +78,7 @@ function HomePage() {
 
 
                 <div className="homepage-center-container">
-                    <div className="homepage-welcome-banner">Welcome, {user.first_name}</div>
+                    {/* <div className="homepage-welcome-banner">Welcome, {user.first_name}</div> */}
 
 
 

@@ -7,7 +7,7 @@
 .homepage-left-container {
     background-color: inherit;
     width: 13%;
-    margin: 1%;
+    margin: 1.5%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 7px;
@@ -18,7 +18,7 @@
 .homepage-right-container {
     background-color: white;
     width: 13%;
-    margin: 8% 1%;
+    margin: 2.25%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
     border-radius: 7px;
@@ -95,7 +95,7 @@
     background-color: white;
     border-radius: 7px;
     box-shadow: 0.5px 0.5px 3px inherit;
-    margin: 37% 10px;
+    /* margin: 37% 10px; */
     font-size: 20px;
 
 }
