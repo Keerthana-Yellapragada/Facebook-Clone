@@ -203,10 +203,12 @@ const PostsBrowser = () => {
 
                                             <button className={userLike?.length > 0 ? 'liked-pic-button-container' : 'liked-post-button'}
                                                 // id="liked-pic-button-container"
+
                                                 onClick={() => {
 
                                                     currentPostLikes = allLikes.filter(like => like.post_id === post.id)
                                                     userLike = currentPostLikes.filter(like => like.user_id === user.id)
+
 
                                                     {
                                                         userLike?.length > 0 ? handleRemoveLike(userLike[0]?.id) : handleCreateLike(post.id)
