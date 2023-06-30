@@ -9,7 +9,7 @@
 .landing-page-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-content: flex-start;
     align-items:flex-start;
     /* border:2px solid red; */
