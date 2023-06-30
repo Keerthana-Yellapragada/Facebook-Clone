@@ -40,7 +40,7 @@ const PostsBrowser = () => {
 
 
     const [visible, setVisible] = useState(false);
-    const [liked, setLiked] = useState(false)
+    // const [liked, setLiked] = useState(false)
 
     if (!allLikes) {
         return null
@@ -94,16 +94,16 @@ const PostsBrowser = () => {
             post_like: true,
             post_love: false
         }
-        // likedButton=true
-        setLiked(!liked)
+
+        // setLiked(true)
         createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
 
     }
 
     async function handleRemoveLike(likeId) {
         if (likeId) {
-            // likedButton=false
-            setLiked(!liked)
+
+            // setLiked(false)
             deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
         }
     }
@@ -181,9 +181,9 @@ const PostsBrowser = () => {
                                         </div>
 
                                         <div>
-                                             {post?.likes?.length > 0 ?
+                                            {post?.likes?.length > 0 ?
                                                 (likesCounter = <div id="likes-counter-pic-container">
-                                                    <i id="likes-pic" className="fa-solid fa-thumbs-up" > </i> {post?.likes?.length}  </div>) :<></>
+                                                    <i id="likes-pic" className="fa-solid fa-thumbs-up" > </i> {post?.likes?.length}  </div>) : <></>
                                             }
                                         </div>
                                         <div className='post-likes-comments-number-container'>
@@ -201,7 +201,8 @@ const PostsBrowser = () => {
                                         </div>
                                         <div className='post-like-container'>
 
-                                            <button className={liked ? "liked-pic-button-container" : 'liked-post-button'}
+                                            <button className={userLike?.length > 0 ? 'liked-pic-button-container' : 'liked-post-button'}
+                                                // id="liked-pic-button-container"
                                                 onClick={() => {
 
                                                     currentPostLikes = allLikes.filter(like => like.post_id === post.id)
@@ -210,6 +211,7 @@ const PostsBrowser = () => {
                                                     {
                                                         userLike?.length > 0 ? handleRemoveLike(userLike[0]?.id) : handleCreateLike(post.id)
                                                     }
+
                                                 }
                                                 }
 
