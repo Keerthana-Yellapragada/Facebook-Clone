@@ -186,7 +186,24 @@
 
 
 }
+/* .before-like-container{
+  color:#1877f2
+} */
 
+
+.liked-pic-button-container{
+    color: rgb(35, 88, 186);
+    background-color: inherit;
+
+    border: none;
+    padding: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    width: auto;
+    border-radius: 7px;
+    margin: 8px;
+
+}
 .liked-post-button {
     background-color: inherit;
     color: grey;

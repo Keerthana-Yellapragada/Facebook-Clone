@@ -40,6 +40,7 @@ const PostsBrowser = () => {
 
 
     const [visible, setVisible] = useState(false);
+    const [liked, setLiked] = useState(false)
 
     if (!allLikes) {
         return null
@@ -94,6 +95,7 @@ const PostsBrowser = () => {
             post_love: false
         }
         // likedButton=true
+        setLiked(!liked)
         createdLikePost = await dispatch(createNewLike(likePayload)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
 
     }
@@ -101,6 +103,7 @@ const PostsBrowser = () => {
     async function handleRemoveLike(likeId) {
         if (likeId) {
             // likedButton=false
+            setLiked(!liked)
             deletedPostLike = dispatch(removeLike(likeId)).then(() => dispatch(loadAllLikes())).then(() => history.push("/"))
         }
     }
@@ -179,7 +182,7 @@ const PostsBrowser = () => {
 
                                         <div>
                                              {post?.likes?.length > 0 ?
-                                                (likesCounter = < div id="likes-counter-pic-container" >
+                                                (likesCounter = <div id="likes-counter-pic-container">
                                                     <i id="likes-pic" className="fa-solid fa-thumbs-up" > </i> {post?.likes?.length}  </div>) :<></>
                                             }
                                         </div>
@@ -198,7 +201,7 @@ const PostsBrowser = () => {
                                         </div>
                                         <div className='post-like-container'>
 
-                                            <button className='liked-post-button'
+                                            <button className={liked ? "liked-pic-button-container" : 'liked-post-button'}
                                                 onClick={() => {
 
                                                     currentPostLikes = allLikes.filter(like => like.post_id === post.id)
