@@ -51,17 +51,16 @@ def get_profile_details(profile_id):
 @profile_routes.route('/<int:profile_id>/', methods=["PUT"])
 @login_required
 def edit_profile(profile_id):
-    edit_profile_form = CreateprofileForm()
+    edit_profile_form = CreateProfileForm()
 
     edit_profile_form['csrf_token'].data = request.cookies['csrf_token']
 
     if edit_profile_form.validate_on_submit():
         data = edit_profile_form.data
-        profile = profile.query.get(profile_id)
+        profile = UserProfile.query.get(profile_id)
 
         profile.profile_content = data["profile_content"]
-        # profile.image_url = data["image_url"]
-        # don't allow user to change post_id
+
 
         db.session.commit()
 
@@ -81,7 +80,7 @@ def edit_profile(profile_id):
 @login_required
 def delete_profile(profile_id):
 
-    profile = profile.query.get(profile_id)
+    profile = UserProfile.query.get(profile_id)
 
     if profile:
         db.session.delete(profile)
