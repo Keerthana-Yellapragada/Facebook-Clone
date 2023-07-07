@@ -226,8 +226,7 @@ class UserProfile(db.Model):
             'gender': self.gender,
             'month': self.month,
             'day': self.day,
-            'year': self.year
-
+            'year': self.year,
             'user': self.user.to_dict(),
 
         }
