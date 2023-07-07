@@ -6,7 +6,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 
 
-class CreatePostForm(FlaskForm):
+class CreateProfileForm(FlaskForm):
     first_name = StringField("First Name", validators = [DataRequired()])
     last_name = StringField("Last Name", validators = [DataRequired()])
     email = StringField("email", validators = [DataRequired()])
