@@ -11,6 +11,7 @@ class CreatePostForm(FlaskForm):
     last_name = StringField("Last Name", validators = [DataRequired()])
     email = StringField("email", validators = [DataRequired()])
     bio=StringField("About Me", validators = [DataRequired()])
+    gender=SelectField("Gender", validators=[DataRequired()])
     month=SelectField("Month", validators = [DataRequired()])
     day=SelectField("Day", validators = [DataRequired()])
     year=SelectField("Year", validators = [DataRequired()])
