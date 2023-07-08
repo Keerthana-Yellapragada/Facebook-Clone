@@ -15,5 +15,5 @@ class CreateProfileForm(FlaskForm):
     month=SelectField("Month", validators = [DataRequired()])
     day=SelectField("Day", validators = [DataRequired()])
     year=SelectField("Year", validators = [DataRequired()])
-    image_url = StringField("Image")
+    profile_image= StringField("Image")
     submit = SubmitField("Create Your Post")

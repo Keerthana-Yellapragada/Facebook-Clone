@@ -211,6 +211,7 @@ class UserProfile(db.Model):
     month=db.Column(db.Text, nullable=False)
     day=db.Column(db.Text, nullable=False)
     year=db.Column(db.Text, nullable=False)
+    profile_image=db.Column(db.Text, nullable=True)
     user = db.relationship("User", back_populates="comments")
 
 
@@ -227,9 +228,10 @@ class UserProfile(db.Model):
             'month': self.month,
             'day': self.day,
             'year': self.year,
+            'profile_image': self.profile_image,
             'user': self.user.to_dict(),
 
         }
 
     def __repr__(self):
-        return f'<UserProfile, id={self.id}, user_id={self.user_id}, first_name={self.first_name}, last_name={self.last_name}, email={self.email}, bio={self.bio}, gender={self.gender}, month={self.month}, day={self.day}, year={self.year}, user={self.user}>'
+        return f'<UserProfile, id={self.id}, user_id={self.user_id}, first_name={self.first_name}, last_name={self.last_name}, email={self.email}, bio={self.bio}, gender={self.gender}, month={self.month}, day={self.day}, year={self.year}, profile_image={self.profile_image}, user={self.user}>'

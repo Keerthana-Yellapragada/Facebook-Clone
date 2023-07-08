@@ -59,7 +59,15 @@ def edit_profile(profile_id):
         data = edit_profile_form.data
         profile = UserProfile.query.get(profile_id)
 
-        profile.profile_content = data["profile_content"]
+        profile.first_name=data["first_name"]
+        profile.last_name=data["last_name"]
+        profile.bio = data["bio"]
+        profile.email=data["email"]
+        profile.gender=data["gender"]
+        profile.month = data["month"]
+        profile.day=data["day"]
+        profile.year=data["year"]
+        profile.image=data["profile_image"]
 
 
         db.session.commit()
