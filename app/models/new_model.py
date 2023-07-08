@@ -195,3 +195,42 @@ class Friendship(db.Model):
 
 #     def __repr__(self):
 #         return f'<Friend, id={self.id}, user_id={self.user_id}, friend_id={self.friend_id}'
+
+
+
+class UserProfile(db.Model):
+    __tablename__ = "userprofiles"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    first_name=db.Column(db.Text, nullable=False)
+    last_name=db.Column(db.Text, nullable=False)
+    email=db.Column(db.Text, nullable=False)
+    bio = db.Column(db.Text, nullable=False)
+    gender=db.Column(db.Text, nullable=False)
+    month=db.Column(db.Text, nullable=False)
+    day=db.Column(db.Text, nullable=False)
+    year=db.Column(db.Text, nullable=False)
+    profile_image=db.Column(db.Text, nullable=True)
+    user = db.relationship("User", back_populates="profile")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email,
+            'bio': self.bio,
+            'gender': self.gender,
+            'month': self.month,
+            'day': self.day,
+            'year': self.year,
+            'profile_image': self.profile_image,
+            'user': self.user.to_dict(),
+
+        }
+
+    def __repr__(self):
+        return f'<UserProfile, id={self.id}, user_id={self.user_id}, first_name={self.first_name}, last_name={self.last_name}, email={self.email}, bio={self.bio}, gender={self.gender}, month={self.month}, day={self.day}, year={self.year}, profile_image={self.profile_image}, user={self.user}>'

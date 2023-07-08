@@ -41,10 +41,7 @@ const UserProfilePage = () => {
 
     let sessionUser = useSelector(state => state?.session?.user)
     let sessionUserId = sessionUser?.id
-    // console.log("sessionuserId", sessionUserId)
 
-    // let user = users?.filter(user => user.id === userId)
-    // user = user[0]
     let user = users[userId]
 
     let userPosts = allPosts?.filter(post => post?.user_id === user?.id)
