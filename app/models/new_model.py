@@ -212,7 +212,7 @@ class UserProfile(db.Model):
     day=db.Column(db.Text, nullable=False)
     year=db.Column(db.Text, nullable=False)
     profile_image=db.Column(db.Text, nullable=True)
-    user = db.relationship("User", back_populates="comments")
+    user = db.relationship("User", back_populates="profile")
 
 
 
