@@ -215,7 +215,6 @@ class UserProfile(db.Model):
     user = db.relationship("User", back_populates="profile")
 
 
-
     def to_dict(self):
         return {
             'id': self.id,
