@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     posts = db.relationship("Post", back_populates="user", cascade="all, delete-orphan")
     comments= db.relationship("Comment", back_populates="user", cascade="all, delete-orphan")
     likes= db.relationship("Like", back_populates="user",cascade="all, delete-orphan")
+    profile=db.relationship("UserProfile", back_populates="user",cascade="all, delete-orphan")
     # friendships = db.relationship("Friendship", back_populates = "user", cascade="all, delete-orphan")
     # friends = db.relationship("Friend", back_populates = "user", cascade="all, delete-orphan")
     # friendships = db.relationship("Friendship", secondary=friendships, back_populates = 'users')
