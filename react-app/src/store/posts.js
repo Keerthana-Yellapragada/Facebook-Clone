@@ -87,22 +87,23 @@ export const loadOnePost = (postId) => async dispatch => {
 
 // -------------------------  CREATE A POST   ----------------------------------
 
-export const createNewPost = (payload) => async dispatch => {
-
-    const response = await csrfFetch('/api/posts/new/', {
+export const createNewPost = (formData) => async dispatch => {
+console.log("THUNK FORMDATA", formData)
+    const response = await fetch('/api/posts/new/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: formData
     })
 
 
     if (response.ok) {
-        let post = await response.json()
-
-        dispatch(createPost(post))
-        return post
+        console.log("IS RESPONSE OK IN CREATEPOST THUNK")
+        // let post = await response.json()
+        const newPost = await response.json()
+        await dispatch(createPost(newPost))
+        return newPost
     }
 }
 

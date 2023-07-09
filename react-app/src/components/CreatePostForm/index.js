@@ -22,13 +22,13 @@ const NewPostForm = () => {
   useEffect(() => {
     const errors = [];
 
-    const validUrls = ["img", "jpg", "jpeg", "png"]
-    let urlArray = image_url.split(".")
-    let urlExtension = urlArray[urlArray.length - 1]
+    // const validUrls = ["img", "jpg", "jpeg", "png"]
+    // let urlArray = image_url.split(".")
+    // let urlExtension = urlArray[urlArray.length - 1]
 
-    if (image_url && !validUrls.includes(urlExtension)) {
-      errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
-    }
+    // if (image_url && !validUrls.includes(urlExtension)) {
+    //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
+    // }
     if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
 
     if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
@@ -55,13 +55,25 @@ const NewPostForm = () => {
 
     setValidationErrors(errors)
 
-    if (!validationErrors.length) {
-      const newPostPayload = {
-        post_content,
-        image_url
-      }
+    // const formData = FormData()
+    // formData.append("user_id", user.id)
+    // formData.append("url", image_url)
 
-      const newPost = await dispatch(createNewPost(newPostPayload))
+
+    if (!validationErrors.length) {
+      // const newPostPayload = {
+      //   post_content,
+      //   image_url
+      // }
+
+      const formData = new FormData()
+      console.log("THIS IS FORM DATA", formData)
+      formData.append("user_id", user.id)
+      formData.append("image_url", image_url)
+      formData.append("post_content", post_content)
+
+
+      const newPost = await dispatch(createNewPost(formData))
       history.push(`/`)
     }
   }
@@ -111,7 +123,7 @@ const NewPostForm = () => {
 
 
 
-            <input
+            {/* <input
               type="url"
               className="form-inputs"
               name="url"
@@ -120,6 +132,14 @@ const NewPostForm = () => {
               pattern="https://.*" size="30"
               onChange={(e) => setImageUrl(e.target.value)}
               value={image_url}
+            /> */}
+            <input
+            type="file"
+            id="url"
+            placeholder="upload an image"
+            accept="image/jpeg, image/jpg, image/png, image/gif"
+            onChange = {(e) => setImageUrl(e.target.files[0])}
+            // value={image_url}
             />
 
 

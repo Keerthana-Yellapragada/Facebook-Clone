@@ -141,6 +141,8 @@ function HomePage() {
                                 <div className="ad-content small"> Experts available in various programming languages of your choice! </div>
                                 <div className="ad-content bold">Try Codebunny Today</div> */}
                                 Codebunny
+
+                                {/*div on outside and  a tags with image inside */}
                             </a>
                             {/* </Link> */}
                         </div>
