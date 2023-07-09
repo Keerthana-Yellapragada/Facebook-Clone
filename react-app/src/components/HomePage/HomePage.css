@@ -139,7 +139,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-content: center;
     /* border: 1px solid grey */
 
@@ -150,7 +150,7 @@
 }
 
 .ad-card {
-   font-size: 20px;
+    font-size: 15px;
     color: rgb(255, 0, 0);
     background-color: inherit;
     display: flex;
@@ -160,8 +160,10 @@
     padding: 2%;
     width: 100%;
     height: auto;
-    border-radius: 4%
+    border-radius: 4%;
+    align-items: center;
 }
+
 
 .connect-author-title {
     display: flex;
@@ -203,22 +205,32 @@ a:active {
 }
 
 .ad-content {
-    margin: 2%
-}
-
-
-.left-section-content {
+    margin: 2%;
+    width: 100%;
     display: flex;
-
     justify-content: center;
-    align-content: center;
+    flex-direction: column;
+
 }
 
-.connect-author-sections {
-    background-color: inherit;
-    font-weight: bold;
-    display: flex;
-    color: rgb(106, 105, 105);
-    font-size: 20px;
-    margin: 10px;
-}
+    .left-section-content {
+        display: flex;
+
+        justify-content: center;
+        align-content: center;
+    }
+
+    .connect-author-sections {
+        background-color: inherit;
+        font-weight: bold;
+        display: flex;
+        color: rgb(106, 105, 105);
+        font-size: 20px;
+        margin: 10px;
+    }
+
+
+    img.ad-image {
+        width: 70%;
+        display: flex;
+    }
