@@ -10,7 +10,7 @@
     margin: 1.5%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 7px;
+    border-radius: 6px;
     height: fit-content;
 
 }
@@ -21,9 +21,9 @@
     margin: 2.25%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 7px;
+    border-radius: 6px;
     display: flex;
-    height: 550px;
+    height: fit-content;
 }
 
 .homepage-center-container {
@@ -65,7 +65,7 @@
 
 .create-post-click-container {
 
-    border-radius: 7px;
+    border-radius: 6px;
     padding: 12px 7px;
     margin: 0px 90px;
     display: flex;
@@ -93,7 +93,7 @@
     align-items: center;
     border: none;
     background-color: white;
-    border-radius: 7px;
+    border-radius: 6px;
     box-shadow: 0.5px 0.5px 3px inherit;
     /* margin: 37% 10px; */
     font-size: 20px;
@@ -160,7 +160,7 @@
     padding: 2%;
     width: 100%;
     height: auto;
-    border-radius: 4%;
+    border-radius: 6px;
     align-items: center;
 }
 
