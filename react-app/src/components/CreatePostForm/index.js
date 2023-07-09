@@ -139,12 +139,13 @@ const NewPostForm = () => {
               name="url"
               id="url"
               title="Upload an image"
-              // placeholder="upload an image"
+              placeholder="upload an image"
               capture = "camera"
               accept="image/jpeg, image/jpg, image/png, image/gif"
               onChange={(e) => setImageUrl(e.target.files[0])}
             // value="{image_url}"
             />
+
 
 
             {/* < UploadPicture /> */}
