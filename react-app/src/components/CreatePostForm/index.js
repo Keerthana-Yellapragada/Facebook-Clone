@@ -29,12 +29,12 @@ const NewPostForm = () => {
     // if (image_url && !validUrls.includes(urlExtension)) {
     //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
     // }
-    if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
+    if (post_content & post_content.length < 1) { errors.push("Cannot submit a blank field") }
 
-    if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
+    if (post_content.length > 2200) { errors.push("You have reached your 2200 character limit") }
 
     setValidationErrors(errors)
-  },[post_content, image_url])
+  }, [post_content, image_url])
 
   // select slice of state that we want
   const posts = useSelector(state => Object.values(state.posts))
@@ -101,10 +101,10 @@ const NewPostForm = () => {
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
-               {post_content ? (
-            <span className="charLeft">
-              {post_content.length}/2200
-            </span>
+            {post_content ? (
+              <span className="charLeft">
+                {post_content.length}/2200
+              </span>
             ) : null}
 
           </div>
@@ -134,12 +134,16 @@ const NewPostForm = () => {
               value={image_url}
             /> */}
             <input
-            type="file"
-            id="url"
-            placeholder="upload an image"
-            accept="image/jpeg, image/jpg, image/png, image/gif"
-            onChange = {(e) => setImageUrl(e.target.files[0])}
-            // value={image_url}
+              type="file"
+              className="form-inputs file-input"
+              name="url"
+              id="url"
+              title="Upload an image"
+              // placeholder="upload an image"
+              capture = "camera"
+              accept="image/jpeg, image/jpg, image/png, image/gif"
+              onChange={(e) => setImageUrl(e.target.files[0])}
+            // value="{image_url}"
             />
 
 
@@ -148,7 +152,7 @@ const NewPostForm = () => {
           </div>
           <div className="button-container">
             <button className="create-post-button"
-            disabled={!!validationErrors.length}
+              disabled={!!validationErrors.length}
               type="submit">Post</button>
           </div>
         </form>
