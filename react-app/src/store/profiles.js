@@ -125,7 +125,7 @@ export const editProfile = (editProfileInfo) => async dispatch => {
     if (response.ok) {
 
         const editedProfile = await response.json();
-        dispatch(updateProfile(editedprofile))
+        dispatch(updateProfile(editedProfile))
         return editedProfile
     }
 }
@@ -159,7 +159,7 @@ const profileReducer = (state = initialState, action) => {
     let newState;
     // *****************************************************************************
     switch (action.type) {
-        case GET_ALLPROFILESS:
+        case GET_ALLPROFILES:
             newState = {
                 ...state
             }

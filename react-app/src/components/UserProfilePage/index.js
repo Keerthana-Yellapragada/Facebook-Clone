@@ -9,10 +9,12 @@ import './UserProfilePage.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
+import CreateProfileModal from "../CreateProfileForm"
+
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
 import { createNewFriendship, deleteFriendship, loadAllFriendships, updateFriendship } from '../../store/friendships';
-
+import {loadAllProfiles} from '../../store/profiles'
 
 // *********************************************************************************************************************
 
@@ -361,6 +363,10 @@ const UserProfilePage = () => {
                                                                         </NavLink>
                                                                         <div className='friend-first-name'>{users[friend?.from_uid]?.first_name}</div>
                                                                         <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
+                                                                    </div>
+                                                                    <div className='profile-container'>
+                                                                        <CreateProfileModal />
+
                                                                     </div>
                                                                 </>
 
