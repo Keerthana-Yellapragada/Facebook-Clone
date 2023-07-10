@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { createNewPost, loadAllPosts } from "../../store/posts"
 import './CreatePostForm.css'
 import UploadPicture from "../Images/UploadImages";
+import axios from 'axios'
 
 const NewPostForm = () => {
   const dispatch = useDispatch()
@@ -11,7 +12,7 @@ const NewPostForm = () => {
 
   // states
   const [post_content, setPostContent] = useState('')
-  const [image_url, setImageUrl] = useState('')
+  const [selectedFile, setSelectedFile] = useState(null)
   const [validationErrors, setValidationErrors] = useState([])
 
   // useEffect to load all Posts and refresh state
@@ -34,7 +35,7 @@ const NewPostForm = () => {
     if (post_content.length > 2200) { errors.push("You have reached your 2200 character limit") }
 
     setValidationErrors(errors)
-  }, [post_content, image_url])
+  }, [post_content, selectedFile])
 
   // select slice of state that we want
   const posts = useSelector(state => Object.values(state.posts))
@@ -68,13 +69,23 @@ const NewPostForm = () => {
 
       const formData = new FormData()
       console.log("THIS IS FORM DATA", formData)
+
       formData.append("user_id", user.id)
-      formData.append("image_url", image_url)
+      formData.append("image_url", selectedFile)
       formData.append("post_content", post_content)
+      //  axios
+      //   //  .post("image_url", formData)
+      //    .then((res) => {
+      //      alert("File Upload success");
+      //    })
+      //    .catch((err) => alert("File Upload Error"));
+console.log("THIS IS FORM DATA AFTER APPENDING", formData)
+for (let key in formData) {
+  console.log(key, formData[key]);
+  formData.append(key, formData[key]);
+}
 
-
-      const newPost = await dispatch(createNewPost(formData))
-      history.push(`/`)
+      const newPost = await dispatch(createNewPost(formData)).then(()=>history.push(`/`))
     }
   }
 
@@ -142,8 +153,8 @@ const NewPostForm = () => {
               placeholder="upload an image"
               capture = "camera"
               accept="image/jpeg, image/jpg, image/png, image/gif"
-              onChange={(e) => setImageUrl(e.target.files[0])}
-            // value="{image_url}"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+              // value={selectedFile}
             />
 
 

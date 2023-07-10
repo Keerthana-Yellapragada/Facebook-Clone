@@ -1,5 +1,3 @@
-
-
 import {
     csrfFetch
 } from "./csrf"
@@ -7,142 +5,143 @@ import {
 //****************************** ACTION CREATORS *******************************
 
 // CRUD:
-// Create a Post
-// GET a post
-// Update/Edit a post
-// Delete a post
+// Create a profile
+// GET a profile
+// Update/Edit a profile
+// Delete a profile
 
 ///*************************************************************************** */
-const GET_ALLPOSTS = 'posts/getAllPosts'
-const GET_ONEPOST = 'posts/getOnepost'
-const CREATE_POST = 'posts/createPost'
-const UPDATE_POST = 'posts/updatePost'
-const DELETE_POST = 'posts/removePost'
+const GET_ALLPROFILES = 'profiles/getAllprofiles'
+const GET_ONEPROFILE = 'profiles/getOneprofile'
+const CREATE_PROFILE = 'profiles/createprofile'
+const UPDATE_PROFILE = 'profiles/updateprofile'
+const DELETE_PROFILE = 'profiles/removeprofile'
 
 ///*************************************************************************** */
-// **** GET ALL postS ****
-const getAllPosts = posts => ({
-    type: GET_ALLPOSTS,
-    payload: posts
+// **** GET ALL profileS ****
+const getAllProfiles = profiles => ({
+    type: GET_ALLPROFILES,
+    payload: profiles
 })
 ///*************************************************************************** */
-// **** GET ONE post DETAILS ****
-const getOnePost = post => ({
-    type: GET_ONEPOST,
-    payload: post
+// **** GET ONE profile'S DETAILS ****
+const getOneProfile = profile => ({
+    type: GET_ONEPROFILE,
+    payload: profile
 })
 
 ///*************************************************************************** */
-// **** CREATE A post ****
+// **** CREATE A profile ****
 
-const createPost = post => ({
-    type: CREATE_POST,
-    payload: post
+const createProfile = profile => ({
+    type: CREATE_PROFILE,
+    payload: profile
 })
 ///*************************************************************************** */
-// **** EDIT/UPDATE A post ****
+// **** EDIT/UPDATE A profile ****
 
-const updatePost = post => ({
-    type: UPDATE_POST,
-    payload: post
+const updateProfile = profile => ({
+    type: UPDATE_PROFILE,
+    payload: profile
 })
 ///*************************************************************************** */
-// **** DELETE A post ****
+// **** DELETE A profile ****
 
-const removePost = postId => ({
-    type: DELETE_POST,
-    payload: postId
+const removeProfile = profileId => ({
+    type: DELETE_PROFILE,
+    payload: profileId
 })
 
 // *****************************************************************************
 //************************************ THUNKS **********************************
 
-// -------------------------  LOAD ALL POSTS   ----------------------------------
-export const loadAllPosts = () => async dispatch => {
-    const response = await csrfFetch('/api/posts/')
+// -------------------------  LOAD ALL profileS   ----------------------------------
+export const loadAllProfiles = () => async dispatch => {
+    const response = await csrfFetch('/api/profiles/')
     if (response.ok) {
-        const postsList = await response.json();
-
-        dispatch(getAllPosts(postsList))
+        const profilesList = await response.json();
+        dispatch(getAllProfiles(profilesList))
     }
 }
 
 //*************************************************************************** */
 
-// -------------------------  LOAD ONE POST'S DETAILS   -------------------------
+// -------------------------  LOAD ONE profile'S DETAILS   -------------------------
 
 
-export const loadOnePost = (postId) => async dispatch => {
-    const response = await csrfFetch(`/api/posts/${postId}/`);
+export const loadOneProfile = (profileId) => async dispatch => {
+    const response = await csrfFetch(`/api/profiles/${profileId}/`);
+
+
+
+
 
     if (response.ok) {
-        const postInfo = await response.json();
-
-        dispatch(getOnePost(postInfo))
+        const profileInfo = await response.json();
+        dispatch(getOneProfile(profileInfo))
     }
 }
 
 
 //*************************************************************************** */
 
-// -------------------------  CREATE A POST   ----------------------------------
+// -------------------------  CREATE A profile   ----------------------------------
 
-export const createNewPost = (formData) => async dispatch => {
-console.log("THUNK FORMDATA", formData.image_url)
-    const response = await fetch('/api/posts/new/', {
+export const createNewProfile = (payload) => async dispatch => {
+
+    const response = await csrfFetch(`/api/posts/${payload.post_id}/profiles/new/`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'application/json'
         },
-        body: formData
+        body: JSON.stringify(payload)
     })
 
 
     if (response.ok) {
-        console.log("IS RESPONSE OK IN CREATEPOST THUNK")
-        // let post = await response.json()
-        const newPost = await response.json()
-        await dispatch(createPost(newPost))
-        return newPost
+        let profile = await response.json()
+
+        dispatch(createProfile(profile))
+        return profile
     }
 }
 
 //*************************************************************************** */
 
-// -------------------------  EDIT A POST    ----------------------------------
+// -------------------------  EDIT A profile    ----------------------------------
 
-export const editPost = (editpostInfo) => async dispatch => {
+export const editProfile = (editProfileInfo) => async dispatch => {
 
-    const response = await csrfFetch(`/api/posts/${editpostInfo.id}/`, {
+    const response = await csrfFetch(`/api/profiles/${editProfileInfo.id}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(editpostInfo)
+        body: JSON.stringify(editProfileInfo)
     })
 
 
 
     if (response.ok) {
 
-        const editedpost = await response.json();
-        dispatch(updatePost(editedpost))
-        return editedpost
+        const editedProfile = await response.json();
+        dispatch(updateProfile(editedprofile))
+        return editedProfile
     }
 }
 
 //*************************************************************************** */
 
-// -------------------------  DELETE A POST  --------------------------------
-export const deletePost = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/posts/${payload.id}/`, {
+// -------------------------  DELETE A profile  --------------------------------
+export const deleteProfile = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/profiles/${payload.id}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     if (response.ok) {
-        dispatch(removePost(payload.id))
+        dispatch(removeProfile(payload.id))
         return response
     }
 }
@@ -155,21 +154,21 @@ export const deletePost = (payload) => async dispatch => {
 
 const initialState = {}
 
-const postReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
 
     let newState;
     // *****************************************************************************
     switch (action.type) {
-        case GET_ALLPOSTS:
+        case GET_ALLPROFILESS:
             newState = {
                 ...state
             }
-            action.payload.Posts?.forEach((post) => {
-                newState[post.id] = post
+            action.payload.profiles?.forEach((profile) => {
+                newState[profile.id] = profile
             });
             return newState
             // *****************************************************************************
-        case GET_ONEPOST:
+        case GET_ONEPROFILE:
             // newState = {}
 
             // newState[action.payload.id] = action.payload
@@ -179,14 +178,14 @@ const postReducer = (state = initialState, action) => {
             }
 
             // *****************************************************************************
-            case CREATE_POST:
+            case CREATE_PROFILE:
                 newState = {
                     ...state
                 }
                 newState[action.payload.id] = action.payload
                 return newState
                 // *****************************************************************************
-            case UPDATE_POST:
+            case UPDATE_PROFILE:
                 newState = {
                     ...state
                 }
@@ -196,7 +195,7 @@ const postReducer = (state = initialState, action) => {
 
 
                 // *****************************************************************************
-            case DELETE_POST:
+            case DELETE_PROFILE:
                 newState = {
                     ...state
                 }
@@ -210,4 +209,4 @@ const postReducer = (state = initialState, action) => {
 }
 // *****************************************************************************
 
-export default postReducer
+export default profileReducer
