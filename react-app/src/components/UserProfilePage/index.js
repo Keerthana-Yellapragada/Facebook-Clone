@@ -365,7 +365,7 @@ const UserProfilePage = () => {
                                                                         <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
                                                                     </div>
                                                                     <div className='profile-container'>
-                                                                        {/* <CreateProfileModal /> */}
+                                                                        <CreateProfileModal />
 
                                                                     </div>
                                                                 </>
