@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { createNewProfile, loadAllProfiles } from "../../store/profiles"
-import './CreatePostForm.css'
+import './CreateProfileForm.css'
 // import UploadPicture from "../Images/UploadImages";
 // import axios from 'axios'
 
@@ -24,9 +24,10 @@ const NewProfileForm = () => {
     const [profile_image, setProfileImage] = useState(null)
 
 
-      useEffect(() => {
+
+    useEffect(() => {
         dispatch(loadAllProfiles());
-      }, [dispatch])
+    }, [dispatch])
 
     useEffect(() => {
         const errors = [];
@@ -79,6 +80,7 @@ const NewProfileForm = () => {
     return (
         <div className="Outer-Form-Container">
             <div className="Inner-Form-Container">
+
                 <form className="create-profile-form" onSubmit={submitHandler}>
 
 
@@ -110,7 +112,7 @@ const NewProfileForm = () => {
 
                     <div className="create-profile-form-container">
 
-                        <label for="bio"> First Name</label>
+                        <label htmlFor="bio"> First Name</label>
                         <textarea
                             className="form-inputs profile-content-input"
                             required
@@ -124,14 +126,14 @@ const NewProfileForm = () => {
                             placeholder={`About Me`}
                         />
 
-                        <label htmlFor="first-name"> First Name</label>
+                        <label htmlFor="first-name">First Name</label>
                         <input
                             type="text"
                             id="first-name"
                             className="form-inputs profile-content-input"
                             required
-                            // minLength={1}
-                            // maxLength={25}
+                            minLength={1}
+                            maxLength={25}
                             value={first_name}
                             placeholder="Ex. John"
                             onChange={(e) => setFirstName(e.target.value)}
@@ -143,8 +145,8 @@ const NewProfileForm = () => {
                             id="last-name"
                             className="form-inputs profile-content-input"
                             required
-                            // minLength={1}
-                            // maxLength={25}
+                            minLength={1}
+                            maxLength={25}
                             value={last_name}
                             placeholder="Doe"
                             onChange={(e) => setLastName(e.target.value)}
@@ -152,6 +154,15 @@ const NewProfileForm = () => {
 
 
                     </div>
+
+                    <label htmlFor="gender">What is your gender?</label>
+                    <select id="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="nonbinary">Nonbinary</option>
+                        <option value="transgender">Transgender</option>
+                        <option value="other">Other</option>
+                    </select>
 
                     <div className="button-container">
                         <button className="create-profile-button"
