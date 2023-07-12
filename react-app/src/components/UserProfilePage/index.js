@@ -9,13 +9,13 @@ import './UserProfilePage.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
-import NewProfileForm from "../CreateProfileForm/CreateProfileFormModal"
+import NewProfileFormModal from "../CreateProfileForm/CreateProfileForm"
 
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
 import { createNewFriendship, deleteFriendship, loadAllFriendships, updateFriendship } from '../../store/friendships';
 import {loadAllProfiles} from '../../store/profiles'
-import NewProfileFormModal from '../CreateProfileForm'
+
 
 // *********************************************************************************************************************
 
