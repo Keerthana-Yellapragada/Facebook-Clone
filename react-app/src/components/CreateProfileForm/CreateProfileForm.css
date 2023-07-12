@@ -46,9 +46,9 @@ background-color: white;
 border-radius: 6px;
 }
 
-.form-inputs{
+.profile-form-inputs{
 margin: 10px 0px;
-border: 1px solid grey;
+/* border: 1px solid grey; */
 border-radius: 6px;
 
 }

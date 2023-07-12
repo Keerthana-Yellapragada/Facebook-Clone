@@ -106,7 +106,7 @@ const NewProfileForm = () => {
                         <div className="profile-form-inputs">
                             <label htmlFor="profile-bio">About me</label>
                             <textarea
-                                className="form-inputs profile-content-input"
+                                className="profile-content-input"
                                 required
                                 id="profile-bio"
                                 type="text"
@@ -140,7 +140,7 @@ const NewProfileForm = () => {
 
                                 type="text"
                                 id="last-name"
-                                className="form-inputs profile-content-input"
+                                className=" profile-content-input"
                                 required
                                 minLength={1}
                                 maxLength={25}
