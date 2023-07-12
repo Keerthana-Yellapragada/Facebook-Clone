@@ -10,7 +10,7 @@
     margin: 1.5%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 7px;
+    border-radius: 6px;
     height: fit-content;
 
 }
@@ -21,9 +21,9 @@
     margin: 2.25%;
     padding: 10px;
     /* box-shadow: 0 0 2px 0.75px rgb(129 161 226); */
-    border-radius: 7px;
+    border-radius: 6px;
     display: flex;
-    height: 550px;
+    height: fit-content;
 }
 
 .homepage-center-container {
@@ -65,7 +65,7 @@
 
 .create-post-click-container {
 
-    border-radius: 7px;
+    border-radius: 6px;
     padding: 12px 7px;
     margin: 0px 90px;
     display: flex;
@@ -93,7 +93,7 @@
     align-items: center;
     border: none;
     background-color: white;
-    border-radius: 7px;
+    border-radius: 6px;
     box-shadow: 0.5px 0.5px 3px inherit;
     /* margin: 37% 10px; */
     font-size: 20px;
@@ -139,7 +139,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-content: center;
     /* border: 1px solid grey */
 
@@ -150,7 +150,7 @@
 }
 
 .ad-card {
-   font-size: 20px;
+    font-size: 15px;
     color: rgb(255, 0, 0);
     background-color: inherit;
     display: flex;
@@ -160,8 +160,10 @@
     padding: 2%;
     width: 100%;
     height: auto;
-    border-radius: 4%
+    border-radius: 6px;
+    align-items: center;
 }
+
 
 .connect-author-title {
     display: flex;
@@ -203,9 +205,13 @@ a:active {
 }
 
 .ad-content {
-    margin: 2%
-}
+    margin: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
+}
 
 .left-section-content {
     display: flex;
@@ -221,4 +227,11 @@ a:active {
     color: rgb(106, 105, 105);
     font-size: 20px;
     margin: 10px;
+}
+
+
+img.ad-image {
+    width: 70%;
+    display: flex;
+    margin: 5px;
 }
