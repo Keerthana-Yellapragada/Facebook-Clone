@@ -157,18 +157,20 @@ const NewProfileForm = () => {
                         <div className="profile-form-inputs">
                             <label htmlFor="gender">What is your gender?</label>
                             <select id="gender">
+                               <option value="" disabled selected>- - -</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
                                 <option value="nonbinary">Nonbinary</option>
                                 <option value="transgender">Transgender</option>
                                 <option value="other">Other</option>
+
                             </select>
                         </div>
 
-                        <div className="profile-form-inputs">
+                        <div className="profile-form-inputs birthdate-container">
                             <label htmlFor="birthdate">When is your birthday?</label>
                             <DatePicker
-                                showIcon
+                                // showIcon
                                 id="birthdate"
                                 selected={birthDate}
                                 value={birthDate}
