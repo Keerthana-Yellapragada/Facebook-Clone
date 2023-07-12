@@ -78,15 +78,13 @@ const NewProfileForm = () => {
 
 
     return (
-        <div className="Outer-Form-Container">
-            <div className="Inner-Form-Container">
+        <div className="Profile-outer-Form-Container">
+            <div className="Profile-inner-Form-Container">
+
 
                 <form className="create-profile-form" onSubmit={submitHandler}>
 
-                    <div>Your Profile</div>
-
-
-
+                      <div>Your Profile</div>
 
                     <div className="errors">
                         {validationErrors.length > 0 &&
