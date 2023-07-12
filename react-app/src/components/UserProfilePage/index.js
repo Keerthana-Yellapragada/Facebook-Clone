@@ -15,6 +15,7 @@ import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../st
 import { loadAllUsers, loadOneUser } from '../../store/users';
 import { createNewFriendship, deleteFriendship, loadAllFriendships, updateFriendship } from '../../store/friendships';
 import {loadAllProfiles} from '../../store/profiles'
+import NewProfileForm from '../CreateProfileForm/CreateProfileForm';
 
 
 // *********************************************************************************************************************
@@ -69,6 +70,7 @@ const UserProfilePage = () => {
     const [visible, setVisible] = useState(false);
     const [disabled, setDisabled] = useState(false)
     const [open, setOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false)
 
     // toggles dropdown menu button
     const handleOpen = () => {
@@ -383,7 +385,7 @@ const UserProfilePage = () => {
 
                                     </>) : null}
                                     <div className='profile-container'>
-                                        <NewProfileFormModal />
+                                        <NewProfileFormModal/>
 
                                     </div>
                             </div>
