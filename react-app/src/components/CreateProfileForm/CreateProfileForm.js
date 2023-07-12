@@ -105,75 +105,85 @@ const NewProfileForm = () => {
 
                     <div className="create-profile-form-container">
 
-                        <label htmlFor="profile-bio">First Name</label>
-                        <textarea
-                            className="form-inputs profile-content-input"
-                            required
-                            id="profile-bio"
-                            type="text"
-                            name="BioContent"
-                            minLength={1}
-                            maxLength={2200}
-                            onChange={(e) => setBio(e.target.value)}
-                            value={bio}
-                            placeholder={`About Me`}
-                        />
+                        <div className="profile-form-inputs">
+                            <label htmlFor="profile-bio">About me</label>
+                            <textarea
+                                className="form-inputs profile-content-input"
+                                required
+                                id="profile-bio"
+                                type="text"
+                                name="BioContent"
+                                minLength={1}
+                                maxLength={2200}
+                                onChange={(e) => setBio(e.target.value)}
+                                value={bio}
+                                placeholder={`About Me`}
+                            />
+                        </div>
 
-                        <label htmlFor="first-name">First Name</label>
-                        <input
-                            type="text"
-                            id="first-name"
-                            className="form-inputs profile-content-input"
-                            required
-                            minLength={1}
-                            maxLength={25}
-                            value={first_name}
-                            placeholder="Ex. John"
-                            onChange={(e) => setFirstName(e.target.value)}
-                        />
+                        <div className="profile-form-inputs">
+                            <label htmlFor="first-name">First Name</label>
+                            <input
+                                type="text"
+                                id="first-name"
+                                className="form-inputs profile-content-input"
+                                required
+                                minLength={1}
+                                maxLength={25}
+                                value={first_name}
+                                placeholder="Ex. John"
+                                onChange={(e) => setFirstName(e.target.value)}
+                            />
+                        </div>
 
-                        <label htmlFor="last-name">Last Name</label>
-                        <input
-                            type="text"
-                            id="last-name"
-                            className="form-inputs profile-content-input"
-                            required
-                            minLength={1}
-                            maxLength={25}
-                            value={last_name}
-                            placeholder="Doe"
-                            onChange={(e) => setLastName(e.target.value)}
-                        />
+                        <div className="profile-form-inputs">
+                            <label htmlFor="last-name">Last Name</label>
+                            <input
 
-
-
-
-                    <label htmlFor="gender">What is your gender?</label>
-                    <select id="gender">
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                        <option value="nonbinary">Nonbinary</option>
-                        <option value="transgender">Transgender</option>
-                        <option value="other">Other</option>
-                    </select>
-
-                    <DatePicker
-                    showIcon
-                    id="date-picker"
-                    selected={birthDate}
-                    value={birthDate}
-                    onChange={date => setBirthDate(date)}
-                     />
+                                type="text"
+                                id="last-name"
+                                className="form-inputs profile-content-input"
+                                required
+                                minLength={1}
+                                maxLength={25}
+                                value={last_name}
+                                placeholder="Doe"
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
+                        </div>
 
 
 
-                    <div className="button-container">
-                        <button className="create-profile-button"
-                            disabled={!!validationErrors.length}
-                            type="submit">Create Profile</button>
+                        <div className="profile-form-inputs">
+                            <label htmlFor="gender">What is your gender?</label>
+                            <select id="gender">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="nonbinary">Nonbinary</option>
+                                <option value="transgender">Transgender</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className="profile-form-inputs">
+                            <label htmlFor="birthdate">When is your birthday?</label>
+                            <DatePicker
+                                showIcon
+                                id="birthdate"
+                                selected={birthDate}
+                                value={birthDate}
+                                onChange={date => setBirthDate(date)}
+                            />
+                        </div>
+
+
+                        <div className="button-container profile-form-inputs">
+                            <button className="create-profile-button"
+                                disabled={!!validationErrors.length}
+                                type="submit">Create Profile</button>
+                        </div>
+
                     </div>
-
-                </div>
                 </form>
             </div>
         </div>

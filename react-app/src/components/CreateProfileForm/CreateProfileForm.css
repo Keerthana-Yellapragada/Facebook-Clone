@@ -1,16 +1,24 @@
-/* .Outer-Form-Container{
-
+.Outer-Form-Container{
+width: 100%;
 }
 
 
 .Inner-Form-Container{
-
-} */
-
-.create-profile-form{
-
+width: 100%;
 }
 
+.create-profile-form{
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: black;
+}
+
+.profile-form-inputs {
+    margin: 15px 0px;
+}
 
 .create-profile-user-info-container{
 
@@ -26,12 +34,14 @@ font-weight: bold;
 
 .create-profile-form-container{
 margin: 15px;
-/* border: 2px solid black; */
-padding: 15px;
+border: 2px solid rgb(223, 218, 218);
+padding: 40px;
+background-color: white;
+border-radius: 6px;
 }
 
 .form-inputs{
-margin: 10px;
+margin: 10px 0px;
 border: 1px solid grey;
 border-radius: 6px;
 
@@ -43,8 +53,13 @@ border-radius: 6px;
 
 
 #gender{
-margin: 10px;
-color: blue;
+margin: 20px;
+padding: 10px;
+font-weight: bold;
+font-size: 15px;
+border-radius: 7px;
+
+
 }
 
 
