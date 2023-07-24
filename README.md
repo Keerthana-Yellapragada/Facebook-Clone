@@ -129,6 +129,10 @@
 
 <img width="950" alt="Screenshot 2023-07-24 at 3 24 45 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/fad5419a-67b1-44e9-9522-b1a5653fe1be">
 
+<img width="1440" alt="Screenshot 2023-07-24 at 3 57 05 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/3add87b2-f280-4b45-9913-53a186d9eb64">
+
+<img width="209" alt="Screenshot 2023-07-24 at 3 57 09 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/23265ac7-1bdc-400b-bda0-6700320a67f1">
+
 # Friends
 
 ## The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the "friends" feature adds a sense of community and support to the WellnessPage experience.
