@@ -95,6 +95,7 @@
 ### The "likes" feature on WellnessPage allows users to show appreciation for posts that they find helpful, inspiring, or relatable. Users can simply click on the heart icon below a post to indicate that they like it. This feature provides a way for users to give positive feedback to others and to acknowledge the value of their contributions to the community. It also helps to boost the visibility of popular posts and encourages users to create more content that resonates with others. Overall, the "likes" feature adds a sense of positivity and encouragement to the WellnessPage community.
 
 # Friends
+### The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the friends feature adds a sense of community and support to the WellnessPage experience.
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
