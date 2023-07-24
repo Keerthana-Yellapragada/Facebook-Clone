@@ -42,12 +42,12 @@
 ### Comments
 
 
-### 🚧🚧 This section is still under construction 🚧🚧
+<!-- ### 🚧🚧 This section is still under construction 🚧🚧
 # Coming soon! :
 ### Likes
 ### Friends
 ### Search Bar
-### Live Chat
+### Live Chat -->
 
 # Landing Page:
 ### Users can sign up to be new users by providing the required information or log-in as a demo user to view the website.
@@ -91,10 +91,14 @@
 
 <br>
 
+# Likes
+### The "likes" feature on WellnessPage allows users to show appreciation for posts that they find helpful, inspiring, or relatable. Users can simply click on the heart icon below a post to indicate that they like it. This feature provides a way for users to give positive feedback to others and to acknowledge the value of their contributions to the community. It also helps to boost the visibility of popular posts and encourages users to create more content that resonates with others. Overall, the "likes" feature adds a sense of positivity and encouragement to the WellnessPage community.
+
+# Friends
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
-### 🚧🚧 This section is still under construction 🚧🚧
+<!-- ### 🚧🚧 This section is still under construction 🚧🚧 -->
 
 - [x] Posts
     - [x] Load all posts
@@ -116,12 +120,12 @@
     - [x] Add A Friend
     - [x] Update Friends List
     - [x] Remove A Friend
-- [x] Search Bar
+<!-- - [x] Search Bar
     - [x] Create a search query
     - [x] List search results
 - [x] Live Chat
     - [x] Send messages to friends
-    - [x] Recieve messages from friends
+    - [x] Recieve messages from friends -->
 -------------------------------------------------------------------
 
 
