@@ -1,7 +1,7 @@
 <br>
 
 # About
-###  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, interact with others through likes, and expand their network through adding friends. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
+###  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, interact with others through likes, and expand their network by adding friends. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
 
 
 ### Live link: [**https://wellnesspage.onrender.com**](https://wellnesspage.onrender.com)
@@ -37,19 +37,32 @@
 
 <br>
 
-# Current Features:
-### Posts
-### Comments
-### Likes
-### Friends
+
+# Roadmap of Features:
+<!-- ### 🚧🚧 This section is still under construction 🚧🚧 -->
+
+- [x] Posts
+    - [x] Load all posts
+    - [x] Load details of a post
+    - [x] Create a post
+    - [x] Update a post
+    - [x] Delete a post
+- [x] Comments
+    - [x] Load all comments
+    - [x] Write a Comment
+    - [x] Read all comments
+    - [x] Update a comment
+    - [x] Delete a comment
+- [x] Likes
+    - [x] Like A post (Create a Like)
+    - [x] Update or Remove a like (Update and Delete)
+- [x] Friends
+    - [x] Add A Friend
+    - [x] Update Friends List
+    - [x] Remove A Friend
 
 
-<!-- ### 🚧🚧 This section is still under construction 🚧🚧
-# Coming soon! :
-### Likes
-### Friends
-### Search Bar
-### Live Chat -->
+
 
 # Landing Page:
 ### Users can sign up to be new users by providing the required information or log-in as a demo user to view the website.
@@ -99,7 +112,11 @@
 
 
 # Edit A Comment:
-### To edit a comment that you have written, simply locate the comment on the website and click on the "Edit" button with a pencil icon to the right side of the comment. You can then make any necessary changes to the content of your comment and save the updated version. This feature allows users to correct any mistakes or make updates to their comments as needed.
+### If you need to make changes or corrections to a comment you have written, find the comment on the website and click on the "Edit" button on the right side of the comment. This button has a pencil icon. You can then make any necessary adjustments to the content of your comment and save the updated version. This feature is provided to help users fix errors or revise their comments as required.
+
+<img width="1377" alt="Screenshot 2023-07-24 at 3 48 33 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/e61e1bbf-ee2c-4469-ab8a-0bd974d98a53">
+
+<img width="1375" alt="Screenshot 2023-07-24 at 3 48 40 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/7e9190a7-8900-4fdc-a878-10090ce2bb72">
 
 <br>
 
@@ -115,12 +132,10 @@
 ## The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the "friends" feature adds a sense of community and support to the WellnessPage experience.
 
 # Sending friend requests
-### To send a friend request, navigate to a user's profile page and click the "Add Friend" button near their name at the top of the page. Once the request is successfully sent, the button will change to a cancellation button.
-
-<img width="1440" alt="Screenshot 2023-07-24 at 3 25 05 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/9b2e66f0-c9ef-42fa-be43-f03d9c48664d">
+### To add a friend, find their profile and click "Add Friend". You can cancel the request if needed, but once accepted, they'll be added to your friend list permanently.<img width="1440" alt="Screenshot 2023-07-24 at 3 25 05 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/9b2e66f0-c9ef-42fa-be43-f03d9c48664d">
 
 
-### To cancel a friend request once it has been sent, simply press the cancel request button. Requests cannot be canceled once they have been accepted by the other user. You will have to manually remove them from your friend list. Once your friend has approved your request, they will be added as a friend to your profile.
+### In the event that you wish to rescind a friend request that you have already sent, simply locate and click on the "cancel request" button. It is important to note, however, that once the recipient of your request has accepted it, it cannot be undone. In such a scenario, you will need to manually remove the individual from your friend list. Once your friend has accepted your request, they will be added to your profile as a friend
 
 <img width="1437" alt="Screenshot 2023-07-24 at 3 25 12 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/889d8e65-f787-45e3-86c1-040b39ef645a">
 
@@ -130,42 +145,10 @@
 <img width="1440" alt="Screenshot 2023-07-24 at 3 25 47 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/211ae6f2-c42d-43c0-819b-f0b8179e3abc">
 
 
-### To remove a friend from your profile, click the "ignore" button. onthe incoming friend request. To accept their friend request, click "confirm". They will be added to your profile under your friends list.
+### In order to remove a friend from your profile, simply locate the "ignore" button on the incoming friend request and click it. Alternatively, if you want to approve the request, click on "confirm". Once confirmed, the individual will be added to your profile and will appear on your friends list. It's that simple!
 
 <img width="1440" alt="Screenshot 2023-07-24 at 3 25 53 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/2f613f87-02d3-494a-af42-c683b6e10ad2">
 
-
----------------------------------------------------------------
-## Roadmap of Features:
-<!-- ### 🚧🚧 This section is still under construction 🚧🚧 -->
-
-- [x] Posts
-    - [x] Load all posts
-    - [x] Load details of a post
-    - [x] Create a post
-    - [x] Update a post
-    - [x] Delete a post
-- [x] Comments
-    - [x] Load all comments
-    - [x] Create a review
-    - [x] Read all comments
-    - [x] Update a comment
-    - [x] Delete a comment
-- [x] Likes
-    - [x] Like A post (Create a Like)
-    - [x] Update A like to a love
-    - [x] Delete a like (Update)
-- [x] Friends
-    - [x] Add A Friend
-    - [x] Update Friends List
-    - [x] Remove A Friend
-<!-- - [x] Search Bar
-    - [x] Create a search query
-    - [x] List search results
-- [x] Live Chat
-    - [x] Send messages to friends
-    - [x] Recieve messages from friends -->
--------------------------------------------------------------------
 
 
 # Connect with the Author!
