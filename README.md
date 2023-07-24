@@ -127,6 +127,8 @@
 # Adding and Removing a Like
 ### To show your approval for a post, just click on the thumbs-up icon. If you change your mind, simply click on the same icon again to remove your like. The number of likes and comments for the post can be seen below it.
 
+<img width="950" alt="Screenshot 2023-07-24 at 3 24 45 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/fad5419a-67b1-44e9-9522-b1a5653fe1be">
+
 # Friends
 
 ## The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the "friends" feature adds a sense of community and support to the WellnessPage experience.
