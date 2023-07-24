@@ -40,6 +40,8 @@
 # Current Features:
 ### Posts
 ### Comments
+### Likes
+### Friends
 
 
 <!-- ### 🚧🚧 This section is still under construction 🚧🚧
@@ -52,12 +54,13 @@
 # Landing Page:
 ### Users can sign up to be new users by providing the required information or log-in as a demo user to view the website.
 
-![Screen Shot 2022-11-29 at 8 17 37 AM](https://user-images.githubusercontent.com/85444662/204586698-6f6aaeb5-4e5d-494f-af91-03259226156d.png)
+<img width="1432" alt="Screenshot 2023-07-24 at 3 23 31 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/69a6df6d-8291-4cf6-8e4c-30951b961c34">
+
 
 # Signing Up:
 ### Users can sign up for a new account by providing the requested information.
 
-![Screen Shot 2022-11-29 at 8 17 44 AM](https://user-images.githubusercontent.com/85444662/204586723-3eb2a38c-ad10-4ec1-ba0d-db75c72528fd.png)
+<img width="1432" alt="Screenshot 2023-07-24 at 3 23 39 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/29c569de-0323-4021-bbe0-215fcbc50396">
 
 
 # Homepage:
@@ -66,38 +69,71 @@
 
 ### The "posts" feature on WellnessPage allows users to share their thoughts, experiences, and insights with the community. Users can create new posts, edit them if necessary, and delete them if desired. This feature encourages users to express themselves and share their stories with others, creating a space for open communication and understanding. Whether it's a personal journey or a helpful tip, the "posts" feature provides a platform for users to connect and support one another in their wellness journeys.
 
-### A logged in user can view their homepage which contains posts with comments created by them and their friends. They can then create posts, leave comments on posts created by them and others, and edit/delete their own posts and comments.
+### Upon logging in, users will have access to their personalized homepage where they can view posts and comments created by themselves and their friends. Additionally, users have the ability to generate their own posts, leave comments on posts created by others, as well as modify or remove their own posts and comments.
 
-<img width="1356" alt="Screen Shot 2022-12-04 at 4 56 08 PM" src="https://user-images.githubusercontent.com/85444662/205533027-535a62dc-f670-4c6a-b6a1-1f2a4347c4ac.png">
+<img width="1439" alt="Screenshot 2023-07-24 at 3 23 54 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/41696a30-5ee7-4ac3-aaca-eaab2d0ae818">
+
 
 # Leave A Post
-### Users can leave a post by providing information and an optional URL of a valid format.
-<img width="1253" alt="Screen Shot 2022-12-04 at 4 56 15 PM" src="https://user-images.githubusercontent.com/85444662/205533035-603deb9a-3cd0-4cfa-aae5-3c35ffb021bf.png">
+### In order to create a post, users are required to provide essential details, such as the title and content of the post. Additionally, users have the option to include a URL in a proper format, if applicable. To leave a post, all necessary information must be provided, ensuring that the post meets the required standards.
+
+<img width="1437" alt="Screenshot 2023-07-24 at 3 24 01 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/c00931c3-de3f-4304-a7c7-1f34e0beea76">
 
 
-### The "comments" feature on WellnessPage allows users to engage in meaningful conversations with others in the community. Users can leave comments on existing posts, edit their comments if needed, and delete them if necessary. This feature promotes interaction and fosters a sense of community among users, allowing them to connect with others who are going through similar experiences and seek out support when needed.
-
-# Leave A Comment:
-### Users can leave comments on posts writteh by others and themselves throughout the website. They can do so by entering the information they wish to within the "Leave A Comment" box.
-<img width="750" alt="Screen Shot 2022-12-04 at 4 56 22 PM" src="https://user-images.githubusercontent.com/85444662/205533038-afaa3e57-dd44-4bc0-b841-8689ebfc8250.png">
+<img width="1437" alt="Screenshot 2023-07-24 at 3 24 23 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/0879f597-a116-4ed6-a1ca-158d4c90840d">
 
 # Edit A Post:
-### Users can edit posts written by them anywhere on the website.
-<img width="1278" alt="Screen Shot 2022-12-04 at 4 56 40 PM" src="https://user-images.githubusercontent.com/85444662/205533040-cedd8157-fa57-4b13-abdd-b2c2b5d37027.png">
+### On the website, users have the ability to modify any posts they have authored, regardless of their location. This allows them to have more flexibility and control over their content. This feature is especially beneficial for ensuring the accuracy of information by allowing users to update and correct their posts. To do so, they simply need to click on the pencil icon located in the upper right corner of their post.
+
+# Delete a Post
+### To delete a post, simply click on the trash can icon located in the upper-right corner. It's important to note that this action cannot be undone, so be sure to double-check before proceeding.
+
+# Comments
+
+## The "comments" feature on WellnessPage allows users to engage in meaningful conversations with others in the community. Users can leave comments on existing posts, edit their comments if needed, and delete them if necessary. This feature promotes interaction and fosters a sense of community among users, allowing them to connect with others who are going through similar experiences and seek out support when needed.
+
+# Leave A Comment:
+### Throughout the website, users have the ability to leave comments on posts written by others or themselves. This can be done by entering the desired information within the "Leave A Comment" box.
+
+<img width="950" alt="Screenshot 2023-07-24 at 3 24 45 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/33e10b61-e5a1-4597-aed3-8f039863c8ef">
+
 
 # Edit A Comment:
-### Users can edit comments written by them anywhere on the website.
-<img width="1290" alt="Screen Shot 2022-12-04 at 4 56 47 PM" src="https://user-images.githubusercontent.com/85444662/205533043-b0d53dfa-c2c2-47f7-b26a-f0eb3151b6ed.png">
+### To edit a comment that you have written, simply locate the comment on the website and click on the "Edit" button with a pencil icon to the right side of the comment. You can then make any necessary changes to the content of your comment and save the updated version. This feature allows users to correct any mistakes or make updates to their comments as needed.
 
 <br>
 
 # Likes
 
-### The "likes" feature on WellnessPage allows users to show appreciation for posts that they find helpful, inspiring, or relatable. Users can simply click on the heart icon below a post to indicate that they like it. This feature provides a way for users to give positive feedback to others and to acknowledge the value of their contributions to the community. It also helps to boost the visibility of popular posts and encourages users to create more content that resonates with others. Overall, the "likes" feature adds a sense of positivity and encouragement to the WellnessPage community.
+## The "likes" feature on WellnessPage allows users to show appreciation for posts that they find helpful, inspiring, or relatable. Users can simply click on the heart icon below a post to indicate that they like it. This feature provides a way for users to give positive feedback to others and to acknowledge the value of their contributions to the community. It also helps to boost the visibility of popular posts and encourages users to create more content that resonates with others. Overall, the "likes" feature adds a sense of positivity and encouragement to the WellnessPage community.
+
+# Adding and Removing a Like
+### To show your approval for a post, just click on the thumbs-up icon. If you change your mind, simply click on the same icon again to remove your like. The number of likes and comments for the post can be seen below it.
 
 # Friends
 
-### The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the friends feature adds a sense of community and support to the WellnessPage experience.
+## The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the "friends" feature adds a sense of community and support to the WellnessPage experience.
+
+# Sending friend requests
+### To send a friend request, navigate to a user's profile page and click the "Add Friend" button near their name at the top of the page. Once the request is successfully sent, the button will change to a cancellation button.
+
+<img width="1440" alt="Screenshot 2023-07-24 at 3 25 05 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/9b2e66f0-c9ef-42fa-be43-f03d9c48664d">
+
+
+### To cancel a friend request once it has been sent, simply press the cancel request button. Requests cannot be canceled once they have been accepted by the other user. You will have to manually remove them from your friend list. Once your friend has approved your request, they will be added as a friend to your profile.
+
+<img width="1437" alt="Screenshot 2023-07-24 at 3 25 12 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/889d8e65-f787-45e3-86c1-040b39ef645a">
+
+
+# Incoming friend requests
+
+<img width="1440" alt="Screenshot 2023-07-24 at 3 25 47 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/211ae6f2-c42d-43c0-819b-f0b8179e3abc">
+
+
+### To remove a friend from your profile, click the "ignore" button. onthe incoming friend request. To accept their friend request, click "confirm". They will be added to your profile under your friends list.
+
+<img width="1440" alt="Screenshot 2023-07-24 at 3 25 53 PM" src="https://github.com/Keerthana-Yellapragada/Facebook-Clone/assets/85444662/2f613f87-02d3-494a-af42-c683b6e10ad2">
+
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
