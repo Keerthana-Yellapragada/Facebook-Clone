@@ -64,6 +64,8 @@
 
 ## Posts & Comments:
 
+### The "posts" feature on WellnessPage allows users to share their thoughts, experiences, and insights with the community. Users can create new posts, edit them if necessary, and delete them if desired. This feature encourages users to express themselves and share their stories with others, creating a space for open communication and understanding. Whether it's a personal journey or a helpful tip, the "posts" feature provides a platform for users to connect and support one another in their wellness journeys.
+
 ### A logged in user can view their homepage which contains posts with comments created by them and their friends. They can then create posts, leave comments on posts created by them and others, and edit/delete their own posts and comments.
 
 <img width="1356" alt="Screen Shot 2022-12-04 at 4 56 08 PM" src="https://user-images.githubusercontent.com/85444662/205533027-535a62dc-f670-4c6a-b6a1-1f2a4347c4ac.png">
@@ -71,6 +73,9 @@
 # Leave A Post
 ### Users can leave a post by providing information and an optional URL of a valid format.
 <img width="1253" alt="Screen Shot 2022-12-04 at 4 56 15 PM" src="https://user-images.githubusercontent.com/85444662/205533035-603deb9a-3cd0-4cfa-aae5-3c35ffb021bf.png">
+
+
+### The "comments" feature on WellnessPage allows users to engage in meaningful conversations with others in the community. Users can leave comments on existing posts, edit their comments if needed, and delete them if necessary. This feature promotes interaction and fosters a sense of community among users, allowing them to connect with others who are going through similar experiences and seek out support when needed.
 
 # Leave A Comment:
 ### Users can leave comments on posts writteh by others and themselves throughout the website. They can do so by entering the information they wish to within the "Leave A Comment" box.
