@@ -1,10 +1,10 @@
 <br>
 
 # About
-##  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, and interact with others. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
+###  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, and interact with others. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
 
 
-### Live link: [**https://wellnesspage.onrender.com**](https://wellnesspage.onrender.com)
+### Live link: [**https://wellnesspage.onrender.com**]
 
 # Tech Stack
 
@@ -92,9 +92,11 @@
 <br>
 
 # Likes
+
 ### The "likes" feature on WellnessPage allows users to show appreciation for posts that they find helpful, inspiring, or relatable. Users can simply click on the heart icon below a post to indicate that they like it. This feature provides a way for users to give positive feedback to others and to acknowledge the value of their contributions to the community. It also helps to boost the visibility of popular posts and encourages users to create more content that resonates with others. Overall, the "likes" feature adds a sense of positivity and encouragement to the WellnessPage community.
 
 # Friends
+
 ### The friends feature on WellnessPage allows users to connect with each other by sending and accepting friend requests. This feature is bidirectional, meaning that both users need to accept each other's requests to become friends. When a user sends a friend request, it appears as a pending request for the recipient until they accept or decline it. This feature provides a way for users to build meaningful connections with others in the community and to stay in touch with their friends. It also allows users to control their own connections and to make sure that they only connect with people they trust. Overall, the friends feature adds a sense of community and support to the WellnessPage experience.
 
 ---------------------------------------------------------------
