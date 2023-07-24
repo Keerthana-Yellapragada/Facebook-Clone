@@ -1,7 +1,7 @@
 <br>
 
 # About
-###  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, and interact with others. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
+###  WellnessPage is a comprehensive web application that takes cues from the popular social media platform, Facebook. It's an innovative platform that's specifically designed for patients looking to connect with others and access a supportive community. Through WellnessPage, users have the ability to create posts, comment on existing ones, interact with others through likes, and expand their network through adding friends. This fosters an environment where patients can share their experiences, gain valuable knowledge, and seek out support from a caring community of like-minded people.
 
 
 ### Live link: [**https://wellnesspage.onrender.com**](https://wellnesspage.onrender.com)
