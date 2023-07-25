@@ -77,19 +77,22 @@ def create_post():
 
     # return {"Error": "Validation Error"}, 401
 
+
     print("DID IT ENTER THE CREATE_POST FUCNTION")
-    print("request****************", request.files["image_url"])
+    # print("request****************", request.files["image_url"])
+    # print("request****************", request)
     #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
-    if "content" not in request.files:
-        return {"errors": "Image file is required."}, 400
-    print("request****************", request)
+    print("REQUEST FORMDATA************************", request.form["post_content"])
+    if "post_content" not in request.form:
+        return {"errors": "Image file is required."}, 401
+    # print("request****************", request)
     #content is the <filestorage: 'xxxx.mp4'> binary form of the video
 
     image_url=request.files["image_url"]
 
     #request.filename is the string of file name: 'xxx.mp4'
     if not allowed_file(image_url.filename):
-        return {"errors": "This file does not meet the format requirement."}, 400
+        return {"errors": "This file does not meet the format requirement."}, 402
 
     #here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
     image_url.filename=get_unique_filename(image_url.filename)
@@ -100,7 +103,7 @@ def create_post():
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
         # so we send back that error message
-        return image_uploaded, 400
+        return image_uploaded, 403
     #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
     image_url_main=image_uploaded["url"]
     # flask_login allows us to get the current user from the request

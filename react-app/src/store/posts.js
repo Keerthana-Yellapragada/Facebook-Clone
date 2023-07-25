@@ -88,22 +88,29 @@ export const loadOnePost = (postId) => async dispatch => {
 // -------------------------  CREATE A POST   ----------------------------------
 
 export const createNewPost = (formData) => async dispatch => {
-console.log("THUNK FORMDATA", formData.image_url)
+
+console.log("THUNK FORMDATA", formData.get("post_content"))
+debugger
+
     const response = await fetch('/api/posts/new/', {
         method: 'POST',
         headers: {
             'Content-Type': 'multipart/form-data'
+            // IS THIS THE CORRECT CONTENT TYPE!?!
         },
         body: formData
     })
 
-
+debugger
     if (response.ok) {
+
         console.log("IS RESPONSE OK IN CREATEPOST THUNK")
         // let post = await response.json()
         const newPost = await response.json()
         await dispatch(createPost(newPost))
         return newPost
+    } else {
+        console.log(response.errors)
     }
 }
 

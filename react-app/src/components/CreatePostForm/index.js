@@ -79,7 +79,10 @@ const NewPostForm = () => {
       //      alert("File Upload success");
       //    })
       //    .catch((err) => alert("File Upload Error"));
+debugger
+
 console.log("THIS IS FORM DATA AFTER APPENDING", formData)
+
 for (let key in formData) {
   console.log(key, formData[key]);
   formData.append(key, formData[key]);
