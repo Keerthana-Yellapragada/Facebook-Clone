@@ -14,6 +14,7 @@ const NewPostForm = () => {
   const [post_content, setPostContent] = useState('')
   const [selectedFile, setSelectedFile] = useState(null)
   const [validationErrors, setValidationErrors] = useState([])
+  const [imageLoading, setImageLoading] = useState(false);
 
   // useEffect to load all Posts and refresh state
   useEffect(() => {
@@ -73,22 +74,25 @@ const NewPostForm = () => {
       formData.append("user_id", user.id)
       formData.append("image_url", selectedFile)
       formData.append("post_content", post_content)
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+      setImageLoading(true);
       //  axios
       //   //  .post("image_url", formData)
       //    .then((res) => {
       //      alert("File Upload success");
       //    })
       //    .catch((err) => alert("File Upload Error"));
-debugger
+      debugger
 
-console.log("THIS IS FORM DATA AFTER APPENDING", formData)
+      console.log("THIS IS FORM DATA AFTER APPENDING", formData)
 
-for (let key in formData) {
-  console.log(key, formData[key]);
-  formData.append(key, formData[key]);
-}
+      for (let key in formData) {
+        console.log(key, formData[key]);
+        formData.append(key, formData[key]);
+      }
 
-      const newPost = await dispatch(createNewPost(formData)).then(()=>history.push(`/`))
+      const newPost = await dispatch(createNewPost(formData)).then(() => history.push(`/`))
     }
   }
 
@@ -96,7 +100,7 @@ for (let key in formData) {
   return (
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
-        <form className="create-post-form" onSubmit={submitHandler}>
+        <form className="create-post-form" onSubmit={submitHandler} encType="multipart/form-data">
 
 
           <div className="create-post-user-info-container">
@@ -147,6 +151,19 @@ for (let key in formData) {
               onChange={(e) => setImageUrl(e.target.value)}
               value={image_url}
             /> */}
+            {/* <input
+              type="file"
+              className="form-inputs file-input"
+              name="url"
+              id="url"
+              title="Upload an image"
+              placeholder="upload an image"
+              capture="camera"
+              accept="image/jpeg, image/jpg, image/png, image/gif"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+            // value={selectedFile}
+            /> */}
+
             <input
               type="file"
               className="form-inputs file-input"
@@ -154,10 +171,9 @@ for (let key in formData) {
               id="url"
               title="Upload an image"
               placeholder="upload an image"
-              capture = "camera"
-              accept="image/jpeg, image/jpg, image/png, image/gif"
+              capture="camera"
+              accept="image/*"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              // value={selectedFile}
             />
 
 
@@ -170,6 +186,7 @@ for (let key in formData) {
               disabled={!!validationErrors.length}
               type="submit">Post</button>
           </div>
+          {(imageLoading)&& <p>Loading...</p>}
         </form>
       </div>
     </div>

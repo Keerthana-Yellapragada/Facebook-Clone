@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from ..models import Image, User, db
 from flask_login import current_user, login_required
-from app.s3_helpers import (
+from app.api.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 image_routes = Blueprint("images", __name__)
