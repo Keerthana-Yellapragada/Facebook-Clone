@@ -89,7 +89,7 @@ export const loadOnePost = (postId) => async dispatch => {
 
 export const createNewPost = (formData) => async dispatch => {
 
-console.log("THUNK FORMDATA", formData.get("post_content"))
+console.log("THUNK FORMDATA", formData.get("image_url"))
 console.log("THIS IS FORMDATA IN CREATE POST THUNK", formData)
 debugger
 
@@ -113,7 +113,9 @@ debugger
         // return newPost
     } else {
         console.log("There was an error making your post!")
-        console.log(response.errors)
+        // const res = await response.json()
+        debugger
+        console.log(response)
     }
 }
 

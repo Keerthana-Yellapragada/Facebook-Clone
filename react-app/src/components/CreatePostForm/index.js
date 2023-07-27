@@ -73,6 +73,7 @@ const NewPostForm = () => {
 
       formData.append("user_id", user.id)
       formData.append("image_url", selectedFile)
+      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"))
       formData.append("post_content", post_content)
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea

@@ -55,18 +55,44 @@ def get_post_details(post_id):
 @login_required
 def create_post():
 
+    # post = CreatePostForm()
+    # if post.validate_on_submit():
+    #     data = post.data
+    #     image = data["image_url"]
+    #     image.filename = get_unique_filename(image.filename)
+    #     upload = upload_file_to_s3(image)
+
+    #     if "url" not in upload:
+    #         return {"errors": upload["errors"]}
+
+    #     new_post = Post(
+    #     post_content = data["post_content"],
+    #     user_id = data["user_id"],
+    #     image_url = data["url"]
+    #     )
+
+    #     db.session.add(new_post)
+    #     db.session.commit()
+    #     db.session.refresh(new_post)
+
+    #     return new_post.to_dict()
+
+
     print("DID IT ENTER THE CREATE_POST FUCNTION")
 
     #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
-    print("REQUEST FORMDATA************************", request.form["post_content"])
-
+    print("REQUEST FORMDATA************************", request.form)
+    print("REQUEST FileDATA************************", request.files)
 
     if "post_content" not in request.form:
+        return {"errors": "Form data is required."}, 401
+
+    if "image_url" not in request.files:
         return {"errors": "Image file is required."}, 401
 
-    #content is the <filestorage: 'xxxx.mp4'> binary form of the video
 
-    image_url=request.form["image_url"]
+    print("THIS IS TESTING ", request.files["image_url"])
+    image_url=request.files["image_url"]
 
     print("THIS IS IMAGE URL FROM FRONTEND BEFOER AWS", image_url)
 
@@ -78,7 +104,7 @@ def create_post():
 
     image_url.filename=get_unique_filename(image_url.filename)
 
-    print("IMAGEURL FILENAME", image_url.filename)
+    print("IMAGEURL FILENAME!!!!!!!!!!!!!!!!", image_url.filename)
 
 
     #image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
@@ -109,7 +135,7 @@ def create_post():
 
     create_post_form = Post(
         user_id=current_user.id,
-        description = request.form.get('post_content'),
+        post_content = request.form.get("post_content"),
         image_url = image_url_main
 
     )
@@ -132,7 +158,7 @@ def create_post():
 
     return  create_post_form.to_dict()
 
-    # return {"Error": "Validation Error"}, 401
+    return {"Error": "Validation Error"}, 401
 
 # ************************************ EDIT POST BY POST ID***********************************************
 
