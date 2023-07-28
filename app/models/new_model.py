@@ -80,7 +80,7 @@ class Post(db.Model):
         }
 
     def __repr__(self):
-        return f'<Post, id={self.id}, user_id={self.user_id},image_url={self.image_url}, post_content={self.post_content}, created_at={self.created_at}>'
+        return f'<Post, id={self.id}, user_id={self.user_id},image_url={self.image_url}, post_content={self.post_content}>'
 
 
 

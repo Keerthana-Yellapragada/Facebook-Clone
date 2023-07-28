@@ -91,10 +91,10 @@ def create_post():
         return {"errors": "Image file is required."}, 401
 
 
-    print("THIS IS TESTING ", request.files["image_url"])
+    print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
     image_url=request.files["image_url"]
 
-    print("THIS IS IMAGE URL FROM FRONTEND BEFOER AWS", image_url)
+    print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
 
     #request.filename is the string of file name: 'xxx.mp4'
     if not allowed_file(image_url.filename):
@@ -104,14 +104,14 @@ def create_post():
 
     image_url.filename=get_unique_filename(image_url.filename)
 
-    print("IMAGEURL FILENAME!!!!!!!!!!!!!!!!", image_url.filename)
+    print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
 
 
     #image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
 
     image_uploaded = upload_file_to_s3(image_url)
 
-    print("IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!", image_uploaded)
+    print("-----------THIS IS IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!------", image_uploaded)
 
     if "url" not in image_uploaded:
         # if the dictionary doesn't have a url key
@@ -122,7 +122,7 @@ def create_post():
 
     #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
 
-    image_url_main=image_uploaded["image_url"]
+    image_url_main=image_uploaded["url"]
 
     # flask_login allows us to get the current user from the request
 
@@ -140,7 +140,7 @@ def create_post():
 
     )
 
-    print('uploaded_image!!!!!!!!!!!!!!!!!', create_post_form)
+    print('uploaded_image!!!!!!!!!!!!!!!!!', image_url_main)
 
     db.session.add(create_post_form)
     db.session.commit()
