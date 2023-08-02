@@ -6,6 +6,7 @@ import likesReducer from './likes';
 import postReducer from './posts';
 import session from './session'
 import userReducer from './users';
+import profileReducer from './profiles';
 
 const rootReducer = combineReducers({
   session: session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   comments: commentReducer,
   likes: likesReducer,
   friendships: friendshipReducer,
-  users: userReducer
+  users: userReducer,
+  profiles: profileReducer
 });
 
 

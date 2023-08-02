@@ -37,13 +37,23 @@
 }
 
 .edit-post-button{
-    background-color: rgb(28, 88, 192);
+    /* background-color: rgb(28, 88, 192);
     color:white;
     border:none;
     border-radius: 7px;
     padding: 5px;
     width: 100%;
-    margin: 5% 0%
+    margin: 5% 0% */
+    border: none;
+    color: white;
+    background-color: rgb(32, 121, 217);
+    width: 100%;
+    border-radius: 5px;
+    padding: 2%;
+    margin: 5% 0%;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
 }
 .edit-post-button:hover{
     cursor:pointer;
