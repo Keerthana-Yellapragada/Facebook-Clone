@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { createNewPost, loadAllPosts } from "../../store/posts"
 import './CreatePostForm.css'
 import UploadPicture from "../Images/UploadImages";
-import axios from 'axios'
+
 
 const NewPostForm = () => {
   const dispatch = useDispatch()
