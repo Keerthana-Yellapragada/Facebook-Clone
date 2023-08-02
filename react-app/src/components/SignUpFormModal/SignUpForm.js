@@ -207,23 +207,25 @@ function SignUpForm() {
                   placeholder="Confirm password"
                 />
 
-              < div className = "profile-pic-upload-container form-sign-inputs" >
-                <label id="profile-image-upload-label" for="user-profile-upload-url">Next, upload a profile picture! </label>
-                <input
-                  type="file"
-                  className = "form-inputs file-input form-sign-inputs"
-                  name="url"
-                  id = "user-profile-upload-url"
-                  title="Upload an image"
-                  placeholder="Choose a Profile Picture"
-                  capture="camera"
-                  accept="image/*"
-                  onChange={(e) => setProfileImage(e.target.files[0])}
-                />
-
+                <div className="profile-pic-upload-container form-sign-inputs">
+                  <label
+                    id="profile-image-upload-label"
+                    for="user-profile-upload-url"
+                  >
+                    Next, upload a profile picture!{" "}
+                  </label>
+                  <input
+                    type="file"
+                    className="form-inputs file-input form-sign-inputs"
+                    name="url"
+                    id="user-profile-upload-url"
+                    title="Upload an image"
+                    placeholder="Choose a Profile Picture"
+                    capture="camera"
+                    accept="image/*"
+                    onChange={(e) => setProfileImage(e.target.files[0])}
+                  />
                 </div>
-
-
               </div>
 
               <div className="disclaimer-content">

@@ -2,8 +2,11 @@ import {
   csrfFetch
 } from './csrf';
 
+// ****************************************************************************
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+
+// ****************************************************************************
 
 const setUser = (user) => {
   return {
@@ -18,6 +21,7 @@ const removeUser = () => {
   };
 };
 
+// ****************************************************************************
 export const login = (user) => async (dispatch) => {
   const {
     email,
@@ -34,7 +38,7 @@ export const login = (user) => async (dispatch) => {
   dispatch(setUser(data));
   return response;
 };
-
+// ****************************************************************************
 export const logout = () => async (dispatch) => {
   const response = await fetch('/api/auth/logout', {
     headers: {
@@ -47,7 +51,7 @@ export const logout = () => async (dispatch) => {
   }
 };
 
-
+// ****************************************************************************
 export const restoreUser = () => async (dispatch) => {
   const response = await fetch('/api/auth/');
   if (response.ok) {
@@ -60,25 +64,37 @@ export const restoreUser = () => async (dispatch) => {
   }
 }
 
+// ****************************************************************************
+export const signUp = (formData) => async (dispatch) => {
 
-export const signUp = (user) => async (dispatch) => {
-  const {
-    username,
-    email,
-    password,
-    first_name,
-    last_name
-  } = user;
+  // const {
+  //   username,
+  //   email,
+  //   password,
+  //   first_name,
+  //   last_name,
+  //   profile_image
+  // } = user;
+
+  console.log("ENTERED CREATE USER THUNK")
+  console.log("PROFILE IMAGE IN CREATE USER THHUNK", formData.get("profile_image"))
+
+debugger
+
   const response = await csrfFetch("/api/auth/signup", {
     method: "POST",
-    body: JSON.stringify({
-      username,
-      email,
-      password,
-      first_name,
-      last_name
-    }),
+    // body: JSON.stringify({
+    //   username,
+    //   email,
+    //   password,
+    //   first_name,
+    //   last_name,
+    //   profile_image
+    // }),
+    body:formData
   });
+
+  debugger
 
   if (response.ok) {
     const data = await response.json();
@@ -94,7 +110,7 @@ export const signUp = (user) => async (dispatch) => {
   }
 };
 
-
+// ****************************************************************************
 const initialState = {
   user: null
 };
@@ -114,5 +130,5 @@ const sessionReducer = (state = initialState, action) => {
       return state;
   }
 };
-
+// ****************************************************************************
 export default sessionReducer;
