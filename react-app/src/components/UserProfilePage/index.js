@@ -384,10 +384,10 @@ const UserProfilePage = () => {
 
 
                                     </>) : null}
-                                    <div className='profile-container'>
+                                    {/* <div className='profile-container'>
                                         <NewProfileFormModal/>
 
-                                    </div>
+                                    </div> */}
                             </div>
                         </div>
 
