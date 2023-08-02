@@ -180,7 +180,7 @@ def seed_comments():
         comment_content="Wishing us all health and happiness today!"
     )
     comment4 = Comment(
-        user_id=3,
+        user_id=5,
         post_id=2,
         comment_content="Thank you for sharing!"
     )
@@ -191,64 +191,70 @@ def seed_comments():
         comment_content="You are so strong and such an inspiration! "
     )
     comment6 = Comment(
-        user_id=3,
+        user_id=6,
         post_id=2,
-        comment_content="Sending healing thoughts!"
+        comment_content="Sending healing thoughts your way #staypositive #loveishealing #strengthtoyou"
     )
     comment7 = Comment(
         user_id=1,
         post_id=3,
-        comment_content="Thanks for sharing this!"
+        comment_content="I truly appreciate you sharing this information. It means a lot and I am grateful for your openness."
     )
     comment7 = Comment(
-        user_id=4,
+        user_id=2,
         post_id=3,
-        comment_content="Yes, I can totally relate to this!"
+        comment_content="I am glad to hear that you are doing better! Your resilience and strength are truly inspiring."
     )
     comment8 = Comment(
-        user_id=4,
+        user_id=5,
         post_id=4,
-        comment_content="Totally can relate!"
+        comment_content="My heart goes out to all those who are bravely fighting their battles. Please know that you are not alone, and I am sending positive and healing thoughts your way. Stay strong."
     )
     comment9 = Comment(
         user_id=4,
         post_id=5,
-        comment_content="Thank you for sharing!"
+        comment_content="Thanks for spreading awareness on this important topic. My son is neuroatypical and I would love to see people being more mindful around him, especially at school! "
     )
     comment10 = Comment(
-        user_id=4,
+        user_id=2,
         post_id=6,
-        comment_content="Great information!"
+        comment_content="Great information! These are so true! Hope everyone who reads this shares it with their loved ones so they can learn how to best support their loved ones with chronic illnesses."
     )
     comment11 = Comment(
         user_id=4,
         post_id=7,
-        comment_content="So important to know this! Thanks for sharing this with all of us!"
+        comment_content="Have a wonderful vacation and don't forget to take plenty of pictures! Remember to take care of yourself. #SelfCare"
     )
     comment12 = Comment(
-        user_id=4,
+        user_id=6,
         post_id=8,
-        comment_content="Thanks for sharing!!!"
+        comment_content="You are doing a great job! Your child is lucky to have a supportive and knowledgeable parent like you! Thanks for spreading awareness on MS"
     )
     comment13 = Comment(
-        user_id=4,
+        user_id=5,
         post_id=9,
-        comment_content="Healing thoughts to everyone"
+        comment_content="This is so true! Comparison doesn't get us anywhere and we all experience illness differently. There is so much gaslighting in the healthcare industry nowadays and its so difficult to get a doctor to take us seriously and listen to our concerns. Thanks for sharing this!"
     )
     comment14 = Comment(
-        user_id=4,
+        user_id=1,
         post_id=10,
         comment_content="Thanks for sharing this with us all!!!"
     )
     comment15 = Comment(
-        user_id=4,
+        user_id=3,
         post_id=11,
-        comment_content="Super important to know!"
+        comment_content="What a great way to reflect and express gratitude for life everyday! I am inspired to do the same now- thanks for sharing!"
     )
     comment16 = Comment(
-        user_id=4,
+        user_id=2,
         post_id=12,
         comment_content="Thanks for sharing this with us!"
+    )
+
+    comment17 = Comment(
+        user_id=4,
+        post_id=12,
+        comment_content="May you have all the strength, love, and healing you need. Take care!"
     )
 
     db.session.add(comment1)
@@ -267,6 +273,7 @@ def seed_comments():
     db.session.add(comment14)
     db.session.add(comment15)
     db.session.add(comment16)
+    db.session.add(comment17)
     db.session.commit()
 
 
