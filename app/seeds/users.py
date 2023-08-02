@@ -166,13 +166,13 @@ def seed_comments():
     comment1 = Comment(
         user_id=2,
         post_id=1,
-        comment_content="Doing great!"
+        comment_content="Doing great today! Hope everyone has a fantastic day and wishing us all the strength and courage to fight our battles today."
     )
 
     comment2 = Comment(
         user_id=3,
         post_id=1,
-        comment_content="Wonderful! "
+        comment_content="Wonderful!!! "
     )
     comment3 = Comment(
         user_id=4,
@@ -182,7 +182,7 @@ def seed_comments():
     comment4 = Comment(
         user_id=5,
         post_id=2,
-        comment_content="Thank you for sharing!"
+        comment_content="Thank you so much for sharing this!"
     )
 
     comment5 = Comment(
