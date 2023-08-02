@@ -92,7 +92,7 @@ def seed_posts():
         )
 
     post7=Post(
-        user_id=4,
+        user_id=1,
         post_content="Hey, Facebook fam! Just wanted to let you all know that I'm finally escaping the daily grind and heading off to paradise for some much-needed R&R! Can't wait to soak up the sun, dip my toes in the crystal-clear waters, and enjoy some delicious tropical treats! I'll be disconnecting from the virtual world for a little while to fully immerse myself in the beauty of nature and make unforgettable memories with my loved ones. But don't worry, I'll be back with a bunch of amazing photos and stories to share! If you need me urgently, feel free to drop me a message, and I'll get back to you once I'm back online. To all my wanderlust buddies out there, any recommendations or must-visit spots on this dreamy island? Share your favorite travel experiences with me! I can't wait to explore and make the most of this adventure. Take care, stay awesome, and see you all in a bit! #VacationMode #TimeToUnwind #TravelDiaries #ParadiseCalling",
         image_url="https://t4.ftcdn.net/jpg/02/04/18/31/360_F_204183141_WZg7iaqOr8eZZDxYbLRA8iKt1aOsd8Gz.jpg"
     )
@@ -114,16 +114,23 @@ def seed_posts():
     )
 
     post11=Post(
+        user_id=1,
+        post_content="A few months ago, a serious car accident left me physically and emotionally broken. Determined to reclaim my life, I began a challenging journey to recovery and rehabilitation. Supported by family, friends, and healthcare professionals, I pushed through surgeries, therapy, and setbacks. Embracing patience, gratitude, and self-compassion, I found the power to heal both physically and emotionally. Today, I stand stronger than ever, a testament to perseverance. To those on a similar path, know you're not alone. Seek support, be patient, and believe in your ability to overcome. There's a light at the end of the tunnel. Embrace every step and rise strong from the ashes. #RecoveryJourney #RiseStrong #NeverGiveUp #CarAccidentSurvivor",
+        image_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8wye1NtoE5Z3L0m_xLNwCZ6zxwgiKIj5sg&usqp=CAU"
+    )
+
+    post12=Post(
         user_id=5,
         post_content="Living with an autoimmune disease has been a challenging journey for me. After struggling with chronic inflammation and its effects, I adopted an anti-inflammatory diet to take charge of my health. This dietary shift has had a positive impact on my life, and if you're seeking a natural way to manage autoimmune symptoms, consider these changes. At the core of my anti-inflammatory diet is a focus on whole, unprocessed foods—abundant vegetables, fruits, and leafy greens rich in antioxidants and phytonutrients that combat inflammation and support the immune system. Omega-3 fatty acids, sourced from wild-caught salmon, flaxseeds, chia seeds, and walnuts, have been game-changers for managing inflammation and promoting overall wellness. I've also limited processed sugars and refined carbohydrates, instead emphasizing whole grains like quinoa and brown rice to avoid blood sugar spikes. Incorporating spices like turmeric and ginger has proven beneficial due to their traditional use in reducing inflammation. Gut health is crucial for managing autoimmune conditions, so I include probiotic-rich foods like sauerkraut, kimchi, and yogurt to support a healthy gut microbiome, essential for proper immune function.Throughout my journey, I've learned the importance of personalization and mindful eating. Every person's experience with autoimmune disease is unique, so I listen to my body and adjust my diet accordingly. Embracing this anti-inflammatory diet has been transformative for my autoimmune disease journey. Wholesome, nourishing foods have given me better control over inflammation and improved my overall well-being. Remember, consult a healthcare professional or registered dietitian before making significant dietary changes, especially with an autoimmune condition. Together, let's nurture our bodies and take a step towards healing with the power of food.",
         image_url="https://pbs.twimg.com/media/C52v0vCXEAEqEle?format=jpg&name=4096x4096"
     )
 
-    post12=Post(
+    post13=Post(
         user_id=1,
-        post_content="A few months ago, a serious car accident left me physically and emotionally broken. Determined to reclaim my life, I began a challenging journey to recovery and rehabilitation. Supported by family, friends, and healthcare professionals, I pushed through surgeries, therapy, and setbacks. Embracing patience, gratitude, and self-compassion, I found the power to heal both physically and emotionally. Today, I stand stronger than ever, a testament to perseverance. To those on a similar path, know you're not alone. Seek support, be patient, and believe in your ability to overcome. There's a light at the end of the tunnel. Embrace every step and rise strong from the ashes. #RecoveryJourney #RiseStrong #NeverGiveUp #CarAccidentSurvivor",
-        image_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8wye1NtoE5Z3L0m_xLNwCZ6zxwgiKIj5sg&usqp=CAU"
+        post_content="How is everyone doing today?"
     )
+
+
 
 
 
@@ -139,6 +146,7 @@ def seed_posts():
     db.session.add(post10)
     db.session.add(post11)
     db.session.add(post12)
+    db.session.add(post13)
     db.session.commit()
 
 
