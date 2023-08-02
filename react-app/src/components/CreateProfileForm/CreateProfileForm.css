@@ -1,0 +1,107 @@
+.Profile-outer-Form-Container{
+width: 600px;
+border: 2px solid lightgrey;
+padding: 10px;
+background-color: white;
+}
+
+
+.Profile-inner-Form-Container{
+width: 600px;
+padding: 10px;
+background-color: white;
+}
+
+.create-profile-form{
+width: 600px;
+padding: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: black;
+}
+
+.profile-form-inputs {
+    margin: 15px 0px;
+}
+
+.create-profile-user-info-container{
+
+}
+
+
+.errors {
+color: red;
+font-weight: bold;
+
+}
+
+
+.create-profile-form-container{
+margin: 15px;
+/* border: 1px solid rgb(223, 218, 218); */
+padding: 40px;
+background-color: white;
+border-radius: 6px;
+}
+
+.profile-form-inputs{
+margin: 10px 0px;
+/* border: 1px solid grey; */
+border-radius: 6px;
+
+}
+
+.profile-content-input{
+
+}
+
+
+#gender{
+margin: 10px 20px;
+padding: 10px;
+font-weight: bold;
+font-size: 15px;
+border-radius: 7px;
+
+
+}
+
+#birthdate{
+    margin: 10px 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 6px;
+}
+.birthdate-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+}
+/* .button-container{
+
+} */
+
+.create-profile-button{
+padding: 14px 18px;
+margin: 10px;
+background-color: rgb(28, 121, 215);
+color: white;
+font-weight: bold;
+border-radius: 6px;
+border: none;
+font-size: 16px;
+}
+
+#profile-bio{
+    resize: none;
+    height: 400px;
+    width: 400px;
+    color: black;
+    padding: 20px;
+
+}

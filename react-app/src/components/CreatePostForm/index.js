@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { createNewPost, loadAllPosts } from "../../store/posts"
 import './CreatePostForm.css'
 import UploadPicture from "../Images/UploadImages";
+import axios from 'axios'
 
 const NewPostForm = () => {
   const dispatch = useDispatch()
@@ -11,8 +12,9 @@ const NewPostForm = () => {
 
   // states
   const [post_content, setPostContent] = useState('')
-  const [image_url, setImageUrl] = useState('')
+  const [selectedFile, setSelectedFile] = useState(null)
   const [validationErrors, setValidationErrors] = useState([])
+  const [imageLoading, setImageLoading] = useState(false);
 
   // useEffect to load all Posts and refresh state
   useEffect(() => {
@@ -22,19 +24,19 @@ const NewPostForm = () => {
   useEffect(() => {
     const errors = [];
 
-    const validUrls = ["img", "jpg", "jpeg", "png"]
-    let urlArray = image_url.split(".")
-    let urlExtension = urlArray[urlArray.length - 1]
+    // const validUrls = ["img", "jpg", "jpeg", "png"]
+    // let urlArray = image_url.split(".")
+    // let urlExtension = urlArray[urlArray.length - 1]
 
-    if (image_url && !validUrls.includes(urlExtension)) {
-      errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
-    }
-    if(post_content & post_content.length < 1) {errors.push("Cannot submit a blank field")}
+    // if (image_url && !validUrls.includes(urlExtension)) {
+    //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format")
+    // }
+    if (post_content & post_content.length < 1) { errors.push("Cannot submit a blank field") }
 
-    if (post_content.length > 2200){errors.push("You have reached your 2200 character limit")}
+    if (post_content.length > 2200) { errors.push("You have reached your 2200 character limit") }
 
     setValidationErrors(errors)
-  },[post_content, image_url])
+  }, [post_content, selectedFile])
 
   // select slice of state that we want
   const posts = useSelector(state => Object.values(state.posts))
@@ -55,14 +57,43 @@ const NewPostForm = () => {
 
     setValidationErrors(errors)
 
+    // const formData = FormData()
+    // formData.append("user_id", user.id)
+    // formData.append("url", image_url)
+
+
     if (!validationErrors.length) {
-      const newPostPayload = {
-        post_content,
-        image_url
+      // const newPostPayload = {
+      //   post_content,
+      //   image_url
+      // }
+
+      const formData = new FormData()
+      console.log("THIS IS FORM DATA", formData)
+
+      formData.append("user_id", user.id)
+      formData.append("image_url", selectedFile)
+      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"))
+      formData.append("post_content", post_content)
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+      setImageLoading(true);
+      //  axios
+      //   //  .post("image_url", formData)
+      //    .then((res) => {
+      //      alert("File Upload success");
+      //    })
+      //    .catch((err) => alert("File Upload Error"));
+      debugger
+
+      console.log("THIS IS FORM DATA AFTER APPENDING", formData)
+
+      for (let key in formData) {
+        console.log(key, formData[key]);
+        formData.append(key, formData[key]);
       }
 
-      const newPost = await dispatch(createNewPost(newPostPayload))
-      history.push(`/`)
+      const newPost = await dispatch(createNewPost(formData)).then(() => history.push(`/`))
     }
   }
 
@@ -70,7 +101,7 @@ const NewPostForm = () => {
   return (
     <div className="Outer-Form-Container">
       <div className="Inner-Form-Container">
-        <form className="create-post-form" onSubmit={submitHandler}>
+        <form className="create-post-form" onSubmit={submitHandler} encType="multipart/form-data">
 
 
           <div className="create-post-user-info-container">
@@ -89,10 +120,10 @@ const NewPostForm = () => {
               validationErrors.map((error) =>
                 <div key={error}>{error}</div>
               )}
-               {post_content ? (
-            <span className="charLeft">
-              {post_content.length}/2200
-            </span>
+            {post_content ? (
+              <span className="charLeft">
+                {post_content.length}/2200
+              </span>
             ) : null}
 
           </div>
@@ -111,7 +142,7 @@ const NewPostForm = () => {
 
 
 
-            <input
+            {/* <input
               type="url"
               className="form-inputs"
               name="url"
@@ -120,7 +151,32 @@ const NewPostForm = () => {
               pattern="https://.*" size="30"
               onChange={(e) => setImageUrl(e.target.value)}
               value={image_url}
+            /> */}
+            {/* <input
+              type="file"
+              className="form-inputs file-input"
+              name="url"
+              id="url"
+              title="Upload an image"
+              placeholder="upload an image"
+              capture="camera"
+              accept="image/jpeg, image/jpg, image/png, image/gif"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+            // value={selectedFile}
+            /> */}
+
+            <input
+              type="file"
+              className="form-inputs file-input"
+              name="url"
+              id="url"
+              title="Upload an image"
+              placeholder="upload an image"
+              capture="camera"
+              accept="image/*"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
             />
+
 
 
             {/* < UploadPicture /> */}
@@ -128,9 +184,10 @@ const NewPostForm = () => {
           </div>
           <div className="button-container">
             <button className="create-post-button"
-            disabled={!!validationErrors.length}
+              disabled={!!validationErrors.length}
               type="submit">Post</button>
           </div>
+          {(imageLoading)&& <p>Loading...</p>}
         </form>
       </div>
     </div>

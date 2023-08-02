@@ -9,9 +9,13 @@ import './UserProfilePage.css'
 import { Modal } from '../../context/Modal';
 import EditPostFormModal from '../EditPostForm/EditPostFormModal';
 import NewCommentForm from '../CreateComment';
+import NewProfileFormModal from "../CreateProfileForm/CreateProfileForm"
+
 import { createNewLike, loadPostLikes, loadAllLikes, removeLike } from '../../store/likes';
 import { loadAllUsers, loadOneUser } from '../../store/users';
 import { createNewFriendship, deleteFriendship, loadAllFriendships, updateFriendship } from '../../store/friendships';
+import {loadAllProfiles} from '../../store/profiles'
+import NewProfileForm from '../CreateProfileForm/CreateProfileForm';
 
 
 // *********************************************************************************************************************
@@ -55,17 +59,18 @@ const UserProfilePage = () => {
 
     // let allFriends = allFriendships.filter(friendship => ((friendship.to_uid === userId || friendship.from_uid === userId) && friendship.is_approved == 1))
     let allFriends = allFriendships.filter(friendship => friendship.to_uid === userId || friendship.from_uid === userId)
-    console.log("ALLFRIENDS", allFriends)
+    // console.log("ALLFRIENDS", allFriends)
 
     let currFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 1))
-    console.log("curr friendship is!!!!", currFriendship[0])
+    // console.log("curr friendship is!!!!", currFriendship[0])
     let pendingFriendship = allFriends.filter(friendship => ((friendship?.to_uid === sessionUser?.id || friendship?.from_uid === sessionUser?.id) && (friendship.from_uid === userId || friendship.to_uid === userId) && friendship.is_approved == 0))
-    console.log("pending friendship is!!!!", pendingFriendship[0])
+    // console.log("pending friendship is!!!!", pendingFriendship[0])
     // *********************************************************************************************************************
 
     const [visible, setVisible] = useState(false);
     const [disabled, setDisabled] = useState(false)
     const [open, setOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false)
 
     // toggles dropdown menu button
     const handleOpen = () => {
@@ -159,7 +164,7 @@ const UserProfilePage = () => {
 
     async function handleRemoveFriend() {
 
-        console.log("CURR FRIENDSHIP IS", currFriendship[0])
+        // console.log("CURR FRIENDSHIP IS", currFriendship[0])
         let friendshipPayload = {
             id: currFriendship[0].id,
             from_id: currFriendship[0].from_id,
@@ -173,7 +178,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
     async function handleCancelRequest() {
 
-        console.log("PENDING FRIENDSHIP IS", pendingFriendship[0])
+        // console.log("PENDING FRIENDSHIP IS", pendingFriendship[0])
         let friendshipPayload = {
             id: pendingFriendship[0].id,
             from_id: pendingFriendship[0].from_id,
@@ -190,7 +195,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleAcceptRequest(request) {
-        console.log(" pre accept FRIEND REQ", request)
+        // console.log(" pre accept FRIEND REQ", request)
         let acceptPayload = {
             id: request.id,
             from_uid: request.from_uid,
@@ -208,7 +213,7 @@ const UserProfilePage = () => {
     // *********************************************************************************************************************
 
     async function handleIgnoreRequest(request) {
-        console.log("ignore FRIEND REQ", request)
+        // console.log("ignore FRIEND REQ", request)
         let deletedFriendship = dispatch(deleteFriendship(request)).then(() => history.push(`/users/${sessionUser.id}/`))
 
     }
@@ -362,6 +367,7 @@ const UserProfilePage = () => {
                                                                         <div className='friend-first-name'>{users[friend?.from_uid]?.first_name}</div>
                                                                         <div className='friend-last-name'>{users[friend?.from_uid]?.last_name}</div>
                                                                     </div>
+
                                                                 </>
 
                                                             )
@@ -378,6 +384,10 @@ const UserProfilePage = () => {
 
 
                                     </>) : null}
+                                    <div className='profile-container'>
+                                        <NewProfileFormModal/>
+
+                                    </div>
                             </div>
                         </div>
 

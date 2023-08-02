@@ -11,6 +11,10 @@ import NewPostFormModal from "../CreatePostForm/CreatePostModal";
 import airbnb_homepage from "./airbnb_homepage.png"
 import codebunny from "./codebunny.png"
 import portfolio from "./portfolio.png"
+<<<<<<< HEAD
+=======
+
+>>>>>>> AWSNEW
 
 
 function HomePage() {
