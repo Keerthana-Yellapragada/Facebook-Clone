@@ -93,7 +93,7 @@ const NewPostForm = () => {
         formData.append(key, formData[key]);
       }
 
-      const newPost = await dispatch(createNewPost(formData)).then(() => history.push(`/`))
+      const newPost = await dispatch(createNewPost(formData)).then(() => history.push(`/homepage`))
     }
   }
 
