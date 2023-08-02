@@ -47,7 +47,7 @@ def get_post_details(post_id):
     return { "Error": "Post not found" }, 404
 
 
-# ************************************ CREATE NEW POST ***********************************************
+# ************************************ CREATE NEW POST with AWS ***********************************************
 
 # CREATE POST -- WORKS
 
@@ -55,34 +55,12 @@ def get_post_details(post_id):
 @login_required
 def create_post():
 
-    # post = CreatePostForm()
-    # if post.validate_on_submit():
-    #     data = post.data
-    #     image = data["image_url"]
-    #     image.filename = get_unique_filename(image.filename)
-    #     upload = upload_file_to_s3(image)
 
-    #     if "url" not in upload:
-    #         return {"errors": upload["errors"]}
-
-    #     new_post = Post(
-    #     post_content = data["post_content"],
-    #     user_id = data["user_id"],
-    #     image_url = data["url"]
-    #     )
-
-    #     db.session.add(new_post)
-    #     db.session.commit()
-    #     db.session.refresh(new_post)
-
-    #     return new_post.to_dict()
-
-
-    print("DID IT ENTER THE CREATE_POST FUCNTION")
+    # print("DID IT ENTER THE CREATE_POST FUCNTION")
 
     #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
-    print("REQUEST FORMDATA************************", request.form)
-    print("REQUEST FileDATA************************", request.files)
+    # print("REQUEST FORMDATA************************", request.form)
+    # print("REQUEST FileDATA************************", request.files)
 
     if "post_content" not in request.form:
         return {"errors": "Form data is required."}, 401
@@ -91,10 +69,10 @@ def create_post():
         return {"errors": "Image file is required."}, 401
 
 
-    print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
+    # print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
     image_url=request.files["image_url"]
 
-    print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
+    # print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
 
     #request.filename is the string of file name: 'xxx.mp4'
     if not allowed_file(image_url.filename):
@@ -104,14 +82,14 @@ def create_post():
 
     image_url.filename=get_unique_filename(image_url.filename)
 
-    print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
+    # print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
 
 
     #image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
 
     image_uploaded = upload_file_to_s3(image_url)
 
-    print("-----------THIS IS IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!------", image_uploaded)
+    # print("-----------THIS IS IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!------", image_uploaded)
 
     if "url" not in image_uploaded:
         # if the dictionary doesn't have a url key
@@ -130,7 +108,7 @@ def create_post():
     #while description and title are obtained from request.form
     #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
 
-    print("current_user", current_user)
+    # print("current_user", current_user)
 
 
     create_post_form = Post(
@@ -140,7 +118,7 @@ def create_post():
 
     )
 
-    print('uploaded_image!!!!!!!!!!!!!!!!!', image_url_main)
+    # print('uploaded_image!!!!!!!!!!!!!!!!!', image_url_main)
 
     db.session.add(create_post_form)
     db.session.commit()
@@ -154,7 +132,7 @@ def create_post():
 
     db.session.refresh(create_post_form)
 
-    print(create_post_form.to_dict())
+    # print(create_post_form.to_dict())
 
     return  create_post_form.to_dict()
 
@@ -169,20 +147,66 @@ def create_post():
 def edit_post(post_id):
     edit_post_form = CreatePostForm()
 
+    print("ENTERED EDIT POST BACKEND")
+
+
+
     edit_post_form['csrf_token'].data = request.cookies['csrf_token']
 
     if edit_post_form.validate_on_submit():
+
+        print("DATA WAS VALIDATED")
         data = edit_post_form.data
         post = Post.query.get(post_id)
 
-        post.post_content = data["post_content"]
-        post.image_url = data["image_url"]
+    if "post_content" not in request.form:
+        return {"errors": "Form data is required."}, 401
 
-        db.session.commit()
+    if "image_url" not in request.files:
+        return {"errors": "Image file is required."}, 401
 
-        new_post_obj = post.to_dict()
 
-        return new_post_obj, 201
+    # print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
+    image_url=request.files["image_url"]
+
+    if not allowed_file(image_url.filename):
+        return {"errors": "This file does not meet the format requirement."}, 402
+
+    image_url.filename=get_unique_filename(image_url.filename)
+    image_uploaded = upload_file_to_s3(image_url)
+    if "url" not in image_uploaded:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+
+        return image_uploaded, 403
+
+    #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
+
+    image_url_main=image_uploaded["url"]
+    print("IMAGE URL MAIN IN BACKEND", image_url_main)
+
+    # flask_login allows us to get the current user from the request
+
+    #here we will form a video and save it to the db according to the keys defined in the model
+    #while description and title are obtained from request.form
+    #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
+
+    # print("current_user", current_user)
+
+
+    print("THIS IS DATA POST_CONTENT!!!!!!!!!!!!-------------------", data["post_content"])
+
+    post.post_content = request.form.get("post_content")
+    post.image_url = image_url_main
+
+
+
+    db.session.commit()
+
+    new_post_obj = post.to_dict()
+    db.session.refresh(edit_post_form)
+    return new_post_obj.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
 

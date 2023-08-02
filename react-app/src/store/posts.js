@@ -123,23 +123,33 @@ debugger
 
 // -------------------------  EDIT A POST    ----------------------------------
 
-export const editPost = (editpostInfo) => async dispatch => {
+export const editPost = (formData, postId) => async dispatch => {
+    console.log("edit THUNK FORMDATA", formData.get("image_url"))
+    console.log("THIS IS FORMDATA IN edit POST THUNK", formData)
+    console.log("This is post id  in thunk", postId)
 
-    const response = await csrfFetch(`/api/posts/${editpostInfo.id}/`, {
+    debugger
+
+    const response = await csrfFetch(`/api/posts/${postId}/`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(editpostInfo)
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        body: formData
     })
 
 
-
+    debugger
     if (response.ok) {
+        console.log("IS RESPONSE OK IN edit POST THUNK")
 
-        const editedpost = await response.json();
-        dispatch(updatePost(editedpost))
-        return editedpost
+        const {editedPost} = await response.json();
+        await dispatch(updatePost(editedPost))
+        // return editedPost
+    } else {
+        console.log("There was an error editing your post")
+        debugger
+        console.log(response)
     }
 }
 
