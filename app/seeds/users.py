@@ -78,6 +78,10 @@ def seed_posts():
         post_content="Parenting: MS can be a challenge for everyone in the family, and it can make you worried about the kind of parent you can be.A key thing to remember is that a lot of people with MS and other debilitating diseases have raised healthy, happy, well-balanced children. Love and support can go a long way.Experts believe it's best to be open with your child from the start. Kids often know something is wrong even when they're not told, and that can cause them a lot of worry and stress. Research suggests that children who have an age-appropriate understanding of MS can deal with it better.Children can have different reactions to your illness, both at first and even years after your diagnosis. If they react with anger or frustration, remember that they're young and grappling with something difficult. Try not to take it personally, even if the way they express it feels personal.If your child is having a lot of trouble, you may want to look into counseling or family therapy. Talk to your pediatrician as well as your own healthcare team for guidance."
         )
 
+    post7=Post(
+        user_id=1,
+        post_content="Hey, Facebook fam! Just wanted to let you all know that I'm finally escaping the daily grind and heading off to paradise for some much-needed R&R! Can't wait to soak up the sun, dip my toes in the crystal-clear waters, and enjoy some delicious tropical treats! I'll be disconnecting from the virtual world for a little while to fully immerse myself in the beauty of nature and make unforgettable memories with my loved ones. But don't worry, I'll be back with a bunch of amazing photos and stories to share! If you need me urgently, feel free to drop me a message, and I'll get back to you once I'm back online. To all my wanderlust buddies out there, any recommendations or must-visit spots on this dreamy island? Share your favorite travel experiences with me! I can't wait to explore and make the most of this adventure. Take care, stay awesome, and see you all in a bit! #VacationMode #TimeToUnwind #TravelDiaries #ParadiseCalling"
+    )
 
     db.session.add(post1)
     db.session.add(post2)
@@ -85,6 +89,7 @@ def seed_posts():
     db.session.add(post4)
     db.session.add(post5)
     db.session.add(post6)
+    db.session.add(post7)
 
     db.session.commit()
 
