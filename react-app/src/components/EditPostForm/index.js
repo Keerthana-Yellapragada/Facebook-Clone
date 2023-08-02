@@ -16,7 +16,7 @@ const EditPostForm = ({ postId }) => {
   const [postContent, setPostContent] = useState(postInfo.post_content);
   // const [imageUrl, setImageUrl] = useState(postInfo.image_url);
   const [validationErrors, setValidationErrors] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(" ");
   const [imageLoading, setImageLoading] = useState(false);
 
   useEffect(() => {
@@ -75,12 +75,16 @@ const EditPostForm = ({ postId }) => {
       // };
 
       const formData = new FormData();
+
       console.log("THIS IS FORM DATA", formData);
 
       formData.append("user_id", user.id);
       formData.append("image_url", selectedFile);
-      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"));
       formData.append("post_content", postContent);
+
+
+      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"));
+
 
       setImageLoading(true);
 

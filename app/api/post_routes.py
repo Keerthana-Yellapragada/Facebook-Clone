@@ -55,6 +55,7 @@ def get_post_details(post_id):
 @login_required
 def create_post():
 
+    image_url_main=None
     # print("DID IT ENTER THE CREATE_POST FUCNTION")
 
     # request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
@@ -64,48 +65,49 @@ def create_post():
     if "post_content" not in request.form:
         return {"errors": "Form data is required."}, 401
 
-    if "image_url" not in request.files:
-        return {"errors": "Image file is required."}, 401
+    # if "image_url" not in request.files:
+    #     return {"errors": "Image file is required."}, 401
 
+    if "image_url" in request.files:
     # print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
-    image_url = request.files["image_url"]
+        image_url = request.files["image_url"]
 
-    # print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
+        # print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
 
-    # request.filename is the string of file name: 'xxx.mp4'
-    if not allowed_file(image_url.filename):
-        return {"errors": "This file does not meet the format requirement."}, 402
+        # request.filename is the string of file name: 'xxx.mp4'
+        if not allowed_file(image_url.filename):
+            return {"errors": "This file does not meet the format requirement."}, 402
 
-    # here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
+        # here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
 
-    image_url.filename = get_unique_filename(image_url.filename)
+        image_url.filename = get_unique_filename(image_url.filename)
 
-    # print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
+        # print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
 
-    # image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
+        # image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
 
-    image_uploaded = upload_file_to_s3(image_url)
+        image_uploaded = upload_file_to_s3(image_url)
 
-    # print("-----------THIS IS IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!------", image_uploaded)
+        # print("-----------THIS IS IMAGE_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!------", image_uploaded)
 
-    if "url" not in image_uploaded:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
+        if "url" not in image_uploaded:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
 
-        return image_uploaded, 403
+            return image_uploaded, 403
 
-    # this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
+        # this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
 
-    image_url_main = image_uploaded["url"]
+        image_url_main = image_uploaded["url"]
 
-    # flask_login allows us to get the current user from the request
+        # flask_login allows us to get the current user from the request
 
-    # here we will form a video and save it to the db according to the keys defined in the model
-    # while description and title are obtained from request.form
-    # request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
+        # here we will form a video and save it to the db according to the keys defined in the model
+        # while description and title are obtained from request.form
+        # request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
 
-    # print("current_user", current_user)
+        # print("current_user", current_user)
 
     create_post_form = Post(
         user_id=current_user.id,
@@ -114,20 +116,20 @@ def create_post():
 
     )
 
-    # print('uploaded_image!!!!!!!!!!!!!!!!!', image_url_main)
+        # print('uploaded_image!!!!!!!!!!!!!!!!!', image_url_main)
 
     db.session.add(create_post_form)
     db.session.commit()
 
-    # then add and commit to database, in this process the new video id and createdat, updated at will be generated
-    # db.session.add(create_post_form)
-    # db.session.commit()
-    # since the id, created at and updated at are new info, refresh() function is needed to send those info to the frontend
-    # so that it knows which page to turn to . and then to update the time accordingly
+        # then add and commit to database, in this process the new video id and createdat, updated at will be generated
+        # db.session.add(create_post_form)
+        # db.session.commit()
+        # since the id, created at and updated at are new info, refresh() function is needed to send those info to the frontend
+        # so that it knows which page to turn to . and then to update the time accordingly
 
     db.session.refresh(create_post_form)
 
-    # print(create_post_form.to_dict())
+        # print(create_post_form.to_dict())
 
     return create_post_form.to_dict()
 
@@ -150,41 +152,44 @@ def edit_post(post_id):
 
         # edit_post_form['csrf_token'].data = request.cookies['csrf_token']
 
-        if "post_content" not in request.form:
-            return {"errors": "Form data is required."}, 401
-
-        if "image_url" not in request.files:
-            return {"errors": "Image file is required."}, 401
-
-        # if edit_post_form.validate_on_submit():
-
-            # print("------------DATA WAS VALIDATED!!!!!!!!!!!!!!!--------------")
         data = edit_post_form.data
         post = Post.query.get(post_id)
 
 
+        if "post_content" not in request.form:
+            return {"errors": "Form data is required."}, 401
 
-        print("-----THIS IS imageurl backend in request.files---------!!!!!!!----------- ", request.files["image_url"])
-        image_url = request.files["image_url"]
+        # if "image_url" not in request.files:
+        #     return {"errors": "Image file is required."}, 401
 
-        if not allowed_file(image_url.filename):
-            return {"errors": "This file does not meet the format requirement."}, 402
+        # if edit_post_form.validate_on_submit():
+
+            # print("------------DATA WAS VALIDATED!!!!!!!!!!!!!!!--------------")
 
 
-        image_url.filename = get_unique_filename(image_url.filename)
-        image_uploaded = upload_file_to_s3(image_url)
+        if "image_url" in request.files:
 
-        if "url" not in image_uploaded:
+            print("-----THIS IS imageurl backend in request.files---------!!!!!!!----------- ", request.files["image_url"])
+            image_url = request.files["image_url"]
+
+            if not allowed_file(image_url.filename):
+                return {"errors": "This file does not meet the format requirement."}, 402
+
+
+            image_url.filename = get_unique_filename(image_url.filename)
+            image_uploaded = upload_file_to_s3(image_url)
+
+            if "url" not in image_uploaded:
             # if the dictionary doesn't have a url key
             # it means that there was an error when we tried to upload
             # so we send back that error message
 
-            return image_uploaded, 403
+                return image_uploaded, 403
 
         # this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
 
-        image_url_main = image_uploaded["url"]
-        print("-------!!!!!!!!!IMAGE URL MAIN IN BACKEND------!!!!!!!!!", image_url_main)
+            image_url_main = image_uploaded["url"]
+            print("-------!!!!!!!!!IMAGE URL MAIN IN BACKEND------!!!!!!!!!", image_url_main)
 
         # flask_login allows us to get the current user from the request
 
