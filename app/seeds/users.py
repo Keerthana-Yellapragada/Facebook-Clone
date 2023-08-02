@@ -111,7 +111,7 @@ def seed_posts():
     )
 
     post12=Post(
-        user_id=3,
+        user_id=1,
         post_content="A few months ago, a serious car accident left me physically and emotionally broken. Determined to reclaim my life, I began a challenging journey to recovery and rehabilitation. Supported by family, friends, and healthcare professionals, I pushed through surgeries, therapy, and setbacks. Embracing patience, gratitude, and self-compassion, I found the power to heal both physically and emotionally. Today, I stand stronger than ever, a testament to perseverance. To those on a similar path, know you're not alone. Seek support, be patient, and believe in your ability to overcome. There's a light at the end of the tunnel. Embrace every step and rise strong from the ashes. #RecoveryJourney #RiseStrong #NeverGiveUp #CarAccidentSurvivor",
         image_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8wye1NtoE5Z3L0m_xLNwCZ6zxwgiKIj5sg&usqp=CAU"
     )
