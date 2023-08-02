@@ -16,7 +16,7 @@ const EditPostForm = ({ postId }) => {
   const [postContent, setPostContent] = useState(postInfo.post_content);
   // const [imageUrl, setImageUrl] = useState(postInfo.image_url);
   const [validationErrors, setValidationErrors] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 
   useEffect(() => {
@@ -34,12 +34,12 @@ const EditPostForm = ({ postId }) => {
     //   errors.push("Please enter an image in .png, .jpg, .jpeg, or .img format");
     // }
 
-    if (postContent & postContent.length < 1) {
-      errors.push("Cannot submit a blank field")
+    if (postContent & (postContent.length < 1)) {
+      errors.push("Cannot submit a blank field");
     }
 
     if (postContent.length > 2200) {
-      errors.push("You have exceeded your 2000 character limit")
+      errors.push("You have exceeded your 2000 character limit");
     }
     setValidationErrors(errors);
   }, [postContent, selectedFile]);
@@ -74,26 +74,26 @@ const EditPostForm = ({ postId }) => {
       //   image_url: selectedFile,
       // };
 
-      const formData = new FormData()
-      console.log("THIS IS FORM DATA", formData)
+      const formData = new FormData();
+      console.log("THIS IS FORM DATA", formData);
 
-      formData.append("user_id", user.id)
-      formData.append("image_url", selectedFile)
-      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"))
-      formData.append("post_content", postContent)
+      formData.append("user_id", user.id);
+      formData.append("image_url", selectedFile);
+      console.log("SELECTED FILE IN FORMDATA!!!", formData.get("image_url"));
+      formData.append("post_content", postContent);
 
       setImageLoading(true);
 
-
-      console.log("THIS IS FORM DATA AFTER APPENDING", formData)
+      console.log("THIS IS FORM DATA AFTER APPENDING", formData);
 
       for (let key in formData) {
         console.log(key, formData[key]);
         formData.append(key, formData[key]);
       }
 
-
-      const editedPost = await dispatch(editPost(formData, postInfo.id)).then(()=>history.push(`/`))
+      const editedPost = await dispatch(editPost(formData, postInfo.id)).then(
+        () => history.push(`/`)
+      );
     }
   };
 
@@ -112,9 +112,7 @@ const EditPostForm = ({ postId }) => {
               {validationErrors.length > 0 &&
                 validationErrors.map((error) => <div key={error}>{error}</div>)}
               {postContent ? (
-                <span className="charLeft">
-                  {postContent.length}/2200
-                </span>
+                <span className="charLeft">{postContent.length}/2200</span>
               ) : null}
             </div>
             <div className="create-post-form-container">
@@ -130,8 +128,6 @@ const EditPostForm = ({ postId }) => {
                 placeholder="What's on your mind?"
               />
 
-
-
               <input
                 type="file"
                 className="form-inputs file-input"
@@ -141,11 +137,8 @@ const EditPostForm = ({ postId }) => {
                 placeholder="upload an image"
                 capture="camera"
                 accept="image/*"
-                onChange={
-                  (e) => setSelectedFile(e.target.files[0])
-                }
+                onChange={(e) => setSelectedFile(e.target.files[0])}
               />
-
             </div>
             <div className="button-container">
               <button
