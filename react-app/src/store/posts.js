@@ -122,7 +122,7 @@ export const editPost = (formData, postId) => async (dispatch) => {
 
   debugger;
 
-  const response = await csrfFetch(`/api/posts/${postId}/`, {
+  const response = await fetch(`/api/posts/${postId}/`, {
     method: "PUT",
     // headers: {
     //     'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ export const editPost = (formData, postId) => async (dispatch) => {
 
   debugger;
   if (response.ok) {
-    console.log("IS RESPONSE OK IN edit POST THUNK");
+    console.log("IS RESPONSE OK IN edit POST THUNK!!!!!!!!!!!!!!!!!!");
 
     const { editedPost } = await response.json();
     await dispatch(updatePost(editedPost));

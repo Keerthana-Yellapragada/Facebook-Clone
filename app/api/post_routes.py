@@ -8,7 +8,7 @@ from ..forms.create_comment_form import CreateCommentForm
 from ..forms.create_like_form import CreateLikeForm
 from .s3_helpers import *
 
-Base=declarative_base()
+Base = declarative_base()
 
 # ************************************ POSTS ROUTES ***********************************************
 # *************************************************************************************************
@@ -41,10 +41,10 @@ def get_post_details(post_id):
         post_obj = post.to_dict()
         # post_user_obj = post_user.to_dict()
         result = {**post.to_dict()}
-        response={**result}
+        response = {**result}
         return response
 
-    return { "Error": "Post not found" }, 404
+    return {"Error": "Post not found"}, 404
 
 
 # ************************************ CREATE NEW POST with AWS ***********************************************
@@ -55,10 +55,9 @@ def get_post_details(post_id):
 @login_required
 def create_post():
 
-
     # print("DID IT ENTER THE CREATE_POST FUCNTION")
 
-    #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
+    # request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
     # print("REQUEST FORMDATA************************", request.form)
     # print("REQUEST FileDATA************************", request.files)
 
@@ -68,24 +67,22 @@ def create_post():
     if "image_url" not in request.files:
         return {"errors": "Image file is required."}, 401
 
-
     # print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
-    image_url=request.files["image_url"]
+    image_url = request.files["image_url"]
 
     # print("THIS IS IMAGE URL FROM FRONTEND BEFORE AWS", image_url)
 
-    #request.filename is the string of file name: 'xxx.mp4'
+    # request.filename is the string of file name: 'xxx.mp4'
     if not allowed_file(image_url.filename):
         return {"errors": "This file does not meet the format requirement."}, 402
 
-    #here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
+    # here is to get the unique/hashed filename: the file name here are random letters and numbers, not the one you originally named in your local folder
 
-    image_url.filename=get_unique_filename(image_url.filename)
+    image_url.filename = get_unique_filename(image_url.filename)
 
     # print("------- this is IMAGEURL FILENAME!!!!!!!!!!!!!!!!-------", image_url.filename)
 
-
-    #image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
+    # image_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.jpg} xxx are the random letter and numbers filename
 
     image_uploaded = upload_file_to_s3(image_url)
 
@@ -98,23 +95,22 @@ def create_post():
 
         return image_uploaded, 403
 
-    #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
+    # this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
 
-    image_url_main=image_uploaded["url"]
+    image_url_main = image_uploaded["url"]
 
     # flask_login allows us to get the current user from the request
 
-    #here we will form a video and save it to the db according to the keys defined in the model
-    #while description and title are obtained from request.form
-    #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
+    # here we will form a video and save it to the db according to the keys defined in the model
+    # while description and title are obtained from request.form
+    # request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
 
     # print("current_user", current_user)
 
-
     create_post_form = Post(
         user_id=current_user.id,
-        post_content = request.form.get("post_content"),
-        image_url = image_url_main
+        post_content=request.form.get("post_content"),
+        image_url=image_url_main
 
     )
 
@@ -123,18 +119,17 @@ def create_post():
     db.session.add(create_post_form)
     db.session.commit()
 
-    #then add and commit to database, in this process the new video id and createdat, updated at will be generated
+    # then add and commit to database, in this process the new video id and createdat, updated at will be generated
     # db.session.add(create_post_form)
     # db.session.commit()
     # since the id, created at and updated at are new info, refresh() function is needed to send those info to the frontend
     # so that it knows which page to turn to . and then to update the time accordingly
 
-
     db.session.refresh(create_post_form)
 
     # print(create_post_form.to_dict())
 
-    return  create_post_form.to_dict()
+    return create_post_form.to_dict()
 
     return {"Error": "Validation Error"}, 401
 
@@ -142,74 +137,76 @@ def create_post():
 
 # edit post by post id -- WORKS
 
+
 @post_routes.route('/<int:post_id>/', methods=["PUT"])
 @login_required
 def edit_post(post_id):
-    edit_post_form = CreatePostForm()
+        edit_post_form = CreatePostForm()
 
-    print("ENTERED EDIT POST BACKEND")
+        print("-------------ENTERED EDIT POST BACKEND------------!!!!!!!!!!!!!!!!!!!!!!!!!!")
+         # request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
+        print("REQUEST FORMDATA************************", request.form)
+        print("REQUEST FileDATA************************", request.files)
 
+        # edit_post_form['csrf_token'].data = request.cookies['csrf_token']
 
+        if "post_content" not in request.form:
+            return {"errors": "Form data is required."}, 401
 
-    edit_post_form['csrf_token'].data = request.cookies['csrf_token']
+        if "image_url" not in request.files:
+            return {"errors": "Image file is required."}, 401
 
-    if edit_post_form.validate_on_submit():
+        # if edit_post_form.validate_on_submit():
 
-        print("DATA WAS VALIDATED")
+            # print("------------DATA WAS VALIDATED!!!!!!!!!!!!!!!--------------")
         data = edit_post_form.data
         post = Post.query.get(post_id)
 
-    if "post_content" not in request.form:
-        return {"errors": "Form data is required."}, 401
-
-    if "image_url" not in request.files:
-        return {"errors": "Image file is required."}, 401
 
 
-    # print("THIS IS imageurl in request.files---------!!!!!!!----------- ", request.files["image_url"])
-    image_url=request.files["image_url"]
+        print("-----THIS IS imageurl backend in request.files---------!!!!!!!----------- ", request.files["image_url"])
+        image_url = request.files["image_url"]
 
-    if not allowed_file(image_url.filename):
-        return {"errors": "This file does not meet the format requirement."}, 402
-
-    image_url.filename=get_unique_filename(image_url.filename)
-    image_uploaded = upload_file_to_s3(image_url)
-    if "url" not in image_uploaded:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-
-        return image_uploaded, 403
-
-    #this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
-
-    image_url_main=image_uploaded["url"]
-    print("IMAGE URL MAIN IN BACKEND", image_url_main)
-
-    # flask_login allows us to get the current user from the request
-
-    #here we will form a video and save it to the db according to the keys defined in the model
-    #while description and title are obtained from request.form
-    #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
-
-    # print("current_user", current_user)
+        if not allowed_file(image_url.filename):
+            return {"errors": "This file does not meet the format requirement."}, 402
 
 
-    print("THIS IS DATA POST_CONTENT!!!!!!!!!!!!-------------------", data["post_content"])
+        image_url.filename = get_unique_filename(image_url.filename)
+        image_uploaded = upload_file_to_s3(image_url)
 
-    post.post_content = request.form.get("post_content")
-    post.image_url = image_url_main
+        if "url" not in image_uploaded:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
 
+            return image_uploaded, 403
 
+        # this url will be store in the database. The database will only have this url, not the actual photo or video which are stored in aws.
 
-    db.session.commit()
+        image_url_main = image_uploaded["url"]
+        print("-------!!!!!!!!!IMAGE URL MAIN IN BACKEND------!!!!!!!!!", image_url_main)
 
-    new_post_obj = post.to_dict()
-    db.session.refresh(edit_post_form)
-    return new_post_obj.to_dict(), 201
+        # flask_login allows us to get the current user from the request
 
-    return {"Error": "Validation Error"}, 401
+        # here we will form a video and save it to the db according to the keys defined in the model
+        # while description and title are obtained from request.form
+        # request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
 
+        # print("current_user", current_user)
+
+        print("THIS IS DATA POST_CONTENT!!!!!!!!!!!!-------------------",
+        data["post_content"])
+
+        post.post_content = request.form.get("post_content")
+        post.image_url = image_url_main
+
+        db.session.commit()
+
+        new_post_obj = post.to_dict()
+        db.session.refresh(edit_post_form)
+        return new_post_obj.to_dict(), 201
+
+        return {"Error": "Validation Error"}, 401
 
 
 # ************************************ DELETE POST BY POST ID***********************************************
@@ -226,11 +223,9 @@ def delete_post(post_id):
         db.session.delete(post)
         db.session.commit()
 
-        return {"message" : "Post succesfully deleted"}, 200
+        return {"message": "Post succesfully deleted"}, 200
 
     return {"Error": "404 Post Not Found"}, 404
-
-
 
 
 # ************************************ CREATE NEW comment by Post Id ***********************************************
@@ -243,18 +238,16 @@ def create_comment(post_id):
     create_comment_form = CreateCommentForm()
     create_comment_form['csrf_token'].data = request.cookies['csrf_token']
 
-
     if create_comment_form.validate_on_submit():
         # comment = Comment()
         data = create_comment_form.data
-        current_post_id=post_id
+        current_post_id = post_id
         comment = Comment(
-                        user_id=current_user.id,
-                        post_id=current_post_id,
-                        comment_content = data["comment_content"]
-                        # ,image_url = data["image_url"],
-                        )
-
+            user_id=current_user.id,
+            post_id=current_post_id,
+            comment_content=data["comment_content"]
+            # ,image_url = data["image_url"],
+        )
 
         db.session.add(comment)
         db.session.commit()
@@ -262,7 +255,6 @@ def create_comment(post_id):
         return comment.to_dict(), 201
 
     return {"Error": "Validation Error"}, 401
-
 
 
 # ************************************ ADD LIKE BY POST ID ***********************************************
@@ -276,19 +268,17 @@ def create_like(post_id):
     create_like_form = CreateLikeForm()
     create_like_form['csrf_token'].data = request.cookies['csrf_token']
 
-
     if create_like_form.validate_on_submit():
         # like = Like()
         data = create_like_form.data
-        current_post_id=post_id
+        current_post_id = post_id
 
         like = Like(
-                        user_id=current_user.id,
-                        post_id=current_post_id,
-                        post_like=data["post_like"],
-                        post_love=data["post_love"]
+            user_id=current_user.id,
+            post_id=current_post_id,
+            post_like=data["post_like"],
+            post_love=data["post_love"]
         )
-
 
         db.session.add(like)
         db.session.commit()
@@ -297,6 +287,7 @@ def create_like(post_id):
 
     return {"Error": "Validation Error"}, 401
 # # ************************************ GET ALL LIKES OF A POST BY POST ID ***********************************************
+
 
 @post_routes.route('/<int:post_id>/likes/', methods=["GET"])
 # @login_required
