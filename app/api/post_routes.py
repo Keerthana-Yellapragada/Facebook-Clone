@@ -156,6 +156,8 @@ def edit_post(post_id):
         post = Post.query.get(post_id)
 
 
+        image_url_main = data["image_url"]
+
         if "post_content" not in request.form:
             return {"errors": "Form data is required."}, 401
 
@@ -200,6 +202,7 @@ def edit_post(post_id):
         # print("current_user", current_user)
 
         print("THIS IS DATA POST_CONTENT!!!!!!!!!!!!-------------------",
+
         data["post_content"])
 
         post.post_content = request.form.get("post_content")
