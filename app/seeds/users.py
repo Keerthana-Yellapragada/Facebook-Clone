@@ -226,7 +226,7 @@ def seed_comments():
         comment_content="Have a wonderful vacation and don't forget to take plenty of pictures! Remember to take care of yourself. #SelfCare"
     )
     comment12 = Comment(
-        user_id=6,
+        user_id=5,
         post_id=8,
         comment_content="You are doing a great job! Your child is lucky to have a supportive and knowledgeable parent like you! Thanks for spreading awareness on MS"
     )
@@ -238,7 +238,7 @@ def seed_comments():
     comment14 = Comment(
         user_id=1,
         post_id=10,
-        comment_content="Thanks for sharing this with us all!!!"
+        comment_content="Thanks for sharing this with us. You are stronger than you imagine and a true warrior. It takes lots of resilience to keep fighting and you are absolutely right. Having a doctor that doesn't gaslight you and believes you is literally a matter of life and death. Have lost too many loved ones to medical negligence. Prayers for your"
     )
     comment15 = Comment(
         user_id=3,
