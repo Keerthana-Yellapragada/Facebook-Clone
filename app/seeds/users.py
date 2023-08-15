@@ -4,22 +4,22 @@ from app.models import User, Post, Comment, Like, db, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-       first_name='Demo', last_name='User', email='demo@aa.io', password='password')
+       first_name='Demo', last_name='User', email='demo@aa.io', password='password', profile_image='./1000_F_223224945_It1F8KPqNKubBWCOEYQXuYYdmSDIRkwZ.jpg')
 
     akira = User(
-        first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password')
+        first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password', profile_image='./__pycache__/')
 
     rohan = User(
-        first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password')
+        first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password', profile_image="./photo-1607346256330-dee7af15f7c5.jpeg")
 
     isabella = User(first_name='Isabella',
-                    last_name='Costa', email='isabella@aa.io', password='password')
+                    last_name='Costa', email='isabella@aa.io', password='password', profile_image="./download (25).jpeg")
 
     natasha = User(first_name="Natasha",
-                   last_name="Ivanova", email="natash@gmail.com", password="password")
+                   last_name="Ivanova", email="natash@gmail.com", password="password", profile_image="./1000_F_127024331_wQdRs1ZwTl2hJaJ0OGCnRBXcw4JcW2oJ.jpg")
 
     ethan = User(first_name="Ethan", last_name="Smith",
-                 email="esmith@gmail.com", password="password")
+                 email="esmith@gmail.com", password="password", profile_image="./portrait-african-american-man_23-2149072178.avif")
 
     db.session.add(demo)
     db.session.add(akira)
