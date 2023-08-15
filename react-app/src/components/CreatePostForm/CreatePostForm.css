@@ -119,7 +119,9 @@ textarea:focus{
 
 .create-post-user-profile-pic-container img{
     border-radius: 50%;
-    width: 35px;
+    width: 45px;
+    height: 45px;
+    object-fit: fill;
     margin: 10px;
     align-self: center;
     align-content: center;

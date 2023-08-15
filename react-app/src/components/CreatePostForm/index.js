@@ -106,7 +106,7 @@ const NewPostForm = () => {
 
           <div className="create-post-user-info-container">
             <div className='create-post-user-profile-pic-container user-profile-pic'>
-              <img
+              <img className="user-profile-pics-create-post-form"
                 src={user.profile_image} alt="user-profile-pics"
               />
             </div>
