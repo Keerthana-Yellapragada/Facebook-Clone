@@ -44,7 +44,8 @@ class User(db.Model, UserMixin):
             'first_name':self.first_name,
             'last_name': self.last_name,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'profile_image':self.profile_image
             # 'friendships':[friendship.to_dict() for friendship in self.friendships] if self.friendships else None,
             # 'friends':[friend.to_dict() for friend in self.friends] if self.friends else None,
             # ,'posts': self.posts.to_dict() if self.posts else None,

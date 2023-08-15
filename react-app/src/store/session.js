@@ -81,7 +81,7 @@ export const signUp = (formData) => async (dispatch) => {
 
 debugger
 
-  const response = await csrfFetch("/api/auth/signup", {
+  const response = await fetch("/api/auth/signup", {
     method: "POST",
     // body: JSON.stringify({
     //   username,
@@ -97,7 +97,8 @@ debugger
   debugger
 
   if (response.ok) {
-    const data = await response.json();
+    console.log("RESPONSE IN USERTHUNK IS OK!!!!!!!!!!!!!!!")
+    const {data }= await response.json();
     dispatch(setUser(data))
     return null;
   } else if (response.status < 500) {
