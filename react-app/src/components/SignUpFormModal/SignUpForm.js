@@ -111,7 +111,7 @@ function SignUpForm() {
 
       setImageLoading(true);
 
-      debugger;
+      // debugger;
 
       console.log("THIS IS FORM DATA AFTER APPENDING", formData);
 

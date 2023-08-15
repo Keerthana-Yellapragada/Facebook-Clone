@@ -79,7 +79,7 @@ export const signUp = (formData) => async (dispatch) => {
   console.log("ENTERED CREATE USER THUNK")
   console.log("PROFILE IMAGE IN CREATE USER THHUNK", formData.get("profile_image"))
 
-debugger
+// debugger
 
   const response = await fetch("/api/auth/signup", {
     method: "POST",
@@ -94,7 +94,7 @@ debugger
     body:formData
   });
 
-  debugger
+  // debugger
 
   if (response.ok) {
     console.log("RESPONSE IN USERTHUNK IS OK!!!!!!!!!!!!!!!")
