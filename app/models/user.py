@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    # username = db.Column(db.String(40), nullable=False, unique=True)
     first_name = db.Column(db.String(40), nullable=False)
     last_name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
@@ -43,7 +43,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'first_name':self.first_name,
             'last_name': self.last_name,
-            'username': self.username,
+            # 'username': self.username,
             'email': self.email,
             'profile_image':self.profile_image
             # 'friendships':[friendship.to_dict() for friendship in self.friendships] if self.friendships else None,

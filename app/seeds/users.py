@@ -4,21 +4,21 @@ from app.models import User, Post, Comment, Like, db, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', first_name='Demo', last_name='User', email='demo@aa.io', password='password')
+       first_name='Demo', last_name='User', email='demo@aa.io', password='password')
 
     akira = User(
-        username='Akira', first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password')
+        first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password')
 
     rohan = User(
-        username='Rohan', first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password')
+        first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password')
 
-    isabella = User(username='isabella', first_name='Isabella',
+    isabella = User(first_name='Isabella',
                     last_name='Costa', email='isabella@aa.io', password='password')
 
-    natasha = User(username="Natasha", first_name="Natasha",
+    natasha = User(first_name="Natasha",
                    last_name="Ivanova", email="natash@gmail.com", password="password")
 
-    ethan = User(username="Ethan", first_name="Ethan", last_name="Smith",
+    ethan = User(first_name="Ethan", last_name="Smith",
                  email="esmith@gmail.com", password="password")
 
     db.session.add(demo)
