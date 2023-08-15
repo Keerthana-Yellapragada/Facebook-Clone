@@ -97,7 +97,7 @@ def sign_up():
 
 
             user = User(
-                    username=request.form.get('username'),
+                    # username=request.form.get('username'),
                     email=request.form.get('email'),
                     password=request.form.get('password'),
                     first_name=request.form.get('first_name'),
