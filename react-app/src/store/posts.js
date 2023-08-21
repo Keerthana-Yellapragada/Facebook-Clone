@@ -84,7 +84,7 @@ export const loadOnePost = (postId) => async (dispatch) => {
 export const createNewPost = (formData) => async (dispatch) => {
   console.log("THUNK FORMDATA", formData.get("image_url"));
   console.log("THIS IS FORMDATA IN CREATE POST THUNK", formData);
-  debugger;
+  // debugger;
 
   const response = await fetch("/api/posts/new/", {
     method: "POST",
@@ -95,7 +95,7 @@ export const createNewPost = (formData) => async (dispatch) => {
     body: formData,
   });
 
-  debugger;
+  // debugger;
   if (response.ok) {
     console.log("IS RESPONSE OK IN CREATEPOST THUNK");
     // let post = await response.json()
@@ -106,7 +106,7 @@ export const createNewPost = (formData) => async (dispatch) => {
   } else {
     console.log("There was an error making your post!");
     // const res = await response.json()
-    debugger;
+    // debugger;
     console.log(response);
   }
 };
@@ -120,7 +120,7 @@ export const editPost = (formData, postId) => async (dispatch) => {
   console.log("THIS IS FORMDATA IN edit POST THUNK", formData);
   console.log("This is post id  in thunk", postId);
 
-  debugger;
+  // debugger;
 
   const response = await fetch(`/api/posts/${postId}/`, {
     method: "PUT",
@@ -130,7 +130,7 @@ export const editPost = (formData, postId) => async (dispatch) => {
     body: formData,
   });
 
-  debugger;
+  // debugger;
   if (response.ok) {
     console.log("IS RESPONSE OK IN edit POST THUNK!!!!!!!!!!!!!!!!!!");
 
@@ -139,7 +139,7 @@ export const editPost = (formData, postId) => async (dispatch) => {
     // return editedPost
   } else {
     console.log("There was an error editing your post");
-    debugger;
+    // debugger;
     console.log(response);
   }
 };
