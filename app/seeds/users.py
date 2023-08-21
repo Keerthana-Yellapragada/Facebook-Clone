@@ -1,25 +1,24 @@
 from app.models import User, Post, Comment, Like, db, environment, SCHEMA
 
-
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-       first_name='Demo', last_name='User', email='demo@aa.io', password='password', profile_image='./1000_F_223224945_It1F8KPqNKubBWCOEYQXuYYdmSDIRkwZ.jpg')
+       first_name='Demo', last_name='User', email='demo@aa.io', password='password', profile_image='https://www.kindpng.com/picc/m/235-2350682_new-svg-image-small-user-login-icon-hd.png')
 
     akira = User(
-        first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password', profile_image='./__pycache__/')
+        first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password', profile_image='https://media.istockphoto.com/id/1350690621/photo/portrait-of-an-asian-man.jpg?s=612x612&w=0&k=20&c=8ykaBpOfTsYMGoXXxWOFEAan3vx3sAbbBRm1DGuI6WM=')
 
     rohan = User(
-        first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password', profile_image="./photo-1607346256330-dee7af15f7c5.jpeg")
+        first_name='Rohan', last_name='Patel', email='rohan@aa.io', password='password', profile_image="https://english.cdn.zeenews.com/sites/default/files/2017/11/17/639329-indian-men.jpg")
 
     isabella = User(first_name='Isabella',
-                    last_name='Costa', email='isabella@aa.io', password='password', profile_image="./download (25).jpeg")
+                    last_name='Costa', email='isabella@aa.io', password='password', profile_image="https://blog.wella.com/sites/default/files/big-image/wellaproblogstoneblondehairimage7.jpg")
 
     natasha = User(first_name="Natasha",
-                   last_name="Ivanova", email="natash@gmail.com", password="password", profile_image="./1000_F_127024331_wQdRs1ZwTl2hJaJ0OGCnRBXcw4JcW2oJ.jpg")
+                   last_name="Ivanova", email="natash@gmail.com", password="password", profile_image="https://media.licdn.com/dms/image/C4D12AQF0nGTWx9o_3Q/article-cover_image-shrink_720_1280/0/1567548798604?e=2147483647&v=beta&t=1ghxUJ4BN4kKlOkD_l6gmPIv5u7niITEkWluqf10QTg")
 
     ethan = User(first_name="Ethan", last_name="Smith",
-                 email="esmith@gmail.com", password="password", profile_image="./portrait-african-american-man_23-2149072178.avif")
+                 email="esmith@gmail.com", password="password", profile_image="https://img.freepik.com/free-photo/portrait-african-american-man_23-2149072214.jpg")
 
     db.session.add(demo)
     db.session.add(akira)

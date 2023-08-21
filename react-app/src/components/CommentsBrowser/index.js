@@ -83,7 +83,7 @@ const CommentsBrowser = ({ postId }) => {
                     <NavLink className="comment-card-user-pic-name" to={`/users/${comment.user.id}`}>
                     < img
                       className='comment-card-user-pic'
-                      src={user.profile_image}
+                      src={comment.user.profile_image}
                       alt="user-profile-pics" /
                     >
                     {/* <div className="comment-title">{`${comment.user.first_name} ${comment.user.last_name}`}</div> */}
