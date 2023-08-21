@@ -3,7 +3,7 @@ from app.models import User, Post, Comment, Like, db, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-       first_name='Demo', last_name='User', email='demo@aa.io', password='password', profile_image='https://www.kindpng.com/picc/m/235-2350682_new-svg-image-small-user-login-icon-hd.png')
+       first_name='Demo', last_name='User', email='demo@aa.io', password='password', profile_image='https://static.vecteezy.com/system/resources/previews/006/936/460/original/cute-bear-with-coffee-cup-cartoon-illustration-vector.jpg')
 
     akira = User(
         first_name='Akira', last_name='Tanaka', email='akira@aa.io', password='password', profile_image='https://media.istockphoto.com/id/1350690621/photo/portrait-of-an-asian-man.jpg?s=612x612&w=0&k=20&c=8ykaBpOfTsYMGoXXxWOFEAan3vx3sAbbBRm1DGuI6WM=')
