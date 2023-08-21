@@ -12,11 +12,12 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    # username = db.Column(db.String(40), nullable=False, unique=True)
     first_name = db.Column(db.String(40), nullable=False)
     last_name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    profile_image = db.Column(db.TEXT, nullable=True)
 
     posts = db.relationship("Post", back_populates="user", cascade="all, delete-orphan")
     comments= db.relationship("Comment", back_populates="user", cascade="all, delete-orphan")
@@ -42,8 +43,9 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'first_name':self.first_name,
             'last_name': self.last_name,
-            'username': self.username,
-            'email': self.email
+            # 'username': self.username,
+            'email': self.email,
+            'profile_image':self.profile_image
             # 'friendships':[friendship.to_dict() for friendship in self.friendships] if self.friendships else None,
             # 'friends':[friend.to_dict() for friend in self.friends] if self.friends else None,
             # ,'posts': self.posts.to_dict() if self.posts else None,

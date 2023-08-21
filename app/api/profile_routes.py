@@ -3,7 +3,7 @@ from flask_login import login_required
 from app.models import db, User, UserProfile
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy.ext.declarative import declarative_base
-from ..forms.create_profile import CreateProfileForm
+from ..forms.create_profile_form import CreateProfileForm
 
 
 Base=declarative_base()
@@ -12,6 +12,13 @@ Base=declarative_base()
 # *************************************************************************************************
 
 profile_routes = Blueprint("profile_routes", __name__, url_prefix="/api/profiles")
+
+
+# ************************************ CREATE A PROFILE ***********************************************
+
+
+
+
 
 
 # ************************************ GET ALL profileS ***********************************************

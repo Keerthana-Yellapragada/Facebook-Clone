@@ -9,10 +9,7 @@
     text-align: center;
     justify-content: center;
 
-    /* padding: 30px; */
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 10px;
+    padding: 15px 30px;
     border-width: thin;
     border-style: solid;
     border-radius: 0px;
@@ -109,4 +106,28 @@ h2{
 .Sign-Up-button.disabled {
     cursor: not-allowed;
     /* pointer-events: all !important; */
+}
+
+
+.profile-pic-upload-container{
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 30px 20px;
+    border:  1px solid rgb(164, 162, 162);
+}
+
+
+#user-profile-upload-url{
+    /* margin: 10px 0px 3px 0px; */
+    font-size: 13px;
+
+}
+
+#profile-image-upload-label{
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px;
 }
