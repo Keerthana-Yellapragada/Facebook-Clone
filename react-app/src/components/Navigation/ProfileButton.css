@@ -164,16 +164,16 @@
 }
 
 #nav-section-profile-pic {
-    width: 45px;
-    height: 45px;
+    width: 33px;
+    height: 33px;
     border-radius: 50%;
     object-fit: fill;
     margin: 10px;
 
 }
 #nav-profile-pic{
-      width: 45px;
-      height: 45px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       object-fit: fill;
       margin: 10px;
