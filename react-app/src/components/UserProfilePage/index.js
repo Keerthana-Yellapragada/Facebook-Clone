@@ -226,10 +226,13 @@ const UserProfilePage = () => {
     return (
         <>
             <div className='user-profile-page-main-container'>
-                {<div className='profile-page-cover-photo-container'>
-                    {/* <img className = "profile-page-cover-photo" src = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/181875375_10159297272459182_3625930985193864242_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=kg6Af9LRHDMAX_3VopU&tn=WDhmvm_IPZtUReKg&_nc_ht=scontent-sjc3-1.xx&oh=00_AfCZwmhSWKd3NfGNHvYnXJojAabqk4P_Hd4sk-40k3tFdw&oe=63B5AA2A'
-        alt = 'cover-photo' /> */}
-                </div>}
+
+                <div className="user-top-page">
+                    <div className='profile-page-cover-photo-container'>
+                    < img className = "profile-page-cover-photo"
+                    src = "https://previews.123rf.com/images/reamolko/reamolko1808/reamolko180800104/107103563-awareness-ribbons-chart-color-meanings-cancer-types.jpg"
+                    alt = 'cover-photo' / >
+                </div>
                 <div className='user-profile-header-container'>
                     <img
                         className='profile-user-profile-pic'
@@ -273,6 +276,7 @@ const UserProfilePage = () => {
                     }
 
 
+                </div>
                 </div>
 
 
